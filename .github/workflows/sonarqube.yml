@@ -61,6 +61,6 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"Luxoft_BSSFramework" /o:"luxoft" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-         dotnet build src/IAD.Framework.sln --no-restore
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"Luxoft_BSSWorkflowFramework" /o:"luxoft" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+         dotnet build src/IAD.Framework.WF.sln --no-restore
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

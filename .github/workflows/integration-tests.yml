@@ -38,8 +38,8 @@ jobs:
     - name: Build
       working-directory: ./src
       run: |
-        dotnet build ./IAD.Framework.sln --no-restore
+        dotnet build ./IAD.Framework.WF.sln --no-restore
 
     - name: Integration Tests
       run: |           
-        dotnet test --blame src/_SampleSystem/_Tests/SampleSystem.IntegrationTests --no-build --verbosity normal;
+        dotnet test --blame src/_WorkflowSampleSystem/_Tests/WorkflowSampleSystem.IntegrationTests --no-build --verbosity normal;
