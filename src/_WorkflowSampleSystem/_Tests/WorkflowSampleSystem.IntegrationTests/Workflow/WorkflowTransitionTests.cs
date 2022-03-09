@@ -14,6 +14,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Domain;
 using WorkflowSampleSystem.IntegrationTests.__Support.TestData;
+using WorkflowSampleSystem.IntegrationTests.__Support.Utils;
 
 namespace WorkflowSampleSystem.IntegrationTests.Workflow
 {
@@ -24,6 +25,8 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
         public void PerformTransition_TransitionVersionShouldNotBeChanged()
         {
             // Arrange
+            this.AuthHelper.AddUserRole(null, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
+
             var transitionVersionBefore = this.Environment.GetContextEvaluator().Evaluate(
                 DBSessionMode.Read,
                 context => context.Workflow.Logics.Transition.GetById(Guid.Parse("CACA9DB4-9DA6-48AA-9FD3-A311016CB715"), true).Version);
@@ -60,6 +63,8 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
         public void RunWorkflowInstancesSimultaneously_ShouldNotFail()
         {
             // Arrange
+            this.AuthHelper.AddUserRole(null, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
+
             var locationIds = new List<Guid>();
 
             for (var i = 1; i <= 5; i++)
@@ -100,15 +105,16 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             action.Should().NotThrow();
         }
 
-        private ExecuteCommandRequest GetCommand<TDomain>(IWorkflowSampleSystemBLLContext context, TDomain workflowParameter, string commandName)
+        private ExecuteCommandRequest GetCommand<TDomain>(IWorkflowSampleSystemBLLContext context, TDomain domainObject, string commandName)
             where TDomain : Domain.PersistentDomainObjectBase
         {
             var domainType = context.Workflow.Logics.DomainType.GetByType(typeof(TDomain));
 
-            var filterModel = new AvailableTaskInstanceMainFilterModel { DomainObjectId = workflowParameter.Id, SourceType = domainType };
+            var filterModel = new AvailableTaskInstanceMainFilterModel { DomainObjectId = domainObject.Id, SourceType = domainType };
 
             var requestItems = context.Workflow.Logics.TaskInstance.GetAvailableGroups(filterModel)
-                .SelectMany(x => x.Items);
+                .SelectMany(x => x.Items)
+                .ToList();
 
             return this.ToGroupExecuteCommandRequests(requestItems)
                 .SelectMany(x => x.Split())

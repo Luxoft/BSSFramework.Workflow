@@ -1,14 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils;
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Automation;
 using Automation.Utils;
-
-using Microsoft.Extensions.Configuration;
 
 using WorkflowSampleSystem.IntegrationTests.Support.Utils;
 
