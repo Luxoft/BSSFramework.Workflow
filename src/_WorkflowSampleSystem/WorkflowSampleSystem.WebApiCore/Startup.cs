@@ -72,7 +72,6 @@ namespace WorkflowSampleSystem.WebApiCore
             if (this.HostingEnvironment.IsProduction())
             {
                 services.AddMetrics();
-                services.AddHangfireBss(this.Configuration);
 
             }
 

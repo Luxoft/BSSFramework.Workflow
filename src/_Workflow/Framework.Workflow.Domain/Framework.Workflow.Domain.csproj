@@ -23,9 +23,14 @@
       <DependentUpon>TaskInstance.cs</DependentUpon>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\_DomainDriven\Framework.DomainDriven.BLL.Security\Framework.DomainDriven.BLL.Security.csproj" />
-    <ProjectReference Include="..\..\_DomainDriven\Framework.DomainDriven.BLL\Framework.DomainDriven.BLL.csproj" />
     <ProjectReference Include="..\Framework.Workflow.Core\Framework.Workflow.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Luxoft.Framework.DomainDriven.BLL.Security" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.BLL" Version="16.0.0" />
+  </ItemGroup>
+
 </Project>

@@ -13,10 +13,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+
+    <PackageReference Include="Luxoft.Framework.DomainDriven.FacadeServiceProxyGenerator" Version="16.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\_DomainDriven\Framework.DomainDriven.FacadeServiceProxyGenerator\Framework.DomainDriven.FacadeServiceProxyGenerator.csproj" />
     <ProjectReference Include="..\Framework.Workflow.TestGenerate\Framework.Workflow.TestGenerate.csproj" />
     <ProjectReference Include="..\Framework.Workflow.WebApi\Framework.Workflow.WebApi.csproj" />
   </ItemGroup>

@@ -8,16 +8,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework.DomainDriven.WebApiNetCore\Framework.DomainDriven.WebApiNetCore.csproj" />
-    <ProjectReference Include="..\..\Framework.WebApi.Utils\Framework.WebApi.Utils.csproj" />
-
-    <ProjectReference Include="..\..\_DomainDriven\Framework.DomainDriven.ServiceModel.IAD\Framework.DomainDriven.ServiceModel.IAD.csproj" />
-
     <ProjectReference Include="..\Framework.Workflow.Environment\Framework.Workflow.Environment.csproj" />
-
     <ProjectReference Include="..\Framework.Workflow.Generated.DTO\Framework.Workflow.Generated.DTO.csproj" />
-
     <ProjectReference Include="..\Framework.Workflow.Graphviz\Framework.Workflow.Graphviz.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.WebApi.Utils" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.WebApiNetCore" Version="16.0.0" />
+  </ItemGroup>
 </Project>

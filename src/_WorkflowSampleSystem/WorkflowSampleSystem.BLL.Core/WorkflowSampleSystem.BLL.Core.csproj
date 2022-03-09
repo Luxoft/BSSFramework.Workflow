@@ -1,25 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-  <IsPackable>false</IsPackable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\..\__SolutionItems\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework.App.BLLCore\Framework.App.BLLCore.csproj" />
-
-    <ProjectReference Include="..\..\Framework.Cap\Framework.Cap.csproj" />
-
     <ProjectReference Include="..\..\_Workflow\Framework.Workflow.BLL.Core\Framework.Workflow.BLL.Core.csproj" />
-
     <ProjectReference Include="..\..\_Workflow\Framework.Workflow.Environment\Framework.Workflow.Environment.csproj" />
 
     <ProjectReference Include="..\WorkflowSampleSystem.Domain\WorkflowSampleSystem.Domain.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="10.0.1" />
-  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="_Generated\" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Luxoft.Framework.App.BLLCore" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.Cap" Version="16.0.0" />
+
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
 </Project>

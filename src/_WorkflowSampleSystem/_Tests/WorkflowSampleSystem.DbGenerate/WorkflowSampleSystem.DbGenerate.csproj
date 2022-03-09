@@ -4,6 +4,7 @@
     <IsPackable>false</IsPackable>
     <StartupObject>WorkflowSampleSystem.DbGenerate.Program</StartupObject>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
@@ -12,15 +13,18 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Include="..\..\..\__SolutionItems\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\WorkflowSampleSystem.WebApiCore\WorkflowSampleSystem.WebApiCore.csproj" />
     <ProjectReference Include="..\..\WorkflowSampleSystem.Domain\WorkflowSampleSystem.Domain.csproj" />
     <ProjectReference Include="..\..\WorkflowSampleSystem.Generated.DAL.NHibernate\WorkflowSampleSystem.Generated.DAL.NHibernate.csproj" />
     <ProjectReference Include="..\WorkflowSampleSystem.CodeGenerate\WorkflowSampleSystem.CodeGenerate.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

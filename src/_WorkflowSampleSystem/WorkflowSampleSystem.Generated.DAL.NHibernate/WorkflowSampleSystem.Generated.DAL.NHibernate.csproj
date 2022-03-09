@@ -9,8 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework.App.Dal\Framework.App.Dal.csproj" />
-
     <ProjectReference Include="..\WorkflowSampleSystem.Domain\WorkflowSampleSystem.Domain.csproj" />
   </ItemGroup>
 
@@ -20,6 +18,8 @@
 
   <ItemGroup>
     <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+
+    <PackageReference Include="Luxoft.Framework.App.Dal" Version="16.0.0" />
   </ItemGroup>
 
 </Project>

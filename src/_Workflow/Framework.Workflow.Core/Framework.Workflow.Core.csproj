@@ -5,7 +5,9 @@
   <ItemGroup>
     <Compile Include="..\..\__SolutionItems\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework.Security\Framework.Security.csproj" />
+    <PackageReference Include="Luxoft.Framework.Security" Version="16.0.0" />
   </ItemGroup>
+
 </Project>

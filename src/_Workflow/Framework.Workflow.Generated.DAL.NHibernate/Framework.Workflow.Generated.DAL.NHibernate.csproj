@@ -9,10 +9,13 @@
     <EmbeddedResource Include="Mapping\Generated.Framework.Workflow.Domain.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\_DomainDriven\Framework.DomainDriven.NHibernate\Framework.DomainDriven.NHibernate.csproj" />
     <ProjectReference Include="..\Framework.Workflow.Domain.Projections\Framework.Workflow.Domain.Projections.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Generated.Framework.Workflow.Domain.Projections.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Luxoft.Framework.DomainDriven.NHibernate" Version="16.0.0" />
   </ItemGroup>
 </Project>

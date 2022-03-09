@@ -14,16 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework.Cap\Framework.Cap.csproj" />
-    <ProjectReference Include="..\..\Framework.HangfireCore\Framework.HangfireCore.csproj" />
-    <ProjectReference Include="..\..\Framework.NotificationCore\Framework.NotificationCore.csproj" />
-    <ProjectReference Include="..\..\_Authorization\Framework.Authorization.WebApi\Framework.Authorization.WebApi.csproj" />
-    <ProjectReference Include="..\..\_Configuration\Framework.Configuration.WebApi\Framework.Configuration.WebApi.csproj" />
-    <ProjectReference Include="..\..\_DomainDriven\Framework.DomainDriven.ServiceModel.IAD.DTO\Framework.DomainDriven.ServiceModel.IAD.DTO.csproj" />
     <ProjectReference Include="..\..\_Workflow\Framework.Workflow.Generated.DAL.NHibernate\Framework.Workflow.Generated.DAL.NHibernate.csproj" />
-
     <ProjectReference Include="..\..\_Workflow\Framework.Workflow.WebApi\Framework.Workflow.WebApi.csproj" />
 
     <ProjectReference Include="..\WorkflowSampleSystem.ServiceEnvironment\WorkflowSampleSystem.ServiceEnvironment.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Luxoft.Framework.Configuration.WebApi" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.Authorization.WebApi" Version="16.0.0" />
+
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD.DTO" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.NotificationCore" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.Cap" Version="16.0.0" />
+  </ItemGroup>
+
 </Project>

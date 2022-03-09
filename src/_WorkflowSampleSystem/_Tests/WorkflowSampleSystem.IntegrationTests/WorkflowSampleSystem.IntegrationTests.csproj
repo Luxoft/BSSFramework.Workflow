@@ -10,6 +10,8 @@
     <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="161.46521.71" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+
+    <PackageReference Include="Luxoft.Framework.AutomationCore" Version="16.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\__SolutionItems\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
@@ -19,12 +21,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Framework.AutomationCore\Framework.AutomationCore.csproj" />
     <ProjectReference Include="..\..\WorkflowSampleSystem.WebApiCore\WorkflowSampleSystem.WebApiCore.csproj" />
 
     <ProjectReference Include="..\WorkflowSampleSystem.DbGenerate\WorkflowSampleSystem.DbGenerate.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
