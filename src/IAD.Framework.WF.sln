@@ -9,12 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__SolutionItems", "__Soluti
 		__SolutionItems\CommonAssemblyInfo.cs = __SolutionItems\CommonAssemblyInfo.cs
 		Directory.Build.props = Directory.Build.props
 		Settings.StyleCop = Settings.StyleCop
-		tfs.runsettings = tfs.runsettings
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1DC4D960-CEFB-4274-8147-DD2C5EDE131E}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Graphviz", "Framework.Graphviz\Framework.Graphviz.csproj", "{E886EFED-C695-4509-A669-550662238CEA}"

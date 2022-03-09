@@ -3,11 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>Luxoft 2009-2021</Copyright>
+    <Copyright>Luxoft 2009-2022</Copyright>
     <Authors>Luxoft BSS</Authors>
-    <RepositoryUrl>https://github.com/Luxoft/BSSFramework</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Luxoft/BSSFramework.Workflow</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://tfs/tfs/DefaultCollection/IAD_Framework/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Luxoft/BSSFramework.Workflow</PackageProjectUrl>
     <IsPackable>true</IsPackable>
     <MinClientVersion>3.6</MinClientVersion>
   </PropertyGroup>
