@@ -6,6 +6,8 @@ using Automation.Utils;
 using Framework.Authorization.Generated.DTO;
 using Framework.DomainDriven.BLL;
 
+using Microsoft.Extensions.DependencyInjection;
+
 using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Generated.DTO;
 using WorkflowSampleSystem.IntegrationTests.__Support.ServiceEnvironment;
@@ -53,7 +55,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 
         public void LoginAs(string principalName = null)
         {
-            IntegrationTestsUserAuthenticationService.Instance.CustomUserName = principalName;
+            this.Environment.RootServiceProvider.GetRequiredService<IntegrationTestsUserAuthenticationService>().CustomUserName = principalName;
         }
 
         public new void FinishRunAsUser()

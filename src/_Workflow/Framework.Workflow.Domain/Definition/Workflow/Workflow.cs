@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Framework.Attachments.Abstract;
+
 using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
