@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.Core.AnonymousTypeBuilder" Version="16.0.0" />
-    <PackageReference Include="Luxoft.Framework.Authorization.BLL.Core" Version="16.0.0" />
-    <PackageReference Include="Luxoft.Framework.ExpressionParsers" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.Core.AnonymousTypeBuilder" Version="16.3.3" />
+    <PackageReference Include="Luxoft.Framework.Authorization.BLL.Core" Version="16.3.3" />
+    <PackageReference Include="Luxoft.Framework.ExpressionParsers" Version="16.3.3" />
   </ItemGroup>
 
 </Project>

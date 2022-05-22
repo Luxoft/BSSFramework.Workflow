@@ -91,7 +91,7 @@ public class WorkflowServiceEnvironmentModule<TMainServiceEnvironment, TBLLConte
     {
         return currentScopedServiceProvider == null
                        ? new RootContextEvaluator<IWorkflowBLLContext>(this, this.RootServiceProvider)
-                       : new ScopeContextEvaluator<IWorkflowBLLContext>(this, currentScopedServiceProvider);
+                       : new ScopedContextEvaluator<IWorkflowBLLContext>(this, currentScopedServiceProvider);
     }
 
     public IBLLContextContainer<IWorkflowBLLContext> GetBLLContextContainer(

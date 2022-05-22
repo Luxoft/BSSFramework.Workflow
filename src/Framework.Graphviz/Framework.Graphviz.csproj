@@ -10,6 +10,6 @@
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
 
-    <PackageReference Include="Luxoft.Framework.Core" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.Core" Version="16.3.3" />
   </ItemGroup>
 </Project>

@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel" Version="16.0.0" />
-    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD" Version="16.0.0" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel" Version="16.3.3" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD" Version="16.3.3" />
   </ItemGroup>
 
 </Project>
