@@ -21,12 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.Configuration.WebApi" Version="16.3.2" />
-    <PackageReference Include="Luxoft.Framework.Authorization.WebApi" Version="16.3.2" />
+    <PackageReference Include="Luxoft.Framework.Configuration.WebApi" Version="16.3.3" />
+    <PackageReference Include="Luxoft.Framework.Authorization.WebApi" Version="16.3.3" />
 
-    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD.DTO" Version="16.3.2" />
-    <PackageReference Include="Luxoft.Framework.NotificationCore" Version="16.3.2" />
-    <PackageReference Include="Luxoft.Framework.Cap" Version="16.3.2" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD.DTO" Version="16.3.3" />
+    <PackageReference Include="Luxoft.Framework.NotificationCore" Version="16.3.3" />
+    <PackageReference Include="Luxoft.Framework.Cap" Version="16.3.3" />
   </ItemGroup>
 
 </Project>

@@ -54,8 +54,6 @@ namespace Framework.Workflow.Domain.Definition
 
         IParametersContainer<WorkflowParameter>,
 
-        IAttachmentContainerHeader,
-
         ITargetSystemElement<TargetSystem>,
 
         IWorkflowElement,
