@@ -10,7 +10,6 @@ namespace Framework.Workflow.BLL
     {
         public WorkflowNestedCache(IWorkflowBLLContext context) : base(context)
         {
-
         }
     }
 }

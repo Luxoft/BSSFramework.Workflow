@@ -21,21 +21,19 @@ namespace Framework.Workflow.BLL
 
         ITrackingServiceContainer<PersistentDomainObjectBase>,
 
-        IImpersonateObject<IWorkflowBLLContext>,
-
         IIAnonymousTypeBuilderContainer<TypeMap<ParameterizedTypeMapMember>>,
 
         ITypeResolverContainer<string>,
 
         IConfigurationBLLContextContainer<IConfigurationBLLContext>,
 
-        IDateTimeServiceContainer,
-
         IHierarchicalObjectExpanderFactoryContainer<Guid>
     {
         IExpressionParserFactory ExpressionParsers { get; }
 
         IValidator AnonymousObjectValidator { get; }
+
+        IDateTimeService DateTimeService { get; }
 
 
         ITargetSystemService GetTargetSystemService(Type domainType, bool throwOnNotFound);

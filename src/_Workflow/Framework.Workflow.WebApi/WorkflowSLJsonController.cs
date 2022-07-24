@@ -6,8 +6,12 @@ using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.ServiceModel.Service;
 using Framework.DomainDriven.WebApiNetCore;
 using Framework.Exceptions;
+using Framework.Graphviz;
+using Framework.Graphviz.Dot;
 using Framework.WebApi.Utils.SL;
 using Framework.Workflow.Environment;
+
+using JetBrains.Annotations;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,12 +23,13 @@ namespace Framework.Workflow.WebApi
     [Route("WorkflowSLJsonFacade.svc")]
     [ApiExplorerSettings(IgnoreApi = true)]
     //[Authorize(nameof(AuthenticationSchemes.NTLM))]
-    public abstract partial class WorkflowSLJsonController : ApiControllerBase<IWorkflowServiceEnvironment, IWorkflowBLLContext, EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>
+    public abstract partial class WorkflowSLJsonController : ApiControllerBase<IWorkflowBLLContext, EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>
     {
-        protected WorkflowSLJsonController(IWorkflowServiceEnvironment environment, IExceptionProcessor exceptionProcessor)
-            : base(environment, exceptionProcessor)
-        {
+        private readonly IDotVisualizer<DotGraph> dotVisualizer;
 
+        public WorkflowSLJsonController([NotNull] IDotVisualizer<DotGraph> dotVisualizer)
+        {
+            this.dotVisualizer = dotVisualizer ?? throw new ArgumentNullException(nameof(dotVisualizer));
         }
 
         protected override EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService> GetEvaluatedData(IDBSession session, IWorkflowBLLContext context)

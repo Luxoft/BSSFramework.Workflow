@@ -22,12 +22,10 @@ namespace WorkflowSampleSystem.BLL
 {
     public partial class WorkflowSampleSystemBLLContext
     {
-        private readonly Func<string, IWorkflowSampleSystemBLLContext> _impersonateFunc;
-
         public WorkflowSampleSystemBLLContext(
             IServiceProvider serviceProvider,
             [NotNull] IDALFactory<PersistentDomainObjectBase, Guid> dalFactory,
-            [NotNull] BLLOperationEventListenerContainer<DomainObjectBase> operationListeners,
+            [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
             [NotNull] BLLSourceEventListenerContainer<PersistentDomainObjectBase> sourceListeners,
             [NotNull] IObjectStateService objectStateService,
             [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
@@ -35,17 +33,15 @@ namespace WorkflowSampleSystem.BLL
             [NotNull] IValidator validator,
             [NotNull] IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
             [NotNull] IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
-            [NotNull] IDateTimeService dateTimeService,
             [NotNull] IWorkflowSampleSystemSecurityService securityService,
             [NotNull] ISecurityExpressionBuilderFactory<PersistentDomainObjectBase, Guid> securityExpressionBuilderFactory,
             [NotNull] IWorkflowSampleSystemBLLFactoryContainer logics,
             [NotNull] IAuthorizationBLLContext authorization,
             [NotNull] Framework.Configuration.BLL.IConfigurationBLLContext configuration,
             [NotNull] IWorkflowBLLContext workflow,
-            [NotNull] ICryptService<CryptSystem> cryptService,
-            [NotNull] Func<string, IWorkflowSampleSystemBLLContext> impersonateFunc,
+
             [NotNull] ITypeResolver<string> currentTargetSystemTypeResolver)
-            : base(serviceProvider, dalFactory, operationListeners, sourceListeners, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService, dateTimeService)
+            : base(serviceProvider, dalFactory, operationSenders, sourceListeners, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
             this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
 
@@ -56,9 +52,6 @@ namespace WorkflowSampleSystem.BLL
             this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.Workflow = workflow ?? throw new ArgumentNullException(nameof(workflow));
 
-            this.CryptService = cryptService ?? throw new ArgumentNullException(nameof(cryptService));
-
-            this._impersonateFunc = impersonateFunc ?? throw new ArgumentNullException(nameof(impersonateFunc));
             this.TypeResolver = currentTargetSystemTypeResolver ?? throw new ArgumentNullException(nameof(currentTargetSystemTypeResolver));
         }
 
@@ -74,13 +67,6 @@ namespace WorkflowSampleSystem.BLL
 
         public IWorkflowBLLContext Workflow { get; }
 
-        public ICryptService<CryptSystem> CryptService { get; }
-
         public ITypeResolver<string> TypeResolver { get; }
-
-        public IWorkflowSampleSystemBLLContext Impersonate(string principalName)
-        {
-            return this._impersonateFunc(principalName);
-        }
     }
 }
