@@ -4,7 +4,7 @@ using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.ServiceModel.IAD;
-using Framework.Notification;
+using Framework.ExpressionParsers;
 using Framework.QueryableSource;
 using Framework.SecuritySystem;
 using Framework.SecuritySystem.Rules.Builders;
@@ -29,7 +29,7 @@ namespace Framework.Workflow.ServiceEnvironment
                    .AddSingleton<WorkflowValidatorCompileCache>()
 
                    .AddScoped<IWorkflowValidator>(sp =>
-                        new WorkflowValidator(sp.GetRequiredService<IWorkflowBLLContext>(), sp.GetRequiredService<WorkflowValidatorCompileCache>()))
+                                                          new WorkflowValidator(sp.GetRequiredService<IWorkflowBLLContext>(), sp.GetRequiredService<WorkflowValidatorCompileCache>()))
 
 
                    .AddSingleton(new WorkflowMainFetchService().WithCompress().WithCache().WithLock().Add(FetchService<Framework.Workflow.Domain.PersistentDomainObjectBase>.OData))
@@ -38,6 +38,11 @@ namespace Framework.Workflow.ServiceEnvironment
 
                    .AddScopedFrom<ICurrentRevisionService, IDBSession>()
 
+                   .AddSingleton(WorkflowAnonymousTypeBuilder.CreateDefault())
+
+
+                   .AddSingleton(CSharpNativeExpressionParser.Composite)
+                   .AddScoped<IExpressionParserFactory, ExpressionParserFactory>()
 
                    .AddScoped<IWorkflowBLLContextSettings, WorkflowBLLContextSettings>()
                    .AddScopedFromLazyInterfaceImplement<IWorkflowBLLContext, WorkflowBLLContext>()

@@ -21,9 +21,7 @@ namespace Framework.Graphviz
 
             public FuncDotVisualizer(Func<TNewInput, GraphvizFormat, byte[]> func)
             {
-                if (func == null) throw new ArgumentNullException(nameof(func));
-
-                this._func = func;
+                this._func = func ?? throw new ArgumentNullException(nameof(func));
             }
 
             public byte[] Render(TNewInput dot, GraphvizFormat format)

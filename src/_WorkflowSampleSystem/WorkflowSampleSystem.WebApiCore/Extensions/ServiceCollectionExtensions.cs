@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Framework.Authorization;
 using Framework.Authorization.BLL;
 using Framework.Authorization.Events;
 using Framework.Authorization.Generated.DTO;
@@ -14,11 +15,14 @@ using Framework.DomainDriven.NHibernate;
 using Framework.DomainDriven.ServiceModel.IAD;
 using Framework.DomainDriven.ServiceModel.Service;
 using Framework.Events;
+using Framework.Graphviz;
+using Framework.Graphviz.Dot;
 using Framework.HierarchicalExpand;
 using Framework.QueryableSource;
 using Framework.Security.Cryptography;
 using Framework.SecuritySystem;
 using Framework.SecuritySystem.Rules.Builders;
+using Framework.Workflow.ServiceEnvironment;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,16 +31,19 @@ using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Domain;
 using WorkflowSampleSystem.Generated.DTO;
 
+using TargetSystemServiceFactory = Framework.Workflow.BLL.TargetSystemServiceFactory;
+
 namespace WorkflowSampleSystem.WebApiCore;
 
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection RegisterLegacyBLLContext(this IServiceCollection services)
     {
+        services.AddSingleton(LazyInterfaceImplementHelper.CreateNotImplemented<IDotVisualizer<DotGraph>>());
+
         services.AddScoped<TargetSystemServiceFactory>();
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase>(TargetSystemHelper.AuthorizationName));
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IConfigurationBLLContext, Framework.Configuration.Domain.PersistentDomainObjectBase>(TargetSystemHelper.ConfigurationName));
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase>(tss => tss.IsMain));
+        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase, AuthorizationSecurityOperationCode>(TargetSystemHelper.AuthorizationName));
+        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystemSecurityOperationCode>(tss => tss.IsMain));
 
         services.AddSingleton<IInitializeManager, InitializeManager>();
 
@@ -59,8 +66,8 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IOperationEventSenderContainer<PersistentDomainObjectBase>, OperationEventSenderContainer<PersistentDomainObjectBase>>();
 
-        //services.AddScoped<IOperationEventListener<Framework.Authorization.Domain.PersistentDomainObjectBase>, AuthorizationEventsSubscriptionManager>();
-        //services.AddScoped<IMessageSender<IDomainOperationSerializeData<Framework.Authorization.Domain.PersistentDomainObjectBase>>, AuthorizationLocalDBEventMessageSender>();
+        services.AddScoped<IOperationEventListener<Framework.Authorization.Domain.PersistentDomainObjectBase>, AuthorizationEventsSubscriptionManager>();
+        services.AddScoped<IMessageSender<IDomainOperationSerializeData<Framework.Authorization.Domain.PersistentDomainObjectBase>>, AuthorizationLocalDBEventMessageSender>();
 
         services.AddSingleton(AvailableValuesHelper.AvailableValues.ToValidation());
 
@@ -78,7 +85,13 @@ public static class ServiceCollectionExtensions
 
         services.RegisterAuthorizationBLL();
         services.RegisterConfigurationBLL();
+        services.RegisterWorkflowBLL();
         services.RegisterMainBLL();
+
+        services.AddScopedFrom<IAuthorizationBLLContext, IWorkflowSampleSystemAuthorizationBLLContext>();
+        services.AddScopedFrom<AuthorizationBLLContext, WorkflowSampleSystemAuthorizationBLLContext>();
+
+        services.AddScopedFromLazyInterfaceImplement<IWorkflowSampleSystemAuthorizationBLLContext, WorkflowSampleSystemAuthorizationBLLContext>();
 
         return services;
     }

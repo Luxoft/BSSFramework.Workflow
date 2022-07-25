@@ -50,7 +50,7 @@ namespace Framework.Workflow.BLL
             [NotNull]IExpressionParserFactory expressionParsers,
             [NotNull]IAnonymousTypeBuilder<TypeMap<ParameterizedTypeMapMember>> anonymousTypeBuilder,
             [NotNull]IEnumerable<ITargetSystemService> targetSystemServices,
-            [NotNull] IDateTimeService dateTimeService,
+            [NotNull]IDateTimeService dateTimeService,
             [NotNull]IWorkflowBLLContextSettings settings)
 
             : base(serviceProvider, dalFactory, operationSenders, sourceListeners, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)

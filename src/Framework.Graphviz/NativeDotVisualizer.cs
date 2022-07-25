@@ -63,23 +63,8 @@ namespace Framework.Graphviz
                 }
             });
         }
-
-
-        private static readonly Lazy<NativeDotVisualizer> LazyConfiguration = LazyHelper.Create(() =>
-        {
-            var path = ConfigurationManagerHelper.GetAppSettings("NativeDotVisualizerBinaryPath", true);
-
-            return new NativeDotVisualizer(path);
-        });
-
         private static readonly Lazy<NativeDotVisualizer> LazyDefault = LazyHelper.Create(() =>
             new NativeDotVisualizer(@"C:\Utils\GraphVIZ\dot.exe"));
-
-
-        public static NativeDotVisualizer Configuration
-        {
-            get { return LazyConfiguration.Value; }
-        }
 
         public static NativeDotVisualizer Default
         {

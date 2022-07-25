@@ -30,7 +30,7 @@ namespace WorkflowSampleSystem.BLL
             [NotNull] IObjectStateService objectStateService,
             [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
             [NotNull] IStandartExpressionBuilder standartExpressionBuilder,
-            [NotNull] IValidator validator,
+            [NotNull] IWorkflowValidator validator,
             [NotNull] IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
             [NotNull] IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
             [NotNull] IWorkflowSampleSystemSecurityService securityService,

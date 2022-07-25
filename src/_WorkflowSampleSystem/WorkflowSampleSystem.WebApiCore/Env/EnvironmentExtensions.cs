@@ -11,6 +11,7 @@ using Framework.DomainDriven.NHibernate.Audit;
 using Framework.DomainDriven.ServiceModel.IAD;
 using Framework.DomainDriven.WebApiNetCore;
 using Framework.Exceptions;
+using Framework.Workflow.Generated.DAL.NHibernate;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -68,10 +69,11 @@ namespace WorkflowSampleSystem.WebApiCore
 
                         .AddSingleton<IMappingSettings>(AuthorizationMappingSettings.CreateDefaultAudit(string.Empty))
                         .AddSingleton<IMappingSettings>(ConfigurationMappingSettings.CreateDefaultAudit(string.Empty))
+                        .AddSingleton<IMappingSettings>(WorkflowMappingSettings.CreateWithoutAudit(string.Empty))
                         .AddSingleton<IMappingSettings>(
                                                         new WorkflowSampleSystemMappingSettings(
-                                                                                        new DatabaseName(string.Empty, "app"),
-                                                                                        connectionString));
+                                                         new DatabaseName(string.Empty, "app"),
+                                                         connectionString));
 
         public static IServiceCollection AddControllerEnvironment(this IServiceCollection services)
         {
