@@ -20,7 +20,7 @@ using WorkflowSampleSystem.Domain;
 
 namespace WorkflowSampleSystem.BLL
 {
-    public partial class WorkflowSampleSystemBLLContext
+    public partial class WorkflowSampleSystemBLLContext : ISecurityTypeResolverContainer
     {
         public WorkflowSampleSystemBLLContext(
             IServiceProvider serviceProvider,
@@ -39,8 +39,7 @@ namespace WorkflowSampleSystem.BLL
             [NotNull] IAuthorizationBLLContext authorization,
             [NotNull] Framework.Configuration.BLL.IConfigurationBLLContext configuration,
             [NotNull] IWorkflowBLLContext workflow,
-
-            [NotNull] ITypeResolver<string> currentTargetSystemTypeResolver)
+            [NotNull] IWorkflowSampleSystemBLLContextSettings settings)
             : base(serviceProvider, dalFactory, operationSenders, sourceListeners, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
             this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
@@ -52,7 +51,7 @@ namespace WorkflowSampleSystem.BLL
             this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             this.Workflow = workflow ?? throw new ArgumentNullException(nameof(workflow));
 
-            this.TypeResolver = currentTargetSystemTypeResolver ?? throw new ArgumentNullException(nameof(currentTargetSystemTypeResolver));
+            this.TypeResolver = settings.TypeResolver;
         }
 
         public IWorkflowSampleSystemSecurityService SecurityService { get; }
@@ -68,5 +67,7 @@ namespace WorkflowSampleSystem.BLL
         public IWorkflowBLLContext Workflow { get; }
 
         public ITypeResolver<string> TypeResolver { get; }
+
+        ITypeResolver<string> ISecurityTypeResolverContainer.SecurityTypeResolver => this.TypeResolver;
     }
 }

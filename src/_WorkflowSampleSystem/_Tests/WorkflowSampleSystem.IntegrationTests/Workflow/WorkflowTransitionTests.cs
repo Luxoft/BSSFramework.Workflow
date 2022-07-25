@@ -27,11 +27,11 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             // Arrange
             this.AuthHelper.AddUserRole(null, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
 
-            var transitionVersionBefore = this.Environment.GetContextEvaluator().Evaluate(
+            var transitionVersionBefore = this.GetContextEvaluator().Evaluate(
                 DBSessionMode.Read,
                 context => context.Workflow.Logics.Transition.GetById(Guid.Parse("CACA9DB4-9DA6-48AA-9FD3-A311016CB715"), true).Version);
 
-            var locationId = this.Environment.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+            var locationId = this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
             {
                 var location = new Location { Name = "location" };
 
@@ -41,7 +41,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             });
 
             // Act
-            this.Environment.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+            this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
             {
                 var location = context.Logics.Location.GetById(locationId, true);
 
@@ -51,7 +51,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             });
 
             // Assert
-            var transitionVersionAfter = this.Environment.GetContextEvaluator().Evaluate(
+            var transitionVersionAfter = this.GetContextEvaluator().Evaluate(
                 DBSessionMode.Read,
                 context => context.Workflow.Logics.Transition.GetById(Guid.Parse("CACA9DB4-9DA6-48AA-9FD3-A311016CB715"), true).Version);
 
@@ -69,7 +69,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
 
             for (var i = 1; i <= 5; i++)
             {
-                var locationId = this.Environment.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+                var locationId = this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
                 {
                     var location = new Location { Name = $"location{i}" };
 
@@ -86,7 +86,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             {
                 var task = System.Threading.Tasks.Task.Factory.StartNew(() =>
                 {
-                    this.Environment.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+                    this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
                     {
                         var location = context.Logics.Location.GetById(locationId, true);
 

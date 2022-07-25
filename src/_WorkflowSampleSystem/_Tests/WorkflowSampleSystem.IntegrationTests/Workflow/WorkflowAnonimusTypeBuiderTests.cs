@@ -46,7 +46,7 @@ namespace WorkflowSampleSystem.IntegrationTests
         {
             try
             {
-                this.Environment.GetContextEvaluator().Evaluate(DBSessionMode.Read, context =>
+                this.GetContextEvaluator().Evaluate(DBSessionMode.Read, context =>
                 {
                     context.Workflow.AnonymousTypeBuilder.GetAnonymousType(typeMap);
                 });

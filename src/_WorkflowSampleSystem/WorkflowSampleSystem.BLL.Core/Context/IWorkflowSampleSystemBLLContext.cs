@@ -2,7 +2,6 @@
 
 using Framework.Authorization.BLL;
 using Framework.Core;
-using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.BLL.Security;
 using Framework.DomainDriven.BLL.Tracking;
@@ -24,7 +23,9 @@ namespace WorkflowSampleSystem.BLL
 
         Framework.DomainDriven.BLL.Configuration.IConfigurationBLLContextContainer<Framework.Configuration.BLL.IConfigurationBLLContext>,
 
-        IDefaultHierarchicalBLLContext<PersistentDomainObjectBase, Guid>
+        IDefaultHierarchicalBLLContext<PersistentDomainObjectBase, Guid>,
+
+        ISecurityTypeResolverContainer
     {
     }
 }

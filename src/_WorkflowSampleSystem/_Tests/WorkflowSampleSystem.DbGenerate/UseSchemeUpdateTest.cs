@@ -3,10 +3,12 @@ using System.Data;
 using System.Linq;
 
 using Framework.Cap.Abstractions;
+using Framework.Core;
 using Framework.Core.Services;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.NHibernate;
+using Framework.DomainDriven.NHibernate.Audit;
 
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,9 +47,11 @@ namespace WorkflowSampleSystem.DbGenerate
             services.AddSingleton<IDateTimeService>(DateTimeService.Default);
             services.AddSingleton(UserAuthenticationService.CreateFor("neg"));
             services.AddSingleton<ICapTransactionManager, FakeCapTransactionManager>();
+            services.AddSingleton(_ => LazyInterfaceImplementHelper.CreateNotImplemented<IAuditRevisionUserAuthenticationService>());
+
             var provider = services.BuildServiceProvider(false);
 
-            var dbSessionFactory = (NHibSessionFactory) provider.GetService<IDBSessionFactory>();
+            var dbSessionFactory = provider.GetService<NHibSessionEnvironment>();
             var cfg = dbSessionFactory?.Configuration;
 
             var migrate = new SchemaUpdate(cfg);

@@ -1,5 +1,8 @@
-﻿using WorkflowSampleSystem.Domain.Inline;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using WorkflowSampleSystem.Domain.Inline;
 using WorkflowSampleSystem.IntegrationTests.__Support.Utils;
+using WorkflowSampleSystem.ServiceEnvironment;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 {
@@ -7,8 +10,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
     {
         public void TestData()
         {
-            this.DataHelper.Environment = this.Environment;
-            this.AuthHelper.Environment = this.Environment;
+            this.RootServiceProvider.GetRequiredService<WorkflowSampleSystemInitializer>().Initialize();
 
             this.AuthHelper.AddCurrentUserToAdmin();
 

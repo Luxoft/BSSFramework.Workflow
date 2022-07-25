@@ -5,11 +5,6 @@ using System.Reflection;
 
 using DotNetCore.CAP;
 
-using Framework.Core;
-using Framework.DependencyInjection;
-using Framework.DomainDriven.ServiceModel;
-using Framework.DomainDriven.ServiceModel.IAD;
-using Framework.SecuritySystem;
 using Framework.WebApi.Utils;
 
 using MediatR;
@@ -25,8 +20,6 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
 using WorkflowSampleSystem.BLL;
-using WorkflowSampleSystem.Domain;
-using WorkflowSampleSystem.ServiceEnvironment;
 using WorkflowSampleSystem.WebApiCore.NewtonsoftJson;
 
 namespace WorkflowSampleSystem.WebApiCore
@@ -105,54 +98,6 @@ namespace WorkflowSampleSystem.WebApiCore
 
             app.UseCapDashboard();
 
-        }
-    }
-
-    public static class ServiceCollectionExtensions
-    {
-        public static IServiceCollection RegisterLegacyBLLContext(this IServiceCollection services)
-        {
-            services.RegisterEvaluateScopeManager<IWorkflowSampleSystemBLLContext>();
-            services.RegisterAuthorizationSystem();
-
-            services.RegisterAuthorizationBLL();
-            services.RegisterConfigurationBLL();
-            services.RegisterWorkflowBLL();
-            services.RegisterMainBLL();
-
-            return services;
-        }
-
-
-
-        public static IServiceCollection RegisterMainBLL(this IServiceCollection services)
-        {
-            return services
-
-                   .AddScopedTransientByContainer(c => c.MainContext)
-                   .AddScopedTransientByContainer<ISecurityOperationResolver<PersistentDomainObjectBase, WorkflowSampleSystemSecurityOperationCode>>(c => c.MainContext)
-                   .AddScopedTransientByContainer<IDisabledSecurityProviderContainer<PersistentDomainObjectBase>>(c => c.MainContext.SecurityService)
-                   .AddScopedTransientByContainer<IWorkflowSampleSystemSecurityPathContainer>(c => c.MainContext.SecurityService)
-                   .AddScopedTransientByContainer(c => c.MainContext.GetQueryableSource())
-                   .AddScopedTransientByContainer(c => c.MainContext.SecurityExpressionBuilderFactory)
-
-                   .AddScoped<IAccessDeniedExceptionService<PersistentDomainObjectBase>, AccessDeniedExceptionService<PersistentDomainObjectBase, Guid>>()
-                   .Self(WorkflowSampleSystemSecurityServiceBase.Register)
-                   .Self(WorkflowSampleSystemBLLFactoryContainer.RegisterBLLFactory);
-        }
-
-        public static IServiceCollection AddScopedTransientByContainer<T>(this IServiceCollection services, Func<IServiceEnvironmentBLLContextContainer<IWorkflowSampleSystemBLLContext>, T> func)
-            where T : class
-        {
-            return services.AddScopedTransientFactory(sp => sp.GetRequiredService<IEvaluateScopeManager<IWorkflowSampleSystemBLLContext>>()
-                                                              .Pipe(manager => FuncHelper.Create(() => func(manager.CurrentBLLContextContainer))));
-        }
-
-        public static IServiceCollection RegisterDependencyInjections(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddEnvironment(configuration);
-
-            return services;
         }
     }
 }
