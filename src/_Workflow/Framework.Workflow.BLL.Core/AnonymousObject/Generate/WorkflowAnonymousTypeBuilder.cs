@@ -15,7 +15,6 @@ namespace Framework.Workflow.BLL
         public WorkflowAnonymousTypeBuilder(IAnonymousTypeBuilderStorage storage)
             : base(storage)
         {
-
         }
 
 
@@ -99,6 +98,15 @@ namespace Framework.Workflow.BLL
                     }
                 }
             }
+        }
+
+
+        public static IAnonymousTypeBuilder<TypeMap<ParameterizedTypeMapMember>> CreateDefault()
+        {
+            return new WorkflowAnonymousTypeBuilder(new AnonymousTypeBuilderStorageFactory().Create("Workflow_AnonymousType"))
+                   .WithCompressName()
+                   .WithCache()
+                   .WithLock();
         }
     }
 }

@@ -1,19 +1,18 @@
 ﻿using Framework.Authorization.BLL;
 using Framework.Authorization.Generated.DAL.NHibernate;
 using Framework.Cap;
-using Framework.Configuration.BLL;
 using Framework.Configuration.Generated.DAL.NHibernate;
 using Framework.Core.Services;
 using Framework.DependencyInjection;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.NHibernate;
-using Framework.DomainDriven.ServiceModel.Service;
+using Framework.DomainDriven.NHibernate.Audit;
+using Framework.DomainDriven.ServiceModel.IAD;
 using Framework.DomainDriven.WebApiNetCore;
 using Framework.Exceptions;
-using Framework.Workflow.BLL;
-using Framework.Workflow.Environment;
 using Framework.Workflow.Generated.DAL.NHibernate;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,10 +21,8 @@ using nuSpec.NHibernate;
 
 using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Generated.DAL.NHibernate;
-using WorkflowSampleSystem.ServiceEnvironment;
+using WorkflowSampleSystem.WebApiCore.Env;
 using WorkflowSampleSystem.WebApiCore.Env.Database;
-
-using UserAuthenticationService = WorkflowSampleSystem.WebApiCore.Env.UserAuthenticationService;
 
 namespace WorkflowSampleSystem.WebApiCore
 {
@@ -35,49 +32,54 @@ namespace WorkflowSampleSystem.WebApiCore
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services
-                .AddHttpContextAccessor();
+            services.AddHttpContextAccessor();
 
             services.AddDatabaseSettings(connectionString);
             services.AddCapBss(connectionString);
 
-            services.RegisterMessageSenderDependencies<WorkflowSampleSystemServiceEnvironment, IWorkflowSampleSystemBLLContext>(configuration);
+            // Notifications
+            services.RegisterMessageSenderDependencies<IWorkflowSampleSystemBLLContext>(configuration);
             services.RegisterRewriteReceiversDependencies(configuration);
 
             // Others
             services.AddSingleton<IDateTimeService>(DateTimeService.Default);
-            services.AddSingleton<IUserAuthenticationService, UserAuthenticationService>();
+
+            services.AddSingleton<WorkflowSampleSystemDefaultUserAuthenticationService>();
+            services.AddSingletonFrom<IDefaultUserAuthenticationService, WorkflowSampleSystemDefaultUserAuthenticationService>();
+            services.AddSingletonFrom<IAuditRevisionUserAuthenticationService, WorkflowSampleSystemDefaultUserAuthenticationService>();
+
+            services.AddScoped<WorkflowSampleSystemUserAuthenticationService>();
+            services.AddScopedFrom<IUserAuthenticationService, WorkflowSampleSystemUserAuthenticationService>();
+            services.AddScopedFrom<IUserAuthenticationService, WorkflowSampleSystemUserAuthenticationService>();
+
             services.AddSingleton<ISpecificationEvaluator, NhSpecificationEvaluator>();
 
-
-            return services.AddSingleton<WorkflowSampleSystemServiceEnvironment>()
-                           .AddControllerEnvironment();
+            return services.AddControllerEnvironment();
         }
 
         public static IServiceCollection AddDatabaseSettings(this IServiceCollection services, string connectionString) =>
-                services
-                        .AddSingleton<IDBSessionFactory, WorkflowSampleSystemNHibSessionFactory>()
+                services.AddScoped<INHibSessionSetup, NHibSessionSettings>()
+
+                        .AddScoped<IDBSessionEventListener, WorkflowSampleSystemDBSessionEventListener>()
+                        .AddScopedFromLazy<IDBSession, NHibSession>()
+
+                        .AddSingleton<INHibSessionEnvironmentSettings, NHibSessionEnvironmentSettings>()
                         .AddSingleton<NHibConnectionSettings>()
+                        .AddSingleton<NHibSessionEnvironment, WorkflowSampleSystemNHibSessionEnvironment>()
+
                         .AddSingleton<IMappingSettings>(AuthorizationMappingSettings.CreateDefaultAudit(string.Empty))
                         .AddSingleton<IMappingSettings>(ConfigurationMappingSettings.CreateDefaultAudit(string.Empty))
                         .AddSingleton<IMappingSettings>(WorkflowMappingSettings.CreateWithoutAudit(string.Empty))
                         .AddSingleton<IMappingSettings>(
                                                         new WorkflowSampleSystemMappingSettings(
-                                                                                        new DatabaseName(string.Empty, "app"),
-                                                                                        connectionString));
+                                                         new DatabaseName(string.Empty, "app"),
+                                                         connectionString));
 
         public static IServiceCollection AddControllerEnvironment(this IServiceCollection services)
         {
-            services.AddSingleton<IExceptionProcessor, ApiControllerExceptionService<IServiceEnvironment<IWorkflowSampleSystemBLLContext>, IWorkflowSampleSystemBLLContext>>();
-
-            // Environment
-            services
-                .AddSingleton<IServiceEnvironment<IWorkflowSampleSystemBLLContext>>(x => x.GetRequiredService<WorkflowSampleSystemServiceEnvironment>())
-                .AddSingleton<IServiceEnvironment<IAuthorizationBLLContext>>(x => x.GetRequiredService<WorkflowSampleSystemServiceEnvironment>())
-                .AddSingleton<IServiceEnvironment<IConfigurationBLLContext>>(x => x.GetRequiredService<WorkflowSampleSystemServiceEnvironment>())
-
-                .AddSingleton<IServiceEnvironment<IWorkflowBLLContext>>(x => x.GetRequiredService<IWorkflowServiceEnvironment>())
-                .AddSingleton<IWorkflowServiceEnvironment>(x => x.GetRequiredService<WorkflowSampleSystemServiceEnvironment>().WorkflowModule);
+            services.AddSingleton<IExceptionProcessor, ApiControllerExceptionService<IWorkflowSampleSystemBLLContext>>();
+            services.AddSingleton<IContextEvaluator<IAuthorizationBLLContext>, ContextEvaluator<IAuthorizationBLLContext>>();
+            services.AddSingleton<IContextEvaluator<IWorkflowSampleSystemBLLContext>, ContextEvaluator<IWorkflowSampleSystemBLLContext>>();
 
             return services;
         }

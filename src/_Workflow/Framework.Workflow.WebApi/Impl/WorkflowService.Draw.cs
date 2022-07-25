@@ -27,7 +27,7 @@ namespace Framework.Workflow.WebApi
 
                 var graph = workflow.GetDotGraph(request.Dpi);
 
-                return this.ServiceEnvironment.DotVisualizer.Render(graph, request.Format);
+                return this.dotVisualizer.Render(graph, request.Format);
             });
         }
     }
