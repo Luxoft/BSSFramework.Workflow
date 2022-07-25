@@ -22,6 +22,8 @@ using Framework.QueryableSource;
 using Framework.Security.Cryptography;
 using Framework.SecuritySystem;
 using Framework.SecuritySystem.Rules.Builders;
+using Framework.Workflow.BLL;
+using Framework.Workflow.Generated.DTO;
 using Framework.Workflow.ServiceEnvironment;
 
 using Microsoft.Extensions.Configuration;
@@ -63,6 +65,9 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<EvaluatedData<IConfigurationBLLContext, IConfigurationDTOMappingService>>();
         services.AddScoped<IConfigurationDTOMappingService, ConfigurationServerPrimitiveDTOMappingService>();
+
+        services.AddScoped<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>();
+        services.AddScoped<IWorkflowDTOMappingService, WorkflowServerPrimitiveDTOMappingService>();
 
         services.AddScoped<EvaluatedData<IWorkflowSampleSystemBLLContext, IWorkflowSampleSystemDTOMappingService>>();
         services.AddScoped<IWorkflowSampleSystemDTOMappingService, WorkflowSampleSystemServerPrimitiveDTOMappingService>();
