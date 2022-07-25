@@ -35,12 +35,11 @@ namespace Framework.Workflow.BLL
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
             if (targetSystem == null) throw new ArgumentNullException(nameof(targetSystem));
-            if (compileCache == null) throw new ArgumentNullException(nameof(compileCache));
 
             this.TargetSystemContext = targetSystemContext;
             this.TargetSystem = targetSystem;
             this.WorkflowSourceTypes = workflowSourceTypes;
-            this.compileCache = compileCache;
+            this.compileCache = compileCache ?? throw new ArgumentNullException(nameof(compileCache));
 
             this.TypeResolver = new DomainTypeResolver(targetSystemContext.TypeResolver).WithCache().WithLock();
 

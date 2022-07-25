@@ -41,9 +41,12 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton(LazyInterfaceImplementHelper.CreateNotImplemented<IDotVisualizer<DotGraph>>());
 
+        services.AddSingleton<Framework.Workflow.BLL.TargetSystemServiceCompileCache<IWorkflowSampleSystemBLLContext, PersistentDomainObjectBase>>();
+        services.AddSingleton<Framework.Workflow.BLL.TargetSystemServiceCompileCache<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase>>();
+
         services.AddScoped<TargetSystemServiceFactory>();
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase, AuthorizationSecurityOperationCode>(TargetSystemHelper.AuthorizationName));
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystemSecurityOperationCode>(tss => tss.IsMain));
+        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase, AuthorizationSecurityOperationCode>(TargetSystemHelper.AuthorizationName, new[] { typeof(Framework.Authorization.Domain.Permission) }));
+        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystemSecurityOperationCode>(tss => tss.IsMain, new []{ typeof(Location)}));
 
         services.AddSingleton<IInitializeManager, InitializeManager>();
 
@@ -88,10 +91,10 @@ public static class ServiceCollectionExtensions
         services.RegisterWorkflowBLL();
         services.RegisterMainBLL();
 
+        services.AddScopedFromLazyInterfaceImplement<IWorkflowSampleSystemAuthorizationBLLContext, WorkflowSampleSystemAuthorizationBLLContext>();
+
         services.AddScopedFrom<IAuthorizationBLLContext, IWorkflowSampleSystemAuthorizationBLLContext>();
         services.AddScopedFrom<AuthorizationBLLContext, WorkflowSampleSystemAuthorizationBLLContext>();
-
-        services.AddScopedFromLazyInterfaceImplement<IWorkflowSampleSystemAuthorizationBLLContext, WorkflowSampleSystemAuthorizationBLLContext>();
 
         return services;
     }

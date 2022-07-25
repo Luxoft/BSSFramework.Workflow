@@ -22,7 +22,7 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
     public WorkflowSampleSystemAuthorizationBLLContext(
             [NotNull] IServiceProvider serviceProvider,
             [NotNull] IDALFactory<PersistentDomainObjectBase, Guid> dalFactory,
-            [NotNull] IOperationEventSenderContainer<DomainObjectBase> operationSenders,
+            [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
             [NotNull] BLLSourceEventListenerContainer<PersistentDomainObjectBase> sourceListeners,
             [NotNull] IObjectStateService objectStateService,
             [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
