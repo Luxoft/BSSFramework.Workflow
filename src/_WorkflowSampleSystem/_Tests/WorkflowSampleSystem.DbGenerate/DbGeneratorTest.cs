@@ -17,8 +17,6 @@ namespace WorkflowSampleSystem.DbGenerate
     [TestClass]
     public class DbGeneratorTest
     {
-        private readonly IUserAuthenticationService userAuthenticationService = UserAuthenticationService.CreateFor("DbGenerator");
-
         private readonly ServerGenerationEnvironment environment = new();
 
         [TestMethod]
@@ -57,7 +55,6 @@ namespace WorkflowSampleSystem.DbGenerate
                                                    serverName,
                                                    new DatabaseName(mainDatabaseName, "auth"),
                                                    new DatabaseName(mainDatabaseName, "auth").ToDefaultAudit(),
-                                                   this.userAuthenticationService,
                                                    mode,
                                                    true,
                                                    credential);
@@ -66,7 +63,6 @@ namespace WorkflowSampleSystem.DbGenerate
                                                    serverName,
                                                    new DatabaseName(mainDatabaseName, "configuration"),
                                                    new DatabaseName(mainDatabaseName, "configuration").ToDefaultAudit(),
-                                                   this.userAuthenticationService,
                                                    mode,
                                                    true,
                                                    credential);
@@ -74,7 +70,6 @@ namespace WorkflowSampleSystem.DbGenerate
                 this.GenerateWorkflowDatabase(serverName,
                                               new DatabaseName(mainDatabaseName, "workflow"),
                                               new DatabaseName(mainDatabaseName, "workflow").ToDefaultAudit(),
-                                              this.userAuthenticationService,
                                               mode,
                                               false,
                                               credential);
@@ -84,7 +79,6 @@ namespace WorkflowSampleSystem.DbGenerate
                                                      serverName,
                                                      new DatabaseName(mainDatabaseName, "app"),
                                                      new DatabaseName(mainDatabaseName, "app").ToDefaultAudit(),
-                                                     this.userAuthenticationService,
                                                      mode: mode,
                                                      generatorMode: generatorMode,
                                                      migrationScriptFolderPaths: migrationScriptFolderPaths,
@@ -99,7 +93,6 @@ namespace WorkflowSampleSystem.DbGenerate
                 string serverName,
                 DatabaseName databaseName,
                 AuditDatabaseName auditDatabaseName,
-                IUserAuthenticationService userAuthenticationService,
                 DatabaseScriptGeneratorMode generatorMode = DatabaseScriptGeneratorMode.AutoGenerateUpdateChangeTypeScript,
                 DBGenerateScriptMode mode = DBGenerateScriptMode.AppliedOnTargetDatabase,
                 IEnumerable<string> migrationScriptFolderPaths = null,
@@ -112,7 +105,6 @@ namespace WorkflowSampleSystem.DbGenerate
 
             var result = generator.Generate(
                                             serverName,
-                                            userAuthenticationService,
                                             mode: mode,
                                             generatorMode: generatorMode,
                                             migrationScriptFolderPaths: migrationScriptFolderPaths,
@@ -129,7 +121,6 @@ namespace WorkflowSampleSystem.DbGenerate
                 string serverName,
                 DatabaseName mainDatabaseName,
                 AuditDatabaseName auditDatabaseName,
-                IUserAuthenticationService userAuthenticationService,
                 DBGenerateScriptMode mode = DBGenerateScriptMode.AppliedOnCopySchemeDatabase,
                 bool preserveSchemaDatabase = false,
                 UserCredential credential = null)
@@ -143,7 +134,6 @@ namespace WorkflowSampleSystem.DbGenerate
                                 serverName,
                                 mainDatabaseName,
                                 auditDatabaseName,
-                                userAuthenticationService,
                                 migrationScriptFolderPaths: migrationScriptFolderPaths,
                                 mode: mode,
                                 preserveSchemaDatabase: preserveSchemaDatabase,
@@ -159,7 +149,6 @@ namespace WorkflowSampleSystem.DbGenerate
                 string serverName,
                 DatabaseName mainDatabaseName,
                 AuditDatabaseName auditDatabaseName,
-                IUserAuthenticationService userAuthenticationService,
                 DBGenerateScriptMode mode = DBGenerateScriptMode.AppliedOnCopySchemeDatabase,
                 bool preserveSchemaDatabase = false,
                 UserCredential credential = null)
@@ -169,7 +158,6 @@ namespace WorkflowSampleSystem.DbGenerate
              serverName,
              mainDatabaseName,
              auditDatabaseName,
-             userAuthenticationService,
              migrationScriptFolderPaths: migrationScriptFolderPaths,
              mode: mode,
              preserveSchemaDatabase: preserveSchemaDatabase,
@@ -183,7 +171,6 @@ namespace WorkflowSampleSystem.DbGenerate
                 string serverName,
                 DatabaseName mainDatabaseName,
                 AuditDatabaseName auditDatabaseName,
-                IUserAuthenticationService userAuthenticationService,
                 DBGenerateScriptMode mode = DBGenerateScriptMode.AppliedOnCopySchemeDatabase,
                 bool preserveSchemaDatabase = false,
                 UserCredential credential = null)
@@ -194,7 +181,6 @@ namespace WorkflowSampleSystem.DbGenerate
              serverName,
              mainDatabaseName,
              auditDatabaseName,
-             userAuthenticationService,
              migrationScriptFolderPaths: migrationScriptFolderPaths,
              mode: mode,
              generatorMode: DatabaseScriptGeneratorMode.AutoGenerateUpdateChangeTypeScript

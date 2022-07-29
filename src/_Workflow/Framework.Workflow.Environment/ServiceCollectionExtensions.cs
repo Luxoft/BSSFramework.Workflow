@@ -28,8 +28,7 @@ namespace Framework.Workflow.ServiceEnvironment
 
                    .AddSingleton<WorkflowValidatorCompileCache>()
 
-                   .AddScoped<IWorkflowValidator>(sp =>
-                                                          new WorkflowValidator(sp.GetRequiredService<IWorkflowBLLContext>(), sp.GetRequiredService<WorkflowValidatorCompileCache>()))
+                   .AddScoped<IWorkflowValidator>(sp => new WorkflowValidator(sp.GetRequiredService<IWorkflowBLLContext>(), sp.GetRequiredService<WorkflowValidatorCompileCache>()))
 
 
                    .AddSingleton(new WorkflowMainFetchService().WithCompress().WithCache().WithLock().Add(FetchService<Framework.Workflow.Domain.PersistentDomainObjectBase>.OData))

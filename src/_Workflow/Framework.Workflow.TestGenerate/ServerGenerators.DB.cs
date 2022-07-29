@@ -10,7 +10,6 @@ namespace Framework.Workflow.TestGenerate
     {
         public string GenerateDB(
             string serverName,
-            IUserAuthenticationService userAuthenticationService,
             DatabaseScriptGeneratorMode generatorMode = DatabaseScriptGeneratorMode.AutoGenerateUpdateChangeTypeScript,
             DBGenerateScriptMode mode = DBGenerateScriptMode.AppliedOnTargetDatabase,
             IEnumerable<string> migrationScriptFolderPaths = null,
@@ -20,7 +19,6 @@ namespace Framework.Workflow.TestGenerate
             var generator = new WorkflowDBGenerator(this.Environment.MappingSettings);
             var result = generator.Generate(
                 serverName,
-                userAuthenticationService,
                 mode: mode,
                 generatorMode: generatorMode,
                 migrationScriptFolderPaths: migrationScriptFolderPaths,
@@ -35,7 +33,6 @@ namespace Framework.Workflow.TestGenerate
                 string serverName,
                 DatabaseName databaseName,
                 AuditDatabaseName auditDatabaseName,
-                IUserAuthenticationService userAuthenticationService,
                 DatabaseScriptGeneratorMode generatorMode = DatabaseScriptGeneratorMode.AutoGenerateUpdateChangeTypeScript,
                 DBGenerateScriptMode mode = DBGenerateScriptMode.AppliedOnTargetDatabase,
                 IEnumerable<string> migrationScriptFolderPaths = null,
@@ -46,7 +43,6 @@ namespace Framework.Workflow.TestGenerate
             var generator = new WorkflowDBGenerator(this.Environment.GetMappingSettings(databaseName, auditDatabaseName));
             var result = generator.Generate(
                 serverName,
-                userAuthenticationService,
                 mode: mode,
                 generatorMode: generatorMode,
                 migrationScriptFolderPaths: migrationScriptFolderPaths,
