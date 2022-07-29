@@ -1,7 +1,10 @@
 ﻿using Framework.Authorization.BLL;
 using Framework.Authorization.Generated.DAL.NHibernate;
+using Framework.Authorization.Generated.DTO;
 using Framework.Cap;
+using Framework.Configuration.BLL;
 using Framework.Configuration.Generated.DAL.NHibernate;
+using Framework.Configuration.Generated.DTO;
 using Framework.Core.Services;
 using Framework.DependencyInjection;
 using Framework.DomainDriven;
@@ -9,9 +12,13 @@ using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.NHibernate;
 using Framework.DomainDriven.NHibernate.Audit;
 using Framework.DomainDriven.ServiceModel.IAD;
+using Framework.DomainDriven.ServiceModel.Service;
 using Framework.DomainDriven.WebApiNetCore;
 using Framework.Exceptions;
+using Framework.Workflow.BLL;
+using Framework.Workflow.Environment;
 using Framework.Workflow.Generated.DAL.NHibernate;
+using Framework.Workflow.Generated.DTO;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +28,7 @@ using nuSpec.NHibernate;
 
 using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Generated.DAL.NHibernate;
+using WorkflowSampleSystem.Generated.DTO;
 using WorkflowSampleSystem.WebApiCore.Env;
 using WorkflowSampleSystem.WebApiCore.Env.Database;
 
@@ -60,7 +68,8 @@ namespace WorkflowSampleSystem.WebApiCore
         public static IServiceCollection AddDatabaseSettings(this IServiceCollection services, string connectionString) =>
                 services.AddScoped<INHibSessionSetup, NHibSessionSettings>()
 
-                        .AddScoped<IDBSessionEventListener, WorkflowSampleSystemDBSessionEventListener>()
+                        .AddScoped<IDBSessionEventListener, DBSessionEventListener>()
+                        .AddScoped<IDBSessionEventListener, WorkflowDBSessionEventListener>()
                         .AddScopedFromLazy<IDBSession, NHibSession>()
 
                         .AddSingleton<INHibSessionEnvironmentSettings, NHibSessionEnvironmentSettings>()
@@ -78,8 +87,14 @@ namespace WorkflowSampleSystem.WebApiCore
         public static IServiceCollection AddControllerEnvironment(this IServiceCollection services)
         {
             services.AddSingleton<IExceptionProcessor, ApiControllerExceptionService<IWorkflowSampleSystemBLLContext>>();
+
             services.AddSingleton<IContextEvaluator<IAuthorizationBLLContext>, ContextEvaluator<IAuthorizationBLLContext>>();
             services.AddSingleton<IContextEvaluator<IWorkflowSampleSystemBLLContext>, ContextEvaluator<IWorkflowSampleSystemBLLContext>>();
+
+            services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IAuthorizationBLLContext, IAuthorizationDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IAuthorizationBLLContext, IAuthorizationDTOMappingService>>>();
+            services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IConfigurationBLLContext, IConfigurationDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IConfigurationBLLContext, IConfigurationDTOMappingService>>>();
+            services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>>();
+            services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IWorkflowSampleSystemBLLContext, IWorkflowSampleSystemDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IWorkflowSampleSystemBLLContext, IWorkflowSampleSystemDTOMappingService>>>();
 
             return services;
         }
