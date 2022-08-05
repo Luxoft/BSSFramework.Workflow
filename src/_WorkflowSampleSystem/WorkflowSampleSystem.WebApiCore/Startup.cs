@@ -5,6 +5,7 @@ using System.Reflection;
 
 using DotNetCore.CAP;
 
+using Framework.DomainDriven.WebApiNetCore;
 using Framework.WebApi.Utils;
 
 using MediatR;
@@ -86,6 +87,8 @@ namespace WorkflowSampleSystem.WebApiCore
             app
                 .UseDefaultExceptionsHandling()
                 .UseCorrelationId("WorkflowSampleSystem_{0}")
+                .UseTryProcessDbSession()
+                .UseWebApiExceptionExpander()
 
                 .UseHttpsRedirection()
                 .UseRouting()
