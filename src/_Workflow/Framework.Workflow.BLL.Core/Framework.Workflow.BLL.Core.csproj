@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.Core.AnonymousTypeBuilder" Version="17.0.1" />
-    <PackageReference Include="Luxoft.Framework.Authorization.BLL.Core" Version="17.0.1" />
+    <PackageReference Include="Luxoft.Framework.Core.AnonymousTypeBuilder" Version="17.1.0" />
+    <PackageReference Include="Luxoft.Framework.Authorization.BLL.Core" Version="17.1.0" />
     <PackageReference Include="Luxoft.Framework.ExpressionParsers" Version="17.0.0" />
   </ItemGroup>
 

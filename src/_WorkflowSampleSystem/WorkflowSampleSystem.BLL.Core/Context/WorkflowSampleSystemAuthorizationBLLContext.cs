@@ -40,6 +40,7 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
             [NotNull] IRunAsManager runAsManager,
             [NotNull] ISecurityTypeResolverContainer securityTypeResolverContainer,
             [NotNull] IWorkflowApproveProcessor workflowApproveProcessor,
+            [NotNull] IRuntimePermissionOptimizationService optimizeRuntimePermissionService,
             [NotNull] IAuthorizationBLLContextSettings settings)
 
             : base(
@@ -62,6 +63,7 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
                    externalSource,
                    runAsManager,
                    securityTypeResolverContainer,
+                   optimizeRuntimePermissionService,
                    settings)
     {
         this.WorkflowApproveProcessor = workflowApproveProcessor ?? throw new ArgumentNullException(nameof(workflowApproveProcessor));

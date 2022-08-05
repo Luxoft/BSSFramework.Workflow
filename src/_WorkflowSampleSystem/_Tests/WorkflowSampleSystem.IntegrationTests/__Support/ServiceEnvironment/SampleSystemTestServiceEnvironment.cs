@@ -45,17 +45,13 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.ServiceEnvironment
 
         private static IServiceProvider BuildServiceProvider()
         {
-            var configuration = new ConfigurationBuilder()
-                                .SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("appsettings.json", false, true)
-                                .AddEnvironmentVariables(nameof(WorkflowSampleSystem) + "_")
-                                .Build();
-
 
             return new ServiceCollection()
                                   .RegisterLegacyBLLContext()
                                   .RegisterControllers()
                                   .AddControllerEnvironment()
+
+                                  .AddSingleton<IWebApiExceptionExpander, WebApiDebugExceptionExpander>()
 
                                   .AddMediatR(Assembly.GetAssembly(typeof(EmployeeBLL)))
 
@@ -69,14 +65,12 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.ServiceEnvironment
 
                                   .AddSingleton<IDateTimeService, IntegrationTestDateTimeService>()
                                   .AddDatabaseSettings(InitializeAndCleanup.DatabaseUtil.ConnectionSettings.ConnectionString)
-                                  .AddScoped<IExceptionProcessor, ApiControllerExceptionService<IWorkflowSampleSystemBLLContext>>()
                                   .AddSingleton<ISpecificationEvaluator, NhSpecificationEvaluator>()
                                   .AddSingleton<ICapTransactionManager, TestCapTransactionManager>()
                                   .AddSingleton<IIntegrationEventBus, TestIntegrationEventBus>()
 
                                   .AddScoped<IWorkflowApproveProcessor, WorkflowApproveProcessor>()
 
-                                  .AddSingleton<TestDebugModeManager>()
                                   .AddSingleton<WorkflowSampleSystemInitializer>()
 
                                   .BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true, ValidateScopes = true });

@@ -31,10 +31,5 @@ namespace Framework.Workflow.WebApi
         {
             this.dotVisualizer = dotVisualizer ?? throw new ArgumentNullException(nameof(dotVisualizer));
         }
-
-        protected override EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService> GetEvaluatedData(IDBSession session, IWorkflowBLLContext context)
-        {
-            return new EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>(session, context, new WorkflowServerPrimitiveDTOMappingService(context));
-        }
     }
 }
