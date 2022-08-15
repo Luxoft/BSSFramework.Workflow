@@ -84,15 +84,15 @@ namespace WorkflowSampleSystem.WebApiCore
                 app.UseHsts();
             }
 
-            app
-                .UseDefaultExceptionsHandling()
-                .UseCorrelationId("WorkflowSampleSystem_{0}")
-                .UseTryProcessDbSession()
-                .UseWebApiExceptionExpander()
+            app.UseHttpsRedirection()
+               .UseRouting()
 
-                .UseHttpsRedirection()
-                .UseRouting()
-                .UseEndpoints(z => z.MapControllers());
+               .UseDefaultExceptionsHandling()
+               .UseCorrelationId("WorkflowSampleSystem_{0}")
+               .UseTryProcessDbSession()
+               .UseWebApiExceptionExpander()
+
+               .UseEndpoints(z => z.MapControllers());
 
             if (env.IsProduction())
             {
