@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkRoleAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent = checkRoleAccessAutoRequest.roleIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckRoleAccessInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullRole")]
         public virtual Framework.Workflow.Generated.DTO.RoleFullDTO GetFullRole([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullRoleByName")]
         public virtual Framework.Workflow.Generated.DTO.RoleFullDTO GetFullRoleByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleFullDTO GetFullRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullRoles")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullRolesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -96,7 +96,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullRolesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichRole")]
         public virtual Framework.Workflow.Generated.DTO.RoleRichDTO GetRichRole([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -129,7 +129,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichRoleByName")]
         public virtual Framework.Workflow.Generated.DTO.RoleRichDTO GetRichRoleByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleRichDTO GetRichRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -153,7 +153,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichRoles")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -163,7 +163,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichRolesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -179,7 +179,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichRolesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -202,7 +202,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleRole")]
         public virtual Framework.Workflow.Generated.DTO.RoleSimpleDTO GetSimpleRole([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -212,7 +212,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleRoleByName")]
         public virtual Framework.Workflow.Generated.DTO.RoleSimpleDTO GetSimpleRoleByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleSimpleDTO GetSimpleRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleRoles")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleRolesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -262,7 +262,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleRolesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -285,7 +285,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualRole")]
         public virtual Framework.Workflow.Generated.DTO.RoleVisualDTO GetVisualRole([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -295,7 +295,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualRoleByName")]
         public virtual Framework.Workflow.Generated.DTO.RoleVisualDTO GetVisualRoleByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleVisualDTO GetVisualRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -319,7 +319,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualRoles")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -329,7 +329,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualRolesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -345,7 +345,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualRolesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -370,7 +370,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasRoleAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent = hasRoleAccessAutoRequest.roleIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasRoleAccessInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

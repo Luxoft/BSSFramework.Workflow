@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 
+using Framework.DomainDriven;
 using Framework.Workflow.Generated.DTO;
 
-using Framework.DomainDriven.BLL;
 using Framework.SecuritySystem;
 using Framework.Workflow.Domain.Projections;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 
+using Framework.DomainDriven;
 using Framework.Workflow.Generated.DTO;
-using Framework.DomainDriven.BLL;
 using Framework.SecuritySystem;
 
 using Microsoft.AspNetCore.Mvc;

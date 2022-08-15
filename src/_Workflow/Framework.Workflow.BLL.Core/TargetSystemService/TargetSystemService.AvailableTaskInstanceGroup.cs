@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Framework.Core;
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven;
 using Framework.HierarchicalExpand;
-using Framework.Persistent;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;

@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkConditionStateEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent = checkConditionStateEventAccessAutoRequest.conditionStateEventIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullConditionStateEvent")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO GetFullConditionStateEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullConditionStateEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO GetFullConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO GetFullConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullConditionStateEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO> GetFullConditionStateEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullConditionStateEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO> GetFullConditionStateEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO> GetFullConditionStateEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichConditionStateEvent")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventRichDTO GetRichConditionStateEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -112,7 +112,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichConditionStateEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventRichDTO GetRichConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventRichDTO GetRichConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -136,7 +136,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleConditionStateEvent")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO GetSimpleConditionStateEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -146,7 +146,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleConditionStateEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO GetSimpleConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO GetSimpleConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -170,7 +170,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleConditionStateEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO> GetSimpleConditionStateEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -180,7 +180,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleConditionStateEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO> GetSimpleConditionStateEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO> GetSimpleConditionStateEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -202,7 +202,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualConditionStateEvent")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO GetVisualConditionStateEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -212,7 +212,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualConditionStateEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO GetVisualConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO GetVisualConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualConditionStateEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO> GetVisualConditionStateEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualConditionStateEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO> GetVisualConditionStateEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO> GetVisualConditionStateEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasConditionStateEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent = hasConditionStateEventAccessAutoRequest.conditionStateEventIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

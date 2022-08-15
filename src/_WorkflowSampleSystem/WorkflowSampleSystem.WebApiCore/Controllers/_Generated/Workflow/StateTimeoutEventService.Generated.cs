@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkStateTimeoutEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent = checkStateTimeoutEventAccessAutoRequest.stateTimeoutEventIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateTimeoutEventAccessInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateTimeoutEvent")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO GetFullStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateTimeoutEventByName")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO GetFullStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO GetFullStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateTimeoutEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO> GetFullStateTimeoutEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateTimeoutEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO> GetFullStateTimeoutEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO> GetFullStateTimeoutEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichStateTimeoutEvent")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventRichDTO GetRichStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -112,7 +112,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichStateTimeoutEventByName")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventRichDTO GetRichStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventRichDTO GetRichStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -136,7 +136,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateTimeoutEvent")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO GetSimpleStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -146,7 +146,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateTimeoutEventByName")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO GetSimpleStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO GetSimpleStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -170,7 +170,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateTimeoutEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO> GetSimpleStateTimeoutEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -180,7 +180,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateTimeoutEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO> GetSimpleStateTimeoutEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO> GetSimpleStateTimeoutEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -202,7 +202,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateTimeoutEvent")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO GetVisualStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -212,7 +212,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateTimeoutEventByName")]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO GetVisualStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO GetVisualStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateTimeoutEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO> GetVisualStateTimeoutEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateTimeoutEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO> GetVisualStateTimeoutEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO> GetVisualStateTimeoutEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasStateTimeoutEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent = hasStateTimeoutEventAccessAutoRequest.stateTimeoutEventIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateTimeoutEventAccessInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

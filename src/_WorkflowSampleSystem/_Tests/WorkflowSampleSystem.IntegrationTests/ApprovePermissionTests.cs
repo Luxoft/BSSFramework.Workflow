@@ -98,26 +98,26 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             var approvingOperation = authFacade.Evaluate(c => c.GetSimpleOperationByName(nameof(WorkflowSampleSystemSecurityOperationCode.ApprovingWorkflowOperation)));
 
             var approvingRole = authFacade.Evaluate(c => c.SaveBusinessRole(new BusinessRoleStrictDTO
-                                                                          {
-                                                                                  Name = "Approving Role",
-                                                                                  BusinessRoleOperationLinks =
-                                                                                  {
-                                                                                          new BusinessRoleOperationLinkStrictDTO { Operation = approvingOperation.Identity }
-                                                                                  }
-                                                                          }));
+            {
+                    Name = "Approving Role",
+                    BusinessRoleOperationLinks =
+                    {
+                            new BusinessRoleOperationLinkStrictDTO { Operation = approvingOperation.Identity }
+                    }
+            }));
 
             // Act
             var approvingPrincipal = authFacade.Evaluate(c => c.SavePrincipal(new PrincipalStrictDTO
-                                                                              {
-                                                                                      Name = testUserForApproving,
-                                                                                      Permissions =
-                                                                                      {
-                                                                                              new PermissionStrictDTO
-                                                                                              {
-                                                                                                      Role = approvingRole,
-                                                                                              }
-                                                                                      }
-                                                                              }));
+            {
+                    Name = testUserForApproving,
+                    Permissions =
+                    {
+                            new PermissionStrictDTO
+                            {
+                                    Role = approvingRole,
+                            }
+                    }
+            }));
 
             var preApprovePrincipal = authFacade.Evaluate(c => c.GetRichPrincipal(approvingPrincipal));
 

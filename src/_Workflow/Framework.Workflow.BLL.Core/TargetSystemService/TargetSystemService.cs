@@ -4,6 +4,7 @@ using System.Linq;
 
 using Framework.Authorization.BLL;
 using Framework.Core;
+using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.BLL.Security;
 using Framework.Exceptions;

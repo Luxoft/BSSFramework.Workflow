@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkWorkflowSourceAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent = checkWorkflowSourceAccessAutoRequest.workflowSourceIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckWorkflowSourceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullWorkflowSource")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO GetFullWorkflowSource([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullWorkflowSourceByName")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO GetFullWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO GetFullWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullWorkflowSources")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSources()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullWorkflowSourcesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -96,7 +96,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullWorkflowSourcesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichWorkflowSource")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceRichDTO GetRichWorkflowSource([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -129,7 +129,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichWorkflowSourceByName")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceRichDTO GetRichWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceRichDTO GetRichWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -153,7 +153,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleWorkflowSource")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO GetSimpleWorkflowSource([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -163,7 +163,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleWorkflowSourceByName")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO GetSimpleWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO GetSimpleWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -187,7 +187,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleWorkflowSources")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSources()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesInternal(evaluateData));
         }
         
         /// <summary>
@@ -197,7 +197,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleWorkflowSourcesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -213,7 +213,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleWorkflowSourcesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualWorkflowSource")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO GetVisualWorkflowSource([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualWorkflowSourceByName")]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO GetVisualWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO GetVisualWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualWorkflowSources")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSources()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesInternal(evaluateData));
         }
         
         /// <summary>
@@ -280,7 +280,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualWorkflowSourcesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -296,7 +296,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualWorkflowSourcesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -321,7 +321,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasWorkflowSourceAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent = hasWorkflowSourceAccessAutoRequest.workflowSourceIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasWorkflowSourceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

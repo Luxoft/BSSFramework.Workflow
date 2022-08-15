@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Reflection;
@@ -45,31 +46,44 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.ServiceEnvironment
 
         private static IServiceProvider BuildServiceProvider()
         {
+            var configuration = new ConfigurationBuilder()
+                                .SetBasePath(Directory.GetCurrentDirectory())
+                                .AddJsonFile("appsettings.json", false, true)
+                                .AddEnvironmentVariables(nameof(WorkflowSampleSystem) + "_")
+                                .AddInMemoryCollection(new Dictionary<string, string>
+                                 {
+                                         {
+                                                 "ConnectionStrings:DefaultConnection",
+                                                 InitializeAndCleanup.DatabaseUtil.ConnectionSettings.ConnectionString
+                                         },
+                                 })
+                                .Build();
 
             return new ServiceCollection()
-                                  .RegisterLegacyBLLContext()
-                                  .RegisterControllers()
-                                  .AddControllerEnvironment()
 
-                                  .AddSingleton<IWebApiExceptionExpander, WebApiDebugExceptionExpander>()
+                                  .AddEnvironment(configuration)
+
+                                  .RegisterLegacyBLLContext()
+                                  .AddControllerEnvironment()
 
                                   .AddMediatR(Assembly.GetAssembly(typeof(EmployeeBLL)))
 
+                                  .RegisterControllers()
+
+                                  .AddScoped<IntegrationTestsWebApiCurrentMethodResolver>()
+                                  .ReplaceScopedFrom<IWebApiCurrentMethodResolver, IntegrationTestsWebApiCurrentMethodResolver>()
+
+                                  .ReplaceSingleton<IWebApiExceptionExpander, WebApiDebugExceptionExpander>()
+
                                   .AddSingleton<IntegrationTestDefaultUserAuthenticationService>()
-                                  .AddSingletonFrom<IDefaultUserAuthenticationService, IntegrationTestDefaultUserAuthenticationService>()
-                                  .AddSingletonFrom<IAuditRevisionUserAuthenticationService, IntegrationTestDefaultUserAuthenticationService>()
+                                  .ReplaceSingletonFrom<IDefaultUserAuthenticationService, IntegrationTestDefaultUserAuthenticationService>()
+                                  .ReplaceSingletonFrom<IAuditRevisionUserAuthenticationService, IntegrationTestDefaultUserAuthenticationService>()
 
-                                  .AddScoped<WorkflowSampleSystemUserAuthenticationService>()
-                                  .AddScopedFrom<IUserAuthenticationService, WorkflowSampleSystemUserAuthenticationService>()
-                                  .AddScopedFrom<IImpersonateService, WorkflowSampleSystemUserAuthenticationService>()
+                                  .ReplaceSingleton<IDateTimeService, IntegrationTestDateTimeService>()
 
-                                  .AddSingleton<IDateTimeService, IntegrationTestDateTimeService>()
-                                  .AddDatabaseSettings(InitializeAndCleanup.DatabaseUtil.ConnectionSettings.ConnectionString)
-                                  .AddSingleton<ISpecificationEvaluator, NhSpecificationEvaluator>()
                                   .AddSingleton<ICapTransactionManager, TestCapTransactionManager>()
                                   .AddSingleton<IIntegrationEventBus, TestIntegrationEventBus>()
 
-                                  .AddScoped<IWorkflowApproveProcessor, WorkflowApproveProcessor>()
 
                                   .AddSingleton<WorkflowSampleSystemInitializer>()
 

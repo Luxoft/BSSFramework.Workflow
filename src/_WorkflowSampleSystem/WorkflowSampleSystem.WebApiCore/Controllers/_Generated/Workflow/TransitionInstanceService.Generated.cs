@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkTransitionInstanceAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent = checkTransitionInstanceAccessAutoRequest.transitionInstanceIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTransitionInstance")]
         public virtual Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO GetFullTransitionInstance([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO GetFullTransitionInstanceInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -53,7 +53,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTransitionInstances")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO> GetFullTransitionInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -63,7 +63,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTransitionInstancesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO> GetFullTransitionInstancesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO> GetFullTransitionInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -85,7 +85,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichTransitionInstance")]
         public virtual Framework.Workflow.Generated.DTO.TransitionInstanceRichDTO GetRichTransitionInstance([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionInstanceRichDTO GetRichTransitionInstanceInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTransitionInstance")]
         public virtual Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO GetSimpleTransitionInstance([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO GetSimpleTransitionInstanceInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTransitionInstances")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO> GetSimpleTransitionInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -129,7 +129,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTransitionInstancesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO> GetSimpleTransitionInstancesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO> GetSimpleTransitionInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -153,7 +153,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasTransitionInstanceAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent = hasTransitionInstanceAccessAutoRequest.transitionInstanceIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

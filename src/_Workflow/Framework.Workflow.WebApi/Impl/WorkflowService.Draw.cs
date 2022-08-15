@@ -2,7 +2,7 @@
 using System.IO;
 
 using Framework.Core;
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven;
 using Framework.SecuritySystem;
 using Framework.Workflow.Generated.DTO;
 using Framework.Workflow.Graphviz;

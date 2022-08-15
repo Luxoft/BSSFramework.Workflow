@@ -69,6 +69,8 @@ namespace WorkflowSampleSystem.Generated.DAL.NHibernate
                                              c.Properties.Add(
                                                               Environment.SqlExceptionConverter,
                                                               typeof(SQLExceptionConverter).AssemblyQualifiedName);
+
+                                             c.SessionFactory().ParsingLinqThrough<VisitedQueryProvider>();
                                          })
                     .BuildConfiguration();
         }
