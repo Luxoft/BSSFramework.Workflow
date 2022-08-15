@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkStateBaseAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent = checkStateBaseAccessAutoRequest.stateBaseIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateBaseAccessInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateBase")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseFullDTO GetFullStateBase([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateBaseByName")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseFullDTO GetFullStateBaseByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseFullDTO GetFullStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateBases")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBases()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBasesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBasesInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateBasesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByIdentsInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -96,7 +96,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateBasesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichStateBase")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseRichDTO GetRichStateBase([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -129,7 +129,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichStateBaseByName")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseRichDTO GetRichStateBaseByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseRichDTO GetRichStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -153,7 +153,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateBase")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseSimpleDTO GetSimpleStateBase([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -163,7 +163,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateBaseByName")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseSimpleDTO GetSimpleStateBaseByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseSimpleDTO GetSimpleStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -187,7 +187,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateBases")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBases()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesInternal(evaluateData));
         }
         
         /// <summary>
@@ -197,7 +197,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateBasesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByIdentsInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -213,7 +213,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateBasesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateBase")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseVisualDTO GetVisualStateBase([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateBaseByName")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseVisualDTO GetVisualStateBaseByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseVisualDTO GetVisualStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateBases")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBases()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesInternal(evaluateData));
         }
         
         /// <summary>
@@ -280,7 +280,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateBasesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByIdentsInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -296,7 +296,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualStateBasesByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -321,7 +321,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasStateBaseAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent = hasStateBaseAccessAutoRequest.stateBaseIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateBaseAccessInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -339,7 +339,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("RemoveStateBase")]
         public virtual void RemoveStateBase([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveStateBaseInternal(stateBaseIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveStateBaseInternal(stateBaseIdent, evaluateData));
         }
         
         protected virtual void RemoveStateBaseInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -361,7 +361,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("SaveStateBase")]
         public virtual Framework.Workflow.Generated.DTO.StateBaseIdentityDTO SaveStateBase([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateBaseStrictDTO stateBaseStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveStateBaseInternal(stateBaseStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveStateBaseInternal(stateBaseStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseIdentityDTO SaveStateBaseInternal(Framework.Workflow.Generated.DTO.StateBaseStrictDTO stateBaseStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

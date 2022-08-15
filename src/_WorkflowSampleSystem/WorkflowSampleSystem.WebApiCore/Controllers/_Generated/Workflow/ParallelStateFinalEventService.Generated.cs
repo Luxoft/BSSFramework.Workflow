@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkParallelStateFinalEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent = checkParallelStateFinalEventAccessAutoRequest.parallelStateFinalEventIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullParallelStateFinalEvent")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO GetFullParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullParallelStateFinalEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO GetFullParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO GetFullParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullParallelStateFinalEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO> GetFullParallelStateFinalEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullParallelStateFinalEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO> GetFullParallelStateFinalEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO> GetFullParallelStateFinalEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichParallelStateFinalEvent")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventRichDTO GetRichParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -112,7 +112,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichParallelStateFinalEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventRichDTO GetRichParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventRichDTO GetRichParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -136,7 +136,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleParallelStateFinalEvent")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO GetSimpleParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -146,7 +146,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleParallelStateFinalEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO GetSimpleParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO GetSimpleParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -170,7 +170,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleParallelStateFinalEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO> GetSimpleParallelStateFinalEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -180,7 +180,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleParallelStateFinalEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO> GetSimpleParallelStateFinalEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO> GetSimpleParallelStateFinalEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -202,7 +202,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualParallelStateFinalEvent")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO GetVisualParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -212,7 +212,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualParallelStateFinalEventByName")]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO GetVisualParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO GetVisualParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualParallelStateFinalEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO> GetVisualParallelStateFinalEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualParallelStateFinalEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO> GetVisualParallelStateFinalEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO> GetVisualParallelStateFinalEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasParallelStateFinalEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent = hasParallelStateFinalEventAccessAutoRequest.parallelStateFinalEventIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

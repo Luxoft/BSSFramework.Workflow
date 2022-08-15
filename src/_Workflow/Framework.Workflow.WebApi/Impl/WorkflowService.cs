@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Framework.Core;
+using Framework.DomainDriven;
 using Framework.Workflow.Generated.DTO;
 
 using Framework.DomainDriven.BLL;

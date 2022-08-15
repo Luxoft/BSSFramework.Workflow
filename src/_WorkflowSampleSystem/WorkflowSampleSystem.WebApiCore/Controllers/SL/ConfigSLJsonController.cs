@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Framework.Configuration.BLL;
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven;
 using Framework.Notification.DTO;
 
 using Microsoft.AspNetCore.Mvc;

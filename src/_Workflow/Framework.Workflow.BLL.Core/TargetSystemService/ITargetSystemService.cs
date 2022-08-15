@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Framework.Core;
-using Framework.DomainDriven.BLL;
-using Framework.DomainDriven.BLL.Security;
+using Framework.DomainDriven;
 using Framework.Persistent;
 using Framework.SecuritySystem;
 using Framework.Workflow.Domain;

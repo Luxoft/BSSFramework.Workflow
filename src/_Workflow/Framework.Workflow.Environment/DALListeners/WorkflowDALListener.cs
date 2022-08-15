@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven;
 using Framework.Workflow.BLL;
 
 using JetBrains.Annotations;

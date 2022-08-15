@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkTargetSystemAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent = checkTargetSystemAccessAutoRequest.targetSystemIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTargetSystem")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemFullDTO GetFullTargetSystem([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTargetSystemByName")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemFullDTO GetFullTargetSystemByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemFullDTO GetFullTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTargetSystems")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemFullDTO> GetFullTargetSystems()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullTargetSystemsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemFullDTO> GetFullTargetSystemsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemFullDTO> GetFullTargetSystemsByIdentsInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichTargetSystem")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemRichDTO GetRichTargetSystem([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -112,7 +112,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichTargetSystemByName")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemRichDTO GetRichTargetSystemByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemRichDTO GetRichTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -136,7 +136,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTargetSystem")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO GetSimpleTargetSystem([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -146,7 +146,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTargetSystemByName")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO GetSimpleTargetSystemByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO GetSimpleTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -170,7 +170,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTargetSystems")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO> GetSimpleTargetSystems()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsInternal(evaluateData));
         }
         
         /// <summary>
@@ -180,7 +180,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleTargetSystemsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO> GetSimpleTargetSystemsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO> GetSimpleTargetSystemsByIdentsInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -202,7 +202,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualTargetSystem")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemVisualDTO GetVisualTargetSystem([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -212,7 +212,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualTargetSystemByName")]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemVisualDTO GetVisualTargetSystemByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemVisualDTO GetVisualTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualTargetSystems")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemVisualDTO> GetVisualTargetSystems()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsInternal(evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualTargetSystemsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemVisualDTO> GetVisualTargetSystemsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemVisualDTO> GetVisualTargetSystemsByIdentsInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasTargetSystemAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent = hasTargetSystemAccessAutoRequest.targetSystemIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

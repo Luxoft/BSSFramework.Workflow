@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkCommandEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent = checkCommandEventAccessAutoRequest.commandEventIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullCommandEvent")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventFullDTO GetFullCommandEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullCommandEventByName")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventFullDTO GetFullCommandEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventFullDTO GetFullCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -70,7 +70,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullCommandEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -80,7 +80,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullCommandEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -96,7 +96,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullCommandEventsByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichCommandEvent")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventRichDTO GetRichCommandEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -129,7 +129,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichCommandEventByName")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventRichDTO GetRichCommandEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventRichDTO GetRichCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -153,7 +153,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleCommandEvent")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventSimpleDTO GetSimpleCommandEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -163,7 +163,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleCommandEventByName")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventSimpleDTO GetSimpleCommandEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventSimpleDTO GetSimpleCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -187,7 +187,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleCommandEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -197,7 +197,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleCommandEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -213,7 +213,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleCommandEventsByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -236,7 +236,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualCommandEvent")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventVisualDTO GetVisualCommandEvent([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -246,7 +246,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualCommandEventByName")]
         public virtual Framework.Workflow.Generated.DTO.CommandEventVisualDTO GetVisualCommandEventByName([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventVisualDTO GetVisualCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -270,7 +270,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualCommandEvents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -280,7 +280,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualCommandEventsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -296,7 +296,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualCommandEventsByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -321,7 +321,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasCommandEventAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent = hasCommandEventAccessAutoRequest.commandEventIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

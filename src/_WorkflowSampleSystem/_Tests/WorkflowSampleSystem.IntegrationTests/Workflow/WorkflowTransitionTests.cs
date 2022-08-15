@@ -4,6 +4,7 @@ using System.Linq;
 
 using FluentAssertions;
 
+using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;

@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkStateInstanceAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent = checkStateInstanceAccessAutoRequest.stateInstanceIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateInstanceAccessInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateInstance")]
         public virtual Framework.Workflow.Generated.DTO.StateInstanceFullDTO GetFullStateInstance([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInstanceInternal(stateInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInstanceInternal(stateInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateInstanceFullDTO GetFullStateInstanceInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -53,7 +53,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateInstances")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceFullDTO> GetFullStateInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -63,7 +63,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStateInstancesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceFullDTO> GetFullStateInstancesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceFullDTO> GetFullStateInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -85,7 +85,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichStateInstance")]
         public virtual Framework.Workflow.Generated.DTO.StateInstanceRichDTO GetRichStateInstance([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateInstanceInternal(stateInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateInstanceInternal(stateInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateInstanceRichDTO GetRichStateInstanceInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateInstance")]
         public virtual Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO GetSimpleStateInstance([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstanceInternal(stateInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstanceInternal(stateInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO GetSimpleStateInstanceInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateInstances")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO> GetSimpleStateInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -129,7 +129,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStateInstancesByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO> GetSimpleStateInstancesByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO> GetSimpleStateInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -153,7 +153,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasStateInstanceAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent = hasStateInstanceAccessAutoRequest.stateInstanceIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateInstanceAccessInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

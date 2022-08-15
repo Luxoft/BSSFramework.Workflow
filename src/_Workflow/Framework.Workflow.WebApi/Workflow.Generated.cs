@@ -20,7 +20,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckCommandAccess))]
         public virtual void CheckCommandAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckCommandAccessInternal(commandIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckCommandAccessInternal(commandIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckCommandAccessInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -37,7 +37,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommand))]
         public virtual Framework.Workflow.Generated.DTO.CommandFullDTO GetFullCommand([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandInternal(commandIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandInternal(commandIdentity, evaluateData));
         }
         
         /// <summary>
@@ -46,7 +46,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandFullDTO GetFullCommandByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandByNameInternal(commandName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandByNameInternal(commandName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandFullDTO GetFullCommandByNameInternal(string commandName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -69,7 +69,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommands))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommands()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandsInternal(evaluateData));
         }
         
         /// <summary>
@@ -78,7 +78,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandsByAvailableCommandFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommandsByAvailableCommandFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.AvailableCommandFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandsByAvailableCommandFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandsByAvailableCommandFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommandsByAvailableCommandFilterInternal(Framework.Workflow.Generated.DTO.AvailableCommandFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -94,7 +94,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommandsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO[] commandIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandsByIdentsInternal(commandIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandsByIdentsInternal(commandIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommandsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO[] commandIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -109,7 +109,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommandsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandFullDTO> GetFullCommandsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -131,7 +131,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichCommand))]
         public virtual Framework.Workflow.Generated.DTO.CommandRichDTO GetRichCommand([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichCommandInternal(commandIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichCommandInternal(commandIdentity, evaluateData));
         }
         
         /// <summary>
@@ -140,7 +140,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichCommandByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandRichDTO GetRichCommandByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichCommandByNameInternal(commandName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichCommandByNameInternal(commandName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandRichDTO GetRichCommandByNameInternal(string commandName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -163,7 +163,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommand))]
         public virtual Framework.Workflow.Generated.DTO.CommandSimpleDTO GetSimpleCommand([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandInternal(commandIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandInternal(commandIdentity, evaluateData));
         }
         
         /// <summary>
@@ -172,7 +172,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandSimpleDTO GetSimpleCommandByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandByNameInternal(commandName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandByNameInternal(commandName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandSimpleDTO GetSimpleCommandByNameInternal(string commandName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -195,7 +195,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommands))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommands()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsInternal(evaluateData));
         }
         
         /// <summary>
@@ -204,7 +204,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandsByAvailableCommandFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommandsByAvailableCommandFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.AvailableCommandFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsByAvailableCommandFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsByAvailableCommandFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommandsByAvailableCommandFilterInternal(Framework.Workflow.Generated.DTO.AvailableCommandFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -220,7 +220,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommandsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO[] commandIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsByIdentsInternal(commandIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsByIdentsInternal(commandIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommandsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO[] commandIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -235,7 +235,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommandsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandSimpleDTO> GetSimpleCommandsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -257,7 +257,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommand))]
         public virtual Framework.Workflow.Generated.DTO.CommandVisualDTO GetVisualCommand([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandInternal(commandIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandInternal(commandIdentity, evaluateData));
         }
         
         /// <summary>
@@ -266,7 +266,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandVisualDTO GetVisualCommandByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandByNameInternal(commandName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandByNameInternal(commandName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandVisualDTO GetVisualCommandByNameInternal(string commandName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -289,7 +289,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommands))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommands()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandsInternal(evaluateData));
         }
         
         /// <summary>
@@ -298,7 +298,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandsByAvailableCommandFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommandsByAvailableCommandFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.AvailableCommandFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandsByAvailableCommandFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandsByAvailableCommandFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommandsByAvailableCommandFilterInternal(Framework.Workflow.Generated.DTO.AvailableCommandFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -314,7 +314,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommandsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO[] commandIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandsByIdentsInternal(commandIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandsByIdentsInternal(commandIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommandsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO[] commandIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -329,7 +329,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommandsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandVisualDTO> GetVisualCommandsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -351,7 +351,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasCommandAccess))]
         public virtual bool HasCommandAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasCommandAccessInternal(commandIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasCommandAccessInternal(commandIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasCommandAccessInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -368,7 +368,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveCommand))]
         public virtual void RemoveCommand([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveCommandInternal(commandIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveCommandInternal(commandIdent, evaluateData));
         }
         
         protected virtual void RemoveCommandInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -389,7 +389,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveCommand))]
         public virtual Framework.Workflow.Generated.DTO.CommandIdentityDTO SaveCommand([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandStrictDTO commandStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveCommandInternal(commandStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveCommandInternal(commandStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandIdentityDTO SaveCommandInternal(Framework.Workflow.Generated.DTO.CommandStrictDTO commandStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -416,7 +416,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckCommandEventAccess))]
         public virtual void CheckCommandEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -433,7 +433,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandEvent))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventFullDTO GetFullCommandEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -442,7 +442,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandEventByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventFullDTO GetFullCommandEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventFullDTO GetFullCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -465,7 +465,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -474,7 +474,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -489,7 +489,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommandEventsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullCommandEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventFullDTO> GetFullCommandEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -511,7 +511,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichCommandEvent))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventRichDTO GetRichCommandEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -520,7 +520,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichCommandEventByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventRichDTO GetRichCommandEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventRichDTO GetRichCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -543,7 +543,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandEvent))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventSimpleDTO GetSimpleCommandEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -552,7 +552,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandEventByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventSimpleDTO GetSimpleCommandEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventSimpleDTO GetSimpleCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -575,7 +575,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -584,7 +584,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -599,7 +599,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleCommandEventsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleCommandEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventSimpleDTO> GetSimpleCommandEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -621,7 +621,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandEvent))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventVisualDTO GetVisualCommandEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventInternal(commandEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventInternal(commandEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -630,7 +630,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandEventByName))]
         public virtual Framework.Workflow.Generated.DTO.CommandEventVisualDTO GetVisualCommandEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string commandEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventByNameInternal(commandEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventByNameInternal(commandEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.CommandEventVisualDTO GetVisualCommandEventByNameInternal(string commandEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -653,7 +653,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -662,7 +662,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByIdentsInternal(commandEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByIdentsInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO[] commandEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -677,7 +677,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualCommandEventsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualCommandEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.CommandEventVisualDTO> GetVisualCommandEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.CommandEventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -699,7 +699,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasCommandEventAccess))]
         public virtual bool HasCommandEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -720,7 +720,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckConditionStateAccess))]
         public virtual void CheckConditionStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckConditionStateAccessInternal(conditionStateIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckConditionStateAccessInternal(conditionStateIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckConditionStateAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -737,7 +737,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionState))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateFullDTO GetFullConditionState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateInternal(conditionStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateInternal(conditionStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -746,7 +746,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateFullDTO GetFullConditionStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateByNameInternal(conditionStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateByNameInternal(conditionStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateFullDTO GetFullConditionStateByNameInternal(string conditionStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -769,7 +769,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateFullDTO> GetFullConditionStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -778,7 +778,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateFullDTO> GetFullConditionStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO[] conditionStateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStatesByIdentsInternal(conditionStateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStatesByIdentsInternal(conditionStateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateFullDTO> GetFullConditionStatesByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO[] conditionStateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -793,7 +793,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateFullDTO> GetFullConditionStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateFullDTO> GetFullConditionStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.ConditionStateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -815,7 +815,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichConditionState))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateRichDTO GetRichConditionState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichConditionStateInternal(conditionStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichConditionStateInternal(conditionStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -824,7 +824,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichConditionStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateRichDTO GetRichConditionStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichConditionStateByNameInternal(conditionStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichConditionStateByNameInternal(conditionStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateRichDTO GetRichConditionStateByNameInternal(string conditionStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -847,7 +847,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionState))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO GetSimpleConditionState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateInternal(conditionStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateInternal(conditionStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -856,7 +856,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO GetSimpleConditionStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateByNameInternal(conditionStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateByNameInternal(conditionStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO GetSimpleConditionStateByNameInternal(string conditionStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -879,7 +879,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO> GetSimpleConditionStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -888,7 +888,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO> GetSimpleConditionStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO[] conditionStateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStatesByIdentsInternal(conditionStateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStatesByIdentsInternal(conditionStateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO> GetSimpleConditionStatesByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO[] conditionStateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -903,7 +903,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO> GetSimpleConditionStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateSimpleDTO> GetSimpleConditionStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.ConditionStateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -925,7 +925,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionState))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateVisualDTO GetVisualConditionState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateInternal(conditionStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateInternal(conditionStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -934,7 +934,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateVisualDTO GetVisualConditionStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateByNameInternal(conditionStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateByNameInternal(conditionStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateVisualDTO GetVisualConditionStateByNameInternal(string conditionStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -957,7 +957,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateVisualDTO> GetVisualConditionStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -966,7 +966,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateVisualDTO> GetVisualConditionStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO[] conditionStateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStatesByIdentsInternal(conditionStateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStatesByIdentsInternal(conditionStateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateVisualDTO> GetVisualConditionStatesByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO[] conditionStateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -981,7 +981,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateVisualDTO> GetVisualConditionStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateVisualDTO> GetVisualConditionStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.ConditionStateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1003,7 +1003,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasConditionStateAccess))]
         public virtual bool HasConditionStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasConditionStateAccessInternal(conditionStateIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasConditionStateAccessInternal(conditionStateIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasConditionStateAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1020,7 +1020,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveConditionState))]
         public virtual void RemoveConditionState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveConditionStateInternal(conditionStateIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveConditionStateInternal(conditionStateIdent, evaluateData));
         }
         
         protected virtual void RemoveConditionStateInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1041,7 +1041,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveConditionState))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO SaveConditionState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateStrictDTO conditionStateStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveConditionStateInternal(conditionStateStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveConditionStateInternal(conditionStateStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO SaveConditionStateInternal(Framework.Workflow.Generated.DTO.ConditionStateStrictDTO conditionStateStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1068,7 +1068,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckConditionStateEventAccess))]
         public virtual void CheckConditionStateEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1085,7 +1085,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStateEvent))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO GetFullConditionStateEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1094,7 +1094,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStateEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO GetFullConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO GetFullConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1117,7 +1117,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStateEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO> GetFullConditionStateEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -1126,7 +1126,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullConditionStateEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO> GetFullConditionStateEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventFullDTO> GetFullConditionStateEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1147,7 +1147,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichConditionStateEvent))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventRichDTO GetRichConditionStateEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1156,7 +1156,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichConditionStateEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventRichDTO GetRichConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventRichDTO GetRichConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1179,7 +1179,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStateEvent))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO GetSimpleConditionStateEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1188,7 +1188,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStateEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO GetSimpleConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO GetSimpleConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1211,7 +1211,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStateEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO> GetSimpleConditionStateEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -1220,7 +1220,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleConditionStateEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO> GetSimpleConditionStateEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventSimpleDTO> GetSimpleConditionStateEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1241,7 +1241,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStateEvent))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO GetVisualConditionStateEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventInternal(conditionStateEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1250,7 +1250,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStateEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO GetVisualConditionStateEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string conditionStateEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventByNameInternal(conditionStateEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO GetVisualConditionStateEventByNameInternal(string conditionStateEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1273,7 +1273,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStateEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO> GetVisualConditionStateEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -1282,7 +1282,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualConditionStateEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO> GetVisualConditionStateEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualConditionStateEventsByIdentsInternal(conditionStateEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ConditionStateEventVisualDTO> GetVisualConditionStateEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO[] conditionStateEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1303,7 +1303,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasConditionStateEventAccess))]
         public virtual bool HasConditionStateEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1324,7 +1324,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckDomainTypeAccess))]
         public virtual void CheckDomainTypeAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckDomainTypeAccessInternal(domainTypeIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckDomainTypeAccessInternal(domainTypeIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckDomainTypeAccessInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1341,7 +1341,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullDomainType))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeFullDTO GetFullDomainType([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullDomainTypeInternal(domainTypeIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullDomainTypeInternal(domainTypeIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1350,7 +1350,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullDomainTypeByName))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeFullDTO GetFullDomainTypeByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string domainTypeName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullDomainTypeByNameInternal(domainTypeName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullDomainTypeByNameInternal(domainTypeName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.DomainTypeFullDTO GetFullDomainTypeByNameInternal(string domainTypeName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1373,7 +1373,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullDomainTypes))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeFullDTO> GetFullDomainTypes()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullDomainTypesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullDomainTypesInternal(evaluateData));
         }
         
         /// <summary>
@@ -1382,7 +1382,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullDomainTypesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeFullDTO> GetFullDomainTypesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO[] domainTypeIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullDomainTypesByIdentsInternal(domainTypeIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullDomainTypesByIdentsInternal(domainTypeIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeFullDTO> GetFullDomainTypesByIdentsInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO[] domainTypeIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1397,7 +1397,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullDomainTypesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeFullDTO> GetFullDomainTypesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullDomainTypesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullDomainTypesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeFullDTO> GetFullDomainTypesByRootFilterInternal(Framework.Workflow.Generated.DTO.DomainTypeRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1419,7 +1419,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichDomainType))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeRichDTO GetRichDomainType([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichDomainTypeInternal(domainTypeIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichDomainTypeInternal(domainTypeIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1428,7 +1428,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichDomainTypeByName))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeRichDTO GetRichDomainTypeByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string domainTypeName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichDomainTypeByNameInternal(domainTypeName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichDomainTypeByNameInternal(domainTypeName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.DomainTypeRichDTO GetRichDomainTypeByNameInternal(string domainTypeName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1451,7 +1451,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleDomainType))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO GetSimpleDomainType([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypeInternal(domainTypeIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypeInternal(domainTypeIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1460,7 +1460,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleDomainTypeByName))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO GetSimpleDomainTypeByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string domainTypeName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypeByNameInternal(domainTypeName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypeByNameInternal(domainTypeName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO GetSimpleDomainTypeByNameInternal(string domainTypeName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1483,7 +1483,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleDomainTypes))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO> GetSimpleDomainTypes()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypesInternal(evaluateData));
         }
         
         /// <summary>
@@ -1492,7 +1492,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleDomainTypesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO> GetSimpleDomainTypesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO[] domainTypeIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypesByIdentsInternal(domainTypeIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypesByIdentsInternal(domainTypeIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO> GetSimpleDomainTypesByIdentsInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO[] domainTypeIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1507,7 +1507,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleDomainTypesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO> GetSimpleDomainTypesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleDomainTypesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeSimpleDTO> GetSimpleDomainTypesByRootFilterInternal(Framework.Workflow.Generated.DTO.DomainTypeRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1529,7 +1529,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualDomainType))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeVisualDTO GetVisualDomainType([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypeInternal(domainTypeIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypeInternal(domainTypeIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1538,7 +1538,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualDomainTypeByName))]
         public virtual Framework.Workflow.Generated.DTO.DomainTypeVisualDTO GetVisualDomainTypeByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string domainTypeName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypeByNameInternal(domainTypeName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypeByNameInternal(domainTypeName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.DomainTypeVisualDTO GetVisualDomainTypeByNameInternal(string domainTypeName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1561,7 +1561,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualDomainTypes))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeVisualDTO> GetVisualDomainTypes()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypesInternal(evaluateData));
         }
         
         /// <summary>
@@ -1570,7 +1570,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualDomainTypesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeVisualDTO> GetVisualDomainTypesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO[] domainTypeIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypesByIdentsInternal(domainTypeIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypesByIdentsInternal(domainTypeIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeVisualDTO> GetVisualDomainTypesByIdentsInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO[] domainTypeIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1585,7 +1585,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualDomainTypesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeVisualDTO> GetVisualDomainTypesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualDomainTypesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.DomainTypeVisualDTO> GetVisualDomainTypesByRootFilterInternal(Framework.Workflow.Generated.DTO.DomainTypeRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1607,7 +1607,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasDomainTypeAccess))]
         public virtual bool HasDomainTypeAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasDomainTypeAccessInternal(domainTypeIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasDomainTypeAccessInternal(domainTypeIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasDomainTypeAccessInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1628,7 +1628,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckEventAccess))]
         public virtual void CheckEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckEventAccessInternal(eventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckEventAccessInternal(eventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckEventAccessInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1645,7 +1645,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullEvent))]
         public virtual Framework.Workflow.Generated.DTO.EventFullDTO GetFullEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullEventInternal(eventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullEventInternal(eventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1654,7 +1654,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullEventByName))]
         public virtual Framework.Workflow.Generated.DTO.EventFullDTO GetFullEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string eventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullEventByNameInternal(eventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullEventByNameInternal(eventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.EventFullDTO GetFullEventByNameInternal(string eventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1677,7 +1677,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventFullDTO> GetFullEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -1686,7 +1686,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventFullDTO> GetFullEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO[] eventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullEventsByIdentsInternal(eventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullEventsByIdentsInternal(eventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventFullDTO> GetFullEventsByIdentsInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO[] eventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1701,7 +1701,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullEventsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventFullDTO> GetFullEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventFullDTO> GetFullEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.EventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1723,7 +1723,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichEvent))]
         public virtual Framework.Workflow.Generated.DTO.EventRichDTO GetRichEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichEventInternal(eventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichEventInternal(eventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1732,7 +1732,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichEventByName))]
         public virtual Framework.Workflow.Generated.DTO.EventRichDTO GetRichEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string eventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichEventByNameInternal(eventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichEventByNameInternal(eventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.EventRichDTO GetRichEventByNameInternal(string eventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1755,7 +1755,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleEvent))]
         public virtual Framework.Workflow.Generated.DTO.EventSimpleDTO GetSimpleEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleEventInternal(eventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleEventInternal(eventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1764,7 +1764,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleEventByName))]
         public virtual Framework.Workflow.Generated.DTO.EventSimpleDTO GetSimpleEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string eventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleEventByNameInternal(eventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleEventByNameInternal(eventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.EventSimpleDTO GetSimpleEventByNameInternal(string eventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1787,7 +1787,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventSimpleDTO> GetSimpleEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -1796,7 +1796,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventSimpleDTO> GetSimpleEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO[] eventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleEventsByIdentsInternal(eventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleEventsByIdentsInternal(eventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventSimpleDTO> GetSimpleEventsByIdentsInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO[] eventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1811,7 +1811,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleEventsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventSimpleDTO> GetSimpleEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventSimpleDTO> GetSimpleEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.EventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1833,7 +1833,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualEvent))]
         public virtual Framework.Workflow.Generated.DTO.EventVisualDTO GetVisualEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualEventInternal(eventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualEventInternal(eventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1842,7 +1842,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualEventByName))]
         public virtual Framework.Workflow.Generated.DTO.EventVisualDTO GetVisualEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string eventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualEventByNameInternal(eventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualEventByNameInternal(eventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.EventVisualDTO GetVisualEventByNameInternal(string eventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1865,7 +1865,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventVisualDTO> GetVisualEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -1874,7 +1874,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventVisualDTO> GetVisualEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO[] eventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualEventsByIdentsInternal(eventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualEventsByIdentsInternal(eventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventVisualDTO> GetVisualEventsByIdentsInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO[] eventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1889,7 +1889,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualEventsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventVisualDTO> GetVisualEventsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualEventsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualEventsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.EventVisualDTO> GetVisualEventsByRootFilterInternal(Framework.Workflow.Generated.DTO.EventRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1911,7 +1911,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasEventAccess))]
         public virtual bool HasEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasEventAccessInternal(eventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasEventAccessInternal(eventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasEventAccessInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1932,7 +1932,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckParallelStateAccess))]
         public virtual void CheckParallelStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckParallelStateAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1949,7 +1949,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelState))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFullDTO GetFullParallelState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateInternal(parallelStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateInternal(parallelStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -1958,7 +1958,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFullDTO GetFullParallelStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateByNameInternal(parallelStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateByNameInternal(parallelStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFullDTO GetFullParallelStateByNameInternal(string parallelStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -1981,7 +1981,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFullDTO> GetFullParallelStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -1990,7 +1990,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFullDTO> GetFullParallelStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO[] parallelStateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStatesByIdentsInternal(parallelStateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStatesByIdentsInternal(parallelStateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFullDTO> GetFullParallelStatesByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO[] parallelStateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2005,7 +2005,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFullDTO> GetFullParallelStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFullDTO> GetFullParallelStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.ParallelStateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2027,7 +2027,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichParallelState))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateRichDTO GetRichParallelState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichParallelStateInternal(parallelStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichParallelStateInternal(parallelStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2036,7 +2036,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichParallelStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateRichDTO GetRichParallelStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichParallelStateByNameInternal(parallelStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichParallelStateByNameInternal(parallelStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateRichDTO GetRichParallelStateByNameInternal(string parallelStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2059,7 +2059,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelState))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO GetSimpleParallelState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateInternal(parallelStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateInternal(parallelStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2068,7 +2068,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO GetSimpleParallelStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateByNameInternal(parallelStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateByNameInternal(parallelStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO GetSimpleParallelStateByNameInternal(string parallelStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2091,7 +2091,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO> GetSimpleParallelStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -2100,7 +2100,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO> GetSimpleParallelStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO[] parallelStateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStatesByIdentsInternal(parallelStateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStatesByIdentsInternal(parallelStateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO> GetSimpleParallelStatesByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO[] parallelStateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2115,7 +2115,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO> GetSimpleParallelStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateSimpleDTO> GetSimpleParallelStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.ParallelStateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2137,7 +2137,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelState))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateVisualDTO GetVisualParallelState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateInternal(parallelStateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateInternal(parallelStateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2146,7 +2146,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStateByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateVisualDTO GetVisualParallelStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateByNameInternal(parallelStateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateByNameInternal(parallelStateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateVisualDTO GetVisualParallelStateByNameInternal(string parallelStateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2169,7 +2169,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateVisualDTO> GetVisualParallelStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -2178,7 +2178,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateVisualDTO> GetVisualParallelStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO[] parallelStateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStatesByIdentsInternal(parallelStateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStatesByIdentsInternal(parallelStateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateVisualDTO> GetVisualParallelStatesByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO[] parallelStateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2193,7 +2193,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateVisualDTO> GetVisualParallelStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateVisualDTO> GetVisualParallelStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.ParallelStateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2215,7 +2215,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasParallelStateAccess))]
         public virtual bool HasParallelStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasParallelStateAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2232,7 +2232,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveParallelState))]
         public virtual void RemoveParallelState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveParallelStateInternal(parallelStateIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveParallelStateInternal(parallelStateIdent, evaluateData));
         }
         
         protected virtual void RemoveParallelStateInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2253,7 +2253,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveParallelState))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO SaveParallelState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateStrictDTO parallelStateStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveParallelStateInternal(parallelStateStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveParallelStateInternal(parallelStateStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO SaveParallelStateInternal(Framework.Workflow.Generated.DTO.ParallelStateStrictDTO parallelStateStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2280,7 +2280,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckParallelStateFinalEventAccess))]
         public virtual void CheckParallelStateFinalEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2297,7 +2297,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStateFinalEvent))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO GetFullParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2306,7 +2306,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStateFinalEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO GetFullParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO GetFullParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2329,7 +2329,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStateFinalEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO> GetFullParallelStateFinalEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -2338,7 +2338,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullParallelStateFinalEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO> GetFullParallelStateFinalEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventFullDTO> GetFullParallelStateFinalEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2359,7 +2359,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichParallelStateFinalEvent))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventRichDTO GetRichParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2368,7 +2368,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichParallelStateFinalEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventRichDTO GetRichParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventRichDTO GetRichParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2391,7 +2391,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStateFinalEvent))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO GetSimpleParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2400,7 +2400,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStateFinalEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO GetSimpleParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO GetSimpleParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2423,7 +2423,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStateFinalEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO> GetSimpleParallelStateFinalEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -2432,7 +2432,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleParallelStateFinalEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO> GetSimpleParallelStateFinalEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventSimpleDTO> GetSimpleParallelStateFinalEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2453,7 +2453,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStateFinalEvent))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO GetVisualParallelStateFinalEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventInternal(parallelStateFinalEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2462,7 +2462,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStateFinalEventByName))]
         public virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO GetVisualParallelStateFinalEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string parallelStateFinalEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventByNameInternal(parallelStateFinalEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO GetVisualParallelStateFinalEventByNameInternal(string parallelStateFinalEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2485,7 +2485,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStateFinalEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO> GetVisualParallelStateFinalEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -2494,7 +2494,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualParallelStateFinalEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO> GetVisualParallelStateFinalEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualParallelStateFinalEventsByIdentsInternal(parallelStateFinalEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventVisualDTO> GetVisualParallelStateFinalEventsByIdentsInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO[] parallelStateFinalEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2515,7 +2515,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasParallelStateFinalEventAccess))]
         public virtual bool HasParallelStateFinalEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2536,7 +2536,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckRoleAccess))]
         public virtual void CheckRoleAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckRoleAccessInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2553,7 +2553,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullRole))]
         public virtual Framework.Workflow.Generated.DTO.RoleFullDTO GetFullRole([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2562,7 +2562,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullRoleByName))]
         public virtual Framework.Workflow.Generated.DTO.RoleFullDTO GetFullRoleByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleFullDTO GetFullRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2585,7 +2585,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullRoles))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -2594,7 +2594,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullRolesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2609,7 +2609,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullRolesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleFullDTO> GetFullRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2631,7 +2631,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichRole))]
         public virtual Framework.Workflow.Generated.DTO.RoleRichDTO GetRichRole([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2640,7 +2640,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichRoleByName))]
         public virtual Framework.Workflow.Generated.DTO.RoleRichDTO GetRichRoleByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleRichDTO GetRichRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2663,7 +2663,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichRoles))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -2672,7 +2672,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichRolesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2687,7 +2687,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichRolesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleRichDTO> GetRichRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2709,7 +2709,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleRole))]
         public virtual Framework.Workflow.Generated.DTO.RoleSimpleDTO GetSimpleRole([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2718,7 +2718,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleRoleByName))]
         public virtual Framework.Workflow.Generated.DTO.RoleSimpleDTO GetSimpleRoleByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleSimpleDTO GetSimpleRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2741,7 +2741,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleRoles))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -2750,7 +2750,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleRolesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2765,7 +2765,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleRolesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleSimpleDTO> GetSimpleRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2787,7 +2787,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualRole))]
         public virtual Framework.Workflow.Generated.DTO.RoleVisualDTO GetVisualRole([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRoleInternal(roleIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRoleInternal(roleIdentity, evaluateData));
         }
         
         /// <summary>
@@ -2796,7 +2796,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualRoleByName))]
         public virtual Framework.Workflow.Generated.DTO.RoleVisualDTO GetVisualRoleByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string roleName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRoleByNameInternal(roleName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRoleByNameInternal(roleName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.RoleVisualDTO GetVisualRoleByNameInternal(string roleName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2819,7 +2819,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualRoles))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRoles()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRolesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRolesInternal(evaluateData));
         }
         
         /// <summary>
@@ -2828,7 +2828,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualRolesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRolesByIdentsInternal(roleIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRolesByIdentsInternal(roleIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByIdentsInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO[] roleIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2843,7 +2843,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualRolesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualRolesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualRolesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.RoleVisualDTO> GetVisualRolesByRootFilterInternal(Framework.Workflow.Generated.DTO.RoleRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2865,7 +2865,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasRoleAccess))]
         public virtual bool HasRoleAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasRoleAccessInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2886,7 +2886,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStartWorkflowDomainObjectConditionAccess))]
         public virtual void CheckStartWorkflowDomainObjectConditionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2903,7 +2903,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStartWorkflowDomainObjectCondition))]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO GetFullStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO GetFullStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2919,7 +2919,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStartWorkflowDomainObjectConditions))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -2928,7 +2928,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStartWorkflowDomainObjectConditionsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByIdentsInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2943,7 +2943,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStartWorkflowDomainObjectConditionsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByRootFilterInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2965,7 +2965,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStartWorkflowDomainObjectCondition))]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRichDTO GetRichStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRichDTO GetRichStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2981,7 +2981,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStartWorkflowDomainObjectCondition))]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO GetSimpleStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO GetSimpleStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -2997,7 +2997,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStartWorkflowDomainObjectConditions))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -3006,7 +3006,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStartWorkflowDomainObjectConditionsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByIdentsInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3021,7 +3021,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStartWorkflowDomainObjectConditionsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByRootFilterInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3043,7 +3043,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStartWorkflowDomainObjectConditionAccess))]
         public virtual bool HasStartWorkflowDomainObjectConditionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3060,7 +3060,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveStartWorkflowDomainObjectCondition))]
         public virtual void RemoveStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdent, evaluateData));
         }
         
         protected virtual void RemoveStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3081,7 +3081,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveStartWorkflowDomainObjectCondition))]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO SaveStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionStrictDTO startWorkflowDomainObjectConditionStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO SaveStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionStrictDTO startWorkflowDomainObjectConditionStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3108,7 +3108,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateAccess))]
         public virtual void CheckStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateAccessInternal(stateIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateAccessInternal(stateIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateAccessInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3125,7 +3125,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullState))]
         public virtual Framework.Workflow.Generated.DTO.StateFullDTO GetFullState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInternal(stateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInternal(stateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3134,7 +3134,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateByName))]
         public virtual Framework.Workflow.Generated.DTO.StateFullDTO GetFullStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateByNameInternal(stateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateByNameInternal(stateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateFullDTO GetFullStateByNameInternal(string stateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3157,7 +3157,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateFullDTO> GetFullStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -3166,7 +3166,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateFullDTO> GetFullStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO[] stateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStatesByIdentsInternal(stateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStatesByIdentsInternal(stateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateFullDTO> GetFullStatesByIdentsInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO[] stateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3181,7 +3181,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateFullDTO> GetFullStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateFullDTO> GetFullStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3203,7 +3203,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichState))]
         public virtual Framework.Workflow.Generated.DTO.StateRichDTO GetRichState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateInternal(stateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateInternal(stateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3212,7 +3212,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateByName))]
         public virtual Framework.Workflow.Generated.DTO.StateRichDTO GetRichStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateByNameInternal(stateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateByNameInternal(stateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateRichDTO GetRichStateByNameInternal(string stateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3235,7 +3235,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleState))]
         public virtual Framework.Workflow.Generated.DTO.StateSimpleDTO GetSimpleState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInternal(stateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInternal(stateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3244,7 +3244,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateByName))]
         public virtual Framework.Workflow.Generated.DTO.StateSimpleDTO GetSimpleStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateByNameInternal(stateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateByNameInternal(stateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateSimpleDTO GetSimpleStateByNameInternal(string stateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3267,7 +3267,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateSimpleDTO> GetSimpleStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -3276,7 +3276,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateSimpleDTO> GetSimpleStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO[] stateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStatesByIdentsInternal(stateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStatesByIdentsInternal(stateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateSimpleDTO> GetSimpleStatesByIdentsInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO[] stateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3291,7 +3291,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateSimpleDTO> GetSimpleStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateSimpleDTO> GetSimpleStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3313,7 +3313,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualState))]
         public virtual Framework.Workflow.Generated.DTO.StateVisualDTO GetVisualState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateInternal(stateIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateInternal(stateIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3322,7 +3322,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateByName))]
         public virtual Framework.Workflow.Generated.DTO.StateVisualDTO GetVisualStateByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateByNameInternal(stateName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateByNameInternal(stateName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateVisualDTO GetVisualStateByNameInternal(string stateName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3345,7 +3345,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStates))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateVisualDTO> GetVisualStates()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStatesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStatesInternal(evaluateData));
         }
         
         /// <summary>
@@ -3354,7 +3354,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStatesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateVisualDTO> GetVisualStatesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO[] stateIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStatesByIdentsInternal(stateIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStatesByIdentsInternal(stateIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateVisualDTO> GetVisualStatesByIdentsInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO[] stateIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3369,7 +3369,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStatesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateVisualDTO> GetVisualStatesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStatesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStatesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateVisualDTO> GetVisualStatesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3391,7 +3391,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateAccess))]
         public virtual bool HasStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateAccessInternal(stateIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateAccessInternal(stateIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateAccessInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3408,7 +3408,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveState))]
         public virtual void RemoveState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveStateInternal(stateIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveStateInternal(stateIdent, evaluateData));
         }
         
         protected virtual void RemoveStateInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3429,7 +3429,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveState))]
         public virtual Framework.Workflow.Generated.DTO.StateIdentityDTO SaveState([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateStrictDTO stateStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveStateInternal(stateStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveStateInternal(stateStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateIdentityDTO SaveStateInternal(Framework.Workflow.Generated.DTO.StateStrictDTO stateStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3456,7 +3456,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateBaseAccess))]
         public virtual void CheckStateBaseAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateBaseAccessInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3473,7 +3473,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateBase))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseFullDTO GetFullStateBase([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3482,7 +3482,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateBaseByName))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseFullDTO GetFullStateBaseByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseFullDTO GetFullStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3505,7 +3505,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateBases))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBases()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBasesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBasesInternal(evaluateData));
         }
         
         /// <summary>
@@ -3514,7 +3514,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateBasesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByIdentsInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3529,7 +3529,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateBasesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateBasesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseFullDTO> GetFullStateBasesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3551,7 +3551,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateBase))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseRichDTO GetRichStateBase([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3560,7 +3560,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateBaseByName))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseRichDTO GetRichStateBaseByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseRichDTO GetRichStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3583,7 +3583,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateBase))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseSimpleDTO GetSimpleStateBase([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3592,7 +3592,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateBaseByName))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseSimpleDTO GetSimpleStateBaseByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseSimpleDTO GetSimpleStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3615,7 +3615,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateBases))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBases()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesInternal(evaluateData));
         }
         
         /// <summary>
@@ -3624,7 +3624,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateBasesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByIdentsInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3639,7 +3639,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateBasesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateBasesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseSimpleDTO> GetSimpleStateBasesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3661,7 +3661,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateBase))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseVisualDTO GetVisualStateBase([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseInternal(stateBaseIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseInternal(stateBaseIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3670,7 +3670,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateBaseByName))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseVisualDTO GetVisualStateBaseByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateBaseName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseByNameInternal(stateBaseName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBaseByNameInternal(stateBaseName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseVisualDTO GetVisualStateBaseByNameInternal(string stateBaseName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3693,7 +3693,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateBases))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBases()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesInternal(evaluateData));
         }
         
         /// <summary>
@@ -3702,7 +3702,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateBasesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByIdentsInternal(stateBaseIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByIdentsInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO[] stateBaseIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3717,7 +3717,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateBasesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateBasesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateBaseVisualDTO> GetVisualStateBasesByRootFilterInternal(Framework.Workflow.Generated.DTO.StateBaseRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3739,7 +3739,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateBaseAccess))]
         public virtual bool HasStateBaseAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateBaseAccessInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3756,7 +3756,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveStateBase))]
         public virtual void RemoveStateBase([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveStateBaseInternal(stateBaseIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveStateBaseInternal(stateBaseIdent, evaluateData));
         }
         
         protected virtual void RemoveStateBaseInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3777,7 +3777,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveStateBase))]
         public virtual Framework.Workflow.Generated.DTO.StateBaseIdentityDTO SaveStateBase([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseStrictDTO stateBaseStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveStateBaseInternal(stateBaseStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveStateBaseInternal(stateBaseStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateBaseIdentityDTO SaveStateBaseInternal(Framework.Workflow.Generated.DTO.StateBaseStrictDTO stateBaseStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3804,7 +3804,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateDomainObjectEventAccess))]
         public virtual void CheckStateDomainObjectEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateDomainObjectEventAccessInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3821,7 +3821,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateDomainObjectEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventFullDTO GetFullStateDomainObjectEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3830,7 +3830,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateDomainObjectEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventFullDTO GetFullStateDomainObjectEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateDomainObjectEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventFullDTO GetFullStateDomainObjectEventByNameInternal(string stateDomainObjectEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3853,7 +3853,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateDomainObjectEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventFullDTO> GetFullStateDomainObjectEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -3862,7 +3862,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateDomainObjectEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventFullDTO> GetFullStateDomainObjectEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO[] stateDomainObjectEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventsByIdentsInternal(stateDomainObjectEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateDomainObjectEventsByIdentsInternal(stateDomainObjectEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventFullDTO> GetFullStateDomainObjectEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO[] stateDomainObjectEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3883,7 +3883,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateDomainObjectEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventRichDTO GetRichStateDomainObjectEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3892,7 +3892,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateDomainObjectEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventRichDTO GetRichStateDomainObjectEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateDomainObjectEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventRichDTO GetRichStateDomainObjectEventByNameInternal(string stateDomainObjectEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3915,7 +3915,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateDomainObjectEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventSimpleDTO GetSimpleStateDomainObjectEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3924,7 +3924,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateDomainObjectEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventSimpleDTO GetSimpleStateDomainObjectEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateDomainObjectEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventSimpleDTO GetSimpleStateDomainObjectEventByNameInternal(string stateDomainObjectEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3947,7 +3947,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateDomainObjectEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventSimpleDTO> GetSimpleStateDomainObjectEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -3956,7 +3956,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateDomainObjectEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventSimpleDTO> GetSimpleStateDomainObjectEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO[] stateDomainObjectEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventsByIdentsInternal(stateDomainObjectEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateDomainObjectEventsByIdentsInternal(stateDomainObjectEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventSimpleDTO> GetSimpleStateDomainObjectEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO[] stateDomainObjectEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -3977,7 +3977,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateDomainObjectEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventVisualDTO GetVisualStateDomainObjectEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventInternal(stateDomainObjectEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -3986,7 +3986,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateDomainObjectEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventVisualDTO GetVisualStateDomainObjectEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateDomainObjectEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventByNameInternal(stateDomainObjectEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateDomainObjectEventVisualDTO GetVisualStateDomainObjectEventByNameInternal(string stateDomainObjectEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4009,7 +4009,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateDomainObjectEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventVisualDTO> GetVisualStateDomainObjectEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4018,7 +4018,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateDomainObjectEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventVisualDTO> GetVisualStateDomainObjectEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO[] stateDomainObjectEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventsByIdentsInternal(stateDomainObjectEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateDomainObjectEventsByIdentsInternal(stateDomainObjectEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateDomainObjectEventVisualDTO> GetVisualStateDomainObjectEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO[] stateDomainObjectEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4039,7 +4039,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateDomainObjectEventAccess))]
         public virtual bool HasStateDomainObjectEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateDomainObjectEventAccessInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4060,7 +4060,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateTimeoutEventAccess))]
         public virtual void CheckStateTimeoutEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateTimeoutEventAccessInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4077,7 +4077,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateTimeoutEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO GetFullStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4086,7 +4086,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateTimeoutEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO GetFullStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO GetFullStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4109,7 +4109,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateTimeoutEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO> GetFullStateTimeoutEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4118,7 +4118,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateTimeoutEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO> GetFullStateTimeoutEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventFullDTO> GetFullStateTimeoutEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4139,7 +4139,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateTimeoutEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventRichDTO GetRichStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4148,7 +4148,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateTimeoutEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventRichDTO GetRichStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventRichDTO GetRichStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4171,7 +4171,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateTimeoutEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO GetSimpleStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4180,7 +4180,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateTimeoutEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO GetSimpleStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO GetSimpleStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4203,7 +4203,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateTimeoutEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO> GetSimpleStateTimeoutEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4212,7 +4212,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateTimeoutEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO> GetSimpleStateTimeoutEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventSimpleDTO> GetSimpleStateTimeoutEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4233,7 +4233,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateTimeoutEvent))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO GetVisualStateTimeoutEvent([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventInternal(stateTimeoutEventIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4242,7 +4242,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateTimeoutEventByName))]
         public virtual Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO GetVisualStateTimeoutEventByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string stateTimeoutEventName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventByNameInternal(stateTimeoutEventName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO GetVisualStateTimeoutEventByNameInternal(string stateTimeoutEventName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4265,7 +4265,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateTimeoutEvents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO> GetVisualStateTimeoutEvents()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4274,7 +4274,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualStateTimeoutEventsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO> GetVisualStateTimeoutEventsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualStateTimeoutEventsByIdentsInternal(stateTimeoutEventIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateTimeoutEventVisualDTO> GetVisualStateTimeoutEventsByIdentsInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO[] stateTimeoutEventIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4295,7 +4295,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateTimeoutEventAccess))]
         public virtual bool HasStateTimeoutEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateTimeoutEventAccessInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4316,7 +4316,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTargetSystemAccess))]
         public virtual void CheckTargetSystemAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4333,7 +4333,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTargetSystem))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemFullDTO GetFullTargetSystem([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4342,7 +4342,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTargetSystemByName))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemFullDTO GetFullTargetSystemByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemFullDTO GetFullTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4365,7 +4365,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTargetSystems))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemFullDTO> GetFullTargetSystems()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4374,7 +4374,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTargetSystemsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemFullDTO> GetFullTargetSystemsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemFullDTO> GetFullTargetSystemsByIdentsInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4395,7 +4395,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTargetSystem))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemRichDTO GetRichTargetSystem([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4404,7 +4404,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTargetSystemByName))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemRichDTO GetRichTargetSystemByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemRichDTO GetRichTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4427,7 +4427,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTargetSystem))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO GetSimpleTargetSystem([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4436,7 +4436,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTargetSystemByName))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO GetSimpleTargetSystemByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO GetSimpleTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4459,7 +4459,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTargetSystems))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO> GetSimpleTargetSystems()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4468,7 +4468,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTargetSystemsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO> GetSimpleTargetSystemsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemSimpleDTO> GetSimpleTargetSystemsByIdentsInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4489,7 +4489,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTargetSystem))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemVisualDTO GetVisualTargetSystem([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemInternal(targetSystemIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemInternal(targetSystemIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4498,7 +4498,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTargetSystemByName))]
         public virtual Framework.Workflow.Generated.DTO.TargetSystemVisualDTO GetVisualTargetSystemByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string targetSystemName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemByNameInternal(targetSystemName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemByNameInternal(targetSystemName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TargetSystemVisualDTO GetVisualTargetSystemByNameInternal(string targetSystemName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4521,7 +4521,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTargetSystems))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemVisualDTO> GetVisualTargetSystems()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4530,7 +4530,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTargetSystemsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemVisualDTO> GetVisualTargetSystemsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTargetSystemsByIdentsInternal(targetSystemIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TargetSystemVisualDTO> GetVisualTargetSystemsByIdentsInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO[] targetSystemIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4551,7 +4551,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTargetSystemAccess))]
         public virtual bool HasTargetSystemAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4572,7 +4572,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTaskAccess))]
         public virtual void CheckTaskAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTaskAccessInternal(taskIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTaskAccessInternal(taskIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTaskAccessInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4589,7 +4589,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTask))]
         public virtual Framework.Workflow.Generated.DTO.TaskFullDTO GetFullTask([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTaskInternal(taskIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTaskInternal(taskIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4598,7 +4598,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTaskByName))]
         public virtual Framework.Workflow.Generated.DTO.TaskFullDTO GetFullTaskByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string taskName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTaskByNameInternal(taskName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTaskByNameInternal(taskName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskFullDTO GetFullTaskByNameInternal(string taskName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4621,7 +4621,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTasks))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskFullDTO> GetFullTasks()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTasksInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTasksInternal(evaluateData));
         }
         
         /// <summary>
@@ -4630,7 +4630,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTasksByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskFullDTO> GetFullTasksByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO[] taskIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTasksByIdentsInternal(taskIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTasksByIdentsInternal(taskIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskFullDTO> GetFullTasksByIdentsInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO[] taskIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4645,7 +4645,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTasksByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskFullDTO> GetFullTasksByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTasksByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTasksByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskFullDTO> GetFullTasksByRootFilterInternal(Framework.Workflow.Generated.DTO.TaskRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4667,7 +4667,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTask))]
         public virtual Framework.Workflow.Generated.DTO.TaskRichDTO GetRichTask([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTaskInternal(taskIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTaskInternal(taskIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4676,7 +4676,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTaskByName))]
         public virtual Framework.Workflow.Generated.DTO.TaskRichDTO GetRichTaskByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string taskName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTaskByNameInternal(taskName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTaskByNameInternal(taskName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskRichDTO GetRichTaskByNameInternal(string taskName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4699,7 +4699,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTask))]
         public virtual Framework.Workflow.Generated.DTO.TaskSimpleDTO GetSimpleTask([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInternal(taskIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInternal(taskIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4708,7 +4708,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTaskByName))]
         public virtual Framework.Workflow.Generated.DTO.TaskSimpleDTO GetSimpleTaskByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string taskName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTaskByNameInternal(taskName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTaskByNameInternal(taskName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskSimpleDTO GetSimpleTaskByNameInternal(string taskName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4731,7 +4731,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTasks))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskSimpleDTO> GetSimpleTasks()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTasksInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTasksInternal(evaluateData));
         }
         
         /// <summary>
@@ -4740,7 +4740,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTasksByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskSimpleDTO> GetSimpleTasksByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO[] taskIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTasksByIdentsInternal(taskIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTasksByIdentsInternal(taskIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskSimpleDTO> GetSimpleTasksByIdentsInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO[] taskIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4755,7 +4755,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTasksByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskSimpleDTO> GetSimpleTasksByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTasksByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTasksByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskSimpleDTO> GetSimpleTasksByRootFilterInternal(Framework.Workflow.Generated.DTO.TaskRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4777,7 +4777,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTask))]
         public virtual Framework.Workflow.Generated.DTO.TaskVisualDTO GetVisualTask([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTaskInternal(taskIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTaskInternal(taskIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4786,7 +4786,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTaskByName))]
         public virtual Framework.Workflow.Generated.DTO.TaskVisualDTO GetVisualTaskByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string taskName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTaskByNameInternal(taskName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTaskByNameInternal(taskName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskVisualDTO GetVisualTaskByNameInternal(string taskName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4809,7 +4809,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTasks))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskVisualDTO> GetVisualTasks()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTasksInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTasksInternal(evaluateData));
         }
         
         /// <summary>
@@ -4818,7 +4818,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTasksByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskVisualDTO> GetVisualTasksByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO[] taskIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTasksByIdentsInternal(taskIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTasksByIdentsInternal(taskIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskVisualDTO> GetVisualTasksByIdentsInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO[] taskIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4833,7 +4833,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTasksByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskVisualDTO> GetVisualTasksByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTasksByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTasksByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskVisualDTO> GetVisualTasksByRootFilterInternal(Framework.Workflow.Generated.DTO.TaskRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4855,7 +4855,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTaskAccess))]
         public virtual bool HasTaskAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTaskAccessInternal(taskIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTaskAccessInternal(taskIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTaskAccessInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4872,7 +4872,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveTask))]
         public virtual void RemoveTask([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveTaskInternal(taskIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveTaskInternal(taskIdent, evaluateData));
         }
         
         protected virtual void RemoveTaskInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4893,7 +4893,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveTask))]
         public virtual Framework.Workflow.Generated.DTO.TaskIdentityDTO SaveTask([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskStrictDTO taskStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveTaskInternal(taskStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveTaskInternal(taskStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskIdentityDTO SaveTaskInternal(Framework.Workflow.Generated.DTO.TaskStrictDTO taskStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4920,7 +4920,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTransitionAccess))]
         public virtual void CheckTransitionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTransitionAccessInternal(transitionIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTransitionAccessInternal(transitionIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTransitionAccessInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4937,7 +4937,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransition))]
         public virtual Framework.Workflow.Generated.DTO.TransitionFullDTO GetFullTransition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInternal(transitionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInternal(transitionIdentity, evaluateData));
         }
         
         /// <summary>
@@ -4946,7 +4946,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitionByName))]
         public virtual Framework.Workflow.Generated.DTO.TransitionFullDTO GetFullTransitionByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string transitionName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionByNameInternal(transitionName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionByNameInternal(transitionName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionFullDTO GetFullTransitionByNameInternal(string transitionName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4969,7 +4969,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitions))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionFullDTO> GetFullTransitions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -4978,7 +4978,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitionsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionFullDTO> GetFullTransitionsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO[] transitionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionsByIdentsInternal(transitionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionsByIdentsInternal(transitionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionFullDTO> GetFullTransitionsByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO[] transitionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -4993,7 +4993,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitionsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionFullDTO> GetFullTransitionsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionFullDTO> GetFullTransitionsByRootFilterInternal(Framework.Workflow.Generated.DTO.TransitionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5015,7 +5015,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTransition))]
         public virtual Framework.Workflow.Generated.DTO.TransitionRichDTO GetRichTransition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTransitionInternal(transitionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTransitionInternal(transitionIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5024,7 +5024,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTransitionByName))]
         public virtual Framework.Workflow.Generated.DTO.TransitionRichDTO GetRichTransitionByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string transitionName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTransitionByNameInternal(transitionName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTransitionByNameInternal(transitionName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionRichDTO GetRichTransitionByNameInternal(string transitionName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5047,7 +5047,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransition))]
         public virtual Framework.Workflow.Generated.DTO.TransitionSimpleDTO GetSimpleTransition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInternal(transitionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInternal(transitionIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5056,7 +5056,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitionByName))]
         public virtual Framework.Workflow.Generated.DTO.TransitionSimpleDTO GetSimpleTransitionByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string transitionName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionByNameInternal(transitionName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionByNameInternal(transitionName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionSimpleDTO GetSimpleTransitionByNameInternal(string transitionName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5079,7 +5079,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitions))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionSimpleDTO> GetSimpleTransitions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -5088,7 +5088,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitionsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionSimpleDTO> GetSimpleTransitionsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO[] transitionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionsByIdentsInternal(transitionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionsByIdentsInternal(transitionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionSimpleDTO> GetSimpleTransitionsByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO[] transitionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5103,7 +5103,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitionsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionSimpleDTO> GetSimpleTransitionsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionSimpleDTO> GetSimpleTransitionsByRootFilterInternal(Framework.Workflow.Generated.DTO.TransitionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5125,7 +5125,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTransition))]
         public virtual Framework.Workflow.Generated.DTO.TransitionVisualDTO GetVisualTransition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTransitionInternal(transitionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTransitionInternal(transitionIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5134,7 +5134,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTransitionByName))]
         public virtual Framework.Workflow.Generated.DTO.TransitionVisualDTO GetVisualTransitionByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string transitionName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTransitionByNameInternal(transitionName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTransitionByNameInternal(transitionName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionVisualDTO GetVisualTransitionByNameInternal(string transitionName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5157,7 +5157,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTransitions))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionVisualDTO> GetVisualTransitions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTransitionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTransitionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -5166,7 +5166,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTransitionsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionVisualDTO> GetVisualTransitionsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO[] transitionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTransitionsByIdentsInternal(transitionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTransitionsByIdentsInternal(transitionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionVisualDTO> GetVisualTransitionsByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO[] transitionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5181,7 +5181,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualTransitionsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionVisualDTO> GetVisualTransitionsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualTransitionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualTransitionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionVisualDTO> GetVisualTransitionsByRootFilterInternal(Framework.Workflow.Generated.DTO.TransitionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5203,7 +5203,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTransitionAccess))]
         public virtual bool HasTransitionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTransitionAccessInternal(transitionIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTransitionAccessInternal(transitionIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTransitionAccessInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5220,7 +5220,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveTransition))]
         public virtual void RemoveTransition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveTransitionInternal(transitionIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveTransitionInternal(transitionIdent, evaluateData));
         }
         
         protected virtual void RemoveTransitionInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5241,7 +5241,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveTransition))]
         public virtual Framework.Workflow.Generated.DTO.TransitionIdentityDTO SaveTransition([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionStrictDTO transitionStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveTransitionInternal(transitionStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveTransitionInternal(transitionStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionIdentityDTO SaveTransitionInternal(Framework.Workflow.Generated.DTO.TransitionStrictDTO transitionStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5268,7 +5268,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowAccess))]
         public virtual void CheckWorkflowAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckWorkflowAccessInternal(workflowIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowAccessInternal(workflowIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckWorkflowAccessInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5285,7 +5285,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CreateWorkflow))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowRichDTO CreateWorkflow([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowCreateModelStrictDTO workflowCreateModel)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CreateWorkflowInternal(workflowCreateModel, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CreateWorkflowInternal(workflowCreateModel, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowRichDTO CreateWorkflowInternal(Framework.Workflow.Generated.DTO.WorkflowCreateModelStrictDTO workflowCreateModel, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5303,7 +5303,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflow))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowFullDTO GetFullWorkflow([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInternal(workflowIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInternal(workflowIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5312,7 +5312,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowFullDTO GetFullWorkflowByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowByNameInternal(workflowName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowByNameInternal(workflowName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowFullDTO GetFullWorkflowByNameInternal(string workflowName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5335,7 +5335,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflows))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowFullDTO> GetFullWorkflows()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowsInternal(evaluateData));
         }
         
         /// <summary>
@@ -5344,7 +5344,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowFullDTO> GetFullWorkflowsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO[] workflowIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowsByIdentsInternal(workflowIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowsByIdentsInternal(workflowIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowFullDTO> GetFullWorkflowsByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO[] workflowIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5359,7 +5359,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowFullDTO> GetFullWorkflowsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowFullDTO> GetFullWorkflowsByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5381,7 +5381,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflow))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowRichDTO GetRichWorkflow([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowInternal(workflowIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowInternal(workflowIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5390,7 +5390,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowRichDTO GetRichWorkflowByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowByNameInternal(workflowName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowByNameInternal(workflowName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowRichDTO GetRichWorkflowByNameInternal(string workflowName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5413,7 +5413,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflow))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSimpleDTO GetSimpleWorkflow([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInternal(workflowIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInternal(workflowIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5422,7 +5422,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSimpleDTO GetSimpleWorkflowByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowByNameInternal(workflowName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowByNameInternal(workflowName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSimpleDTO GetSimpleWorkflowByNameInternal(string workflowName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5445,7 +5445,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflows))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSimpleDTO> GetSimpleWorkflows()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowsInternal(evaluateData));
         }
         
         /// <summary>
@@ -5454,7 +5454,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSimpleDTO> GetSimpleWorkflowsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO[] workflowIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowsByIdentsInternal(workflowIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowsByIdentsInternal(workflowIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSimpleDTO> GetSimpleWorkflowsByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO[] workflowIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5469,7 +5469,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSimpleDTO> GetSimpleWorkflowsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSimpleDTO> GetSimpleWorkflowsByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5491,7 +5491,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflow))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowVisualDTO GetVisualWorkflow([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInternal(workflowIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInternal(workflowIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5500,7 +5500,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowVisualDTO GetVisualWorkflowByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowByNameInternal(workflowName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowByNameInternal(workflowName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowVisualDTO GetVisualWorkflowByNameInternal(string workflowName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5523,7 +5523,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflows))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowVisualDTO> GetVisualWorkflows()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowsInternal(evaluateData));
         }
         
         /// <summary>
@@ -5532,7 +5532,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowsByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowVisualDTO> GetVisualWorkflowsByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO[] workflowIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowsByIdentsInternal(workflowIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowsByIdentsInternal(workflowIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowVisualDTO> GetVisualWorkflowsByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO[] workflowIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5547,7 +5547,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowsByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowVisualDTO> GetVisualWorkflowsByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowVisualDTO> GetVisualWorkflowsByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5569,7 +5569,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowAccess))]
         public virtual bool HasWorkflowAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasWorkflowAccessInternal(workflowIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowAccessInternal(workflowIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasWorkflowAccessInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5586,7 +5586,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveWorkflow))]
         public virtual void RemoveWorkflow([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveWorkflowInternal(workflowIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveWorkflowInternal(workflowIdent, evaluateData));
         }
         
         protected virtual void RemoveWorkflowInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5619,7 +5619,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowLambdaAccess))]
         public virtual void CheckWorkflowLambdaAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckWorkflowLambdaAccessInternal(workflowLambdaIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowLambdaAccessInternal(workflowLambdaIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckWorkflowLambdaAccessInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5636,7 +5636,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowLambda))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO GetFullWorkflowLambda([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5645,7 +5645,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowLambdaByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO GetFullWorkflowLambdaByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowLambdaName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO GetFullWorkflowLambdaByNameInternal(string workflowLambdaName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5668,7 +5668,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowLambdas))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO> GetFullWorkflowLambdas()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdasInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdasInternal(evaluateData));
         }
         
         /// <summary>
@@ -5677,7 +5677,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowLambdasByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO> GetFullWorkflowLambdasByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO[] workflowLambdaIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdasByIdentsInternal(workflowLambdaIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdasByIdentsInternal(workflowLambdaIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO> GetFullWorkflowLambdasByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO[] workflowLambdaIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5692,7 +5692,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowLambdasByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO> GetFullWorkflowLambdasByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdasByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowLambdasByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaFullDTO> GetFullWorkflowLambdasByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5714,7 +5714,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowLambda))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaRichDTO GetRichWorkflowLambda([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5723,7 +5723,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowLambdaByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaRichDTO GetRichWorkflowLambdaByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowLambdaName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowLambdaRichDTO GetRichWorkflowLambdaByNameInternal(string workflowLambdaName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5746,7 +5746,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowLambda))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO GetSimpleWorkflowLambda([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5755,7 +5755,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowLambdaByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO GetSimpleWorkflowLambdaByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowLambdaName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO GetSimpleWorkflowLambdaByNameInternal(string workflowLambdaName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5778,7 +5778,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowLambdas))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO> GetSimpleWorkflowLambdas()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdasInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdasInternal(evaluateData));
         }
         
         /// <summary>
@@ -5787,7 +5787,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowLambdasByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO> GetSimpleWorkflowLambdasByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO[] workflowLambdaIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdasByIdentsInternal(workflowLambdaIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdasByIdentsInternal(workflowLambdaIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO> GetSimpleWorkflowLambdasByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO[] workflowLambdaIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5802,7 +5802,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowLambdasByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO> GetSimpleWorkflowLambdasByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdasByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowLambdasByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaSimpleDTO> GetSimpleWorkflowLambdasByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5824,7 +5824,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowLambda))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO GetVisualWorkflowLambda([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdaInternal(workflowLambdaIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5833,7 +5833,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowLambdaByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO GetVisualWorkflowLambdaByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowLambdaName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdaByNameInternal(workflowLambdaName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO GetVisualWorkflowLambdaByNameInternal(string workflowLambdaName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5856,7 +5856,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowLambdas))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO> GetVisualWorkflowLambdas()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdasInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdasInternal(evaluateData));
         }
         
         /// <summary>
@@ -5865,7 +5865,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowLambdasByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO> GetVisualWorkflowLambdasByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO[] workflowLambdaIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdasByIdentsInternal(workflowLambdaIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdasByIdentsInternal(workflowLambdaIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO> GetVisualWorkflowLambdasByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO[] workflowLambdaIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5880,7 +5880,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowLambdasByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO> GetVisualWorkflowLambdasByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdasByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowLambdasByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowLambdaVisualDTO> GetVisualWorkflowLambdasByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5902,7 +5902,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowLambdaAccess))]
         public virtual bool HasWorkflowLambdaAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasWorkflowLambdaAccessInternal(workflowLambdaIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowLambdaAccessInternal(workflowLambdaIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasWorkflowLambdaAccessInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5919,7 +5919,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveWorkflowLambda))]
         public virtual void RemoveWorkflowLambda([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveWorkflowLambdaInternal(workflowLambdaIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveWorkflowLambdaInternal(workflowLambdaIdent, evaluateData));
         }
         
         protected virtual void RemoveWorkflowLambdaInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5940,7 +5940,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveWorkflowLambda))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO SaveWorkflowLambda([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaStrictDTO workflowLambdaStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveWorkflowLambdaInternal(workflowLambdaStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveWorkflowLambdaInternal(workflowLambdaStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO SaveWorkflowLambdaInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaStrictDTO workflowLambdaStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5967,7 +5967,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowSourceAccess))]
         public virtual void CheckWorkflowSourceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckWorkflowSourceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -5984,7 +5984,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowSource))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO GetFullWorkflowSource([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -5993,7 +5993,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowSourceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO GetFullWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO GetFullWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6016,7 +6016,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowSources))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSources()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6025,7 +6025,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowSourcesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6040,7 +6040,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowSourcesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowSourcesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceFullDTO> GetFullWorkflowSourcesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6062,7 +6062,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowSource))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceRichDTO GetRichWorkflowSource([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6071,7 +6071,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowSourceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceRichDTO GetRichWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceRichDTO GetRichWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6094,7 +6094,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowSource))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO GetSimpleWorkflowSource([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6103,7 +6103,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowSourceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO GetSimpleWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO GetSimpleWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6126,7 +6126,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowSources))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSources()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6135,7 +6135,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowSourcesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6150,7 +6150,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowSourcesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowSourcesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceSimpleDTO> GetSimpleWorkflowSourcesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6172,7 +6172,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowSource))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO GetVisualWorkflowSource([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceInternal(workflowSourceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6181,7 +6181,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowSourceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO GetVisualWorkflowSourceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowSourceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourceByNameInternal(workflowSourceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO GetVisualWorkflowSourceByNameInternal(string workflowSourceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6204,7 +6204,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowSources))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSources()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6213,7 +6213,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowSourcesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByIdentsInternal(workflowSourceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO[] workflowSourceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6228,7 +6228,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowSourcesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowSourcesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowSourceVisualDTO> GetVisualWorkflowSourcesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowSourceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6250,7 +6250,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowSourceAccess))]
         public virtual bool HasWorkflowSourceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasWorkflowSourceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6271,7 +6271,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateInstanceAccess))]
         public virtual void CheckStateInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStateInstanceAccessInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6288,7 +6288,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateInstance))]
         public virtual Framework.Workflow.Generated.DTO.StateInstanceFullDTO GetFullStateInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInstanceInternal(stateInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInstanceInternal(stateInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateInstanceFullDTO GetFullStateInstanceInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6304,7 +6304,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceFullDTO> GetFullStateInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6313,7 +6313,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullStateInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceFullDTO> GetFullStateInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceFullDTO> GetFullStateInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6334,7 +6334,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichStateInstance))]
         public virtual Framework.Workflow.Generated.DTO.StateInstanceRichDTO GetRichStateInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStateInstanceInternal(stateInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStateInstanceInternal(stateInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateInstanceRichDTO GetRichStateInstanceInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6350,7 +6350,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateInstance))]
         public virtual Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO GetSimpleStateInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstanceInternal(stateInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstanceInternal(stateInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO GetSimpleStateInstanceInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6366,7 +6366,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO> GetSimpleStateInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6375,7 +6375,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleStateInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO> GetSimpleStateInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStateInstancesByIdentsInternal(stateInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StateInstanceSimpleDTO> GetSimpleStateInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO[] stateInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6396,7 +6396,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateInstanceAccess))]
         public virtual bool HasStateInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStateInstanceAccessInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6417,7 +6417,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTaskInstanceAccess))]
         public virtual void CheckTaskInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTaskInstanceAccessInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6434,7 +6434,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTaskInstance))]
         public virtual Framework.Workflow.Generated.DTO.TaskInstanceFullDTO GetFullTaskInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTaskInstanceInternal(taskInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTaskInstanceInternal(taskInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskInstanceFullDTO GetFullTaskInstanceInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6450,7 +6450,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTaskInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceFullDTO> GetFullTaskInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTaskInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTaskInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6459,7 +6459,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTaskInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceFullDTO> GetFullTaskInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO[] taskInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTaskInstancesByIdentsInternal(taskInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTaskInstancesByIdentsInternal(taskInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceFullDTO> GetFullTaskInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO[] taskInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6474,7 +6474,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTaskInstancesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceFullDTO> GetFullTaskInstancesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTaskInstancesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTaskInstancesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceFullDTO> GetFullTaskInstancesByRootFilterInternal(Framework.Workflow.Generated.DTO.TaskInstanceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6496,7 +6496,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTaskInstance))]
         public virtual Framework.Workflow.Generated.DTO.TaskInstanceRichDTO GetRichTaskInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTaskInstanceInternal(taskInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTaskInstanceInternal(taskInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskInstanceRichDTO GetRichTaskInstanceInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6512,7 +6512,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTaskInstance))]
         public virtual Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO GetSimpleTaskInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstanceInternal(taskInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstanceInternal(taskInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO GetSimpleTaskInstanceInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6528,7 +6528,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTaskInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO> GetSimpleTaskInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6537,7 +6537,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTaskInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO> GetSimpleTaskInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO[] taskInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstancesByIdentsInternal(taskInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstancesByIdentsInternal(taskInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO> GetSimpleTaskInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO[] taskInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6552,7 +6552,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTaskInstancesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO> GetSimpleTaskInstancesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstancesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTaskInstancesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TaskInstanceSimpleDTO> GetSimpleTaskInstancesByRootFilterInternal(Framework.Workflow.Generated.DTO.TaskInstanceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6574,7 +6574,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTaskInstanceAccess))]
         public virtual bool HasTaskInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTaskInstanceAccessInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6591,7 +6591,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveTaskInstance))]
         public virtual Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO SaveTaskInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceStrictDTO taskInstanceStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveTaskInstanceInternal(taskInstanceStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveTaskInstanceInternal(taskInstanceStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO SaveTaskInstanceInternal(Framework.Workflow.Generated.DTO.TaskInstanceStrictDTO taskInstanceStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6618,7 +6618,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTransitionInstanceAccess))]
         public virtual void CheckTransitionInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6635,7 +6635,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitionInstance))]
         public virtual Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO GetFullTransitionInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO GetFullTransitionInstanceInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6651,7 +6651,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitionInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO> GetFullTransitionInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6660,7 +6660,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullTransitionInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO> GetFullTransitionInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceFullDTO> GetFullTransitionInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6681,7 +6681,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichTransitionInstance))]
         public virtual Framework.Workflow.Generated.DTO.TransitionInstanceRichDTO GetRichTransitionInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionInstanceRichDTO GetRichTransitionInstanceInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6697,7 +6697,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitionInstance))]
         public virtual Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO GetSimpleTransitionInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstanceInternal(transitionInstanceIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO GetSimpleTransitionInstanceInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6713,7 +6713,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitionInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO> GetSimpleTransitionInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6722,7 +6722,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleTransitionInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO> GetSimpleTransitionInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleTransitionInstancesByIdentsInternal(transitionInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.TransitionInstanceSimpleDTO> GetSimpleTransitionInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO[] transitionInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6743,7 +6743,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTransitionInstanceAccess))]
         public virtual bool HasTransitionInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6764,7 +6764,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowInstanceAccess))]
         public virtual void CheckWorkflowInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckWorkflowInstanceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6781,7 +6781,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowInstance))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO GetFullWorkflowInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6790,7 +6790,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowInstanceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO GetFullWorkflowInstanceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowInstanceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO GetFullWorkflowInstanceByNameInternal(string workflowInstanceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6813,7 +6813,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO> GetFullWorkflowInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6822,7 +6822,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO> GetFullWorkflowInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] workflowInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstancesByIdentsInternal(workflowInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstancesByIdentsInternal(workflowInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO> GetFullWorkflowInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] workflowInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6837,7 +6837,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullWorkflowInstancesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO> GetFullWorkflowInstancesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstancesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullWorkflowInstancesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceFullDTO> GetFullWorkflowInstancesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6859,7 +6859,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowInstance))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceRichDTO GetRichWorkflowInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6868,7 +6868,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetRichWorkflowInstanceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceRichDTO GetRichWorkflowInstanceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowInstanceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowInstanceRichDTO GetRichWorkflowInstanceByNameInternal(string workflowInstanceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6891,7 +6891,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowInstance))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO GetSimpleWorkflowInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6900,7 +6900,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowInstanceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO GetSimpleWorkflowInstanceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowInstanceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO GetSimpleWorkflowInstanceByNameInternal(string workflowInstanceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6923,7 +6923,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO> GetSimpleWorkflowInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -6932,7 +6932,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO> GetSimpleWorkflowInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] workflowInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstancesByIdentsInternal(workflowInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstancesByIdentsInternal(workflowInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO> GetSimpleWorkflowInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] workflowInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6947,7 +6947,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetSimpleWorkflowInstancesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO> GetSimpleWorkflowInstancesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstancesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleWorkflowInstancesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceSimpleDTO> GetSimpleWorkflowInstancesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -6969,7 +6969,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowInstance))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO GetVisualWorkflowInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstanceInternal(workflowInstanceIdentity, evaluateData));
         }
         
         /// <summary>
@@ -6978,7 +6978,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowInstanceByName))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO GetVisualWorkflowInstanceByName([Microsoft.AspNetCore.Mvc.FromFormAttribute()] string workflowInstanceName)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstanceByNameInternal(workflowInstanceName, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO GetVisualWorkflowInstanceByNameInternal(string workflowInstanceName, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -7001,7 +7001,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowInstances))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO> GetVisualWorkflowInstances()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstancesInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstancesInternal(evaluateData));
         }
         
         /// <summary>
@@ -7010,7 +7010,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowInstancesByIdents))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO> GetVisualWorkflowInstancesByIdents([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] workflowInstanceIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstancesByIdentsInternal(workflowInstanceIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstancesByIdentsInternal(workflowInstanceIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO> GetVisualWorkflowInstancesByIdentsInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] workflowInstanceIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -7025,7 +7025,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetVisualWorkflowInstancesByRootFilter))]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO> GetVisualWorkflowInstancesByRootFilter([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstancesByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualWorkflowInstancesByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.WorkflowInstanceVisualDTO> GetVisualWorkflowInstancesByRootFilterInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -7047,7 +7047,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowInstanceAccess))]
         public virtual bool HasWorkflowInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasWorkflowInstanceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -7064,7 +7064,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveWorkflowInstance))]
         public virtual void RemoveWorkflowInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveWorkflowInstanceInternal(workflowInstanceIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveWorkflowInstanceInternal(workflowInstanceIdent, evaluateData));
         }
         
         protected virtual void RemoveWorkflowInstanceInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -7085,7 +7085,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveWorkflowInstances))]
         public virtual void RemoveWorkflowInstances([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] idents)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveWorkflowInstancesInternal(idents, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveWorkflowInstancesInternal(idents, evaluateData));
         }
         
         protected virtual void RemoveWorkflowInstancesInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO[] idents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -7100,7 +7100,7 @@ namespace Framework.Workflow.WebApi
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveWorkflowInstance))]
         public virtual Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO SaveWorkflowInstance([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceStrictDTO workflowInstanceStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveWorkflowInstanceInternal(workflowInstanceStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveWorkflowInstanceInternal(workflowInstanceStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO SaveWorkflowInstanceInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceStrictDTO workflowInstanceStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)

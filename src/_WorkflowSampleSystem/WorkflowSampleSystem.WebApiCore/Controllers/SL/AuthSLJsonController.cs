@@ -1,6 +1,6 @@
 ﻿using Framework.Authorization.Domain;
 using Framework.Authorization.Generated.DTO;
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven;
 using Framework.SecuritySystem;
 
 using Microsoft.AspNetCore.Mvc;

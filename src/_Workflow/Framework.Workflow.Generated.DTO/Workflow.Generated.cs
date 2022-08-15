@@ -25647,7 +25647,7 @@ namespace Framework.Workflow.Generated.DTO
             where TMappingObject : Framework.DomainDriven.IMappingObject<Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService, TDomainObject, System.Guid>
             where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
         {
-            TDomainObject domainObject = this.GetById<TDomainObject>(mappingObject.Id, Framework.DomainDriven.BLL.IdCheckMode.CheckAll);
+            TDomainObject domainObject = this.GetById<TDomainObject>(mappingObject.Id, Framework.DomainDriven.IdCheckMode.CheckAll);
             this.MapToDomainObject(mappingObject, domainObject);
             return domainObject;
         }

@@ -40,7 +40,11 @@ namespace WorkflowSampleSystem.WebApiCore
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+            services.AddScoped<IWorkflowApproveProcessor, WorkflowApproveProcessor>();
+
             services.AddHttpContextAccessor();
+            services.AddScoped<IWebApiDBSessionModeResolver, WebApiDBSessionModeResolver>();
+            services.AddScoped<IWebApiCurrentMethodResolver, WebApiCurrentMethodResolver>();
 
             services.AddDatabaseSettings(connectionString);
             services.AddCapBss(connectionString);
@@ -62,13 +66,15 @@ namespace WorkflowSampleSystem.WebApiCore
 
             services.AddSingleton<ISpecificationEvaluator, NhSpecificationEvaluator>();
 
+            services.AddLogging();
+
             return services.AddControllerEnvironment();
         }
 
         public static IServiceCollection AddDatabaseSettings(this IServiceCollection services, string connectionString) =>
                 services.AddScoped<INHibSessionSetup, NHibSessionSettings>()
 
-                        .AddScoped<IDBSessionEventListener, DBSessionEventListener>()
+                        .AddScoped<IDBSessionEventListener, DefaultDBSessionEventListener>()
                         .AddScoped<IDBSessionEventListener, WorkflowDBSessionEventListener>()
                         .AddScopedFromLazy<IDBSession, NHibSession>()
 
@@ -87,6 +93,8 @@ namespace WorkflowSampleSystem.WebApiCore
         public static IServiceCollection AddControllerEnvironment(this IServiceCollection services)
         {
             services.AddSingleton<IWebApiExceptionExpander, WebApiExceptionExpander>();
+
+            services.AddSingleton<IDBSessionEvaluator, DBSessionEvaluator>();
 
             services.AddSingleton<IContextEvaluator<IAuthorizationBLLContext>, ContextEvaluator<IAuthorizationBLLContext>>();
             services.AddSingleton<IContextEvaluator<IConfigurationBLLContext>, ContextEvaluator<IConfigurationBLLContext>>();

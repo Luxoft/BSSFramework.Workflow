@@ -2,7 +2,7 @@
 using System.Linq;
 
 using Framework.Core;
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven;
 using Framework.DomainDriven.ServiceModel.IAD;
 using Framework.Workflow.BLL;
 

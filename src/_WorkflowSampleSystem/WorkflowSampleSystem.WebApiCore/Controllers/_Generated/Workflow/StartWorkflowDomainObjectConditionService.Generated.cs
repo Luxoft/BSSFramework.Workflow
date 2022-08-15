@@ -18,7 +18,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkStartWorkflowDomainObjectConditionAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent = checkStartWorkflowDomainObjectConditionAccessAutoRequest.startWorkflowDomainObjectConditionIdent;
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.CheckStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual void CheckStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -36,7 +36,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStartWorkflowDomainObjectCondition")]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO GetFullStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO GetFullStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -53,7 +53,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStartWorkflowDomainObjectConditions")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -63,7 +63,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStartWorkflowDomainObjectConditionsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByIdentsInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -79,7 +79,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullStartWorkflowDomainObjectConditionsByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionFullDTO> GetFullStartWorkflowDomainObjectConditionsByRootFilterInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -102,7 +102,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetRichStartWorkflowDomainObjectCondition")]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRichDTO GetRichStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetRichStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetRichStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRichDTO GetRichStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -119,7 +119,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStartWorkflowDomainObjectCondition")]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO GetSimpleStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdentity, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO GetSimpleStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdentity, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -136,7 +136,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStartWorkflowDomainObjectConditions")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditions()
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsInternal(evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsInternal(evaluateData));
         }
         
         /// <summary>
@@ -146,7 +146,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStartWorkflowDomainObjectConditionsByIdents")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByIdents([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByIdentsInternal(startWorkflowDomainObjectConditionIdents, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByIdentsInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO[] startWorkflowDomainObjectConditionIdents, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -162,7 +162,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleStartWorkflowDomainObjectConditionsByRootFilter")]
         public virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByRootFilter([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleStartWorkflowDomainObjectConditionsByRootFilterInternal(filter, evaluateData));
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionSimpleDTO> GetSimpleStartWorkflowDomainObjectConditionsByRootFilterInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionRootFilterModelStrictDTO filter, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -187,7 +187,7 @@
         {
             Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasStartWorkflowDomainObjectConditionAccessAutoRequest.securityOperationCode;
             Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent = hasStartWorkflowDomainObjectConditionAccessAutoRequest.startWorkflowDomainObjectConditionIdent;
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Read, evaluateData => this.HasStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
         }
         
         protected virtual bool HasStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -205,7 +205,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("RemoveStartWorkflowDomainObjectCondition")]
         public virtual void RemoveStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent)
         {
-            this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.RemoveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdent, evaluateData));
+            this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.RemoveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionIdent, evaluateData));
         }
         
         protected virtual void RemoveStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
@@ -227,7 +227,7 @@
         [Microsoft.AspNetCore.Mvc.RouteAttribute("SaveStartWorkflowDomainObjectCondition")]
         public virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO SaveStartWorkflowDomainObjectCondition([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionStrictDTO startWorkflowDomainObjectConditionStrict)
         {
-            return this.Evaluate(Framework.DomainDriven.BLL.DBSessionMode.Write, evaluateData => this.SaveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionStrict, evaluateData));
+            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Write, evaluateData => this.SaveStartWorkflowDomainObjectConditionInternal(startWorkflowDomainObjectConditionStrict, evaluateData));
         }
         
         protected virtual Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO SaveStartWorkflowDomainObjectConditionInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionStrictDTO startWorkflowDomainObjectConditionStrict, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
