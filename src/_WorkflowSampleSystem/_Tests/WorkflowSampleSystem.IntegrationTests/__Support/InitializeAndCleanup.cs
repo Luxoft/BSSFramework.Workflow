@@ -17,7 +17,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support
         public static void EnvironmentInitialize(TestContext testContext)
         {
             AppSettings.Initialize(nameof(WorkflowSampleSystem) + "_");
-            var databaseContext = new DatabaseContext(AppSettings.Default["ConnectionStrings"]);
+            var databaseContext = new DatabaseContext(AppSettings.Default["ConnectionStrings:DefaultConnection"]);
             DatabaseUtil = new WorkflowSampleSystemDatabaseUtil(databaseContext);
 
             AssemblyInitializeAndCleanup.EnvironmentInitialize(DatabaseUtil);
