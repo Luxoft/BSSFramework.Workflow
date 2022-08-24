@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Automation;
 using Automation.Enums;
 using Automation.Utils;
+using Automation.Utils.DatabaseUtils;
 
 using Framework.Core;
 using Framework.DomainDriven;
@@ -62,9 +63,6 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 
         protected IDateTimeService DateTimeService => this.RootServiceProvider.GetRequiredService<IDateTimeService>();
 
-        protected string DatabaseName { get; } = "WorkflowSampleSystem";
-
-        protected string DefaultDatabaseServer { get; } = InitializeAndCleanup.DatabaseUtil.ConnectionSettings.DataSource;
 
         [TestInitialize]
         public void TestBaseInitialize()
@@ -73,8 +71,8 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
             {
                 case TestRunMode.DefaultRunModeOnEmptyDatabase:
                 case TestRunMode.RestoreDatabaseUsingAttach:
-                    AssemblyInitializeAndCleanup.RunAction("Drop Database", CoreDatabaseUtil.Drop);
-                    AssemblyInitializeAndCleanup.RunAction("Restore Databases", CoreDatabaseUtil.AttachDatabase);
+                    AssemblyInitializeAndCleanup.RunAction("Drop Database", InitializeAndCleanup.DatabaseUtil.DatabaseContext.Drop);
+                    AssemblyInitializeAndCleanup.RunAction("Restore Databases", InitializeAndCleanup.DatabaseUtil.DatabaseContext.AttachDatabase);
                     break;
             }
 
@@ -142,7 +140,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 
             return this.EvaluateRead(
                 context => context.Configuration.Logics.DomainObjectEvent
-                                  .GetObjectsBy(v => v.SerializeType == serializeType && v.QueueTag == queueTag)
+                                  .GetListBy(v => v.SerializeType == serializeType && v.QueueTag == queueTag)
                                   .ToList(obj => DataContractSerializerHelper.Deserialize<T>(obj.SerializeData)));
         }
 

@@ -19,7 +19,6 @@ using Framework.Graphviz;
 using Framework.Graphviz.Dot;
 using Framework.HierarchicalExpand;
 using Framework.QueryableSource;
-using Framework.Security.Cryptography;
 using Framework.SecuritySystem;
 using Framework.SecuritySystem.Rules.Builders;
 using Framework.Workflow.BLL;
@@ -122,8 +121,6 @@ public static class ServiceCollectionExtensions
 
                 .AddScoped(sp => sp.GetRequiredService<IDBSession>().GetDALFactory<PersistentDomainObjectBase, Guid>())
 
-                .AddScoped<BLLSourceEventListenerContainer<PersistentDomainObjectBase>>()
-
                 .AddSingleton<WorkflowSampleSystemValidatorCompileCache>()
 
                 .AddScoped<IWorkflowSampleSystemValidator>(sp =>
@@ -132,7 +129,6 @@ public static class ServiceCollectionExtensions
                 .AddSingleton(new WorkflowSampleSystemMainFetchService().WithCompress().WithCache().WithLock().Add(FetchService<PersistentDomainObjectBase>.OData))
                 .AddScoped<IWorkflowSampleSystemSecurityService, WorkflowSampleSystemSecurityService>()
                 .AddScoped<IWorkflowSampleSystemBLLFactoryContainer, WorkflowSampleSystemBLLFactoryContainer>()
-                .AddSingleton<ICryptService<CryptSystem>, CryptService<CryptSystem>>()
                 .AddScoped<IWorkflowSampleSystemBLLContextSettings>(_ => new WorkflowSampleSystemBLLContextSettings { TypeResolver  = new[] { new WorkflowSampleSystemBLLContextSettings().TypeResolver, TypeSource.FromSample<BusinessUnitSimpleDTO>().ToDefaultTypeResolver() }.ToComposite() })
                 .AddScopedFromLazyInterfaceImplement<IWorkflowSampleSystemBLLContext, WorkflowSampleSystemBLLContext>()
 

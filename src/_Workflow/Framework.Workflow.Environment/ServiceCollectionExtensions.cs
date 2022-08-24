@@ -23,9 +23,7 @@ namespace Framework.Workflow.ServiceEnvironment
                    .AddScoped(sp => sp.GetRequiredService<IDBSession>().GetDALFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Guid>())
 
                    .AddScoped<IOperationEventSenderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>, OperationEventSenderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>>()
-
-                   .AddScoped<BLLSourceEventListenerContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>>()
-
+                   
                    .AddSingleton<WorkflowValidatorCompileCache>()
 
                    .AddScoped<IWorkflowValidator>(sp => new WorkflowValidator(sp.GetRequiredService<IWorkflowBLLContext>(), sp.GetRequiredService<WorkflowValidatorCompileCache>()))

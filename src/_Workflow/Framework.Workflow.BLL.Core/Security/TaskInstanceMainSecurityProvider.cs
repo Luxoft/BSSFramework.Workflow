@@ -23,7 +23,7 @@ namespace Framework.Workflow.BLL
 
             this.lazySecurityFilter = LazyHelper.Create(() =>
             {
-                var tasks = context.Logics.Task.GetObjectsBy(task => task.Workflow.Active && task.Workflow.IsValid, rule => rule.SelectNested(task => task.Workflow)
+                var tasks = context.Logics.Task.GetListBy(task => task.Workflow.Active && task.Workflow.IsValid, rule => rule.SelectNested(task => task.Workflow)
                                                                                                                                 .Select(wf => wf.DomainType)
                                                                                                                                 .SelectMany(wf => wf.Roles),
 

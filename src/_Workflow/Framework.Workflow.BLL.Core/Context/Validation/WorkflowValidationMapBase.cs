@@ -133,7 +133,7 @@ namespace Framework.Workflow.BLL
 
                 var context = validationContext.ExtendedValidationData.GetValue<IWorkflowBLLContext>(true);
 
-                var objects = context.Logics.Default.Create<TDomainObject>().GetObjectsBy(this.getFilter(validationContext.Source));
+                var objects = context.Logics.Default.Create<TDomainObject>().GetListBy(this.getFilter(validationContext.Source));
 
                 return objects.Select(obj => ValidationResult.TryCatch(() => context.ValidateLambda(obj, this.property))).Sum();
             }
