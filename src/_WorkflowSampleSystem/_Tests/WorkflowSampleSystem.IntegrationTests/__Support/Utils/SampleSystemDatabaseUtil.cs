@@ -42,10 +42,10 @@ namespace WorkflowSampleSystem.IntegrationTests.Support.Utils
         {
             base.ExecuteInsertsForDatabases();
 
-            CoreDatabaseUtil.ExecuteSqlFromFolder(@"__Support/Scripts/Authorization", this.DatabaseContext.MainDatabase.DatabaseName);
-            CoreDatabaseUtil.ExecuteSqlFromFolder(@"__Support/Scripts/Configuration", this.DatabaseContext.MainDatabase.DatabaseName);
-            CoreDatabaseUtil.ExecuteSqlFromFolder(@"__Support/Scripts/WorkflowSampleSystem", this.DatabaseContext.MainDatabase.DatabaseName);
-            CoreDatabaseUtil.ExecuteSqlFromFolder(@"__Support/Scripts/Workflow", this.DatabaseContext.MainDatabase.DatabaseName);
+            CoreDatabaseUtil.ExecuteSqlFromFolder(this.DatabaseContext.MainDatabase.ConnectionString, @"__Support/Scripts/Authorization", this.DatabaseContext.MainDatabase.DatabaseName);
+            CoreDatabaseUtil.ExecuteSqlFromFolder(this.DatabaseContext.MainDatabase.ConnectionString, @"__Support/Scripts/Configuration", this.DatabaseContext.MainDatabase.DatabaseName);
+            CoreDatabaseUtil.ExecuteSqlFromFolder(this.DatabaseContext.MainDatabase.ConnectionString, @"__Support/Scripts/WorkflowSampleSystem", this.DatabaseContext.MainDatabase.DatabaseName);
+            CoreDatabaseUtil.ExecuteSqlFromFolder(this.DatabaseContext.MainDatabase.ConnectionString, @"__Support/Scripts/Workflow", this.DatabaseContext.MainDatabase.DatabaseName);
 
             new BssFluentMigrator(this.DatabaseContext.MainDatabase.ConnectionString, typeof(InitNumberInDomainObjectEventMigration).Assembly).Migrate();
         }
