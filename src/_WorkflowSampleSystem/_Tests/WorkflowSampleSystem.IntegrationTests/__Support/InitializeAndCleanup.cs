@@ -4,6 +4,7 @@ using Automation;
 using Automation.Utils;
 
 using WorkflowSampleSystem.IntegrationTests.Support.Utils;
+using Automation.Utils.DatabaseUtils;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support
 {
@@ -16,8 +17,8 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support
         public static void EnvironmentInitialize(TestContext testContext)
         {
             AppSettings.Initialize(nameof(WorkflowSampleSystem) + "_");
-
-            DatabaseUtil = new WorkflowSampleSystemDatabaseUtil();
+            var databaseContext = new DatabaseContext(AppSettings.Default["ConnectionStrings"]);
+            DatabaseUtil = new WorkflowSampleSystemDatabaseUtil(databaseContext);
 
             AssemblyInitializeAndCleanup.EnvironmentInitialize(DatabaseUtil);
         }

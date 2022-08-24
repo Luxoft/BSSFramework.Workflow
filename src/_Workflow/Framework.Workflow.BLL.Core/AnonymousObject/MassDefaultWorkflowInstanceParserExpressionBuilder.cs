@@ -150,7 +150,6 @@ namespace Framework.Workflow.BLL
             }
        }
 
-
         private Expression GetDomainObjectCache<TDomainObject>(Expression contextExpr, PropertyInfo property, Expression workflowInstanceWithParametersExpr)
             where TDomainObject : class, TPersistentDomainObjectBase
         {
@@ -160,7 +159,7 @@ namespace Framework.Workflow.BLL
 
             var toDomainTypeCacheExpr = ExpressionHelper.Create((TBLLContext context, Dictionary<WorkflowInstance, Dictionary<string, string>> workflowInstanceWithParameters) =>
 
-                workflowInstanceWithParameters.ToDomainTypeCache(idents => context.Logics.Default.Create<TDomainObject>().GetObjectsByIdents(idents, default(IFetchContainer<TDomainObject>)), propertyName))
+                workflowInstanceWithParameters.ToDomainTypeCache(idents => context.Logics.Default.Create<TDomainObject>().GetListByIdents(idents, default(IFetchContainer<TDomainObject>)), propertyName))
                                                         .ExpandConst();
 
             return toDomainTypeCacheExpr.GetBodyWithOverrideParameters(contextExpr, workflowInstanceWithParametersExpr);

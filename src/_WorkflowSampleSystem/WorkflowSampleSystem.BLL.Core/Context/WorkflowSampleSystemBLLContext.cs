@@ -4,14 +4,11 @@ using Framework.Authorization.BLL;
 using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
-using Framework.DomainDriven.BLL.Security;
 using Framework.SecuritySystem.Rules.Builders;
 using Framework.DomainDriven.BLL.Tracking;
 using Framework.HierarchicalExpand;
 using Framework.QueryLanguage;
-using Framework.Security.Cryptography;
 using Framework.SecuritySystem;
-using Framework.Validation;
 using Framework.Workflow.BLL;
 
 using JetBrains.Annotations;
@@ -26,7 +23,6 @@ namespace WorkflowSampleSystem.BLL
             IServiceProvider serviceProvider,
             [NotNull] IDALFactory<PersistentDomainObjectBase, Guid> dalFactory,
             [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
-            [NotNull] BLLSourceEventListenerContainer<PersistentDomainObjectBase> sourceListeners,
             [NotNull] IObjectStateService objectStateService,
             [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
             [NotNull] IStandartExpressionBuilder standartExpressionBuilder,
@@ -40,7 +36,7 @@ namespace WorkflowSampleSystem.BLL
             [NotNull] Framework.Configuration.BLL.IConfigurationBLLContext configuration,
             [NotNull] IWorkflowBLLContext workflow,
             [NotNull] IWorkflowSampleSystemBLLContextSettings settings)
-            : base(serviceProvider, dalFactory, operationSenders, sourceListeners, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
+            : base(serviceProvider, dalFactory, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
             this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
 

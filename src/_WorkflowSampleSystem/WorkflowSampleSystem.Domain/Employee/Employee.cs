@@ -138,7 +138,6 @@ namespace WorkflowSampleSystem.Domain
             set { this.landlinephone = value.TrimNull(); }
         }
 
-        [WorkflowSampleSystemCrypt]
         [CustomSerialization(CustomSerializationMode.Ignore, DTORole.Event | DTORole.Integration)]
         public virtual string PersonalCellPhone
         {

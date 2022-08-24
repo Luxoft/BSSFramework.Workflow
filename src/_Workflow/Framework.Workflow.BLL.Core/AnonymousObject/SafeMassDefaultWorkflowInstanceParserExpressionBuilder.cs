@@ -161,7 +161,7 @@ namespace Framework.Workflow.BLL
 
             var toDomainTypeCacheExpr = ExpressionHelper.Create((TBLLContext context, Dictionary<WorkflowInstance, Dictionary<string, string>> workflowInstanceWithParameters) =>
 
-                workflowInstanceWithParameters.ToSafeDomainTypeCache(idents => context.Logics.Default.Create<TDomainObject>().GetObjectsByIdentsUnsafe(idents, default(IFetchContainer<TDomainObject>)), propertyName))
+                workflowInstanceWithParameters.ToSafeDomainTypeCache(idents => context.Logics.Default.Create<TDomainObject>().GetListByIdentsUnsafe(idents, default(IFetchContainer<TDomainObject>)), propertyName))
                                               .ExpandConst();
 
             return toDomainTypeCacheExpr.GetBodyWithOverrideParameters(contextExpr, workflowInstanceWithParametersExpr);
