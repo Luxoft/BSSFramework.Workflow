@@ -8,13 +8,11 @@ using Framework.Configuration.Generated.DTO;
 using Framework.Core.Services;
 using Framework.DependencyInjection;
 using Framework.DomainDriven;
-using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.NHibernate;
 using Framework.DomainDriven.NHibernate.Audit;
 using Framework.DomainDriven.ServiceModel.IAD;
 using Framework.DomainDriven.ServiceModel.Service;
 using Framework.DomainDriven.WebApiNetCore;
-using Framework.Exceptions;
 using Framework.Workflow.BLL;
 using Framework.Workflow.Environment;
 using Framework.Workflow.Generated.DAL.NHibernate;
@@ -99,6 +97,7 @@ namespace WorkflowSampleSystem.WebApiCore
             services.AddSingleton<IContextEvaluator<IAuthorizationBLLContext>, ContextEvaluator<IAuthorizationBLLContext>>();
             services.AddSingleton<IContextEvaluator<IConfigurationBLLContext>, ContextEvaluator<IConfigurationBLLContext>>();
             services.AddSingletonFrom<IContextEvaluator<Framework.DomainDriven.BLL.Configuration.IConfigurationBLLContext>, IContextEvaluator<IConfigurationBLLContext>>();
+            services.AddSingleton<IContextEvaluator<IWorkflowBLLContext>, ContextEvaluator<IWorkflowBLLContext>>();
             services.AddSingleton<IContextEvaluator<IWorkflowSampleSystemBLLContext>, ContextEvaluator<IWorkflowSampleSystemBLLContext>>();
 
             services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IAuthorizationBLLContext, IAuthorizationDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IAuthorizationBLLContext, IAuthorizationDTOMappingService>>>();

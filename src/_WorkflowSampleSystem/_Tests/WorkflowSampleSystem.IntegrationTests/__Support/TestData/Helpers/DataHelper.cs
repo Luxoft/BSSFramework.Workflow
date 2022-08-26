@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Automation.ServiceEnvironment;
+using Automation.Utils;
+
 using Framework.Configuration.Domain;
 using Framework.Configuration.Domain.Reports;
 using Framework.Configuration.Generated.DTO;
 using Framework.Core;
-using Framework.DomainDriven.BLL;
-using Framework.DomainDriven.WebApiNetCore;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,9 +16,6 @@ using Microsoft.Extensions.DependencyInjection;
 using WorkflowSampleSystem.Domain;
 using WorkflowSampleSystem.Domain.Inline;
 using WorkflowSampleSystem.Generated.DTO;
-using WorkflowSampleSystem.IntegrationTests.__Support.ServiceEnvironment;
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils.Framework;
-using WorkflowSampleSystem.WebApiCore.Controllers.Main;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 {
@@ -56,7 +54,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
             bool active = true,
             int closeDate = 20)
         {
-            name = name ?? StringUtil.UniqueString("Location");
+            name = name ?? TextRandomizer.UniqueString("Location");
             var parentId = parent != null ? ((LocationIdentityDTO)parent).Id : DefaultConstants.LOCATION_PARENT_ID;
 
             return this.EvaluateWrite(
@@ -95,7 +93,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
             int rank = 1,
             bool active = true)
         {
-            name = name ?? StringUtil.UniqueString("BusinessUnit");
+            name = name ?? TextRandomizer.UniqueString("BusinessUnit");
 
             var parentId = parent != null
                 ? ((BusinessUnitIdentityDTO)parent).Id
@@ -141,7 +139,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
             long externalId = 1,
             bool active = true)
         {
-            name = name ?? StringUtil.UniqueString("Department");
+            name = name ?? TextRandomizer.UniqueString("Department");
             nameNative = nameNative ?? name;
             code = code ?? name;
             codeNative = codeNative ?? name;
@@ -221,7 +219,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
                 {
                     var report = new Report()
                     {
-                        Name = name ?? StringUtil.UniqueString(nameof(Report)),
+                        Name = name ?? TextRandomizer.UniqueString(nameof(Report)),
                         Description = description,
                         DomainTypeName = domainTypeName,
                         Owner = owner
@@ -246,7 +244,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 
                     var parameter = new ReportParameter(report)
                     {
-                        Name = name ?? StringUtil.UniqueString(nameof(ReportParameter)),
+                        Name = name ?? TextRandomizer.UniqueString(nameof(ReportParameter)),
                         TypeName = typeName,
                         DisplayValueProperty = displayValueProperty
                     };

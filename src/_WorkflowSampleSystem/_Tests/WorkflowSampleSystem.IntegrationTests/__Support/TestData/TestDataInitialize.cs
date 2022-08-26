@@ -1,21 +1,33 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Automation.ServiceEnvironment;
+using Microsoft.Extensions.DependencyInjection;
 
+using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Domain.Inline;
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils;
+using WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers;
 using WorkflowSampleSystem.ServiceEnvironment;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 {
-    public class TestDataInitialize : TestBase
+    public class TestDataInitialize : RootServiceProviderContainer<IWorkflowSampleSystemBLLContext>
     {
+        public TestDataInitialize(IServiceProvider serviceProvider)
+                : base(serviceProvider)
+        {
+        }
+
+        private AuthHelper AuthHelper => this.RootServiceProvider.GetRequiredService<AuthHelper>();
+
+        private DataHelper DataHelper => this.RootServiceProvider.GetRequiredService<DataHelper>();
+
         public void TestData()
         {
             this.RootServiceProvider.GetRequiredService<WorkflowSampleSystemInitializer>().Initialize();
 
             this.AuthHelper.AddCurrentUserToAdmin();
 
-            this.AuthHelper.SetUserRole(DefaultConstants.NOTIFICATION_ADMIN, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
-            this.AuthHelper.SetUserRole(DefaultConstants.INTEGRATION_USER, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
+            this.AuthHelper.SetUserRole(DefaultConstants.NOTIFICATION_ADMIN, IntegrationBusinessRole.SystemIntegration);
+            this.AuthHelper.SetUserRole(DefaultConstants.INTEGRATION_USER, IntegrationBusinessRole.SystemIntegration);
 
             this.DataHelper.SaveLocation(id: DefaultConstants.LOCATION_PARENT_ID, name: DefaultConstants.LOCATION_PARENT_NAME);
 

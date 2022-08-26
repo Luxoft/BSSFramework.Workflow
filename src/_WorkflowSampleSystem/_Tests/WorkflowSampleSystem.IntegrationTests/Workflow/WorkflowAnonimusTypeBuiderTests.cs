@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+
 using FluentAssertions;
+
 using Framework.Core;
 using Framework.DomainDriven;
-using Framework.DomainDriven.BLL;
 using Framework.Workflow.BLL;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using WorkflowSampleSystem.IntegrationTests.__Support.TestData;
 
 namespace WorkflowSampleSystem.IntegrationTests
@@ -47,7 +50,7 @@ namespace WorkflowSampleSystem.IntegrationTests
         {
             try
             {
-                this.GetContextEvaluator().Evaluate(DBSessionMode.Read, context =>
+                this.Evaluate(DBSessionMode.Read, context =>
                 {
                     context.Workflow.AnonymousTypeBuilder.GetAnonymousType(typeMap);
                 });

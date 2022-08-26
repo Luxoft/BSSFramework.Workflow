@@ -1,27 +1,21 @@
 ﻿using System;
 
+using Automation.ServiceEnvironment;
+
+using Microsoft.Extensions.DependencyInjection;
+
 using WorkflowSampleSystem.BLL;
-using WorkflowSampleSystem.Generated.DTO;
-using WorkflowSampleSystem.IntegrationTests.__Support.ServiceEnvironment;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 {
-    public partial class DataHelper : IRootServiceProviderContainer
+    public partial class DataHelper : RootServiceProviderContainer<IWorkflowSampleSystemBLLContext>
     {
         public DataHelper(IServiceProvider rootServiceProvider)
+                : base(rootServiceProvider)
         {
-            this.RootServiceProvider = rootServiceProvider;
         }
 
-        public IServiceProvider RootServiceProvider { get; }
-
-
-        public AuthHelper AuthHelper { private get; set; }
-
-        public WorkflowSampleSystemServerPrimitiveDTOMappingService GetMappingService(IWorkflowSampleSystemBLLContext context)
-        {
-            return new WorkflowSampleSystemServerPrimitiveDTOMappingService(context);
-        }
+        public AuthHelper AuthHelper => this.RootServiceProvider.GetRequiredService<AuthHelper>();
 
         private Guid GetGuid(Guid? id)
         {

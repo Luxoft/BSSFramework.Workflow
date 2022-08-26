@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using Framework.Core.Services;
 using Framework.DomainDriven;
 
-using WorkflowSampleSystem.WebApiCore.Env;
-
 namespace WorkflowSampleSystem.WebApiCore;
 
 public class WorkflowSampleSystemUserAuthenticationService : IUserAuthenticationService, IImpersonateService

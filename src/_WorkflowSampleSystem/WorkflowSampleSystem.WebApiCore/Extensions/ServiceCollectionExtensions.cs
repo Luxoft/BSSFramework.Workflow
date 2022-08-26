@@ -9,6 +9,7 @@ using Framework.Configuration.BLL;
 using Framework.Configuration.BLL.Notification;
 using Framework.Configuration.Generated.DTO;
 using Framework.Core;
+using Framework.DependencyInjection;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.NHibernate;
@@ -46,8 +47,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<Framework.Workflow.BLL.TargetSystemServiceCompileCache<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase>>();
 
         services.AddScoped<TargetSystemServiceFactory>();
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase, AuthorizationSecurityOperationCode>(TargetSystemHelper.AuthorizationName, new[] { typeof(Framework.Authorization.Domain.Permission) }));
-        services.AddScoped(sp => sp.GetRequiredService<TargetSystemServiceFactory>().Create<IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystemSecurityOperationCode>(tss => tss.IsMain, new []{ typeof(Location)}));
+        services.AddScopedFrom((TargetSystemServiceFactory factory) => factory.Create<IWorkflowSampleSystemAuthorizationBLLContext, Framework.Authorization.Domain.PersistentDomainObjectBase, AuthorizationSecurityOperationCode>(TargetSystemHelper.AuthorizationName, new[] { typeof(Framework.Authorization.Domain.Permission) }));
+        services.AddScopedFrom((TargetSystemServiceFactory factory) => factory.Create<IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystemSecurityOperationCode>(tss => tss.IsMain, new []{ typeof(Location)}));
 
         services.AddSingleton<IInitializeManager, InitializeManager>();
 
@@ -80,7 +81,7 @@ public static class ServiceCollectionExtensions
 
         services.AddSingleton<IDefaultMailSenderContainer>(new DefaultMailSenderContainer("WorkflowSampleSystem_Sender@luxoft.com"));
 
-        services.AddScoped<IBLLSimpleQueryBase<Framework.Persistent.IEmployee>>(sp => sp.GetRequiredService<IEmployeeBLLFactory>().Create());
+        services.AddScopedFrom<IBLLSimpleQueryBase<Framework.Persistent.IEmployee>, IEmployeeBLLFactory>(factory => factory.Create());
 
         services.RegisterHierarchicalObjectExpander();
 
@@ -119,7 +120,7 @@ public static class ServiceCollectionExtensions
     {
         return services
 
-                .AddScoped(sp => sp.GetRequiredService<IDBSession>().GetDALFactory<PersistentDomainObjectBase, Guid>())
+                .AddScopedFrom((IDBSession session) => session.GetDALFactory<PersistentDomainObjectBase, Guid>())
 
                 .AddSingleton<WorkflowSampleSystemValidatorCompileCache>()
 
