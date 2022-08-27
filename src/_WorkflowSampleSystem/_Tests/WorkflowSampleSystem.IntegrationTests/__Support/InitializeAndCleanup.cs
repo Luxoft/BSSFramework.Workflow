@@ -1,32 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Automation;
-using Automation.Utils;
-
-using WorkflowSampleSystem.IntegrationTests.Support.Utils;
-using Automation.Utils.DatabaseUtils;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support
 {
     [TestClass]
     public class InitializeAndCleanup
     {
-        public static WorkflowSampleSystemDatabaseUtil DatabaseUtil { get; set; }
+        private static readonly TestEnvironment TestEnvironment = WorkflowSampleSystemTestEnvironment.Current;
 
         [AssemblyInitialize]
         public static void EnvironmentInitialize(TestContext testContext)
         {
-            AppSettings.Initialize(nameof(WorkflowSampleSystem) + "_");
-            var databaseContext = new DatabaseContext(AppSettings.Default["ConnectionStrings:DefaultConnection"]);
-            DatabaseUtil = new WorkflowSampleSystemDatabaseUtil(databaseContext);
-
-            AssemblyInitializeAndCleanup.EnvironmentInitialize(DatabaseUtil);
+            TestEnvironment.AssemblyInitializeAndCleanup.EnvironmentInitialize();
         }
 
         [AssemblyCleanup]
         public static void EnvironmentCleanup()
         {
-            AssemblyInitializeAndCleanup.EnvironmentCleanup(DatabaseUtil);
+            TestEnvironment.AssemblyInitializeAndCleanup.EnvironmentCleanup();
         }
     }
 }

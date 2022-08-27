@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Automation.ServiceEnvironment;
 using Automation.Utils;
 
 using WorkflowSampleSystem.Generated.DTO;
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 {
@@ -14,13 +14,13 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
         {
         }
 
-        public WorkflowSampleSystemPermission(BusinessRole role)
+        public WorkflowSampleSystemPermission(IntegrationBusinessRole role)
         {
             this.Role = role;
         }
 
         public WorkflowSampleSystemPermission(
-            BusinessRole role,
+            IntegrationBusinessRole role,
             BusinessUnitIdentityDTO? businessUnit,
             LocationIdentityDTO? location)
         {
@@ -29,7 +29,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
             this.Location = location;
         }
 
-        public BusinessRole Role { get; set; }
+        public IntegrationBusinessRole Role { get; set; }
 
         public BusinessUnitIdentityDTO? BusinessUnit { get; set; }
 
@@ -50,7 +50,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 
         public string GetRoleName()
         {
-            return this.Role.GetName();
+            return this.Role.GetRoleName();
         }
     }
 }

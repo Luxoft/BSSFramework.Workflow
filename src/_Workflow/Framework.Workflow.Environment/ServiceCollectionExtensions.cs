@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Framework.Core;
+using Framework.DependencyInjection;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.ServiceModel.IAD;
@@ -20,10 +21,10 @@ namespace Framework.Workflow.ServiceEnvironment
         {
             return services
 
-                   .AddScoped(sp => sp.GetRequiredService<IDBSession>().GetDALFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Guid>())
+                   .AddScopedFrom((IDBSession session) => session.GetDALFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Guid>())
 
                    .AddScoped<IOperationEventSenderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>, OperationEventSenderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>>()
-                   
+
                    .AddSingleton<WorkflowValidatorCompileCache>()
 
                    .AddScoped<IWorkflowValidator>(sp => new WorkflowValidator(sp.GetRequiredService<IWorkflowBLLContext>(), sp.GetRequiredService<WorkflowValidatorCompileCache>()))

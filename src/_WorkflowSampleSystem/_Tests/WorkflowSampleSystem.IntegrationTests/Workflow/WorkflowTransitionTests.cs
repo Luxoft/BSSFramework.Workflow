@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Automation.ServiceEnvironment;
+
 using FluentAssertions;
 
 using Framework.DomainDriven;
-using Framework.DomainDriven.BLL;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
@@ -15,7 +16,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Domain;
 using WorkflowSampleSystem.IntegrationTests.__Support.TestData;
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils;
 
 namespace WorkflowSampleSystem.IntegrationTests.Workflow
 {
@@ -26,13 +26,11 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
         public void PerformTransition_TransitionVersionShouldNotBeChanged()
         {
             // Arrange
-            this.AuthHelper.AddUserRole(null, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
-
-            var transitionVersionBefore = this.GetContextEvaluator().Evaluate(
+            var transitionVersionBefore = this.Evaluate(
                 DBSessionMode.Read,
                 context => context.Workflow.Logics.Transition.GetById(Guid.Parse("CACA9DB4-9DA6-48AA-9FD3-A311016CB715"), true).Version);
 
-            var locationId = this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+            var locationId = this.Evaluate(DBSessionMode.Write, context =>
             {
                 var location = new Location { Name = "location" };
 
@@ -42,7 +40,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             });
 
             // Act
-            this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+            this.Evaluate(DBSessionMode.Write, context =>
             {
                 var location = context.Logics.Location.GetById(locationId, true);
 
@@ -52,7 +50,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             });
 
             // Assert
-            var transitionVersionAfter = this.GetContextEvaluator().Evaluate(
+            var transitionVersionAfter = this.Evaluate(
                 DBSessionMode.Read,
                 context => context.Workflow.Logics.Transition.GetById(Guid.Parse("CACA9DB4-9DA6-48AA-9FD3-A311016CB715"), true).Version);
 
@@ -64,13 +62,11 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
         public void RunWorkflowInstancesSimultaneously_ShouldNotFail()
         {
             // Arrange
-            this.AuthHelper.AddUserRole(null, new WorkflowSampleSystemPermission(BusinessRole.SystemIntegration));
-
             var locationIds = new List<Guid>();
 
             for (var i = 1; i <= 5; i++)
             {
-                var locationId = this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+                var locationId = this.Evaluate(DBSessionMode.Write, context =>
                 {
                     var location = new Location { Name = $"location{i}" };
 
@@ -87,7 +83,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
             {
                 var task = System.Threading.Tasks.Task.Factory.StartNew(() =>
                 {
-                    this.GetContextEvaluator().Evaluate(DBSessionMode.Write, context =>
+                    this.Evaluate(DBSessionMode.Write, context =>
                     {
                         var location = context.Logics.Location.GetById(locationId, true);
 

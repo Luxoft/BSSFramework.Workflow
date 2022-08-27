@@ -1,5 +1,6 @@
 ﻿using System;
 
+using Automation.ServiceEnvironment;
 using Automation.Utils;
 
 using Framework.Core;
@@ -7,7 +8,6 @@ using Framework.Core;
 using WorkflowSampleSystem.Domain;
 using WorkflowSampleSystem.Domain.Inline;
 using WorkflowSampleSystem.Generated.DTO;
-using WorkflowSampleSystem.IntegrationTests.__Support.Utils.Framework;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 {
@@ -43,11 +43,11 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 
             nameEng = nameEng ?? new Fio
             {
-                FirstName = StringUtil.RandomString("FirstName", 15),
-                LastName = StringUtil.RandomString("LastName", 15)
+                FirstName = TextRandomizer.RandomString("FirstName", 15),
+                LastName = TextRandomizer.RandomString("LastName", 15)
             };
             var nameTemp = nameEng;
-            nameTemp.MiddleName = StringUtil.RandomString("MiddleName", 15);
+            nameTemp.MiddleName = TextRandomizer.RandomString("MiddleName", 15);
 
             nameNative = nameNative ?? nameTemp;
             nameRussian = nameRussian ?? nameTemp;
@@ -56,7 +56,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers
 
             if (login == null)
             {
-                login = $"{ConfigUtil.ComputerName}\\{nameEng.FirstName}";
+                login = $"{Environment.MachineName}\\{nameEng.FirstName}";
             }
             else if (login.Equals(DefaultConstants.EMPLOYEE_MY_LOGIN))
             {
