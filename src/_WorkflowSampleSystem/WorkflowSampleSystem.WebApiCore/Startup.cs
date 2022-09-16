@@ -5,6 +5,7 @@ using System.Reflection;
 
 using DotNetCore.CAP;
 
+using Framework.DependencyInjection;
 using Framework.DomainDriven.WebApiNetCore;
 using Framework.WebApi.Utils;
 
@@ -16,11 +17,13 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 using Newtonsoft.Json;
 
 using WorkflowSampleSystem.BLL;
+using WorkflowSampleSystem.ServiceEnvironment;
 using WorkflowSampleSystem.WebApiCore.NewtonsoftJson;
 
 namespace WorkflowSampleSystem.WebApiCore
@@ -39,20 +42,16 @@ namespace WorkflowSampleSystem.WebApiCore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            if(this.HostingEnvironment.IsProduction())
+            if (this.HostingEnvironment.IsProduction())
             {
-                services
-                    .AddMetricsBss(this.Configuration, 0.5);
+                services.AddMetricsBss(this.Configuration, 0.5);
             }
 
-            services
-                .RegisterDependencyInjections(this.Configuration)
-                .AddApiVersion()
-                .AddSwaggerBss(
-                    new OpenApiInfo { Title = "WorkflowSampleSystem", Version = "v1" },
-                    new List<string> { Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml") });
-
-            services.AddMediatR(Assembly.GetAssembly(typeof(EmployeeBLL)));
+            services.RegisterGeneralDependencyInjection(this.Configuration)
+                    .AddApiVersion()
+                    .AddSwaggerBss(
+                                   new OpenApiInfo { Title = "WorkflowSampleSystem", Version = "v1" },
+                                   new List<string> { Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml") });
 
             services
                 .AddMvcBss()
@@ -66,10 +65,9 @@ namespace WorkflowSampleSystem.WebApiCore
             if (this.HostingEnvironment.IsProduction())
             {
                 services.AddMetrics();
-
             }
 
-            services.RegisterLegacyBLLContext();
+            services.ValidateDuplicateDeclaration(typeof(ILoggerFactory));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider versionProvider)
@@ -100,7 +98,6 @@ namespace WorkflowSampleSystem.WebApiCore
             }
 
             app.UseCapDashboard();
-
         }
     }
 }

@@ -14,13 +14,13 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
         {
         }
 
-        public WorkflowSampleSystemPermission(IntegrationBusinessRole role)
+        public WorkflowSampleSystemPermission(TestBusinessRole role)
         {
             this.Role = role;
         }
 
         public WorkflowSampleSystemPermission(
-            IntegrationBusinessRole role,
+            TestBusinessRole role,
             BusinessUnitIdentityDTO? businessUnit,
             LocationIdentityDTO? location)
         {
@@ -29,7 +29,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
             this.Location = location;
         }
 
-        public IntegrationBusinessRole Role { get; set; }
+        public TestBusinessRole Role { get; set; }
 
         public BusinessUnitIdentityDTO? BusinessUnit { get; set; }
 

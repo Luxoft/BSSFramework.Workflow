@@ -23,6 +23,8 @@ using Automation.ServiceEnvironment.Services;
 using Automation.Utils;
 using Automation.Utils.DatabaseUtils.Interfaces;
 
+using Framework.DependencyInjection;
+
 namespace WorkflowSampleSystem.IntegrationTests.__Support
 {
     public static class WorkflowSampleSystemTestRootServiceProvider
@@ -36,25 +38,26 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support
                                                                { "ConnectionStrings:DefaultConnection", databaseContext.Main.ConnectionString }
                                                        }).Build();
 
-            return TestServiceProvider.Build(
-                z =>
-                    z.AddEnvironment(configuration)
-                        .RegisterLegacyBLLContext()
-                        .AddControllerEnvironment()
-                        .AddMediatR(Assembly.GetAssembly(typeof(EmployeeBLL)))
 
-                        .AddSingleton<WorkflowSampleSystemInitializer>()
+            return new ServiceCollection()
 
-                        .AddSingleton<ICapTransactionManager, IntegrationTestCapTransactionManager>()
-                        .AddSingleton<IIntegrationEventBus, IntegrationTestIntegrationEventBus>()
+                   .RegisterGeneralDependencyInjection(configuration)
 
-                        .RegisterControllers(new[] { typeof(EmployeeController).Assembly })
+                   .ApplyIntegrationTestServices()
 
-                        .AddSingleton(databaseContext)
-                        .AddSingleton<DataHelper>()
-                        .AddSingleton<AuthHelper>()
-                        .AddSingleton(configUtil)
-                    );
+                   .ReplaceSingleton<IIntegrationEventBus, IntegrationTestIntegrationEventBus>()
+                   .ReplaceScoped<ICapTransactionManager, IntegrationTestCapTransactionManager>()
+
+                   .AddSingleton<WorkflowSampleSystemInitializer>()
+
+                   .RegisterControllers(new[] { typeof(EmployeeController).Assembly })
+
+                   .AddSingleton(databaseContext)
+                   .AddSingleton<DataHelper>()
+                   .AddSingleton<AuthHelper>()
+                   .AddSingleton(configUtil)
+                   .ValidateDuplicateDeclaration()
+                   .BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true, ValidateScopes = true });
         }
     }
 }

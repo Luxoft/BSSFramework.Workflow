@@ -11,14 +11,15 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Framework.Graphviz\Framework.Graphviz.csproj" />
 
-    <ProjectReference Include="..\Framework.Workflow.BLL.Core\Framework.Workflow.BLL.Core.csproj" />
-
     <ProjectReference Include="..\Framework.Workflow.BLL\Framework.Workflow.BLL.csproj" />
+
+    <ProjectReference Include="..\Framework.Workflow.Generated.DTO\Framework.Workflow.Generated.DTO.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel" Version="17.4.2" />
-    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD" Version="17.4.2" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel" Version="17.5.1" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.ServiceModel.IAD" Version="17.5.1" />
+    <PackageReference Include="Luxoft.Framework.DomainDriven.WebApiNetCore" Version="17.5.1" />
   </ItemGroup>
 
 </Project>

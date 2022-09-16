@@ -21,7 +21,6 @@ namespace WorkflowSampleSystem.BLL
     {
         public WorkflowSampleSystemBLLContext(
             IServiceProvider serviceProvider,
-            [NotNull] IDALFactory<PersistentDomainObjectBase, Guid> dalFactory,
             [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
             [NotNull] IObjectStateService objectStateService,
             [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
@@ -36,7 +35,7 @@ namespace WorkflowSampleSystem.BLL
             [NotNull] Framework.Configuration.BLL.IConfigurationBLLContext configuration,
             [NotNull] IWorkflowBLLContext workflow,
             [NotNull] IWorkflowSampleSystemBLLContextSettings settings)
-            : base(serviceProvider, dalFactory, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
+            : base(serviceProvider, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
             this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
 

@@ -5,11 +5,16 @@ using Framework.DependencyInjection;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.ServiceModel.IAD;
+using Framework.DomainDriven.ServiceModel.Service;
+using Framework.DomainDriven.WebApiNetCore;
 using Framework.ExpressionParsers;
+using Framework.Graphviz.Dot;
+using Framework.Graphviz;
 using Framework.QueryableSource;
 using Framework.SecuritySystem;
 using Framework.SecuritySystem.Rules.Builders;
 using Framework.Workflow.BLL;
+using Framework.Workflow.Generated.DTO;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,8 +25,6 @@ namespace Framework.Workflow.ServiceEnvironment
         public static IServiceCollection RegisterWorkflowBLL(this IServiceCollection services)
         {
             return services
-
-                   .AddScopedFrom((IDBSession session) => session.GetDALFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Guid>())
 
                    .AddScoped<IOperationEventSenderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>, OperationEventSenderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>>()
 
@@ -34,10 +37,7 @@ namespace Framework.Workflow.ServiceEnvironment
                    .AddScoped<IWorkflowSecurityService, WorkflowSecurityService>()
                    .AddScoped<IWorkflowBLLFactoryContainer, WorkflowBLLFactoryContainer>()
 
-                   .AddScopedFrom<ICurrentRevisionService, IDBSession>()
-
                    .AddSingleton(WorkflowAnonymousTypeBuilder.CreateDefault())
-
 
                    .AddSingleton(CSharpNativeExpressionParser.Composite)
                    .AddScoped<IExpressionParserFactory, ExpressionParserFactory>()
@@ -54,6 +54,23 @@ namespace Framework.Workflow.ServiceEnvironment
 
                    .Self(WorkflowSecurityServiceBase.Register)
                    .Self(WorkflowBLLFactoryContainer.RegisterBLLFactory);
+        }
+
+        public static IServiceCollection RegisterWorkflowWebApiGenericServices(this IServiceCollection services)
+        {
+            services.AddSingleton(LazyInterfaceImplementHelper.CreateNotImplemented<IDotVisualizer<DotGraph>>());
+
+            services.RegisterWorkflowContextEvaluator();
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterWorkflowContextEvaluator(this IServiceCollection services)
+        {
+            services.AddSingleton<IContextEvaluator<IWorkflowBLLContext>, ContextEvaluator<IWorkflowBLLContext>>();
+            services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>>();
+
+            return services;
         }
     }
 }
