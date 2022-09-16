@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -133,7 +134,7 @@ namespace Framework.Workflow.BLL
 
                 var context = validationContext.ExtendedValidationData.GetValue<IWorkflowBLLContext>(true);
 
-                var objects = context.Logics.Default.Create<TDomainObject>().GetListBy(this.getFilter(validationContext.Source));
+                var objects = validationContext.Source.IsNew ? new List<TDomainObject> () : context.Logics.Default.Create<TDomainObject>().GetListBy(this.getFilter(validationContext.Source));
 
                 return objects.Select(obj => ValidationResult.TryCatch(() => context.ValidateLambda(obj, this.property))).Sum();
             }

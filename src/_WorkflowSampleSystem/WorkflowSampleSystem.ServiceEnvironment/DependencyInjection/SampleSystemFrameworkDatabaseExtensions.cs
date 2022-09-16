@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 using Framework.Authorization.Generated.DAL.NHibernate;
 using Framework.Configuration.Generated.DAL.NHibernate;
+using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.NHibernate;
 using Framework.DomainDriven.ServiceModel.IAD;
+using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Environment;
 using Framework.Workflow.Generated.DAL.NHibernate;
 
