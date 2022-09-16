@@ -21,7 +21,6 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
 {
     public WorkflowSampleSystemAuthorizationBLLContext(
             [NotNull] IServiceProvider serviceProvider,
-            [NotNull] IDALFactory<PersistentDomainObjectBase, Guid> dalFactory,
             [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
             [NotNull] IObjectStateService objectStateService,
             [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
@@ -38,13 +37,12 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
             [NotNull] IAuthorizationExternalSource externalSource,
             [NotNull] IRunAsManager runAsManager,
             [NotNull] ISecurityTypeResolverContainer securityTypeResolverContainer,
-            [NotNull] IWorkflowApproveProcessor workflowApproveProcessor,
             [NotNull] IRuntimePermissionOptimizationService optimizeRuntimePermissionService,
-            [NotNull] IAuthorizationBLLContextSettings settings)
+            [NotNull] IAuthorizationBLLContextSettings settings,
+            [NotNull] IWorkflowApproveProcessor workflowApproveProcessor)
 
             : base(
                    serviceProvider,
-                   dalFactory,
                    operationSenders,
                    objectStateService,
                    accessDeniedExceptionService,

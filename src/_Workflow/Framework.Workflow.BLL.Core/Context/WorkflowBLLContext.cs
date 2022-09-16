@@ -33,7 +33,6 @@ namespace Framework.Workflow.BLL
 
         public WorkflowBLLContext(
             IServiceProvider serviceProvider,
-            [NotNull]IDALFactory<PersistentDomainObjectBase, Guid> dalFactory,
             [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
             [NotNull]IObjectStateService objectStateService,
             [NotNull]IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
@@ -52,7 +51,7 @@ namespace Framework.Workflow.BLL
             [NotNull]IDateTimeService dateTimeService,
             [NotNull]IWorkflowBLLContextSettings settings)
 
-            : base(serviceProvider, dalFactory, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
+            : base(serviceProvider, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
             this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
 

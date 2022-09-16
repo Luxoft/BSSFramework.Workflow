@@ -16,6 +16,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using NHibernate.Tool.hbm2ddl;
 
+using WorkflowSampleSystem.ServiceEnvironment;
 using WorkflowSampleSystem.WebApiCore;
 
 namespace WorkflowSampleSystem.DbGenerate
@@ -41,7 +42,7 @@ namespace WorkflowSampleSystem.DbGenerate
             CheckDataBaseAndSchemeExists(connectionString);
 
             var services = new ServiceCollection();
-
+            
             services.AddDatabaseSettings(connectionString);
 
             services.AddSingleton<IDateTimeService>(DateTimeService.Default);
