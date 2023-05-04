@@ -1,4 +1,4 @@
-﻿using Framework.Core;
+﻿using Framework.Workflow.Core;
 
 namespace Framework.Workflow
 {

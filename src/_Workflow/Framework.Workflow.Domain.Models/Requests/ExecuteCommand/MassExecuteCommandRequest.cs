@@ -6,6 +6,7 @@ using Framework.DomainDriven.Serialization;
 
 using Framework.Restriction;
 using Framework.Validation;
+using Framework.Workflow.Core.Extensions;
 
 namespace Framework.Workflow.Domain
 {

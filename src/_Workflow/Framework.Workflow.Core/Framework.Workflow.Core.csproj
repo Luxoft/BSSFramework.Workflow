@@ -7,7 +7,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.Security"/>
+    <PackageReference Include="Luxoft.Framework.Security" />
   </ItemGroup>
 
 </Project>

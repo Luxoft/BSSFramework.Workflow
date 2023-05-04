@@ -8,6 +8,7 @@ using Framework.DomainDriven.Serialization;
 using Framework.Exceptions;
 using Framework.Persistent;
 using Framework.Restriction;
+using Framework.Workflow.Core;
 
 namespace Framework.Workflow.Domain.Runtime
 {

@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-using DotNetCore.CAP;
-
 using Framework.DependencyInjection;
 using Framework.DomainDriven.WebApiNetCore;
 using Framework.WebApi.Utils;
-
-using MediatR;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +18,6 @@ using Microsoft.OpenApi.Models;
 
 using Newtonsoft.Json;
 
-using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.ServiceEnvironment;
 using WorkflowSampleSystem.WebApiCore.NewtonsoftJson;
 
@@ -68,6 +63,8 @@ namespace WorkflowSampleSystem.WebApiCore
             }
 
             services.ValidateDuplicateDeclaration(typeof(ILoggerFactory));
+
+            services.AddCap(x => x.UseDashboard());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider versionProvider)
@@ -96,8 +93,6 @@ namespace WorkflowSampleSystem.WebApiCore
             {
                 app.UseMetricsAllMiddleware();
             }
-
-            app.UseCapDashboard();
         }
     }
 }
