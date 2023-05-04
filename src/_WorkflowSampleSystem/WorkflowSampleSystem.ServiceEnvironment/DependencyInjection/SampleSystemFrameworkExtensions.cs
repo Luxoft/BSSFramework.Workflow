@@ -6,14 +6,11 @@ using Framework.Authorization.Events;
 using Framework.Authorization.Generated.DTO;
 using Framework.Configuration.BLL;
 using Framework.Configuration.BLL.Notification;
-using Framework.Configuration.BLL.SubscriptionSystemService3.Subscriptions;
 using Framework.Configuration.Generated.DTO;
 using Framework.Core;
 using Framework.DependencyInjection;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
-using Framework.DomainDriven.Serialization;
-using Framework.DomainDriven.SerializeMetadata;
 using Framework.DomainDriven.ServiceModel.IAD;
 using Framework.DomainDriven.ServiceModel.Service;
 using Framework.DomainDriven.WebApiNetCore;
@@ -139,6 +136,9 @@ public static class WorkflowSampleSystemFrameworkExtensions
 
         // For expand tree
         services.RegisterHierarchicalObjectExpander<PersistentDomainObjectBase>();
+
+        // For repository
+        services.AddScoped(_ => new LegacyPersistentDomainObjectBaseList(typeof(PersistentDomainObjectBase)));
 
         return services;
     }

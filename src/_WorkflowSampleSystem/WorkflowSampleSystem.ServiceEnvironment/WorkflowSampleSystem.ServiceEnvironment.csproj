@@ -23,13 +23,10 @@
   <ItemGroup>
     <PackageReference Include="Luxoft.Framework.Configuration.Generated.DTO" />
     <PackageReference Include="Luxoft.Framework.DomainDriven.WebApiNetCore" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="nuSpec.NHibernate" />
 
     <PackageReference Include="Luxoft.Framework.App.ServiceEnvironment" />
     <PackageReference Include="Luxoft.Framework.NotificationCore" />
-
-    <PackageReference Include="MediatR" />
   </ItemGroup>
 
 </Project>
