@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.Serialization;
 using Framework.Persistent;
 using Framework.Restriction;
+using Framework.Workflow.Core;
 
 namespace Framework.Workflow.Domain.Runtime
 {

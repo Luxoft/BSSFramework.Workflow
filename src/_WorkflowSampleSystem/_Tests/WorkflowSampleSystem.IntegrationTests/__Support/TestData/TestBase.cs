@@ -13,7 +13,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
     public class TestBase : IntegrationTestBase<IWorkflowSampleSystemBLLContext>
     {
         protected TestBase()
-                : base(WorkflowSampleSystemTestEnvironment.Current.ServiceProviderPool)
+                : base(InitializeAndCleanup.TestEnvironment.ServiceProviderPool)
         {
             // Workaround for System.Drawing.Common problem https://chowdera.com/2021/12/202112240234238356.html
             System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);

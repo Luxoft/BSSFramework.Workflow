@@ -8,8 +8,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.Drawing.Common"/>
 
-    <PackageReference Include="Luxoft.Framework.Core" Version="17.5.1" />
+    <PackageReference Include="Luxoft.Framework.Core"/>
   </ItemGroup>
 </Project>

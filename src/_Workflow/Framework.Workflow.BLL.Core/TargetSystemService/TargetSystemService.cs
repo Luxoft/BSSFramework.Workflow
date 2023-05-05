@@ -10,6 +10,7 @@ using Framework.DomainDriven.BLL.Security;
 using Framework.Exceptions;
 using Framework.Persistent;
 using Framework.SecuritySystem;
+using Framework.Workflow.Core.Extensions;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
