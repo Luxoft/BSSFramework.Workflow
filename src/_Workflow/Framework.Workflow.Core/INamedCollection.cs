@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Framework.Workflow.Core
+namespace Framework.Workflow.Core;
+
+public interface INamedCollection<out T> : IEnumerable<T>
 {
-    public interface INamedCollection<out T> : IEnumerable<T>
-    {
-        T this[string name] { get; }
-    }
+    T this[string name] { get; }
 }

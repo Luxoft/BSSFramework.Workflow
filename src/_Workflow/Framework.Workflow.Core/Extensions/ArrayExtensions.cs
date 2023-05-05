@@ -2,22 +2,21 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
-namespace Framework.Workflow.Core.Extensions
+namespace Framework.Workflow.Core.Extensions;
+
+public static class ArrayExtensions
 {
-    public static class ArrayExtensions
+    public static Type GetElementType(this Array array)
     {
-        public static Type GetElementType(this Array array)
-        {
-            if (array == null) throw new ArgumentNullException(nameof(array));
+        if (array == null) throw new ArgumentNullException(nameof(array));
 
-            return array.GetType().GetElementType();
-        }
+        return array.GetType().GetElementType();
+    }
 
-        public static MemoryStream ToMemoryStream([NotNull] this byte[] source)
-        {
-            if (source == null) throw new ArgumentNullException(nameof(source));
+    public static MemoryStream ToMemoryStream([NotNull] this byte[] source)
+    {
+        if (source == null) throw new ArgumentNullException(nameof(source));
 
-            return new MemoryStream(source);
-        }
+        return new MemoryStream(source);
     }
 }

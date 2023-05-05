@@ -4,15 +4,14 @@ using System.Linq;
 
 using Framework.Core;
 
-namespace Framework.Workflow.Core.Extensions
-{
-    public static class CoreEnumerableExtensions
-    {
-        public static bool HasDuplicates<T>(this IEnumerable<T> source, IEqualityComparer<T> comparer = null)
-        {
-            if (source == null) throw new ArgumentNullException(nameof(source));
+namespace Framework.Workflow.Core.Extensions;
 
-            return source.GetDuplicates(comparer).Any();
-        }
+public static class CoreEnumerableExtensions
+{
+    public static bool HasDuplicates<T>(this IEnumerable<T> source, IEqualityComparer<T> comparer = null)
+    {
+        if (source == null) throw new ArgumentNullException(nameof(source));
+
+        return source.GetDuplicates(comparer).Any();
     }
 }
