@@ -1,4 +1,6 @@
-﻿using Framework.Authorization.BLL;
+﻿using System.Diagnostics.CodeAnalysis;
+
+using Framework.Authorization.BLL;
 using Framework.Cap;
 using Framework.DependencyInjection;
 
@@ -11,6 +13,7 @@ namespace WorkflowSampleSystem.ServiceEnvironment;
 
 public static class WorkflowSampleSystemApplicationExtensions
 {
+    [SuppressMessage("SonarQube","S4792",Justification = "reviewed")]
     public static IServiceCollection RegisterGeneralApplicationServices(this IServiceCollection services, IConfiguration configuration)
     {
         return services.RegisterApplicationServices()
