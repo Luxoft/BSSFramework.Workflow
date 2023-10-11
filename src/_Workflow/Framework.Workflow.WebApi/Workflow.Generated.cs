@@ -15,23 +15,6 @@ namespace Framework.Workflow.WebApi
     {
         
         /// <summary>
-        /// Check Command access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckCommandAccess))]
-        public virtual void CheckCommandAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckCommandAccessInternal(commandIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckCommandAccessInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ICommandBLL bll = evaluateData.Context.Logics.Command;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Command domainObject = bll.GetById(commandIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Command>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get Command (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(GetFullCommand))]
@@ -346,23 +329,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for Command
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasCommandAccess))]
-        public virtual bool HasCommandAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasCommandAccessInternal(commandIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasCommandAccessInternal(Framework.Workflow.Generated.DTO.CommandIdentityDTO commandIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ICommandBLL bll = evaluateData.Context.Logics.Command;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Command domainObject = bll.GetById(commandIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Command>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove Command
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveCommand))]
@@ -409,23 +375,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check CommandEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckCommandEventAccess))]
-        public virtual void CheckCommandEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ICommandEventBLL bll = evaluateData.Context.Logics.CommandEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.CommandEvent domainObject = bll.GetById(commandEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get CommandEvent (FullDTO) by identity
@@ -692,44 +641,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.ICommandEventBLL bll = evaluateData.Context.Logics.CommandEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.CommandEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for CommandEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasCommandEventAccess))]
-        public virtual bool HasCommandEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ICommandEventBLL bll = evaluateData.Context.Logics.CommandEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.CommandEvent domainObject = bll.GetById(commandEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check ConditionState access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckConditionStateAccess))]
-        public virtual void CheckConditionStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckConditionStateAccessInternal(conditionStateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckConditionStateAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IConditionStateBLL bll = evaluateData.Context.Logics.ConditionState;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ConditionState domainObject = bll.GetById(conditionStateIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ConditionState>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get ConditionState (FullDTO) by identity
@@ -998,23 +913,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for ConditionState
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasConditionStateAccess))]
-        public virtual bool HasConditionStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasConditionStateAccessInternal(conditionStateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasConditionStateAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO conditionStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IConditionStateBLL bll = evaluateData.Context.Logics.ConditionState;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ConditionState domainObject = bll.GetById(conditionStateIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ConditionState>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove ConditionState
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveConditionState))]
@@ -1061,23 +959,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check ConditionStateEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckConditionStateEventAccess))]
-        public virtual void CheckConditionStateEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IConditionStateEventBLL bll = evaluateData.Context.Logics.ConditionStateEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ConditionStateEvent domainObject = bll.GetById(conditionStateEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get ConditionStateEvent (FullDTO) by identity
@@ -1296,44 +1177,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IConditionStateEventBLL bll = evaluateData.Context.Logics.ConditionStateEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.ConditionStateEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for ConditionStateEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasConditionStateEventAccess))]
-        public virtual bool HasConditionStateEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IConditionStateEventBLL bll = evaluateData.Context.Logics.ConditionStateEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ConditionStateEvent domainObject = bll.GetById(conditionStateEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check DomainType access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckDomainTypeAccess))]
-        public virtual void CheckDomainTypeAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckDomainTypeAccessInternal(domainTypeIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckDomainTypeAccessInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IDomainTypeBLL bll = evaluateData.Context.Logics.DomainType;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.DomainType domainObject = bll.GetById(domainTypeIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.DomainType>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get DomainType (FullDTO) by identity
@@ -1600,44 +1447,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IDomainTypeBLL bll = evaluateData.Context.Logics.DomainTypeFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.DomainType>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for DomainType
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasDomainTypeAccess))]
-        public virtual bool HasDomainTypeAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasDomainTypeAccessInternal(domainTypeIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasDomainTypeAccessInternal(Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO domainTypeIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IDomainTypeBLL bll = evaluateData.Context.Logics.DomainType;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.DomainType domainObject = bll.GetById(domainTypeIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.DomainType>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check Event access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckEventAccess))]
-        public virtual void CheckEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckEventAccessInternal(eventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckEventAccessInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IEventBLL bll = evaluateData.Context.Logics.Event;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Event domainObject = bll.GetById(eventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Event>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get Event (FullDTO) by identity
@@ -1904,44 +1717,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IEventBLL bll = evaluateData.Context.Logics.EventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.Event>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for Event
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasEventAccess))]
-        public virtual bool HasEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasEventAccessInternal(eventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasEventAccessInternal(Framework.Workflow.Generated.DTO.EventIdentityDTO eventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IEventBLL bll = evaluateData.Context.Logics.Event;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Event domainObject = bll.GetById(eventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Event>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check ParallelState access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckParallelStateAccess))]
-        public virtual void CheckParallelStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckParallelStateAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateBLL bll = evaluateData.Context.Logics.ParallelState;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelState domainObject = bll.GetById(parallelStateIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelState>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get ParallelState (FullDTO) by identity
@@ -2210,23 +1989,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for ParallelState
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasParallelStateAccess))]
-        public virtual bool HasParallelStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasParallelStateAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateBLL bll = evaluateData.Context.Logics.ParallelState;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelState domainObject = bll.GetById(parallelStateIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelState>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove ParallelState
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveParallelState))]
@@ -2273,23 +2035,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check ParallelStateFinalEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckParallelStateFinalEventAccess))]
-        public virtual void CheckParallelStateFinalEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateFinalEventBLL bll = evaluateData.Context.Logics.ParallelStateFinalEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelStateFinalEvent domainObject = bll.GetById(parallelStateFinalEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get ParallelStateFinalEvent (FullDTO) by identity
@@ -2508,44 +2253,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IParallelStateFinalEventBLL bll = evaluateData.Context.Logics.ParallelStateFinalEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for ParallelStateFinalEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasParallelStateFinalEventAccess))]
-        public virtual bool HasParallelStateFinalEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateFinalEventBLL bll = evaluateData.Context.Logics.ParallelStateFinalEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelStateFinalEvent domainObject = bll.GetById(parallelStateFinalEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check Role access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckRoleAccess))]
-        public virtual void CheckRoleAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckRoleAccessInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IRoleBLL bll = evaluateData.Context.Logics.Role;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Role domainObject = bll.GetById(roleIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Role>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get Role (FullDTO) by identity
@@ -2858,44 +2569,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IRoleBLL bll = evaluateData.Context.Logics.RoleFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.Role>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for Role
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasRoleAccess))]
-        public virtual bool HasRoleAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasRoleAccessInternal(roleIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasRoleAccessInternal(Framework.Workflow.Generated.DTO.RoleIdentityDTO roleIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IRoleBLL bll = evaluateData.Context.Logics.Role;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Role domainObject = bll.GetById(roleIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Role>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check StartWorkflowDomainObjectCondition access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStartWorkflowDomainObjectConditionAccess))]
-        public virtual void CheckStartWorkflowDomainObjectConditionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL bll = evaluateData.Context.Logics.StartWorkflowDomainObjectCondition;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition domainObject = bll.GetById(startWorkflowDomainObjectConditionIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get StartWorkflowDomainObjectCondition (FullDTO) by identity
@@ -3038,23 +2715,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for StartWorkflowDomainObjectCondition
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStartWorkflowDomainObjectConditionAccess))]
-        public virtual bool HasStartWorkflowDomainObjectConditionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL bll = evaluateData.Context.Logics.StartWorkflowDomainObjectCondition;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition domainObject = bll.GetById(startWorkflowDomainObjectConditionIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove StartWorkflowDomainObjectCondition
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveStartWorkflowDomainObjectCondition))]
@@ -3101,23 +2761,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check State access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateAccess))]
-        public virtual void CheckStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateAccessInternal(stateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStateAccessInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateBLL bll = evaluateData.Context.Logics.State;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.State domainObject = bll.GetById(stateIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.State>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get State (FullDTO) by identity
@@ -3386,23 +3029,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for State
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateAccess))]
-        public virtual bool HasStateAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateAccessInternal(stateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStateAccessInternal(Framework.Workflow.Generated.DTO.StateIdentityDTO stateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateBLL bll = evaluateData.Context.Logics.State;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.State domainObject = bll.GetById(stateIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.State>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove State
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveState))]
@@ -3449,23 +3075,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check StateBase access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateBaseAccess))]
-        public virtual void CheckStateBaseAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStateBaseAccessInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateBaseBLL bll = evaluateData.Context.Logics.StateBase;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateBase domainObject = bll.GetById(stateBaseIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateBase>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get StateBase (FullDTO) by identity
@@ -3734,23 +3343,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for StateBase
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateBaseAccess))]
-        public virtual bool HasStateBaseAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateBaseAccessInternal(stateBaseIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStateBaseAccessInternal(Framework.Workflow.Generated.DTO.StateBaseIdentityDTO stateBaseIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateBaseBLL bll = evaluateData.Context.Logics.StateBase;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateBase domainObject = bll.GetById(stateBaseIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateBase>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove StateBase
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveStateBase))]
@@ -3797,23 +3389,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check StateDomainObjectEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateDomainObjectEventAccess))]
-        public virtual void CheckStateDomainObjectEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStateDomainObjectEventAccessInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateDomainObjectEventBLL bll = evaluateData.Context.Logics.StateDomainObjectEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateDomainObjectEvent domainObject = bll.GetById(stateDomainObjectEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get StateDomainObjectEvent (FullDTO) by identity
@@ -4032,44 +3607,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IStateDomainObjectEventBLL bll = evaluateData.Context.Logics.StateDomainObjectEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for StateDomainObjectEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateDomainObjectEventAccess))]
-        public virtual bool HasStateDomainObjectEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStateDomainObjectEventAccessInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateDomainObjectEventBLL bll = evaluateData.Context.Logics.StateDomainObjectEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateDomainObjectEvent domainObject = bll.GetById(stateDomainObjectEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check StateTimeoutEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateTimeoutEventAccess))]
-        public virtual void CheckStateTimeoutEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStateTimeoutEventAccessInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateTimeoutEventBLL bll = evaluateData.Context.Logics.StateTimeoutEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateTimeoutEvent domainObject = bll.GetById(stateTimeoutEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateTimeoutEvent>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get StateTimeoutEvent (FullDTO) by identity
@@ -4288,44 +3829,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IStateTimeoutEventBLL bll = evaluateData.Context.Logics.StateTimeoutEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.StateTimeoutEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for StateTimeoutEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateTimeoutEventAccess))]
-        public virtual bool HasStateTimeoutEventAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateTimeoutEventAccessInternal(stateTimeoutEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStateTimeoutEventAccessInternal(Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO stateTimeoutEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateTimeoutEventBLL bll = evaluateData.Context.Logics.StateTimeoutEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateTimeoutEvent domainObject = bll.GetById(stateTimeoutEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateTimeoutEvent>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check TargetSystem access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTargetSystemAccess))]
-        public virtual void CheckTargetSystemAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITargetSystemBLL bll = evaluateData.Context.Logics.TargetSystem;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.TargetSystem domainObject = bll.GetById(targetSystemIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get TargetSystem (FullDTO) by identity
@@ -4544,44 +4051,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.ITargetSystemBLL bll = evaluateData.Context.Logics.TargetSystemFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.TargetSystem>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for TargetSystem
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTargetSystemAccess))]
-        public virtual bool HasTargetSystemAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITargetSystemBLL bll = evaluateData.Context.Logics.TargetSystem;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.TargetSystem domainObject = bll.GetById(targetSystemIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check Task access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTaskAccess))]
-        public virtual void CheckTaskAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTaskAccessInternal(taskIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTaskAccessInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITaskBLL bll = evaluateData.Context.Logics.Task;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Task domainObject = bll.GetById(taskIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Task>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get Task (FullDTO) by identity
@@ -4850,23 +4323,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for Task
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTaskAccess))]
-        public virtual bool HasTaskAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTaskAccessInternal(taskIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTaskAccessInternal(Framework.Workflow.Generated.DTO.TaskIdentityDTO taskIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITaskBLL bll = evaluateData.Context.Logics.Task;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Task domainObject = bll.GetById(taskIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Task>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove Task
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveTask))]
@@ -4913,23 +4369,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check Transition access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTransitionAccess))]
-        public virtual void CheckTransitionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTransitionAccessInternal(transitionIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTransitionAccessInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITransitionBLL bll = evaluateData.Context.Logics.Transition;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Transition domainObject = bll.GetById(transitionIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Transition>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get Transition (FullDTO) by identity
@@ -5198,23 +4637,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for Transition
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTransitionAccess))]
-        public virtual bool HasTransitionAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTransitionAccessInternal(transitionIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTransitionAccessInternal(Framework.Workflow.Generated.DTO.TransitionIdentityDTO transitionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITransitionBLL bll = evaluateData.Context.Logics.Transition;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Transition domainObject = bll.GetById(transitionIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Transition>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove Transition
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveTransition))]
@@ -5261,23 +4683,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check Workflow access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowAccess))]
-        public virtual void CheckWorkflowAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowAccessInternal(workflowIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckWorkflowAccessInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowBLL bll = evaluateData.Context.Logics.Workflow;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Workflow domainObject = bll.GetById(workflowIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Workflow>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Create Workflow by model (WorkflowCreateModel)
@@ -5564,23 +4969,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for Workflow
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowAccess))]
-        public virtual bool HasWorkflowAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowAccessInternal(workflowIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasWorkflowAccessInternal(Framework.Workflow.Generated.DTO.WorkflowIdentityDTO workflowIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowBLL bll = evaluateData.Context.Logics.Workflow;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.Workflow domainObject = bll.GetById(workflowIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.Workflow>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove Workflow
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveWorkflow))]
@@ -5612,23 +5000,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check WorkflowLambda access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowLambdaAccess))]
-        public virtual void CheckWorkflowLambdaAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowLambdaAccessInternal(workflowLambdaIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckWorkflowLambdaAccessInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowLambdaBLL bll = evaluateData.Context.Logics.WorkflowLambda;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.WorkflowLambda domainObject = bll.GetById(workflowLambdaIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.WorkflowLambda>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get WorkflowLambda (FullDTO) by identity
@@ -5897,23 +5268,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for WorkflowLambda
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowLambdaAccess))]
-        public virtual bool HasWorkflowLambdaAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowLambdaAccessInternal(workflowLambdaIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasWorkflowLambdaAccessInternal(Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO workflowLambdaIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowLambdaBLL bll = evaluateData.Context.Logics.WorkflowLambda;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.WorkflowLambda domainObject = bll.GetById(workflowLambdaIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.WorkflowLambda>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove WorkflowLambda
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(RemoveWorkflowLambda))]
@@ -5960,23 +5314,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check WorkflowSource access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowSourceAccess))]
-        public virtual void CheckWorkflowSourceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckWorkflowSourceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowSourceBLL bll = evaluateData.Context.Logics.WorkflowSource;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.WorkflowSource domainObject = bll.GetById(workflowSourceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.WorkflowSource>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get WorkflowSource (FullDTO) by identity
@@ -6243,44 +5580,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IWorkflowSourceBLL bll = evaluateData.Context.Logics.WorkflowSourceFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.WorkflowSource>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for WorkflowSource
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowSourceAccess))]
-        public virtual bool HasWorkflowSourceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowSourceAccessInternal(workflowSourceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasWorkflowSourceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO workflowSourceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowSourceBLL bll = evaluateData.Context.Logics.WorkflowSource;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.WorkflowSource domainObject = bll.GetById(workflowSourceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.WorkflowSource>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check StateInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckStateInstanceAccess))]
-        public virtual void CheckStateInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStateInstanceAccessInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateInstanceBLL bll = evaluateData.Context.Logics.StateInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.StateInstance domainObject = bll.GetById(stateInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.StateInstance>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get StateInstance (FullDTO) by identity
@@ -6389,44 +5692,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.IStateInstanceBLL bll = evaluateData.Context.Logics.StateInstanceFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToSimpleDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Runtime.StateInstance>(Framework.Transfering.ViewDTOType.SimpleDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for StateInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasStateInstanceAccess))]
-        public virtual bool HasStateInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateInstanceAccessInternal(stateInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStateInstanceAccessInternal(Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO stateInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateInstanceBLL bll = evaluateData.Context.Logics.StateInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.StateInstance domainObject = bll.GetById(stateInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.StateInstance>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check TaskInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTaskInstanceAccess))]
-        public virtual void CheckTaskInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTaskInstanceAccessInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITaskInstanceBLL bll = evaluateData.Context.Logics.TaskInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TaskInstance domainObject = bll.GetById(taskInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get TaskInstance (FullDTO) by identity
@@ -6569,23 +5838,6 @@ namespace Framework.Workflow.WebApi
         }
         
         /// <summary>
-        /// Check access for TaskInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTaskInstanceAccess))]
-        public virtual bool HasTaskInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTaskInstanceAccessInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITaskInstanceBLL bll = evaluateData.Context.Logics.TaskInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TaskInstance domainObject = bll.GetById(taskInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Save TaskInstances
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(SaveTaskInstance))]
@@ -6611,23 +5863,6 @@ namespace Framework.Workflow.WebApi
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check TransitionInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckTransitionInstanceAccess))]
-        public virtual void CheckTransitionInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITransitionInstanceBLL bll = evaluateData.Context.Logics.TransitionInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TransitionInstance domainObject = bll.GetById(transitionInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get TransitionInstance (FullDTO) by identity
@@ -6736,44 +5971,10 @@ namespace Framework.Workflow.WebApi
             Framework.Workflow.BLL.ITransitionInstanceBLL bll = evaluateData.Context.Logics.TransitionInstanceFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToSimpleDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Runtime.TransitionInstance>(Framework.Transfering.ViewDTOType.SimpleDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for TransitionInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasTransitionInstanceAccess))]
-        public virtual bool HasTransitionInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITransitionInstanceBLL bll = evaluateData.Context.Logics.TransitionInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TransitionInstance domainObject = bll.GetById(transitionInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance>(securityOperationCode).HasAccess(domainObject);
-        }
     }
     
     public partial class WorkflowSLJsonController
     {
-        
-        /// <summary>
-        /// Check WorkflowInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(CheckWorkflowInstanceAccess))]
-        public virtual void CheckWorkflowInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckWorkflowInstanceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowInstanceBLL bll = evaluateData.Context.Logics.WorkflowInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.WorkflowInstance domainObject = bll.GetById(workflowInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance>(securityOperationCode), domainObject);
-        }
         
         /// <summary>
         /// Get WorkflowInstance (FullDTO) by identity
@@ -7039,23 +6240,6 @@ namespace Framework.Workflow.WebApi
         {
             Framework.Workflow.BLL.IWorkflowInstanceBLL bll = evaluateData.Context.Logics.WorkflowInstanceFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Runtime.WorkflowInstance>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
-        }
-        
-        /// <summary>
-        /// Check access for WorkflowInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute(nameof(HasWorkflowInstanceAccess))]
-        public virtual bool HasWorkflowInstanceAccess([Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, [Microsoft.AspNetCore.Mvc.FromFormAttribute()] Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasWorkflowInstanceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowInstanceBLL bll = evaluateData.Context.Logics.WorkflowInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.WorkflowInstance domainObject = bll.GetById(workflowInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance>(securityOperationCode).HasAccess(domainObject);
         }
         
         /// <summary>

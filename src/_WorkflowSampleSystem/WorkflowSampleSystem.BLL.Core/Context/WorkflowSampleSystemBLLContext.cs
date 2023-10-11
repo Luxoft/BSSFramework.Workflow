@@ -4,41 +4,36 @@ using Framework.Authorization.BLL;
 using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
-using Framework.SecuritySystem.Rules.Builders;
-using Framework.DomainDriven.BLL.Tracking;
+using Framework.DomainDriven.BLL.Security;
+using Framework.DomainDriven.Tracking;
 using Framework.HierarchicalExpand;
 using Framework.QueryLanguage;
 using Framework.SecuritySystem;
 using Framework.Workflow.BLL;
 
-using JetBrains.Annotations;
-
 using WorkflowSampleSystem.Domain;
 
 namespace WorkflowSampleSystem.BLL
 {
-    public partial class WorkflowSampleSystemBLLContext : ISecurityTypeResolverContainer
+    public partial class WorkflowSampleSystemBLLContext
     {
         public WorkflowSampleSystemBLLContext(
             IServiceProvider serviceProvider,
-            [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
-            [NotNull] IObjectStateService objectStateService,
-            [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
-            [NotNull] IStandartExpressionBuilder standartExpressionBuilder,
-            [NotNull] IWorkflowValidator validator,
-            [NotNull] IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
-            [NotNull] IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
-            [NotNull] IWorkflowSampleSystemSecurityService securityService,
-            [NotNull] ISecurityExpressionBuilderFactory<PersistentDomainObjectBase, Guid> securityExpressionBuilderFactory,
-            [NotNull] IWorkflowSampleSystemBLLFactoryContainer logics,
-            [NotNull] IAuthorizationBLLContext authorization,
-            [NotNull] Framework.Configuration.BLL.IConfigurationBLLContext configuration,
-            [NotNull] IWorkflowBLLContext workflow,
-            [NotNull] IWorkflowSampleSystemBLLContextSettings settings)
-            : base(serviceProvider, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
+            IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
+            ITrackingService<PersistentDomainObjectBase> trackingService,
+            IAccessDeniedExceptionService accessDeniedExceptionService,
+            IStandartExpressionBuilder standartExpressionBuilder,
+            IWorkflowValidator validator,
+            IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
+            IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
+            IRootSecurityService<PersistentDomainObjectBase> securityService,
+            IWorkflowSampleSystemBLLFactoryContainer logics,
+            IAuthorizationBLLContext authorization,
+            Framework.Configuration.BLL.IConfigurationBLLContext configuration,
+            IWorkflowBLLContext workflow,
+            IWorkflowSampleSystemBLLContextSettings settings)
+            : base(serviceProvider, operationSenders, trackingService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
-            this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
-
             this.SecurityService = securityService ?? throw new ArgumentNullException(nameof(securityService));
             this.Logics = logics ?? throw new ArgumentNullException(nameof(logics));
 
@@ -49,9 +44,7 @@ namespace WorkflowSampleSystem.BLL
             this.TypeResolver = settings.TypeResolver;
         }
 
-        public IWorkflowSampleSystemSecurityService SecurityService { get; }
-
-        public ISecurityExpressionBuilderFactory<PersistentDomainObjectBase, Guid> SecurityExpressionBuilderFactory { get; }
+        public IRootSecurityService<PersistentDomainObjectBase> SecurityService { get; }
 
         public override IWorkflowSampleSystemBLLFactoryContainer Logics { get; }
 
@@ -62,7 +55,5 @@ namespace WorkflowSampleSystem.BLL
         public IWorkflowBLLContext Workflow { get; }
 
         public ITypeResolver<string> TypeResolver { get; }
-
-        ITypeResolver<string> ISecurityTypeResolverContainer.SecurityTypeResolver => this.TypeResolver;
     }
 }

@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check ParallelState access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckParallelStateAccess")]
-        public virtual void CheckParallelStateAccess(CheckParallelStateAccessAutoRequest checkParallelStateAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkParallelStateAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent = checkParallelStateAccessAutoRequest.parallelStateIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckParallelStateAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateBLL bll = evaluateData.Context.Logics.ParallelState;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelState domainObject = bll.GetById(parallelStateIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelState>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get ParallelState (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -313,26 +293,6 @@
         }
         
         /// <summary>
-        /// Check access for ParallelState
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasParallelStateAccess")]
-        public virtual bool HasParallelStateAccess(HasParallelStateAccessAutoRequest hasParallelStateAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasParallelStateAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent = hasParallelStateAccessAutoRequest.parallelStateIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateAccessInternal(parallelStateIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasParallelStateAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateBLL bll = evaluateData.Context.Logics.ParallelState;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelState domainObject = bll.GetById(parallelStateIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelState>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove ParallelState
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -377,33 +337,5 @@
             bll.Save(domainObject);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToIdentityDTO(domainObject);
         }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckParallelStateAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasParallelStateAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO parallelStateIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

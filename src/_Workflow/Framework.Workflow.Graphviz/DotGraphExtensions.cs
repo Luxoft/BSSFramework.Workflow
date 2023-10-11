@@ -7,13 +7,13 @@ using Framework.Graphviz.Dot.Attributes;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.Graphviz
 {
     public static class DotGraphExtensions
     {
-        public static DotGraph GetDotGraph([NotNull] this Domain.Definition.Workflow workflow)
+        public static DotGraph GetDotGraph(this Domain.Definition.Workflow workflow)
         {
             if (workflow == null) throw new ArgumentNullException(nameof(workflow));
 
@@ -87,7 +87,7 @@ namespace Framework.Workflow.Graphviz
             return dot;
         }
 
-        public static DotGraph GetDotGraph([NotNull] this WorkflowInstance workflowInstance)
+        public static DotGraph GetDotGraph(this WorkflowInstance workflowInstance)
         {
             if (workflowInstance == null) throw new ArgumentNullException(nameof(workflowInstance));
 

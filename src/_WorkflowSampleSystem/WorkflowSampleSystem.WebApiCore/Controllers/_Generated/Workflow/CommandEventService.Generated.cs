@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check CommandEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckCommandEventAccess")]
-        public virtual void CheckCommandEventAccess(CheckCommandEventAccessAutoRequest checkCommandEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkCommandEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent = checkCommandEventAccessAutoRequest.commandEventIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ICommandEventBLL bll = evaluateData.Context.Logics.CommandEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.CommandEvent domainObject = bll.GetById(commandEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get CommandEvent (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -311,53 +291,5 @@
             Framework.Workflow.BLL.ICommandEventBLL bll = evaluateData.Context.Logics.CommandEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.CommandEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for CommandEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasCommandEventAccess")]
-        public virtual bool HasCommandEventAccess(HasCommandEventAccessAutoRequest hasCommandEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasCommandEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent = hasCommandEventAccessAutoRequest.commandEventIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasCommandEventAccessInternal(commandEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasCommandEventAccessInternal(Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ICommandEventBLL bll = evaluateData.Context.Logics.CommandEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.CommandEvent domainObject = bll.GetById(commandEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent>(securityOperationCode).HasAccess(domainObject);
-        }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckCommandEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasCommandEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.CommandEventIdentityDTO commandEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

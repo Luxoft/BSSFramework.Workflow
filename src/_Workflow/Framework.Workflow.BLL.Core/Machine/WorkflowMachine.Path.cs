@@ -6,7 +6,7 @@ using System.Linq;
 using Framework.Core;
 using Framework.Workflow.Domain.Definition;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -49,7 +49,7 @@ namespace Framework.Workflow.BLL
             }
         }
 
-        private string[] GetTaskInstanceGroupRootPathElement([NotNull] WorkflowSource workflowSource)
+        private string[] GetTaskInstanceGroupRootPathElement(WorkflowSource workflowSource)
         {
             if (workflowSource == null) throw new ArgumentNullException(nameof(workflowSource));
 
@@ -58,7 +58,7 @@ namespace Framework.Workflow.BLL
                   .Invoke<string[]>(this, workflowSource);
         }
 
-        private string[] GetTaskInstanceGroupRootPathElement<TSourceDomainObject>([NotNull] WorkflowSource workflowSource)
+        private string[] GetTaskInstanceGroupRootPathElement<TSourceDomainObject>(WorkflowSource workflowSource)
             where TSourceDomainObject : class, TPersistentDomainObjectBase
         {
             if (workflowSource == null) throw new ArgumentNullException(nameof(workflowSource));

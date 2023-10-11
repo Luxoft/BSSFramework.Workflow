@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 using Framework.Authorization.BLL;
 using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.BLL.Configuration;
-using Framework.SecuritySystem.Rules.Builders;
-using Framework.DomainDriven.BLL.Tracking;
+using Framework.DomainDriven.BLL.Security;
+using Framework.DomainDriven.Tracking;
 using Framework.Exceptions;
 using Framework.HierarchicalExpand;
 using Framework.QueryLanguage;
@@ -16,8 +17,7 @@ using Framework.SecuritySystem;
 using Framework.Validation;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
-
-using JetBrains.Annotations;
+using Framework.Workflow.Domain.Runtime;
 
 namespace Framework.Workflow.BLL
 {
@@ -33,28 +33,25 @@ namespace Framework.Workflow.BLL
 
         public WorkflowBLLContext(
             IServiceProvider serviceProvider,
-            [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
-            [NotNull]IObjectStateService objectStateService,
-            [NotNull]IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
-            [NotNull]IStandartExpressionBuilder standartExpressionBuilder,
-            [NotNull]IWorkflowValidator validator,
-            [NotNull]IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
-            [NotNull]IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
-            [NotNull]ISecurityExpressionBuilderFactory<PersistentDomainObjectBase, Guid> securityExpressionBuilderFactory,
-            [NotNull]IConfigurationBLLContext configuration,
-            [NotNull]IAuthorizationBLLContext authorization,
-            [NotNull]IWorkflowSecurityService securityService,
-            [NotNull]IWorkflowBLLFactoryContainer logics,
-            [NotNull]IExpressionParserFactory expressionParsers,
-            [NotNull]IAnonymousTypeBuilder<TypeMap<ParameterizedTypeMapMember>> anonymousTypeBuilder,
-            [NotNull]IEnumerable<ITargetSystemService> targetSystemServices,
-            [NotNull]IDateTimeService dateTimeService,
-            [NotNull]IWorkflowBLLContextSettings settings)
+            IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
+            ITrackingService<PersistentDomainObjectBase> trackingServices,
+            IAccessDeniedExceptionService accessDeniedExceptionService,
+            IStandartExpressionBuilder standartExpressionBuilder,
+            IWorkflowValidator validator,
+            IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
+            IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
+            IConfigurationBLLContext configuration,
+            IAuthorizationBLLContext authorization,
+            IRootSecurityService<PersistentDomainObjectBase> securityService,
+            IWorkflowBLLFactoryContainer logics,
+            IExpressionParserFactory expressionParsers,
+            IAnonymousTypeBuilder<TypeMap<ParameterizedTypeMapMember>> anonymousTypeBuilder,
+            IEnumerable<ITargetSystemService> targetSystemServices,
+            IDateTimeService dateTimeService,
+            IWorkflowBLLContextSettings settings)
 
-            : base(serviceProvider, operationSenders, objectStateService, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
+            : base(serviceProvider, operationSenders, trackingServices, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
         {
-            this.SecurityExpressionBuilderFactory = securityExpressionBuilderFactory ?? throw new ArgumentNullException(nameof(securityExpressionBuilderFactory));
-
             this.Logics = logics ?? throw new ArgumentNullException(nameof(logics));
             this.SecurityService = securityService ?? throw new ArgumentNullException(nameof(securityService));
 
@@ -82,7 +79,7 @@ namespace Framework.Workflow.BLL
 
         public IDateTimeService DateTimeService { get; }
 
-        public IWorkflowSecurityService SecurityService { get; }
+        public IRootSecurityService<PersistentDomainObjectBase> SecurityService { get; }
 
         public IConfigurationBLLContext Configuration { get; }
 
@@ -119,13 +116,10 @@ namespace Framework.Workflow.BLL
 
         public IAuthorizationBLLContext Authorization { get; }
 
-        public ISecurityExpressionBuilderFactory<PersistentDomainObjectBase, Guid> SecurityExpressionBuilderFactory { get; }
-
-
         public IExpressionParserFactory ExpressionParsers { get; }
 
 
-        public ITargetSystemService GetTargetSystemService([NotNull] TargetSystem targetSystem)
+        public ITargetSystemService GetTargetSystemService(TargetSystem targetSystem)
         {
             if (targetSystem == null) throw new ArgumentNullException(nameof(targetSystem));
 
@@ -154,6 +148,14 @@ namespace Framework.Workflow.BLL
                 return this.lazyTargetSystemServiceCache.Value.Values.SingleOrDefault(service => service.PersistentDomainObjectBaseType.IsAssignableFrom(domainType),
                     () => new BusinessLogicException($"Target System for type {domainType.Name} not found"));
             }
+        }
+
+        public ISecurityProvider<TDomainObject> GetWatcherSecurityProvider<TDomainObject>(Expression<Func<TDomainObject, WorkflowInstance>> path)
+                where TDomainObject : PersistentDomainObjectBase
+        {
+            if (path == null) throw new ArgumentNullException(nameof(path));
+
+            return new WorkflowInstanceWatcherSecurityProvider<TDomainObject>(this.Authorization.ActualPrincipalSource, path);
         }
     }
 }

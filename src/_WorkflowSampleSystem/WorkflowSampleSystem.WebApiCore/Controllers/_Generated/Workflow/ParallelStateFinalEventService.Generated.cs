@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check ParallelStateFinalEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckParallelStateFinalEventAccess")]
-        public virtual void CheckParallelStateFinalEventAccess(CheckParallelStateFinalEventAccessAutoRequest checkParallelStateFinalEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkParallelStateFinalEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent = checkParallelStateFinalEventAccessAutoRequest.parallelStateFinalEventIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateFinalEventBLL bll = evaluateData.Context.Logics.ParallelStateFinalEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelStateFinalEvent domainObject = bll.GetById(parallelStateFinalEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get ParallelStateFinalEvent (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -260,53 +240,5 @@
             Framework.Workflow.BLL.IParallelStateFinalEventBLL bll = evaluateData.Context.Logics.ParallelStateFinalEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for ParallelStateFinalEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasParallelStateFinalEventAccess")]
-        public virtual bool HasParallelStateFinalEventAccess(HasParallelStateFinalEventAccessAutoRequest hasParallelStateFinalEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasParallelStateFinalEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent = hasParallelStateFinalEventAccessAutoRequest.parallelStateFinalEventIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasParallelStateFinalEventAccessInternal(parallelStateFinalEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasParallelStateFinalEventAccessInternal(Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IParallelStateFinalEventBLL bll = evaluateData.Context.Logics.ParallelStateFinalEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ParallelStateFinalEvent domainObject = bll.GetById(parallelStateFinalEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>(securityOperationCode).HasAccess(domainObject);
-        }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckParallelStateFinalEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasParallelStateFinalEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO parallelStateFinalEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

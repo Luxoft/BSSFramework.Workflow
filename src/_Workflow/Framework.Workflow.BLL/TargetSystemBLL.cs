@@ -9,7 +9,7 @@ using Framework.Persistent;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -34,7 +34,7 @@ namespace Framework.Workflow.BLL
             return this.Register(typeof(TPersistentDomainObjectBase).GetTargetSystemName(), false, isMain, typeof(TPersistentDomainObjectBase).GetTargetSystemId(), domainTypes);
         }
 
-        private TargetSystem Register([NotNull] string targetSystemName, bool isBase, bool isMain, Guid id, [NotNull] IEnumerable<Type> domainTypes)
+        private TargetSystem Register(string targetSystemName, bool isBase, bool isMain, Guid id, IEnumerable<Type> domainTypes)
         {
             if (targetSystemName == null) throw new ArgumentNullException(nameof(targetSystemName));
             if (domainTypes == null) throw new ArgumentNullException(nameof(domainTypes));

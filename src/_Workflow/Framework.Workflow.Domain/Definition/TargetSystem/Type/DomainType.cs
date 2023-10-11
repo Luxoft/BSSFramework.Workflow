@@ -9,11 +9,9 @@ using Framework.Restriction;
 
 namespace Framework.Workflow.Domain.Definition
 {
-
     /// <summary>
     /// Описание доменного типа целевой системы
     /// </summary>
-    [WorkflowViewDomainObject]
     [BLLViewRole]
     public partial class DomainType : WorkflowItemBase, ITargetSystemElement<TargetSystem>, IDetail<TargetSystem>, IDomainType
     {

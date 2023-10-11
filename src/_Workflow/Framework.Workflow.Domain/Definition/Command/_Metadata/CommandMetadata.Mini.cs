@@ -1,6 +1,4 @@
-﻿using System;
-
-using Framework.DomainDriven.Serialization;
+﻿using Framework.DomainDriven.Serialization;
 using Framework.Projection.Contract;
 
 namespace Framework.Workflow.Domain.Definition

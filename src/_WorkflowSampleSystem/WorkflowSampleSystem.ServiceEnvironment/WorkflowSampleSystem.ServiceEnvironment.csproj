@@ -18,10 +18,7 @@
     <ProjectReference Include="..\WorkflowSampleSystem.Generated.DTO\WorkflowSampleSystem.Generated.DTO.csproj" />
   </ItemGroup>
 
-
-
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.Configuration.Generated.DTO" />
     <PackageReference Include="Luxoft.Framework.DomainDriven.WebApiNetCore" />
     <PackageReference Include="nuSpec.NHibernate" />
 

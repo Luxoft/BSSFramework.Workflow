@@ -23,7 +23,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class CommandBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ICommandBLL, Framework.Workflow.BLL.CommandBLL, Framework.Workflow.Domain.Definition.Command, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ICommandBLLFactory
+    public partial class CommandBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ICommandBLL, Framework.Workflow.BLL.CommandBLL, Framework.Workflow.Domain.Definition.Command>, Framework.Workflow.BLL.ICommandBLLFactory
     {
         
         public CommandBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -44,7 +44,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class CommandEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ICommandEventBLL, Framework.Workflow.BLL.CommandEventBLL, Framework.Workflow.Domain.Definition.CommandEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ICommandEventBLLFactory
+    public partial class CommandEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ICommandEventBLL, Framework.Workflow.BLL.CommandEventBLL, Framework.Workflow.Domain.Definition.CommandEvent>, Framework.Workflow.BLL.ICommandEventBLLFactory
     {
         
         public CommandEventBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -65,7 +65,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class ConditionStateBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IConditionStateBLL, Framework.Workflow.BLL.ConditionStateBLL, Framework.Workflow.Domain.Definition.ConditionState, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IConditionStateBLLFactory
+    public partial class ConditionStateBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IConditionStateBLL, Framework.Workflow.BLL.ConditionStateBLL, Framework.Workflow.Domain.Definition.ConditionState>, Framework.Workflow.BLL.IConditionStateBLLFactory
     {
         
         public ConditionStateBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -86,7 +86,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class ConditionStateEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IConditionStateEventBLL, Framework.Workflow.BLL.ConditionStateEventBLL, Framework.Workflow.Domain.Definition.ConditionStateEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IConditionStateEventBLLFactory
+    public partial class ConditionStateEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IConditionStateEventBLL, Framework.Workflow.BLL.ConditionStateEventBLL, Framework.Workflow.Domain.Definition.ConditionStateEvent>, Framework.Workflow.BLL.IConditionStateEventBLLFactory
     {
         
         public ConditionStateEventBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -107,7 +107,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class DomainTypeBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IDomainTypeBLL, Framework.Workflow.BLL.DomainTypeBLL, Framework.Workflow.Domain.Definition.DomainType, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IDomainTypeBLLFactory
+    public partial class DomainTypeBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IDomainTypeBLL, Framework.Workflow.BLL.DomainTypeBLL, Framework.Workflow.Domain.Definition.DomainType>, Framework.Workflow.BLL.IDomainTypeBLLFactory
     {
         
         public DomainTypeBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -128,7 +128,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class EventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IEventBLL, Framework.Workflow.BLL.EventBLL, Framework.Workflow.Domain.Definition.Event, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IEventBLLFactory
+    public partial class EventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IEventBLL, Framework.Workflow.BLL.EventBLL, Framework.Workflow.Domain.Definition.Event>, Framework.Workflow.BLL.IEventBLLFactory
     {
         
         public EventBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -149,7 +149,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class ParallelStateBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IParallelStateBLL, Framework.Workflow.BLL.ParallelStateBLL, Framework.Workflow.Domain.Definition.ParallelState, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IParallelStateBLLFactory
+    public partial class ParallelStateBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IParallelStateBLL, Framework.Workflow.BLL.ParallelStateBLL, Framework.Workflow.Domain.Definition.ParallelState>, Framework.Workflow.BLL.IParallelStateBLLFactory
     {
         
         public ParallelStateBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -170,7 +170,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class ParallelStateFinalEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.Workflow.BLL.ParallelStateFinalEventBLL, Framework.Workflow.Domain.Definition.ParallelStateFinalEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IParallelStateFinalEventBLLFactory
+    public partial class ParallelStateFinalEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.Workflow.BLL.ParallelStateFinalEventBLL, Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>, Framework.Workflow.BLL.IParallelStateFinalEventBLLFactory
     {
         
         public ParallelStateFinalEventBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -191,7 +191,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class RoleBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IRoleBLL, Framework.Workflow.BLL.RoleBLL, Framework.Workflow.Domain.Definition.Role, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IRoleBLLFactory
+    public partial class RoleBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IRoleBLL, Framework.Workflow.BLL.RoleBLL, Framework.Workflow.Domain.Definition.Role>, Framework.Workflow.BLL.IRoleBLLFactory
     {
         
         public RoleBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -212,7 +212,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class StartWorkflowDomainObjectConditionBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.Workflow.BLL.StartWorkflowDomainObjectConditionBLL, Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLLFactory
+    public partial class StartWorkflowDomainObjectConditionBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.Workflow.BLL.StartWorkflowDomainObjectConditionBLL, Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>, Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLLFactory
     {
         
         public StartWorkflowDomainObjectConditionBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -233,7 +233,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class StateBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateBLL, Framework.Workflow.BLL.StateBLL, Framework.Workflow.Domain.Definition.State, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IStateBLLFactory
+    public partial class StateBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateBLL, Framework.Workflow.BLL.StateBLL, Framework.Workflow.Domain.Definition.State>, Framework.Workflow.BLL.IStateBLLFactory
     {
         
         public StateBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -254,7 +254,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class StateBaseBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateBaseBLL, Framework.Workflow.BLL.StateBaseBLL, Framework.Workflow.Domain.Definition.StateBase, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IStateBaseBLLFactory
+    public partial class StateBaseBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateBaseBLL, Framework.Workflow.BLL.StateBaseBLL, Framework.Workflow.Domain.Definition.StateBase>, Framework.Workflow.BLL.IStateBaseBLLFactory
     {
         
         public StateBaseBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -275,7 +275,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class StateDomainObjectEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.Workflow.BLL.StateDomainObjectEventBLL, Framework.Workflow.Domain.Definition.StateDomainObjectEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IStateDomainObjectEventBLLFactory
+    public partial class StateDomainObjectEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.Workflow.BLL.StateDomainObjectEventBLL, Framework.Workflow.Domain.Definition.StateDomainObjectEvent>, Framework.Workflow.BLL.IStateDomainObjectEventBLLFactory
     {
         
         public StateDomainObjectEventBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -296,7 +296,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class StateTimeoutEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.Workflow.BLL.StateTimeoutEventBLL, Framework.Workflow.Domain.Definition.StateTimeoutEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IStateTimeoutEventBLLFactory
+    public partial class StateTimeoutEventBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.Workflow.BLL.StateTimeoutEventBLL, Framework.Workflow.Domain.Definition.StateTimeoutEvent>, Framework.Workflow.BLL.IStateTimeoutEventBLLFactory
     {
         
         public StateTimeoutEventBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -317,7 +317,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class TargetSystemBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITargetSystemBLL, Framework.Workflow.BLL.TargetSystemBLL, Framework.Workflow.Domain.Definition.TargetSystem, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ITargetSystemBLLFactory
+    public partial class TargetSystemBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITargetSystemBLL, Framework.Workflow.BLL.TargetSystemBLL, Framework.Workflow.Domain.Definition.TargetSystem>, Framework.Workflow.BLL.ITargetSystemBLLFactory
     {
         
         public TargetSystemBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -338,7 +338,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class TaskBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITaskBLL, Framework.Workflow.BLL.TaskBLL, Framework.Workflow.Domain.Definition.Task, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ITaskBLLFactory
+    public partial class TaskBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITaskBLL, Framework.Workflow.BLL.TaskBLL, Framework.Workflow.Domain.Definition.Task>, Framework.Workflow.BLL.ITaskBLLFactory
     {
         
         public TaskBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -359,7 +359,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class TransitionBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITransitionBLL, Framework.Workflow.BLL.TransitionBLL, Framework.Workflow.Domain.Definition.Transition, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ITransitionBLLFactory
+    public partial class TransitionBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITransitionBLL, Framework.Workflow.BLL.TransitionBLL, Framework.Workflow.Domain.Definition.Transition>, Framework.Workflow.BLL.ITransitionBLLFactory
     {
         
         public TransitionBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -380,7 +380,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class WorkflowBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowBLL, Framework.Workflow.BLL.WorkflowBLL, Framework.Workflow.Domain.Definition.Workflow, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IWorkflowBLLFactory
+    public partial class WorkflowBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowBLL, Framework.Workflow.BLL.WorkflowBLL, Framework.Workflow.Domain.Definition.Workflow>, Framework.Workflow.BLL.IWorkflowBLLFactory
     {
         
         public WorkflowBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -401,7 +401,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class WorkflowLambdaBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.Workflow.BLL.WorkflowLambdaBLL, Framework.Workflow.Domain.Definition.WorkflowLambda, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IWorkflowLambdaBLLFactory
+    public partial class WorkflowLambdaBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.Workflow.BLL.WorkflowLambdaBLL, Framework.Workflow.Domain.Definition.WorkflowLambda>, Framework.Workflow.BLL.IWorkflowLambdaBLLFactory
     {
         
         public WorkflowLambdaBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -422,7 +422,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class WorkflowSourceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.Workflow.BLL.WorkflowSourceBLL, Framework.Workflow.Domain.Definition.WorkflowSource, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IWorkflowSourceBLLFactory
+    public partial class WorkflowSourceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.Workflow.BLL.WorkflowSourceBLL, Framework.Workflow.Domain.Definition.WorkflowSource>, Framework.Workflow.BLL.IWorkflowSourceBLLFactory
     {
         
         public WorkflowSourceBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -443,7 +443,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class NamedLockBLLFactory : Framework.DomainDriven.BLL.Security.BLLFactoryBase<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.INamedLockBLL, Framework.Workflow.BLL.NamedLockBLL, Framework.Workflow.Domain.NamedLock>, Framework.Workflow.BLL.INamedLockBLLFactory
+    public partial class NamedLockBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.INamedLockBLL, Framework.Workflow.BLL.NamedLockBLL, Framework.Workflow.Domain.NamedLock>, Framework.Workflow.BLL.INamedLockBLLFactory
     {
         
         public NamedLockBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -464,7 +464,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class ExecutedCommandBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IExecutedCommandBLL, Framework.Workflow.BLL.ExecutedCommandBLL, Framework.Workflow.Domain.Runtime.ExecutedCommand, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IExecutedCommandBLLFactory
+    public partial class ExecutedCommandBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IExecutedCommandBLL, Framework.Workflow.BLL.ExecutedCommandBLL, Framework.Workflow.Domain.Runtime.ExecutedCommand>, Framework.Workflow.BLL.IExecutedCommandBLLFactory
     {
         
         public ExecutedCommandBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -485,7 +485,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class StateInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateInstanceBLL, Framework.Workflow.BLL.StateInstanceBLL, Framework.Workflow.Domain.Runtime.StateInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IStateInstanceBLLFactory
+    public partial class StateInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IStateInstanceBLL, Framework.Workflow.BLL.StateInstanceBLL, Framework.Workflow.Domain.Runtime.StateInstance>, Framework.Workflow.BLL.IStateInstanceBLLFactory
     {
         
         public StateInstanceBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -506,7 +506,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class TaskInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITaskInstanceBLL, Framework.Workflow.BLL.TaskInstanceBLL, Framework.Workflow.Domain.Runtime.TaskInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ITaskInstanceBLLFactory
+    public partial class TaskInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITaskInstanceBLL, Framework.Workflow.BLL.TaskInstanceBLL, Framework.Workflow.Domain.Runtime.TaskInstance>, Framework.Workflow.BLL.ITaskInstanceBLLFactory
     {
         
         public TaskInstanceBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -527,7 +527,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class TransitionInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.Workflow.BLL.TransitionInstanceBLL, Framework.Workflow.Domain.Runtime.TransitionInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.ITransitionInstanceBLLFactory
+    public partial class TransitionInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.Workflow.BLL.TransitionInstanceBLL, Framework.Workflow.Domain.Runtime.TransitionInstance>, Framework.Workflow.BLL.ITransitionInstanceBLLFactory
     {
         
         public TransitionInstanceBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -548,7 +548,7 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class WorkflowInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.Workflow.BLL.WorkflowInstanceBLL, Framework.Workflow.Domain.Runtime.WorkflowInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IWorkflowInstanceBLLFactory
+    public partial class WorkflowInstanceBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.Workflow.BLL.WorkflowInstanceBLL, Framework.Workflow.Domain.Runtime.WorkflowInstance>, Framework.Workflow.BLL.IWorkflowInstanceBLLFactory
     {
         
         public WorkflowInstanceBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -701,7 +701,7 @@ namespace Framework.Workflow.BLL
             }
         }
         
-        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid> Default
+        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid> Default
         {
             get
             {
@@ -773,7 +773,7 @@ namespace Framework.Workflow.BLL
             }
         }
         
-        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid> Implemented
+        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid> Implemented
         {
             get
             {
@@ -1168,35 +1168,61 @@ namespace Framework.Workflow.BLL
         public static void RegisterBLLFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection serviceCollection)
         {
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ICommandBLLFactory, Framework.Workflow.BLL.CommandBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Command, System.Guid>, Framework.Workflow.Domain.Definition.Command>, Framework.Workflow.BLL.ICommandBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ICommandEventBLLFactory, Framework.Workflow.BLL.CommandEventBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.CommandEvent, System.Guid>, Framework.Workflow.Domain.Definition.CommandEvent>, Framework.Workflow.BLL.ICommandEventBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IConditionStateBLLFactory, Framework.Workflow.BLL.ConditionStateBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ConditionState, System.Guid>, Framework.Workflow.Domain.Definition.ConditionState>, Framework.Workflow.BLL.IConditionStateBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IConditionStateEventBLLFactory, Framework.Workflow.BLL.ConditionStateEventBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ConditionStateEvent, System.Guid>, Framework.Workflow.Domain.Definition.ConditionStateEvent>, Framework.Workflow.BLL.IConditionStateEventBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IDomainTypeBLLFactory, Framework.Workflow.BLL.DomainTypeBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.DomainType, System.Guid>, Framework.Workflow.Domain.Definition.DomainType>, Framework.Workflow.BLL.IDomainTypeBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IEventBLLFactory, Framework.Workflow.BLL.EventBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Event, System.Guid>, Framework.Workflow.Domain.Definition.Event>, Framework.Workflow.BLL.IEventBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IParallelStateBLLFactory, Framework.Workflow.BLL.ParallelStateBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ParallelState, System.Guid>, Framework.Workflow.Domain.Definition.ParallelState>, Framework.Workflow.BLL.IParallelStateBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IParallelStateFinalEventBLLFactory, Framework.Workflow.BLL.ParallelStateFinalEventBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ParallelStateFinalEvent, System.Guid>, Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>, Framework.Workflow.BLL.IParallelStateFinalEventBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IRoleBLLFactory, Framework.Workflow.BLL.RoleBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Role, System.Guid>, Framework.Workflow.Domain.Definition.Role>, Framework.Workflow.BLL.IRoleBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLLFactory, Framework.Workflow.BLL.StartWorkflowDomainObjectConditionBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition, System.Guid>, Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>, Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IStateBLLFactory, Framework.Workflow.BLL.StateBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.State, System.Guid>, Framework.Workflow.Domain.Definition.State>, Framework.Workflow.BLL.IStateBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IStateBaseBLLFactory, Framework.Workflow.BLL.StateBaseBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StateBase, System.Guid>, Framework.Workflow.Domain.Definition.StateBase>, Framework.Workflow.BLL.IStateBaseBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IStateDomainObjectEventBLLFactory, Framework.Workflow.BLL.StateDomainObjectEventBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StateDomainObjectEvent, System.Guid>, Framework.Workflow.Domain.Definition.StateDomainObjectEvent>, Framework.Workflow.BLL.IStateDomainObjectEventBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IStateTimeoutEventBLLFactory, Framework.Workflow.BLL.StateTimeoutEventBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StateTimeoutEvent, System.Guid>, Framework.Workflow.Domain.Definition.StateTimeoutEvent>, Framework.Workflow.BLL.IStateTimeoutEventBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ITargetSystemBLLFactory, Framework.Workflow.BLL.TargetSystemBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.TargetSystem, System.Guid>, Framework.Workflow.Domain.Definition.TargetSystem>, Framework.Workflow.BLL.ITargetSystemBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ITaskBLLFactory, Framework.Workflow.BLL.TaskBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Task, System.Guid>, Framework.Workflow.Domain.Definition.Task>, Framework.Workflow.BLL.ITaskBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ITransitionBLLFactory, Framework.Workflow.BLL.TransitionBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Transition, System.Guid>, Framework.Workflow.Domain.Definition.Transition>, Framework.Workflow.BLL.ITransitionBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IWorkflowBLLFactory, Framework.Workflow.BLL.WorkflowBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Workflow, System.Guid>, Framework.Workflow.Domain.Definition.Workflow>, Framework.Workflow.BLL.IWorkflowBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IWorkflowLambdaBLLFactory, Framework.Workflow.BLL.WorkflowLambdaBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.WorkflowLambda, System.Guid>, Framework.Workflow.Domain.Definition.WorkflowLambda>, Framework.Workflow.BLL.IWorkflowLambdaBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IWorkflowSourceBLLFactory, Framework.Workflow.BLL.WorkflowSourceBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.WorkflowSource, System.Guid>, Framework.Workflow.Domain.Definition.WorkflowSource>, Framework.Workflow.BLL.IWorkflowSourceBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.INamedLockBLLFactory, Framework.Workflow.BLL.NamedLockBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.NamedLock, System.Guid>, Framework.Workflow.Domain.NamedLock>, Framework.Workflow.BLL.INamedLockBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IExecutedCommandBLLFactory, Framework.Workflow.BLL.ExecutedCommandBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.ExecutedCommand, System.Guid>, Framework.Workflow.Domain.Runtime.ExecutedCommand>, Framework.Workflow.BLL.IExecutedCommandBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IStateInstanceBLLFactory, Framework.Workflow.BLL.StateInstanceBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.StateInstance, System.Guid>, Framework.Workflow.Domain.Runtime.StateInstance>, Framework.Workflow.BLL.IStateInstanceBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ITaskInstanceBLLFactory, Framework.Workflow.BLL.TaskInstanceBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.TaskInstance, System.Guid>, Framework.Workflow.Domain.Runtime.TaskInstance>, Framework.Workflow.BLL.ITaskInstanceBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.ITransitionInstanceBLLFactory, Framework.Workflow.BLL.TransitionInstanceBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.TransitionInstance, System.Guid>, Framework.Workflow.Domain.Runtime.TransitionInstance>, Framework.Workflow.BLL.ITransitionInstanceBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.Workflow.BLL.IWorkflowInstanceBLLFactory, Framework.Workflow.BLL.WorkflowInstanceBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.WorkflowInstance, System.Guid>, Framework.Workflow.Domain.Runtime.WorkflowInstance>, Framework.Workflow.BLL.IWorkflowInstanceBLLFactory>(serviceCollection);
         }
     }
     
-    public partial class WorkflowDefaultBLLFactory : Framework.DomainDriven.BLL.Security.DefaultSecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.DomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>
+    public partial class WorkflowDefaultBLLFactory : Framework.DomainDriven.BLL.Security.DefaultSecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>
     {
         
         public WorkflowDefaultBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -1204,13 +1230,13 @@ namespace Framework.Workflow.BLL
         {
         }
         
-        public override Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>()
+        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider)
         {
-            return new Framework.Workflow.BLL.DomainBLLBase<TDomainObject>(this.Context);
+            return new Framework.Workflow.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context, securityProvider);
         }
     }
     
-    public partial class WorkflowImplementedBLLFactory : Framework.DomainDriven.BLL.Security.DefaultSecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.DomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>
+    public partial class WorkflowImplementedBLLFactory : Framework.DomainDriven.BLL.Security.ImplementedSecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>
     {
         
         public WorkflowImplementedBLLFactory(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
@@ -1218,452 +1244,9 @@ namespace Framework.Workflow.BLL
         {
         }
         
-        public override Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>()
+        protected override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> CreateDefault<TDomainObject>(Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider)
         {
-            if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Command)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Command));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.CommandEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandEvent));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionState)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionState));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionStateEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateEvent));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.DomainType)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.DomainType));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Event)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Event));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelState)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelState));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelStateFinalEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFinalEvent));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Role)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Role));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StartWorkflowDomainObjectCondition));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.State)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.State));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateBase)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateBase));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateDomainObjectEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateDomainObjectEvent));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateTimeoutEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateTimeoutEvent));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.TargetSystem)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TargetSystem));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Task)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Task));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Transition)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Transition));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Workflow)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Workflow));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowLambda)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowLambda));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowSource)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowSource));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLock));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.ExecutedCommand)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ExecutedCommand));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.StateInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateInstance));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TaskInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskInstance));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TransitionInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionInstance));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowInstance));
-            }
-            else
-            {
-                return new Framework.Workflow.BLL.DomainBLLBase<TDomainObject>(this.Context);
-            }
-        }
-        
-        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider)
-        {
-            if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Command)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Command>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.CommandEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandEventFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionState)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ConditionState>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionStateEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateEventFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.DomainType)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.DomainTypeFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.DomainType>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Event)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.EventFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Event>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelState)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ParallelState>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelStateFinalEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFinalEventFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Role)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.RoleFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Role>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StartWorkflowDomainObjectConditionFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.State)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.State>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateBase)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateBaseFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateBase>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateDomainObjectEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateDomainObjectEventFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateTimeoutEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateTimeoutEventFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateTimeoutEvent>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.TargetSystem)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TargetSystemFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Task)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Task>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Transition)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Transition>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Workflow)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Workflow>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowLambda)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowLambdaFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.WorkflowLambda>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowSource)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowSourceFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.WorkflowSource>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLockFactory.Create()));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.ExecutedCommand)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ExecutedCommandFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.ExecutedCommand>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.StateInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateInstanceFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.StateInstance>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TaskInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskInstanceFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TransitionInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionInstanceFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowInstanceFactory.Create(((Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance>)(securityProvider)))));
-            }
-            else
-            {
-                return new Framework.Workflow.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context);
-            }
-        }
-        
-        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.Workflow.WorkflowSecurityOperationCode securityOperation)
-        {
-            if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Command)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.CommandEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandEventFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionState)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionStateEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateEventFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.DomainType)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.DomainTypeFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Event)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.EventFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelState)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelStateFinalEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFinalEventFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Role)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.RoleFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StartWorkflowDomainObjectConditionFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.State)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateBase)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateBaseFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateDomainObjectEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateDomainObjectEventFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateTimeoutEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateTimeoutEventFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.TargetSystem)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TargetSystemFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Task)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Transition)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Workflow)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowLambda)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowLambdaFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowSource)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowSourceFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLockFactory.Create()));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.ExecutedCommand)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ExecutedCommandFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.StateInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateInstanceFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TaskInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskInstanceFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TransitionInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionInstanceFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowInstanceFactory.Create(securityOperation)));
-            }
-            else
-            {
-                return new Framework.Workflow.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context);
-            }
-        }
-        
-        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.SecuritySystem.BLLSecurityMode bllSecurityMode)
-        {
-            if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Command)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.CommandEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.CommandEventFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionState)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ConditionStateEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ConditionStateEventFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.DomainType)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.DomainTypeFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Event)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.EventFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelState)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.ParallelStateFinalEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ParallelStateFinalEventFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Role)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.RoleFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StartWorkflowDomainObjectConditionFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.State)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateBase)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateBaseFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateDomainObjectEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateDomainObjectEventFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.StateTimeoutEvent)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateTimeoutEventFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.TargetSystem)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TargetSystemFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Task)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Transition)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.Workflow)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowLambda)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowLambdaFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Definition.WorkflowSource)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowSourceFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLockFactory.Create()));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.ExecutedCommand)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.ExecutedCommandFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.StateInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.StateInstanceFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TaskInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TaskInstanceFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.TransitionInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.TransitionInstanceFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.WorkflowInstanceFactory.Create(bllSecurityMode)));
-            }
-            else
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(new Framework.Workflow.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context)));
-            }
+            return new Framework.Workflow.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context, securityProvider);
         }
     }
 }

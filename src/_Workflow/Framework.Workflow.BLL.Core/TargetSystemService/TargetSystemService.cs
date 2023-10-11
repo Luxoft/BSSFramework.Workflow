@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Framework.Authorization.BLL;
+using Framework.Authorization.SecuritySystem;
 using Framework.Core;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
@@ -17,15 +18,13 @@ using Framework.Workflow.Domain.Runtime;
 
 namespace Framework.Workflow.BLL
 {
-    public partial class TargetSystemService<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode> : BLLContextContainer<IWorkflowBLLContext>, ITargetSystemService<TBLLContext, TPersistentDomainObjectBase>
+    public partial class TargetSystemService<TBLLContext, TPersistentDomainObjectBase> : BLLContextContainer<IWorkflowBLLContext>, ITargetSystemService<TBLLContext, TPersistentDomainObjectBase>
 
-        where TBLLContext : class, ISecurityServiceContainer<ISecurityProviderSource<TPersistentDomainObjectBase, TSecurityOperationCode>>,
+        where TBLLContext : class, ISecurityServiceContainer<IRootSecurityService<TPersistentDomainObjectBase>>,
                                    ISecurityBLLContext<IAuthorizationBLLContext, TPersistentDomainObjectBase, Guid>,
-                                   IAccessDeniedExceptionServiceContainer<TPersistentDomainObjectBase>,
                                    ITypeResolverContainer<string>
 
         where TPersistentDomainObjectBase : class, IIdentityObject<Guid>
-        where TSecurityOperationCode : struct, Enum
     {
         private readonly TargetSystemServiceCompileCache<TBLLContext, TPersistentDomainObjectBase> compileCache;
 
@@ -292,7 +291,7 @@ namespace Framework.Workflow.BLL
 
                           select this.GetSecurityProvider<TDomainObject>(role);
 
-            return request.Or(this.TargetSystemContext.AccessDeniedExceptionService);
+            return request.Or();
         }
 
         public ISecurityProvider<TDomainObject> GetSecurityProvider<TDomainObject>(Role role)
@@ -309,10 +308,12 @@ namespace Framework.Workflow.BLL
 
             if (!role.SecurityOperationId.IsDefault())
             {
-                var code = role.SecurityOperationId.ToSecurityOperation<TSecurityOperationCode>().GetValue(() =>
-                                                                                                           $"Unknown operation id: {role.SecurityOperationId}");
+                var securityOperation =
+                        ((ISecurityOperationParser<Guid>)this.Context.Authorization.SecurityOperationParser)
+                        .GetSecurityOperation(role.SecurityOperationId);
 
-                return this.TargetSystemContext.SecurityService.GetSecurityProvider<TDomainObject>(code);
+
+                return this.TargetSystemContext.SecurityService.GetSecurityProvider<TDomainObject>(securityOperation);
             }
 
             throw new BusinessLogicException($"Invalid role ({role.Name})");

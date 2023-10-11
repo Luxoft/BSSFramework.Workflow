@@ -4,28 +4,28 @@ using System.Linq.Expressions;
 
 using Framework.Authorization.Domain;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Authorization.BLL
 {
     public interface IWorkflowApproveProcessor
     {
-        IEnumerable<string> GetPermissionFromPrincipalPath([NotNull] Permission permission);
+        IEnumerable<string> GetPermissionFromPrincipalPath(Permission permission);
 
-        IEnumerable<string> GetPermissionDefaultPath([NotNull] Permission permission);
+        IEnumerable<string> GetPermissionDefaultPath(Permission permission);
 
-        IEnumerable<string> GetOperationDefaultPath([NotNull] Operation operation);
+        IEnumerable<string> GetOperationDefaultPath(Operation operation);
 
         Expression<Func<Principal, IEnumerable<Permission>>> GetPermissionsByPrincipal();
 
-        IEnumerable<ApproveOperationWorkflowObject> GetApproveOperationStartupObjects([NotNull] Permission permission);
+        IEnumerable<ApproveOperationWorkflowObject> GetApproveOperationStartupObjects(Permission permission);
 
-        bool CanAutoApprove([NotNull] Permission permission, [NotNull] Operation approveOperation);
+        bool CanAutoApprove(Permission permission, Operation approveOperation);
 
-        void ExecuteApproveCommand([NotNull] Permission permission, [NotNull] Operation approveOperation, [NotNull] ApproveCommand command);
+        void ExecuteApproveCommand(Permission permission, Operation approveOperation, ApproveCommand command);
 
-        bool IsTerminate([NotNull] Permission permission);
+        bool IsTerminate(Permission permission);
 
-        StartupPermissionWorkflowObject Start([NotNull] Permission permission);
+        StartupPermissionWorkflowObject Start(Permission permission);
     }
 }

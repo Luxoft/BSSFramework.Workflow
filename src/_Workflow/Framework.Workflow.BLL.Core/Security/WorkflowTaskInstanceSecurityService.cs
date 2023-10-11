@@ -1,25 +1,32 @@
 ﻿using System;
-using Framework.SecuritySystem;
-using Framework.Workflow.Domain;
-using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+using Framework.SecuritySystem;
+using Framework.SecuritySystem.Rules.Builders;
+using Framework.Workflow.Domain.Runtime;
 
 namespace Framework.Workflow.BLL
 {
-    public partial class WorkflowTaskInstanceSecurityService
+    public class WorkflowTaskInstanceSecurityService : ContextDomainSecurityService<TaskInstance, Guid>
     {
-        public WorkflowTaskInstanceSecurityService(IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService, IDisabledSecurityProviderContainer<PersistentDomainObjectBase> disabledSecurityProviderContainer, ISecurityOperationResolver<PersistentDomainObjectBase, WorkflowSecurityOperationCode> securityOperationResolver, IAuthorizationSystem<Guid> authorizationSystem, [NotNull] IWorkflowBLLContext context)
-            : base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
+        public WorkflowTaskInstanceSecurityService(
+                IDisabledSecurityProviderSource disabledSecurityProviderSource,
+                ISecurityOperationResolver securityOperationResolver,
+                ISecurityExpressionBuilderFactory securityExpressionBuilderFactory,
+                SecurityPath<TaskInstance> securityPath,
+                IWorkflowBLLContext context)
+                : base(
+                       disabledSecurityProviderSource,
+                       securityOperationResolver,
+                       securityExpressionBuilderFactory,
+                       securityPath)
         {
-            this.Context = context ?? throw new ArgumentNullException(nameof(context));
+            this.Context = context;
         }
-
 
         public IWorkflowBLLContext Context { get; }
 
 
-        protected override ISecurityProvider<TaskInstance> CreateSecurityProvider(SecurityOperation<WorkflowSecurityOperationCode> securityOperation)
+        protected override ISecurityProvider<TaskInstance> CreateSecurityProvider(SecurityOperation securityOperation)
         {
             if (securityOperation == null) throw new ArgumentNullException(nameof(securityOperation));
 
@@ -27,16 +34,9 @@ namespace Framework.Workflow.BLL
 
             if (securityOperation == WorkflowSecurityOperation.WorkflowView)
             {
-                var watcherProvider = this.Context.SecurityService.GetWatcherSecurityProvider<TaskInstance>(taskInstance => taskInstance.Workflow);
+                var watcherProvider = this.Context.GetWatcherSecurityProvider<TaskInstance>(taskInstance => taskInstance.Workflow);
 
-                //var assineeProvider = this.Context.SecurityService.GetAssigneeSecurityProvider<TaskInstance>(taskInstance => taskInstance);
-
-                //var mainSecurityProvider = new TaskInstanceMainSecurityProvider(this.Context);
-
-                return baseProvider.Or(watcherProvider, this.AccessDeniedExceptionService)
-                                 //.Or(assineeProvider)
-                                  // .Or(mainSecurityProvider)
-                                   ;
+                return baseProvider.Or(watcherProvider);
             }
             else
             {

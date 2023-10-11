@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check TargetSystem access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckTargetSystemAccess")]
-        public virtual void CheckTargetSystemAccess(CheckTargetSystemAccessAutoRequest checkTargetSystemAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkTargetSystemAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent = checkTargetSystemAccessAutoRequest.targetSystemIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITargetSystemBLL bll = evaluateData.Context.Logics.TargetSystem;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.TargetSystem domainObject = bll.GetById(targetSystemIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get TargetSystem (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -260,53 +240,5 @@
             Framework.Workflow.BLL.ITargetSystemBLL bll = evaluateData.Context.Logics.TargetSystemFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.TargetSystem>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for TargetSystem
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasTargetSystemAccess")]
-        public virtual bool HasTargetSystemAccess(HasTargetSystemAccessAutoRequest hasTargetSystemAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasTargetSystemAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent = hasTargetSystemAccessAutoRequest.targetSystemIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTargetSystemAccessInternal(targetSystemIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTargetSystemAccessInternal(Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITargetSystemBLL bll = evaluateData.Context.Logics.TargetSystem;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.TargetSystem domainObject = bll.GetById(targetSystemIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem>(securityOperationCode).HasAccess(domainObject);
-        }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckTargetSystemAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasTargetSystemAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO targetSystemIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

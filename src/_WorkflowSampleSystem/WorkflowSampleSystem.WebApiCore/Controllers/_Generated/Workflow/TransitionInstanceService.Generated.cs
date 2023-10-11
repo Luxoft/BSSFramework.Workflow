@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check TransitionInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckTransitionInstanceAccess")]
-        public virtual void CheckTransitionInstanceAccess(CheckTransitionInstanceAccessAutoRequest checkTransitionInstanceAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkTransitionInstanceAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent = checkTransitionInstanceAccessAutoRequest.transitionInstanceIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITransitionInstanceBLL bll = evaluateData.Context.Logics.TransitionInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TransitionInstance domainObject = bll.GetById(transitionInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get TransitionInstance (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -143,53 +123,5 @@
             Framework.Workflow.BLL.ITransitionInstanceBLL bll = evaluateData.Context.Logics.TransitionInstanceFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToSimpleDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Runtime.TransitionInstance>(Framework.Transfering.ViewDTOType.SimpleDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for TransitionInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasTransitionInstanceAccess")]
-        public virtual bool HasTransitionInstanceAccess(HasTransitionInstanceAccessAutoRequest hasTransitionInstanceAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasTransitionInstanceAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent = hasTransitionInstanceAccessAutoRequest.transitionInstanceIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTransitionInstanceAccessInternal(transitionInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTransitionInstanceAccessInternal(Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITransitionInstanceBLL bll = evaluateData.Context.Logics.TransitionInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TransitionInstance domainObject = bll.GetById(transitionInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance>(securityOperationCode).HasAccess(domainObject);
-        }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckTransitionInstanceAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasTransitionInstanceAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO transitionInstanceIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

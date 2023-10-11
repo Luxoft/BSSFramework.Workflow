@@ -1,68 +1,33 @@
-﻿using Framework.Security;
+﻿using System;
+using Framework.Security;
+using Framework.SecuritySystem;
 using Framework.Workflow;
 
 namespace WorkflowSampleSystem
 {
-    [BaseSecurityOperationType]
-    [BaseSecurityOperationType(typeof(WorkflowSecurityOperationCode))]
-    public enum WorkflowSampleSystemSecurityOperationCode
+    public static class WorkflowSampleSystemSecurityOperation
     {
-        /// <summary>
-        /// Специальная операция для отключения безопасности
-        /// </summary>
-        Disabled = 0,
 
-        #region Employee
+        public static DisabledSecurityOperation Disabled { get; } = SecurityOperation.Disabled;
 
-        [SecurityOperation("Employee", true, "{C73DD1F6-74D5-4445-A265-2E96832A7F89}", "Employee View", DomainType = "Employee")]
-        EmployeeView,
+        public static SecurityOperation<Guid> EmployeeView { get; } = new(nameof(EmployeeView), new Guid("c73dd1f6-74d5-4445-a265-2e96832a7f89")) { Description = "Employee View" };
 
-        [SecurityOperation("Employee", true, "{45E8E5B8-620C-42C6-BAF5-20AB1CF27B8E}", "Employee Edit", DomainType = "Employee")]
-        EmployeeEdit,
+        public static SecurityOperation<Guid> EmployeeEdit { get; } = new(nameof(EmployeeEdit), new Guid("45e8e5b8-620c-42c6-baf5-20ab1cf27b8e")) { Description = "Employee Edit" };
 
-        #endregion
+        public static SecurityOperation<Guid> BusinessUnitView { get; } = new(nameof(BusinessUnitView), new Guid("b79e7132-845e-4bbf-8c3a-8fa3f6b31cf6")) { Description = "Business Unit View" };
 
-        #region BusinessUnit
+        public static SecurityOperation<Guid> BusinessUnitEdit { get; } = new(nameof(BusinessUnitEdit), new Guid("10000000-71c4-47cd-8683-000000000003")) { Description = "Business Unit Edit" };
 
-        [SecurityOperation("BusinessUnit", true, "{B79E7132-845E-4BBF-8C3A-8FA3F6B31CF6}", "Business Unit View", DomainType = "BusinessUnit")]
-        BusinessUnitView,
+        public static SecurityOperation<Guid> HRDepartmentView { get; } = new(nameof(HRDepartmentView), new Guid("00000000-71c4-47cd-8683-000000000001"));
 
-        [SecurityOperation("BusinessUnit", true, "{10000000-71C4-47CD-8683-000000000003}", "Business Unit Edit", DomainType = "BusinessUnit")]
-        BusinessUnitEdit,
+        public static SecurityOperation<Guid> HRDepartmentEdit { get; } = new(nameof(HRDepartmentEdit), new Guid("00000000-71c4-47cd-8683-000000000002"));
 
-        #endregion
+        public static SecurityOperation<Guid> LocationView { get; } = new(nameof(LocationView), new Guid("e5377866-ff6d-4d05-912f-2d3c72f27fa7"));
 
-        #region HRDepartment
+        public static SecurityOperation<Guid> LocationEdit { get; } = new(nameof(LocationEdit), new Guid("034c4e00-9c62-422b-98b8-b119c1991596"));
 
-        [SecurityOperation("HRDepartmentView", false, "{00000000-71C4-47CD-8683-000000000001}", DomainType = "HRDepartment")]
-        HRDepartmentView,
+        public static SecurityOperation<Guid> ApproveWorkflowOperation { get; } = new(nameof(ApproveWorkflowOperation), new Guid("939ec98c-131b-4e3e-b97c-9df95620c758")) { Description = "Required operation for approve", AdminHasAccess = false };
 
-        [SecurityOperation("HRDepartmentEdit", false, "{00000000-71C4-47CD-8683-000000000002}", DomainType = "HRDepartment")]
-        HRDepartmentEdit,
-
-        #endregion
-
-        #region Location
-
-        [SecurityOperation("LocationView", false, "E5377866-FF6D-4D05-912F-2D3C72F27FA7", DomainType = "Location")]
-        LocationView,
-
-        [SecurityOperation("LocationEdit", false, "034C4E00-9C62-422B-98B8-B119C1991596", DomainType = "Location")]
-        LocationEdit,
-
-        #endregion
-
-        [SecurityOperation(SecurityOperationCode.SystemIntegration)]
-        SystemIntegration,
-
-
-
-
-        [SecurityOperation("TestWorkflow", false, "{939EC98C-131B-4E3E-B97C-9DF95620C758}", "Required operation for approve", adminHasAccess: false)]
-        ApproveWorkflowOperation,
-
-        [WorkflowSampleSystemApproveOperation(ApproveWorkflowOperation)]
-        [SecurityOperation("TestWorkflow", false, "{927E4AFC-8CC2-4EDA-B6EE-FE6B2C53D0BA}", "Operation testing workflow")]
-        ApprovingWorkflowOperation
+        public static SecurityOperation<Guid> ApprovingWorkflowOperation { get; } = new(nameof(ApprovingWorkflowOperation), new Guid("927e4afc-8cc2-4eda-b6ee-fe6b2c53d0ba")) { Description = "Operation testing workflow", ApproveOperation = ApproveWorkflowOperation };
     }
 }

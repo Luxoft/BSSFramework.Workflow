@@ -11,7 +11,6 @@ namespace Framework.Workflow.Domain.Runtime
     /// <summary>
     /// Экземпляр выполненной команды
     /// </summary>
-    [WorkflowViewDomainObject]
     [BLLRole]
     public class ExecutedCommand : AuditPersistentDomainObjectBase,
         IMaster<ExecutedCommandParameter>,

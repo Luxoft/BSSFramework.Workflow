@@ -320,6 +320,7 @@ namespace Framework.Workflow.Domain.Projections
     
     [Framework.Persistent.Mapping.TableAttribute(Name="CommandMetadata")]
     [Framework.Projection.ProjectionAttribute(typeof(Framework.Workflow.Domain.Definition.CommandMetadata), Framework.Projection.ProjectionRole.Default, typeof(Framework.Workflow.Domain.Definition.IMiniCommandMetadata))]
+    [Framework.Security.DependencySecurityAttribute(typeof(Framework.Workflow.Domain.Definition.CommandMetadata))]
     public partial class MiniCommandMetadata : Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.IMiniCommandMetadata, Framework.Workflow.Domain.Definition.IMiniObjectMetadata, Framework.Persistent.IVisualIdentityObject
     {
         
@@ -381,6 +382,7 @@ namespace Framework.Workflow.Domain.Projections
     
     [Framework.Persistent.Mapping.TableAttribute(Name="CommandParameter")]
     [Framework.Projection.ProjectionAttribute(typeof(Framework.Workflow.Domain.Definition.CommandParameter), Framework.Projection.ProjectionRole.Default, typeof(Framework.Workflow.Domain.Definition.IMiniCommandParameter))]
+    [Framework.Security.DependencySecurityAttribute(typeof(Framework.Workflow.Domain.Definition.CommandParameter))]
     public partial class MiniCommandParameter : Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.IMiniCommandParameter, Framework.Persistent.IVisualIdentityObject
     {
         
@@ -657,6 +659,7 @@ namespace Framework.Workflow.Domain.Projections
     
     [Framework.Persistent.Mapping.TableAttribute(Name="TaskMetadata")]
     [Framework.Projection.ProjectionAttribute(typeof(Framework.Workflow.Domain.Definition.TaskMetadata), Framework.Projection.ProjectionRole.Default, typeof(Framework.Workflow.Domain.Definition.IMiniTaskMetadata))]
+    [Framework.Security.DependencySecurityAttribute(typeof(Framework.Workflow.Domain.Definition.TaskMetadata))]
     public partial class MiniTaskMetadata : Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.IMiniTaskMetadata, Framework.Workflow.Domain.Definition.IMiniObjectMetadata, Framework.Persistent.IVisualIdentityObject
     {
         
@@ -861,6 +864,7 @@ namespace Framework.Workflow.Domain.Projections
     
     [Framework.Persistent.Mapping.TableAttribute(Name="WorkflowMetadata")]
     [Framework.Projection.ProjectionAttribute(typeof(Framework.Workflow.Domain.Definition.WorkflowMetadata), Framework.Projection.ProjectionRole.Default, typeof(Framework.Workflow.Domain.Definition.IMiniWorkflowMetadata))]
+    [Framework.Security.DependencySecurityAttribute(typeof(Framework.Workflow.Domain.Definition.WorkflowMetadata))]
     public partial class MiniWorkflowMetadata : Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.IMiniWorkflowMetadata, Framework.Workflow.Domain.Definition.IMiniObjectMetadata, Framework.Persistent.IVisualIdentityObject
     {
         

@@ -8,7 +8,6 @@ using Framework.Core.Serialization;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.Persistent;
-using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 

@@ -11,8 +11,6 @@ namespace Framework.Workflow.Domain.Definition
     /// <summary>
     ///  Доступное пользователю действие в системе
     /// </summary>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole]
     public partial class Command : SingleEventContainerBase<CommandEvent>,
         IMaster<CommandParameter>,

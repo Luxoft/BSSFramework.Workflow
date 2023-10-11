@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check Employee access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckEmployeeAccess")]
-        public virtual void CheckEmployeeAccess(CheckEmployeeAccessAutoRequest checkEmployeeAccessAutoRequest)
-        {
-            WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode = checkEmployeeAccessAutoRequest.securityOperationCode;
-            WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO employeeIdent = checkEmployeeAccessAutoRequest.employeeIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckEmployeeAccessInternal(employeeIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckEmployeeAccessInternal(WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO employeeIdent, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IEmployeeBLL bll = evaluateData.Context.Logics.Employee;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            WorkflowSampleSystem.Domain.Employee domainObject = bll.GetById(employeeIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<WorkflowSampleSystem.Domain.Employee>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get Employee (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -128,26 +108,6 @@
         }
         
         /// <summary>
-        /// Check access for Employee
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasEmployeeAccess")]
-        public virtual bool HasEmployeeAccess(HasEmployeeAccessAutoRequest hasEmployeeAccessAutoRequest)
-        {
-            WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode = hasEmployeeAccessAutoRequest.securityOperationCode;
-            WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO employeeIdent = hasEmployeeAccessAutoRequest.employeeIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasEmployeeAccessInternal(employeeIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasEmployeeAccessInternal(WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO employeeIdent, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IEmployeeBLL bll = evaluateData.Context.Logics.Employee;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            WorkflowSampleSystem.Domain.Employee domainObject = bll.GetById(employeeIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<WorkflowSampleSystem.Domain.Employee>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Save Employees
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -189,33 +149,5 @@
             bll.Save(domainObject);
             return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToIdentityDTO(domainObject);
         }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckEmployeeAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO employeeIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasEmployeeAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO employeeIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode;
     }
 }

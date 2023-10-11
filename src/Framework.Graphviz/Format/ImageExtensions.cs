@@ -4,13 +4,13 @@ using System.Linq;
 
 using Framework.Core;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Graphviz
 {
     internal static class ImageExtensions
     {
-        public static ImageCodecInfo GetCodecInfo([NotNull] this ImageFormat imageFormat)
+        public static ImageCodecInfo GetCodecInfo(this ImageFormat imageFormat)
         {
             if (imageFormat == null) throw new ArgumentNullException(nameof(imageFormat));
 
@@ -19,7 +19,7 @@ namespace Framework.Graphviz
                 .Single(() => new Exception($"ImageCodecInfo for format \"{imageFormat}\"not found"));
         }
 
-        public static string GetExtension([NotNull] this ImageCodecInfo imageCodecInfo)
+        public static string GetExtension(this ImageCodecInfo imageCodecInfo)
         {
             if (imageCodecInfo == null) throw new ArgumentNullException(nameof(imageCodecInfo));
 

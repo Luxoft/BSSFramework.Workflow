@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check WorkflowInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckWorkflowInstanceAccess")]
-        public virtual void CheckWorkflowInstanceAccess(CheckWorkflowInstanceAccessAutoRequest checkWorkflowInstanceAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkWorkflowInstanceAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent = checkWorkflowInstanceAccessAutoRequest.workflowInstanceIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckWorkflowInstanceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowInstanceBLL bll = evaluateData.Context.Logics.WorkflowInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.WorkflowInstance domainObject = bll.GetById(workflowInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get WorkflowInstance (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -313,26 +293,6 @@
         }
         
         /// <summary>
-        /// Check access for WorkflowInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasWorkflowInstanceAccess")]
-        public virtual bool HasWorkflowInstanceAccess(HasWorkflowInstanceAccessAutoRequest hasWorkflowInstanceAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasWorkflowInstanceAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent = hasWorkflowInstanceAccessAutoRequest.workflowInstanceIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasWorkflowInstanceAccessInternal(workflowInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasWorkflowInstanceAccessInternal(Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IWorkflowInstanceBLL bll = evaluateData.Context.Logics.WorkflowInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.WorkflowInstance domainObject = bll.GetById(workflowInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove WorkflowInstance
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -393,33 +353,5 @@
             bll.Save(domainObject);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToIdentityDTO(domainObject);
         }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckWorkflowInstanceAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasWorkflowInstanceAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO workflowInstanceIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

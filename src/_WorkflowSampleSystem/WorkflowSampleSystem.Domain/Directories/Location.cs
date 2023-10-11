@@ -10,8 +10,6 @@ namespace WorkflowSampleSystem.Domain
 {
     [DomainType("CACA9DB4-9DA6-48AA-9FD3-A311016CB715")]
     [BLLViewRole, BLLSaveRole, BLLRemoveRole]
-    [WorkflowSampleSystemViewDomainObject(WorkflowSampleSystemSecurityOperationCode.LocationView, WorkflowSampleSystemSecurityOperationCode.HRDepartmentEdit)]
-    [WorkflowSampleSystemEditDomainObject(WorkflowSampleSystemSecurityOperationCode.LocationEdit)]
     [UniqueGroup]
     public class Location :
         BaseDirectory,

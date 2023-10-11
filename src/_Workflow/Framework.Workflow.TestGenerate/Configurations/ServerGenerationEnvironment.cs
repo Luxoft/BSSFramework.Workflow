@@ -46,12 +46,6 @@ namespace Framework.Workflow.TestGenerate
             this.Projection = new ProjectionGeneratorConfiguration(this);
         }
 
-
-        public override Type SecurityOperationCodeType { get; } = typeof(WorkflowSecurityOperationCode);
-
-        public override Type OperationContextType { get; } = typeof(WorkflowOperationContext);
-
-
         public DatabaseName DatabaseName { get; }
 
 

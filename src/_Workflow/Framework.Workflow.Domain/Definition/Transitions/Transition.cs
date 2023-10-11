@@ -8,15 +8,12 @@ using Framework.Restriction;
 
 namespace Framework.Workflow.Domain.Definition
 {
-
     /// <summary>
     /// Переход объекта из одного состояния в другое, посредством получения события
     /// </summary>
     /// <remarks>
     /// Переход описывается следующими параметрами: исходное и конечное состояния и событие, которое инициирует переход
     /// </remarks>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole]
     public class Transition : WorkflowItemBase, IDetail<Workflow>, IMaster<TransitionAction>, IWorkflowElement
     {

@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 using Framework.Core;
 using Framework.DomainDriven.BLL.Configuration;
-using Framework.DomainDriven.BLL.Security;
-using Framework.DomainDriven.BLL.Tracking;
 
 using Framework.Authorization.BLL;
 using Framework.DomainDriven;
-using Framework.DomainDriven.BLL;
+using Framework.DomainDriven.BLL.Security;
+using Framework.DomainDriven.Tracking;
+using Framework.SecuritySystem;
 using Framework.Validation;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
+using Framework.Workflow.Domain.Runtime;
 
 namespace Framework.Workflow.BLL
 {
     public partial interface IWorkflowBLLContext :
 
-        ISecurityBLLContext<IAuthorizationBLLContext, PersistentDomainObjectBase, DomainObjectBase, Guid>,
+        ISecurityBLLContext<IAuthorizationBLLContext, PersistentDomainObjectBase, Guid>,
 
         ITrackingServiceContainer<PersistentDomainObjectBase>,
 
@@ -25,9 +27,7 @@ namespace Framework.Workflow.BLL
 
         ITypeResolverContainer<string>,
 
-        IConfigurationBLLContextContainer<IConfigurationBLLContext>,
-
-        IHierarchicalObjectExpanderFactoryContainer<Guid>
+        IConfigurationBLLContextContainer<IConfigurationBLLContext>
     {
         IExpressionParserFactory ExpressionParsers { get; }
 
@@ -53,9 +53,7 @@ namespace Framework.Workflow.BLL
 
         DomainType GetDomainType(Type type);
 
-        //void RecalculateTaskInstancesAssigneesByLogin(string login);
-
-        //void RecalculateTaskInstancesAssigneesByDomainObject<TDomainObject>(TDomainObject domainObject)
-        //    where TDomainObject : class, IIdentityObject<Guid>;
+        ISecurityProvider<TDomainObject> GetWatcherSecurityProvider<TDomainObject>(Expression<Func<TDomainObject, WorkflowInstance>> path)
+                where TDomainObject : PersistentDomainObjectBase;
     }
 }

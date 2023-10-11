@@ -18,7 +18,6 @@ namespace Framework.Workflow.Domain.Definition
     /// 5) <see cref="StateDomainObjectEvent"/>
     /// Переход, подписанный на событие, переводит бизнес-объект в новое состояние
     /// </remarks>
-    [WorkflowViewDomainObject]
     [BLLViewRole]
     public class Event : WorkflowItemBase, IWorkflowElement
     {

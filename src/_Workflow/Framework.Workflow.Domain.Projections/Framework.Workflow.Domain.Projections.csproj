@@ -6,6 +6,9 @@
     <Compile Include="..\..\__SolutionItems\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Luxoft.Framework.Persistent.Mapping.Audit" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Framework.Workflow.Domain.Models\Framework.Workflow.Domain.Models.csproj" />
   </ItemGroup>
 </Project>

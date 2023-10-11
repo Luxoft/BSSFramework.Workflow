@@ -2,7 +2,6 @@
 using System.Linq.Expressions;
 
 using Framework.ExpressionParsers;
-using Framework.DomainDriven.BLL;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 

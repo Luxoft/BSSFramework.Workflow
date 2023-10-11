@@ -11,289 +11,7 @@ namespace Framework.Workflow.BLL
 {
     
     
-    #region 
-	static
-    public class WorkflowSecurityOperation
-    {
-        
-        private static Framework.SecuritySystem.DisabledSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> _disabled = new Framework.SecuritySystem.DisabledSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>();
-        
-        private static Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> _systemIntegration = new Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>(Framework.Workflow.WorkflowSecurityOperationCode.SystemIntegration);
-        
-        private static Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> _workflowEdit = new Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit);
-        
-        private static Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> _workflowView = new Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView);
-        
-        public static Framework.SecuritySystem.DisabledSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> Disabled
-        {
-            get
-            {
-                return _disabled;
-            }
-        }
-        
-        public static Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> SystemIntegration
-        {
-            get
-            {
-                return _systemIntegration;
-            }
-        }
-        
-        public static Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> WorkflowEdit
-        {
-            get
-            {
-                return _workflowEdit;
-            }
-        }
-        
-        public static Framework.SecuritySystem.NonContextSecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> WorkflowView
-        {
-            get
-            {
-                return _workflowView;
-            }
-        }
-        
-        public static Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> GetByCode(Framework.Workflow.WorkflowSecurityOperationCode code)
-        {
-            if ((code == Framework.Workflow.WorkflowSecurityOperationCode.Disabled))
-            {
-                return Framework.Workflow.BLL.WorkflowSecurityOperation.Disabled;
-            }
-            else if ((code == Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView))
-            {
-                return Framework.Workflow.BLL.WorkflowSecurityOperation.WorkflowView;
-            }
-            else if ((code == Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit))
-            {
-                return Framework.Workflow.BLL.WorkflowSecurityOperation.WorkflowEdit;
-            }
-            else if ((code == Framework.Workflow.WorkflowSecurityOperationCode.SystemIntegration))
-            {
-                return Framework.Workflow.BLL.WorkflowSecurityOperation.SystemIntegration;
-            }
-            else
-            {
-                throw new System.ArgumentOutOfRangeException("code");
-            }
-        }
-        
-        public static Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> GetByMode<TDomainObject>(Framework.SecuritySystem.BLLSecurityMode mode)
-            where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = Framework.Workflow.BLL.WorkflowSecurityOperation.GetCodeByMode<TDomainObject>(mode);
-            if ((securityOperationCode == Framework.Workflow.WorkflowSecurityOperationCode.Disabled))
-            {
-                return Framework.Workflow.BLL.WorkflowSecurityOperation.Disabled;
-            }
-            else
-            {
-                return Framework.Workflow.BLL.WorkflowSecurityOperation.GetByCode(securityOperationCode);
-            }
-        }
-        
-        public static Framework.Workflow.WorkflowSecurityOperationCode GetCodeByMode(System.Type domainType, Framework.SecuritySystem.BLLSecurityMode mode)
-        {
-            if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.Command) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.Command) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.CommandEvent) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.ConditionState) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.ConditionState) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.ConditionStateEvent) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.DomainType) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.Event) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.ParallelState) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.ParallelState) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.ParallelStateFinalEvent) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.ParallelStateStartItem) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.Role) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.State) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.State) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.StateBase) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.StateBase) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.StateDomainObjectEvent) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.StateTimeoutEvent) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.TargetSystem) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.TargetSystem) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.Task) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.Task) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.Transition) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.Transition) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.TransitionAction) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.TransitionAction) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.Workflow) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.Workflow) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.WorkflowLambda) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.WorkflowLambda) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Definition.WorkflowSource) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Definition.WorkflowSource) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Runtime.ExecutedCommand) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Runtime.StateInstance) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Runtime.TaskInstance) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Runtime.TaskInstance) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Runtime.TransitionInstance) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.View) && (typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView;
-            }
-            else if ((mode == Framework.SecuritySystem.BLLSecurityMode.Edit) && (typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance) == domainType))
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit;
-            }
-            else
-            {
-                return Framework.Workflow.WorkflowSecurityOperationCode.Disabled;
-            }
-        }
-        
-        private static Framework.Workflow.WorkflowSecurityOperationCode GetCodeByMode<TDomainObject>(Framework.SecuritySystem.BLLSecurityMode mode)
-            where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
-        {
-            return Framework.Workflow.BLL.WorkflowSecurityOperation.GetCodeByMode(typeof(TDomainObject), mode);
-        }
-    }
-    #endregion
-    
-    public partial class WorkflowSecurityPath<TDomainObject> : Framework.SecuritySystem.SecurityPathWrapper<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>
-        where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
-    {
-        
-        private WorkflowSecurityPath(Framework.SecuritySystem.SecurityPath<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> securityPath) : 
-                base(securityPath)
-        {
-        }
-        
-        public static implicit operator Framework.Workflow.BLL.WorkflowSecurityPath<TDomainObject> (Framework.SecuritySystem.SecurityPath<Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> securityPath)
-        {
-            return new Framework.Workflow.BLL.WorkflowSecurityPath<TDomainObject>(securityPath);
-        }
-    }
-    
-    public partial class WorkflowBLLContext : Framework.DomainDriven.BLL.Security.SecurityBLLBaseContext<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.DomainObjectBase, System.Guid, Framework.Workflow.BLL.IWorkflowBLLFactoryContainer, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>>>, Framework.Workflow.BLL.IWorkflowBLLContext
+    public partial class WorkflowBLLContext : Framework.DomainDriven.BLL.Security.SecurityBLLBaseContext<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid, Framework.Workflow.BLL.IWorkflowBLLFactoryContainer>, Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>>>, Framework.Workflow.BLL.IWorkflowBLLContext
     {
         
         Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.IDefaultBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>> Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.IDefaultBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>>>.Logics
@@ -304,26 +22,16 @@ namespace Framework.Workflow.BLL
             }
         }
         
-        Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>> Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>>>.Logics
+        Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>> Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>>>.Logics
         {
             get
             {
                 return this.Logics;
             }
         }
-        
-        public override Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> GetSecurityOperation(Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode)
-        {
-            return Framework.Workflow.BLL.WorkflowSecurityOperation.GetByCode(securityOperationCode);
-        }
-        
-        public override Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode> GetSecurityOperation<TDomainObject>(Framework.SecuritySystem.BLLSecurityMode securitMode)
-        {
-            return Framework.Workflow.BLL.WorkflowSecurityOperation.GetByMode<TDomainObject>(securitMode);
-        }
     }
     
-    public partial interface IWorkflowBLLContext : Framework.DomainDriven.BLL.Security.IAccessDeniedExceptionServiceContainer<Framework.Workflow.Domain.PersistentDomainObjectBase>, Framework.DomainDriven.BLL.Security.ISecurityServiceContainer<Framework.Workflow.BLL.IWorkflowSecurityService>, Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.Workflow.BLL.IWorkflowBLLFactoryContainer>, Framework.DomainDriven.IFetchServiceContainer<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.DomainDriven.FetchBuildRule>, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode>
+    public partial interface IWorkflowBLLContext : Framework.DomainDriven.BLL.Security.IAccessDeniedExceptionServiceContainer, Framework.DomainDriven.BLL.Security.ISecurityServiceContainer<Framework.DomainDriven.BLL.Security.IRootSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase>>, Framework.DomainDriven.BLL.IBLLFactoryContainerContext<Framework.Workflow.BLL.IWorkflowBLLFactoryContainer>, Framework.DomainDriven.IFetchServiceContainer<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.DomainDriven.FetchBuildRule>
     {
         
         new Framework.Workflow.BLL.IWorkflowBLLFactoryContainer Logics
@@ -332,39 +40,18 @@ namespace Framework.Workflow.BLL
         }
     }
     
-    public partial class DomainBLLBase<TDomainObject, TOperation> : Framework.DomainDriven.BLL.DefaultDomainBLLBase<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.DomainObjectBase, TDomainObject, System.Guid, TOperation>
+    public partial class SecurityDomainBLLBase<TDomainObject, TOperation> : Framework.DomainDriven.BLL.Security.DefaultSecurityDomainBLLBase<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid, TOperation>
         where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
         where TOperation :  struct, System.Enum
     {
         
-        public DomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
-                base(context, specificationEvaluator)
-        {
-        }
-    }
-    
-    public abstract partial class SecurityDomainBLLBase<TDomainObject, TOperation> : Framework.DomainDriven.BLL.Security.DefaultSecurityDomainBLLBase<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.DomainObjectBase, TDomainObject, System.Guid, TOperation>
-        where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
-        where TOperation :  struct, System.Enum
-    {
-        
-        protected SecurityDomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
+        public SecurityDomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, specificationEvaluator)
         {
         }
         
-        protected SecurityDomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityOperation, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
-                base(context, securityOperation, specificationEvaluator)
-        {
-        }
-    }
-    
-    public partial class DomainBLLBase<TDomainObject> : Framework.Workflow.BLL.DomainBLLBase<TDomainObject, Framework.DomainDriven.BLL.BLLBaseOperation>
-        where TDomainObject : Framework.Workflow.Domain.PersistentDomainObjectBase
-    {
-        
-        public DomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
-                base(context)
+        public SecurityDomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
+                base(context, securityProvider, specificationEvaluator)
         {
         }
     }
@@ -378,403 +65,13 @@ namespace Framework.Workflow.BLL
         {
         }
         
-        public SecurityDomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityOperation) : 
-                base(context, securityOperation)
+        public SecurityDomainBLLBase(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider) : 
+                base(context, securityProvider)
         {
         }
     }
     
-    public partial class WorkflowSecurityService : Framework.Workflow.BLL.WorkflowSecurityServiceBase, Framework.Workflow.BLL.IWorkflowSecurityService
-    {
-        
-        public WorkflowSecurityService(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
-                base(context)
-        {
-        }
-    }
-    
-    public abstract partial class WorkflowSecurityServiceBase : Framework.DomainDriven.BLL.Security.RootSecurityService<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        protected WorkflowSecurityServiceBase(Framework.Workflow.BLL.IWorkflowBLLContext context) : 
-                base(context)
-        {
-        }
-        
-        public static void Register(Microsoft.Extensions.DependencyInjection.IServiceCollection serviceCollection)
-        {
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Command, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowCommandSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.CommandEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowCommandEventSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.ConditionState, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowConditionStateSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.ConditionStateEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowConditionStateEventSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.DomainType, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowDomainTypeSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Event, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowEventSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.ParallelState, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowParallelStateSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowParallelStateFinalEventSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.ParallelStateStartItem, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowParallelStateStartItemSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Role, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowRoleSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowStartWorkflowDomainObjectConditionSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.State, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowStateSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.StateBase, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowStateBaseSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.StateDomainObjectEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowStateDomainObjectEventSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.StateTimeoutEvent, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowStateTimeoutEventSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.TargetSystem, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowTargetSystemSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Task, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowTaskSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Transition, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowTransitionSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.TransitionAction, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowTransitionActionSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Workflow, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowWorkflowSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.WorkflowLambda, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowWorkflowLambdaSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.WorkflowSource, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowWorkflowSourceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniCommand, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniCommandSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniState, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniStateSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniStateBase, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniStateBaseSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniTask, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniTaskSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniTaskInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniTaskInstanceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniWorkflow, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniWorkflowSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniWorkflowInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniWorkflowInstanceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.MiniWorkflowSource, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowMiniWorkflowSourceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.VisualDomainType, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowVisualDomainTypeSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Projections.VisualWorkflow, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowVisualWorkflowSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.ExecutedCommand, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowExecutedCommandSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.StateInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowStateInstanceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.TaskInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowTaskInstanceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.TransitionInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowTransitionInstanceSecurityService>(serviceCollection);
-            Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.WorkflowInstance, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.WorkflowWorkflowInstanceSecurityService>(serviceCollection);
-        }
-    }
-    
-    public partial interface IWorkflowSecurityService : Framework.DomainDriven.BLL.Security.IRootSecurityService<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.Workflow.BLL.IWorkflowSecurityPathContainer
-    {
-    }
-    
-    public partial interface IWorkflowSecurityPathContainer
-    {
-    }
-    
-    public partial class WorkflowCommandSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Command, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowCommandSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowCommandEventSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.CommandEvent, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowCommandEventSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowConditionStateSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ConditionState, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowConditionStateSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowConditionStateEventSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ConditionStateEvent, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowConditionStateEventSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowDomainTypeSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.DomainType, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowDomainTypeSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowEventSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Event, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowEventSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowParallelStateSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ParallelState, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowParallelStateSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowParallelStateFinalEventSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ParallelStateFinalEvent, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowParallelStateFinalEventSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowParallelStateStartItemSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.ParallelStateStartItem, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowParallelStateStartItemSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowRoleSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Role, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowRoleSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowStartWorkflowDomainObjectConditionSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowStartWorkflowDomainObjectConditionSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowStateSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.State, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowStateSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowStateBaseSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StateBase, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowStateBaseSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowStateDomainObjectEventSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StateDomainObjectEvent, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowStateDomainObjectEventSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowStateTimeoutEventSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.StateTimeoutEvent, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowStateTimeoutEventSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowTargetSystemSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.TargetSystem, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowTargetSystemSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowTaskSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Task, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowTaskSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowTransitionSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Transition, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowTransitionSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowTransitionActionSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.TransitionAction, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowTransitionActionSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowWorkflowSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.Workflow, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowWorkflowSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowWorkflowLambdaSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.WorkflowLambda, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowWorkflowLambdaSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowWorkflowSourceSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Definition.WorkflowSource, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowWorkflowSourceSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniCommandSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniCommand, Framework.Workflow.Domain.Definition.Command, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniCommandSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Command, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniStateSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniState, Framework.Workflow.Domain.Definition.State, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniStateSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.State, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniStateBaseSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniStateBase, Framework.Workflow.Domain.Definition.StateBase, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniStateBaseSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.StateBase, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniTaskSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniTask, Framework.Workflow.Domain.Definition.Task, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniTaskSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Task, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniTaskInstanceSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniTaskInstance, Framework.Workflow.Domain.Runtime.TaskInstance, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniTaskInstanceSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.TaskInstance, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniWorkflowSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniWorkflow, Framework.Workflow.Domain.Definition.Workflow, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniWorkflowSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Workflow, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniWorkflowInstanceSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniWorkflowInstance, Framework.Workflow.Domain.Runtime.WorkflowInstance, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniWorkflowInstanceSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Runtime.WorkflowInstance, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowMiniWorkflowSourceSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.MiniWorkflowSource, Framework.Workflow.Domain.Definition.WorkflowSource, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowMiniWorkflowSourceSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.WorkflowSource, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowVisualDomainTypeSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.VisualDomainType, Framework.Workflow.Domain.Definition.DomainType, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowVisualDomainTypeSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.DomainType, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowVisualWorkflowSecurityService : Framework.SecuritySystem.UntypedDependencyDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Projections.VisualWorkflow, Framework.Workflow.Domain.Definition.Workflow, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowVisualWorkflowSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.IDomainSecurityService<Framework.Workflow.Domain.Definition.Workflow, Framework.Workflow.WorkflowSecurityOperationCode> baseDomainSecurityService, Framework.QueryableSource.IQueryableSource<Framework.Workflow.Domain.PersistentDomainObjectBase> queryableSource) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, baseDomainSecurityService, queryableSource)
-        {
-        }
-    }
-    
-    public partial class WorkflowExecutedCommandSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.ExecutedCommand, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowExecutedCommandSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowStateInstanceSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.StateInstance, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowStateInstanceSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowTaskInstanceSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.TaskInstance, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-    }
-    
-    public partial class WorkflowTransitionInstanceSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.TransitionInstance, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-        
-        public WorkflowTransitionInstanceSecurityService(Framework.SecuritySystem.IAccessDeniedExceptionService<Framework.Workflow.Domain.PersistentDomainObjectBase> accessDeniedExceptionService, Framework.SecuritySystem.IDisabledSecurityProviderContainer<Framework.Workflow.Domain.PersistentDomainObjectBase> disabledSecurityProviderContainer, Framework.SecuritySystem.ISecurityOperationResolver<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode> securityOperationResolver, Framework.SecuritySystem.IAuthorizationSystem<System.Guid> authorizationSystem) : 
-                base(accessDeniedExceptionService, disabledSecurityProviderContainer, securityOperationResolver, authorizationSystem)
-        {
-        }
-    }
-    
-    public partial class WorkflowWorkflowInstanceSecurityService : Framework.SecuritySystem.NonContextDomainSecurityService<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.Runtime.WorkflowInstance, System.Guid, Framework.Workflow.WorkflowSecurityOperationCode>
-    {
-    }
-    
-    public partial interface IWorkflowBLLFactoryContainer : Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.WorkflowSecurityOperationCode, System.Guid>>
+    public partial interface IWorkflowBLLFactoryContainer : Framework.DomainDriven.BLL.IBLLFactoryContainer<Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<Framework.Workflow.Domain.PersistentDomainObjectBase, System.Guid>>
     {
         
         Framework.Workflow.BLL.ICommandBLL Command
@@ -1044,7 +341,7 @@ namespace Framework.Workflow.BLL
         System.Collections.Generic.List<Framework.Workflow.Domain.Definition.Command> GetListBy(Framework.Workflow.Domain.AvailableCommandFilterModel filter, Framework.DomainDriven.IFetchContainer<Framework.Workflow.Domain.Definition.Command> fetchs);
     }
     
-    public partial interface ICommandBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Command>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ICommandBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandBLL, Framework.Workflow.Domain.Definition.Command>
     {
     }
     
@@ -1052,7 +349,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface ICommandEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandEventBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandEventBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandEventBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandEventBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ICommandEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ICommandEventBLL, Framework.Workflow.Domain.Definition.CommandEvent>
     {
     }
     
@@ -1060,7 +357,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IConditionStateBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ConditionState>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IConditionStateBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateBLL, Framework.Workflow.Domain.Definition.ConditionState>
     {
     }
     
@@ -1068,7 +365,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IConditionStateEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateEventBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateEventBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateEventBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateEventBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IConditionStateEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IConditionStateEventBLL, Framework.Workflow.Domain.Definition.ConditionStateEvent>
     {
     }
     
@@ -1076,7 +373,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IDomainTypeBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IDomainTypeBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.DomainType>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IDomainTypeBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IDomainTypeBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IDomainTypeBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IDomainTypeBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IDomainTypeBLL, Framework.Workflow.Domain.Definition.DomainType>
     {
     }
     
@@ -1086,7 +383,7 @@ namespace Framework.Workflow.BLL
         System.Collections.Generic.List<Framework.Workflow.Domain.Definition.Event> GetListBy(Framework.Workflow.Domain.EventRootFilterModel filter, Framework.DomainDriven.IFetchContainer<Framework.Workflow.Domain.Definition.Event> fetchs);
     }
     
-    public partial interface IEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IEventBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Event>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IEventBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IEventBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IEventBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IEventBLL, Framework.Workflow.Domain.Definition.Event>
     {
     }
     
@@ -1094,7 +391,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IParallelStateBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ParallelState>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IParallelStateBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateBLL, Framework.Workflow.Domain.Definition.ParallelState>
     {
     }
     
@@ -1102,7 +399,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IParallelStateFinalEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IParallelStateFinalEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IParallelStateFinalEventBLL, Framework.Workflow.Domain.Definition.ParallelStateFinalEvent>
     {
     }
     
@@ -1110,7 +407,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IRoleBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IRoleBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Role>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IRoleBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IRoleBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IRoleBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IRoleBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IRoleBLL, Framework.Workflow.Domain.Definition.Role>
     {
     }
     
@@ -1118,7 +415,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IStartWorkflowDomainObjectConditionBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IStartWorkflowDomainObjectConditionBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL, Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>
     {
     }
     
@@ -1126,7 +423,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IStateBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.State>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IStateBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBLL, Framework.Workflow.Domain.Definition.State>
     {
     }
     
@@ -1134,7 +431,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IStateBaseBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBaseBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateBase>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBaseBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBaseBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBaseBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IStateBaseBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateBaseBLL, Framework.Workflow.Domain.Definition.StateBase>
     {
     }
     
@@ -1142,7 +439,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IStateDomainObjectEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IStateDomainObjectEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateDomainObjectEventBLL, Framework.Workflow.Domain.Definition.StateDomainObjectEvent>
     {
     }
     
@@ -1150,7 +447,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IStateTimeoutEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateTimeoutEvent>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IStateTimeoutEventBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateTimeoutEventBLL, Framework.Workflow.Domain.Definition.StateTimeoutEvent>
     {
     }
     
@@ -1158,7 +455,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface ITargetSystemBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITargetSystemBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITargetSystemBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITargetSystemBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITargetSystemBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ITargetSystemBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITargetSystemBLL, Framework.Workflow.Domain.Definition.TargetSystem>
     {
     }
     
@@ -1166,7 +463,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface ITaskBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Task>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ITaskBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskBLL, Framework.Workflow.Domain.Definition.Task>
     {
     }
     
@@ -1174,7 +471,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface ITransitionBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Transition>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ITransitionBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionBLL, Framework.Workflow.Domain.Definition.Transition>
     {
     }
     
@@ -1184,7 +481,7 @@ namespace Framework.Workflow.BLL
         Framework.Workflow.Domain.Definition.Workflow Create(Framework.Workflow.Domain.WorkflowCreateModel createModel);
     }
     
-    public partial interface IWorkflowBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Workflow>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IWorkflowBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowBLL, Framework.Workflow.Domain.Definition.Workflow>
     {
     }
     
@@ -1192,7 +489,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IWorkflowLambdaBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.WorkflowLambda>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IWorkflowLambdaBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowLambdaBLL, Framework.Workflow.Domain.Definition.WorkflowLambda>
     {
     }
     
@@ -1200,15 +497,15 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IWorkflowSourceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.WorkflowSource>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IWorkflowSourceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowSourceBLL, Framework.Workflow.Domain.Definition.WorkflowSource>
     {
     }
     
-    public partial interface INamedLockBLL : Framework.DomainDriven.BLL.IDefaultDomainBLLBase<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.NamedLock, System.Guid>
+    public partial interface INamedLockBLL : Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Framework.Workflow.Domain.NamedLock, System.Guid>
     {
     }
     
-    public partial interface INamedLockBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.INamedLockBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.NamedLock>>
+    public partial interface INamedLockBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.INamedLockBLL, Framework.Workflow.Domain.NamedLock>
     {
     }
     
@@ -1216,7 +513,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IExecutedCommandBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IExecutedCommandBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.ExecutedCommand>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IExecutedCommandBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IExecutedCommandBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IExecutedCommandBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IExecutedCommandBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IExecutedCommandBLL, Framework.Workflow.Domain.Runtime.ExecutedCommand>
     {
     }
     
@@ -1224,7 +521,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IStateInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateInstanceBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.StateInstance>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateInstanceBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateInstanceBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateInstanceBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IStateInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IStateInstanceBLL, Framework.Workflow.Domain.Runtime.StateInstance>
     {
     }
     
@@ -1234,7 +531,7 @@ namespace Framework.Workflow.BLL
         System.Collections.Generic.List<Framework.Workflow.Domain.Runtime.TaskInstance> GetListBy(Framework.Workflow.Domain.TaskInstanceRootFilterModel filter, Framework.DomainDriven.IFetchContainer<Framework.Workflow.Domain.Runtime.TaskInstance> fetchs);
     }
     
-    public partial interface ITaskInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskInstanceBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskInstanceBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskInstanceBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskInstanceBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ITaskInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITaskInstanceBLL, Framework.Workflow.Domain.Runtime.TaskInstance>
     {
     }
     
@@ -1242,7 +539,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface ITransitionInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface ITransitionInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.ITransitionInstanceBLL, Framework.Workflow.Domain.Runtime.TransitionInstance>
     {
     }
     
@@ -1250,7 +547,7 @@ namespace Framework.Workflow.BLL
     {
     }
     
-    public partial interface IWorkflowInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.Workflow.WorkflowSecurityOperationCode>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.SecuritySystem.SecurityOperation<Framework.Workflow.WorkflowSecurityOperationCode>>, Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.SecuritySystem.BLLSecurityMode>
+    public partial interface IWorkflowInstanceBLLFactory : Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.Workflow.BLL.IWorkflowInstanceBLL, Framework.Workflow.Domain.Runtime.WorkflowInstance>
     {
     }
 }

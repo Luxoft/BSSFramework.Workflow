@@ -16,10 +16,10 @@ namespace WorkflowSampleSystem.BLL
         
         private Framework.Validation.IValidationMap _defaultValidatorMap;
         
-        protected WorkflowSampleSystemValidationMapBase(Framework.Core.IDynamicSource extendedValidationData) : 
-                base(extendedValidationData)
+        protected WorkflowSampleSystemValidationMapBase(System.IServiceProvider serviceProvider) : 
+                base(serviceProvider)
         {
-            this._defaultValidatorMap = new Framework.Validation.ValidationMap(extendedValidationData);
+            this._defaultValidatorMap = new Framework.Validation.ValidationMap(serviceProvider);
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Validation.IPropertyValidator<WorkflowSampleSystem.Domain.BusinessUnit, System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Domain.BusinessUnit>>> GetBusinessUnit_ChildrenValidators()
@@ -530,8 +530,8 @@ namespace WorkflowSampleSystem.BLL
     public partial class WorkflowSampleSystemValidationMap : WorkflowSampleSystem.BLL.WorkflowSampleSystemValidationMapBase
     {
         
-        public WorkflowSampleSystemValidationMap(Framework.Core.IDynamicSource extendedValidationData) : 
-                base(extendedValidationData)
+        public WorkflowSampleSystemValidationMap(System.IServiceProvider serviceProvider) : 
+                base(serviceProvider)
         {
         }
     }

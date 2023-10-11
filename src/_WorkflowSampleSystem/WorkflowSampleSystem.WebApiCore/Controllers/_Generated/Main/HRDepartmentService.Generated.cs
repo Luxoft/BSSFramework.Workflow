@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check HRDepartment access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckHRDepartmentAccess")]
-        public virtual void CheckHRDepartmentAccess(CheckHRDepartmentAccessAutoRequest checkHRDepartmentAccessAutoRequest)
-        {
-            WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode = checkHRDepartmentAccessAutoRequest.securityOperationCode;
-            WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO hRDepartmentIdent = checkHRDepartmentAccessAutoRequest.hRDepartmentIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckHRDepartmentAccessInternal(hRDepartmentIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckHRDepartmentAccessInternal(WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO hRDepartmentIdent, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartment;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            WorkflowSampleSystem.Domain.HRDepartment domainObject = bll.GetById(hRDepartmentIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<WorkflowSampleSystem.Domain.HRDepartment>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get HRDepartment (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -104,22 +84,6 @@
         {
             WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartmentFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToFullDTOList(bll.GetListByIdents(hRDepartmentIdents, evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.FullDTO)), evaluateData.MappingService);
-        }
-        
-        /// <summary>
-        /// Get HRDepartments (FullDTO) by operation
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("GetFullHRDepartmentsByOperation")]
-        public virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentFullDTO> GetFullHRDepartmentsByOperation([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetFullHRDepartmentsByOperationInternal(securityOperationCode, evaluateData));
-        }
-        
-        protected virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentFullDTO> GetFullHRDepartmentsByOperationInternal(WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartmentFactory.Create(Framework.Security.TransferEnumHelper.Convert<WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>(securityOperationCode));
-            return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToFullDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.FullDTO)), evaluateData.MappingService);
         }
         
         protected virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentFullDTO> GetFullHRDepartmentsInternal(Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
@@ -256,22 +220,6 @@
             return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToSimpleDTOList(bll.GetListByIdents(hRDepartmentIdents, evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.SimpleDTO)), evaluateData.MappingService);
         }
         
-        /// <summary>
-        /// Get HRDepartments (SimpleDTO) by operation
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("GetSimpleHRDepartmentsByOperation")]
-        public virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentSimpleDTO> GetSimpleHRDepartmentsByOperation([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetSimpleHRDepartmentsByOperationInternal(securityOperationCode, evaluateData));
-        }
-        
-        protected virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentSimpleDTO> GetSimpleHRDepartmentsByOperationInternal(WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartmentFactory.Create(Framework.Security.TransferEnumHelper.Convert<WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>(securityOperationCode));
-            return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToSimpleDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.SimpleDTO)), evaluateData.MappingService);
-        }
-        
         protected virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentSimpleDTO> GetSimpleHRDepartmentsInternal(Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
         {
             WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartmentFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
@@ -355,46 +303,10 @@
             return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetListByIdents(hRDepartmentIdents, evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
         
-        /// <summary>
-        /// Get HRDepartments (VisualDTO) by operation
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("GetVisualHRDepartmentsByOperation")]
-        public virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentVisualDTO> GetVisualHRDepartmentsByOperation([Microsoft.AspNetCore.Mvc.FromBodyAttribute()] WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode securityOperationCode)
-        {
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.GetVisualHRDepartmentsByOperationInternal(securityOperationCode, evaluateData));
-        }
-        
-        protected virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentVisualDTO> GetVisualHRDepartmentsByOperationInternal(WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartmentFactory.Create(Framework.Security.TransferEnumHelper.Convert<WorkflowSampleSystem.Generated.DTO.WorkflowSampleSystemHRDepartmentSecurityOperationCode, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>(securityOperationCode));
-            return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
-        }
-        
         protected virtual System.Collections.Generic.IEnumerable<WorkflowSampleSystem.Generated.DTO.HRDepartmentVisualDTO> GetVisualHRDepartmentsInternal(Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
         {
             WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartmentFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<WorkflowSampleSystem.Domain.HRDepartment>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
-        }
-        
-        /// <summary>
-        /// Check access for HRDepartment
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasHRDepartmentAccess")]
-        public virtual bool HasHRDepartmentAccess(HasHRDepartmentAccessAutoRequest hasHRDepartmentAccessAutoRequest)
-        {
-            WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode = hasHRDepartmentAccessAutoRequest.securityOperationCode;
-            WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO hRDepartmentIdent = hasHRDepartmentAccessAutoRequest.hRDepartmentIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasHRDepartmentAccessInternal(hRDepartmentIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasHRDepartmentAccessInternal(WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO hRDepartmentIdent, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Generated.DTO.IWorkflowSampleSystemDTOMappingService> evaluateData)
-        {
-            WorkflowSampleSystem.BLL.IHRDepartmentBLL bll = evaluateData.Context.Logics.HRDepartment;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            WorkflowSampleSystem.Domain.HRDepartment domainObject = bll.GetById(hRDepartmentIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<WorkflowSampleSystem.Domain.HRDepartment>(securityOperationCode).HasAccess(domainObject);
         }
         
         /// <summary>
@@ -442,33 +354,5 @@
             bll.Save(domainObject);
             return WorkflowSampleSystem.Generated.DTO.LambdaHelper.ToIdentityDTO(domainObject);
         }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckHRDepartmentAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO hRDepartmentIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasHRDepartmentAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO hRDepartmentIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperationCode;
     }
 }

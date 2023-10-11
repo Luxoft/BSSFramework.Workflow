@@ -10,8 +10,6 @@ namespace Framework.Workflow.Domain.Definition
     /// <summary>
     /// Фильтр поиска экземпляра воркфлоу по доменному объекту
     /// </summary>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole]
     public partial class WorkflowSource : WorkflowItemBase, IDetail<Workflow>, IWorkflowElement, ITypeObject<DomainType>
     {

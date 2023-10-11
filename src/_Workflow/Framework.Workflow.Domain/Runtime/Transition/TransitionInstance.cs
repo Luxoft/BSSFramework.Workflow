@@ -5,12 +5,10 @@ using Framework.Persistent;
 
 namespace Framework.Workflow.Domain.Runtime
 {
-
     /// <summary>
     /// Экземпляр выполненного перехода между состояниями
     /// </summary>
     [BLLViewRole]
-    [WorkflowViewDomainObject]
     public class TransitionInstance : AuditPersistentDomainObjectBase,
 
         IDetail<WorkflowInstance>,

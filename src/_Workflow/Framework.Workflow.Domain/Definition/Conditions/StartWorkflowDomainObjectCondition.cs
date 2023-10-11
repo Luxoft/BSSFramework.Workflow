@@ -13,8 +13,6 @@ namespace Framework.Workflow.Domain.Definition
     /// <remarks>
     /// Условие, при выполнении которого запускается экземпляр воркфлоу
     /// </remarks>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole]
     public class StartWorkflowDomainObjectCondition : AuditPersistentDomainObjectBase, IDetail<Workflow>, IWorkflowElement
     {

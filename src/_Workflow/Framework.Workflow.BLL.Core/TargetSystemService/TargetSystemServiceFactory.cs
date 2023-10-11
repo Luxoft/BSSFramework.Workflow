@@ -25,33 +25,29 @@ public class TargetSystemServiceFactory
         this.lazyTargetSystems = LazyHelper.Create(() => context.Logics.TargetSystem.GetFullList());
     }
 
-    public ITargetSystemService Create<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode>(string name, IEnumerable<Type> workflowSourceTypes)
-            where TBLLContext : class, ISecurityServiceContainer<ISecurityProviderSource<TPersistentDomainObjectBase, TSecurityOperationCode>>,
+    public ITargetSystemService Create<TBLLContext, TPersistentDomainObjectBase>(string name, IEnumerable<Type> workflowSourceTypes)
+            where TBLLContext : class, ISecurityServiceContainer<IRootSecurityService<TPersistentDomainObjectBase>>,
                                        ISecurityBLLContext<IAuthorizationBLLContext, TPersistentDomainObjectBase, Guid>,
-                                       IAccessDeniedExceptionServiceContainer<TPersistentDomainObjectBase>,
                                        ITypeResolverContainer<string>
 
             where TPersistentDomainObjectBase : class, IIdentityObject<Guid>
-            where TSecurityOperationCode : struct, Enum
     {
-        return this.Create<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode>(tss => tss.Name == name, workflowSourceTypes);
+        return this.Create<TBLLContext, TPersistentDomainObjectBase>(tss => tss.Name == name, workflowSourceTypes);
     }
 
-    public ITargetSystemService Create<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode>(Func<TargetSystem, bool> filter, IEnumerable<Type> workflowSourceTypes)
+    public ITargetSystemService Create<TBLLContext, TPersistentDomainObjectBase>(Func<TargetSystem, bool> filter, IEnumerable<Type> workflowSourceTypes)
 
-            where TBLLContext : class, ISecurityServiceContainer<ISecurityProviderSource<TPersistentDomainObjectBase, TSecurityOperationCode>>,
+            where TBLLContext : class, ISecurityServiceContainer<IRootSecurityService<TPersistentDomainObjectBase>>,
                                        ISecurityBLLContext<IAuthorizationBLLContext, TPersistentDomainObjectBase, Guid>,
-                                       IAccessDeniedExceptionServiceContainer<TPersistentDomainObjectBase>,
                                        ITypeResolverContainer<string>
 
             where TPersistentDomainObjectBase : class, IIdentityObject<Guid>
-            where TSecurityOperationCode : struct, Enum
     {
         return LazyInterfaceImplementHelper<ITargetSystemService>.CreateProxy(() =>
         {
             var targetSystem = this.lazyTargetSystems.Value.Single(filter);
 
-            return ActivatorUtilities.CreateInstance<TargetSystemService<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode>>(this.serviceProvider, targetSystem, workflowSourceTypes);
+            return ActivatorUtilities.CreateInstance<TargetSystemService<TBLLContext, TPersistentDomainObjectBase>>(this.serviceProvider, targetSystem, workflowSourceTypes);
         });
     }
 }

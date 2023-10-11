@@ -9,7 +9,7 @@ using Framework.Persistent;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -108,7 +108,7 @@ namespace Framework.Workflow.BLL
             }
         }
 
-        private void Recalculate([NotNull] Domain.Definition.Workflow workflow)
+        private void Recalculate(Domain.Definition.Workflow workflow)
         {
             if (workflow == null) throw new ArgumentNullException(nameof(workflow));
 
@@ -131,7 +131,7 @@ namespace Framework.Workflow.BLL
             workflow.DomainType = workflow.DomainObjectParameter.Maybe(v => v.Type);
         }
 
-        private void RecalculateDefaultSource([NotNull] Domain.Definition.Workflow workflow)
+        private void RecalculateDefaultSource(Domain.Definition.Workflow workflow)
         {
             if (workflow == null) throw new ArgumentNullException(nameof(workflow));
 
@@ -146,7 +146,7 @@ namespace Framework.Workflow.BLL
             }
         }
 
-        //private void RecalculateCommands([NotNull] Domain.Definition.Workflow workflow)
+        //private void RecalculateCommands(Domain.Definition.Workflow workflow)
         //{
         //    if (workflow == null) throw new ArgumentNullException("workflow");
 
@@ -155,7 +155,7 @@ namespace Framework.Workflow.BLL
         //                   .Foreach(this.Context.Logics.Command.Recalculate);
         //}
 
-        private void RecalculateTransitions([NotNull] Domain.Definition.Workflow workflow)
+        private void RecalculateTransitions(Domain.Definition.Workflow workflow)
         {
             if (workflow == null) throw new ArgumentNullException(nameof(workflow));
 

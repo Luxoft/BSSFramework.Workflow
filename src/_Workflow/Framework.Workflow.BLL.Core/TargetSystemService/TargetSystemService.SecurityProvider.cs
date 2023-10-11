@@ -7,13 +7,13 @@ using Framework.SecuritySystem;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
-    public partial class TargetSystemService<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode>
+    public partial class TargetSystemService<TBLLContext, TPersistentDomainObjectBase>
     {
-        public SecurityProvider<TaskInstance> GetTaskInstanceSecurityProvider([NotNull] IGrouping<Role, Task> taskRoleGroup)
+        public SecurityProvider<TaskInstance> GetTaskInstanceSecurityProvider(IGrouping<Role, Task> taskRoleGroup)
         {
             if (taskRoleGroup == null) throw new ArgumentNullException(nameof(taskRoleGroup));
 
@@ -26,7 +26,7 @@ namespace Framework.Workflow.BLL
         private SecurityProvider<TaskInstance> GetTaskInstanceSecurityProvider<TDomainObject>(IGrouping<Role, Task> taskRoleGroup)
             where TDomainObject : class, TPersistentDomainObjectBase
         {
-            return new TaskInstanceSecurityProvider<TDomainObject>(this.Context, this, taskRoleGroup);
+            return new TaskInstanceSecurityProvider<TDomainObject>(this, taskRoleGroup);
         }
 
         private ISecurityProvider<WorkflowInstance> GetWorkflowInstanceSecurityProvider(Domain.Definition.Workflow workflow)
@@ -39,7 +39,7 @@ namespace Framework.Workflow.BLL
         private ISecurityProvider<WorkflowInstance> GetWorkflowInstanceSecurityProvider<TDomainObject>(Domain.Definition.Workflow workflow)
             where TDomainObject : class, TPersistentDomainObjectBase
         {
-            return new WorkflowInstanceSecurityProvider<TDomainObject>(this.Context, this, workflow);
+            return new WorkflowInstanceSecurityProvider<TDomainObject>(this, workflow);
         }
 
 
@@ -51,8 +51,7 @@ namespace Framework.Workflow.BLL
             private readonly Lazy<Expression<Func<TaskInstance, bool>>> lazySecurityFilter;
 
 
-            public TaskInstanceSecurityProvider(IWorkflowBLLContext context, [NotNull] ITargetSystemService<TBLLContext, TPersistentDomainObjectBase> targetSystemService, [NotNull] IGrouping<Role, Task> taskRoleGroup)
-                : base(context.AccessDeniedExceptionService)
+            public TaskInstanceSecurityProvider(ITargetSystemService<TBLLContext, TPersistentDomainObjectBase> targetSystemService, IGrouping<Role, Task> taskRoleGroup)
             {
                 this.targetSystemService = targetSystemService ?? throw new ArgumentNullException(nameof(targetSystemService));
                 this.taskRoleGroup = taskRoleGroup ?? throw new ArgumentNullException(nameof(taskRoleGroup));
@@ -77,7 +76,7 @@ namespace Framework.Workflow.BLL
                 get { return this.lazySecurityFilter.Value; }
             }
 
-            public override UnboundedList<string> GetAccessors([NotNull] TaskInstance taskInstance)
+            public override UnboundedList<string> GetAccessors(TaskInstance taskInstance)
             {
                 if (taskInstance == null) throw new ArgumentNullException(nameof(taskInstance));
 
@@ -103,8 +102,7 @@ namespace Framework.Workflow.BLL
             private readonly Domain.Definition.Workflow workflow;
             private readonly Lazy<Expression<Func<WorkflowInstance, bool>>> lazySecurityFilter;
 
-            public WorkflowInstanceSecurityProvider(IWorkflowBLLContext context, [NotNull] ITargetSystemService<TBLLContext, TPersistentDomainObjectBase> targetSystemService, [NotNull] Domain.Definition.Workflow workflow)
-                : base(context.AccessDeniedExceptionService)
+            public WorkflowInstanceSecurityProvider(ITargetSystemService<TBLLContext, TPersistentDomainObjectBase> targetSystemService, Domain.Definition.Workflow workflow)
             {
                 if (targetSystemService == null) throw new ArgumentNullException(nameof(targetSystemService));
                 if (workflow == null) throw new ArgumentNullException(nameof(workflow));
@@ -131,7 +129,7 @@ namespace Framework.Workflow.BLL
                 get { return this.lazySecurityFilter.Value; }
             }
 
-            public override UnboundedList<string> GetAccessors([NotNull] WorkflowInstance workflowInstance)
+            public override UnboundedList<string> GetAccessors(WorkflowInstance workflowInstance)
             {
                 if (workflowInstance == null) throw new ArgumentNullException("WorkflowInstance");
 

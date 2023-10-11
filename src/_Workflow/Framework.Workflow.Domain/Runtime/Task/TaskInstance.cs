@@ -13,8 +13,6 @@ namespace Framework.Workflow.Domain.Runtime
     /// Экземпляр задачи, ожидающий выполнения
     /// </summary>
     [BLLViewRole, BLLSaveRole(AllowCreate = false)]
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLRole]
     public partial class TaskInstance : AuditPersistentDomainObjectBase,
         IDetail<StateInstance>,

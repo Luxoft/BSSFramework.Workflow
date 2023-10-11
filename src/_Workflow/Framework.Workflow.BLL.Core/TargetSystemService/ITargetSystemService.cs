@@ -10,7 +10,7 @@ using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -42,39 +42,39 @@ namespace Framework.Workflow.BLL
         Type PersistentDomainObjectBaseType { get; }
 
 
-        IList<WorkflowInstance> TryCreate([NotNull]Array domainObjects);
+        IList<WorkflowInstance> TryCreate(Array domainObjects);
 
-        IList<WorkflowInstance> TryChange([NotNull]Array domainObjects);
+        IList<WorkflowInstance> TryChange(Array domainObjects);
 
-        IList<WorkflowInstance> TryRemove([NotNull]Array domainObjects);
-
-
-
-
-        IWorkflowMachine GetWorkflowMachine([NotNull]WorkflowInstance workflowInstance);
-
-        IMassWorkflowMachine GetMassWorkflowMachine([NotNull]Domain.Definition.Workflow definition, [NotNull]WorkflowInstance[] workflowInstances);
-
-
-        IEnumerable<ITryResult<object>> GetAnonymousObjects([NotNull]Framework.Workflow.Domain.Definition.Workflow workflow, [NotNull]IEnumerable<WorkflowInstance> workflowInstances);
+        IList<WorkflowInstance> TryRemove(Array domainObjects);
 
 
 
-        StartWorkflowRequest GetStartWorkflowRequest([NotNull] Framework.Workflow.Domain.Definition.Workflow workflow, [NotNull] object parameters);
+
+        IWorkflowMachine GetWorkflowMachine(WorkflowInstance workflowInstance);
+
+        IMassWorkflowMachine GetMassWorkflowMachine(Domain.Definition.Workflow definition, WorkflowInstance[] workflowInstances);
+
+
+        IEnumerable<ITryResult<object>> GetAnonymousObjects(Framework.Workflow.Domain.Definition.Workflow workflow, IEnumerable<WorkflowInstance> workflowInstances);
 
 
 
-        List<AvailableTaskInstanceWorkflowGroup> GetAvailableTaskInstanceWorkflowGroups([NotNull]DomainType sourceType, Guid domainObjectId = default (Guid));
+        StartWorkflowRequest GetStartWorkflowRequest(Framework.Workflow.Domain.Definition.Workflow workflow, object parameters);
 
 
 
-        bool ExistsObject([NotNull]DomainType domainType, Guid domainObjectId);
+        List<AvailableTaskInstanceWorkflowGroup> GetAvailableTaskInstanceWorkflowGroups(DomainType sourceType, Guid domainObjectId = default (Guid));
 
 
-        SecurityProvider<TaskInstance> GetTaskInstanceSecurityProvider([NotNull]IGrouping<Role, Task> taskRoleGroup);
+
+        bool ExistsObject(DomainType domainType, Guid domainObjectId);
 
 
-        DALChanges<WorkflowInstance> ProcessDALChanges([NotNull] DALChanges changes);
+        SecurityProvider<TaskInstance> GetTaskInstanceSecurityProvider(IGrouping<Role, Task> taskRoleGroup);
+
+
+        DALChanges<WorkflowInstance> ProcessDALChanges(DALChanges changes);
     }
 
     public interface ITargetSystemService<out TBLLContext, in TPersistentDomainObjectBase> : ITargetSystemService
@@ -83,20 +83,20 @@ namespace Framework.Workflow.BLL
         new TBLLContext TargetSystemContext { get; }
 
 
-        IList<WorkflowInstance> TryCreate<TDomainObject>([NotNull]IEnumerable<TDomainObject> domainObjects)
+        IList<WorkflowInstance> TryCreate<TDomainObject>(IEnumerable<TDomainObject> domainObjects)
             where TDomainObject : class, TPersistentDomainObjectBase;
 
-        IList<WorkflowInstance> TryChange<TDomainObject>([NotNull]IEnumerable<TDomainObject> domainObjects)
+        IList<WorkflowInstance> TryChange<TDomainObject>(IEnumerable<TDomainObject> domainObjects)
             where TDomainObject : class, TPersistentDomainObjectBase;
 
-        IList<WorkflowInstance> TryRemove<TDomainObject>([NotNull]IEnumerable<TDomainObject> domainObjects)
+        IList<WorkflowInstance> TryRemove<TDomainObject>(IEnumerable<TDomainObject> domainObjects)
             where TDomainObject : class, TPersistentDomainObjectBase;
 
 
-        ISecurityProvider<TDomainObject> GetSecurityProvider<TDomainObject>([NotNull]IRoleSource roleSource)
+        ISecurityProvider<TDomainObject> GetSecurityProvider<TDomainObject>(IRoleSource roleSource)
             where TDomainObject : class, TPersistentDomainObjectBase;
 
-        ISecurityProvider<TDomainObject> GetSecurityProvider<TDomainObject>([NotNull]Role role)
+        ISecurityProvider<TDomainObject> GetSecurityProvider<TDomainObject>(Role role)
             where TDomainObject : class, TPersistentDomainObjectBase;
     }
 }

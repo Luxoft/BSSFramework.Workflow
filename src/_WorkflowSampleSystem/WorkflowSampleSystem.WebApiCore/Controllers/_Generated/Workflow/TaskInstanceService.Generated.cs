@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check TaskInstance access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckTaskInstanceAccess")]
-        public virtual void CheckTaskInstanceAccess(CheckTaskInstanceAccessAutoRequest checkTaskInstanceAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkTaskInstanceAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent = checkTaskInstanceAccessAutoRequest.taskInstanceIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckTaskInstanceAccessInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITaskInstanceBLL bll = evaluateData.Context.Logics.TaskInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TaskInstance domainObject = bll.GetById(taskInstanceIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get TaskInstance (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -179,26 +159,6 @@
         }
         
         /// <summary>
-        /// Check access for TaskInstance
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasTaskInstanceAccess")]
-        public virtual bool HasTaskInstanceAccess(HasTaskInstanceAccessAutoRequest hasTaskInstanceAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasTaskInstanceAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent = hasTaskInstanceAccessAutoRequest.taskInstanceIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasTaskInstanceAccessInternal(taskInstanceIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasTaskInstanceAccessInternal(Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.ITaskInstanceBLL bll = evaluateData.Context.Logics.TaskInstance;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Runtime.TaskInstance domainObject = bll.GetById(taskInstanceIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Save TaskInstances
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -221,33 +181,5 @@
             bll.Save(domainObject);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToIdentityDTO(domainObject);
         }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckTaskInstanceAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasTaskInstanceAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO taskInstanceIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

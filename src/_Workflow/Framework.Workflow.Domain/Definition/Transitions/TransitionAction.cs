@@ -14,8 +14,6 @@ namespace Framework.Workflow.Domain.Definition
     /// Из воркфлоу контекста вытаскивается сам доменный объект, который в данный момент изменяется
     /// Из БЛЛ контекста вытаскивается метод логики, который необходимо выполнить
     /// </remarks>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     public class TransitionAction : AuditPersistentDomainObjectBase, IDetail<Transition>, IWorkflowElement, IOrderObject<int>
     {
         private readonly Transition transition;

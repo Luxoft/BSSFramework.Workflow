@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check StateDomainObjectEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckStateDomainObjectEventAccess")]
-        public virtual void CheckStateDomainObjectEventAccess(CheckStateDomainObjectEventAccessAutoRequest checkStateDomainObjectEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkStateDomainObjectEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent = checkStateDomainObjectEventAccessAutoRequest.stateDomainObjectEventIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStateDomainObjectEventAccessInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateDomainObjectEventBLL bll = evaluateData.Context.Logics.StateDomainObjectEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateDomainObjectEvent domainObject = bll.GetById(stateDomainObjectEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get StateDomainObjectEvent (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -260,53 +240,5 @@
             Framework.Workflow.BLL.IStateDomainObjectEventBLL bll = evaluateData.Context.Logics.StateDomainObjectEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for StateDomainObjectEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasStateDomainObjectEventAccess")]
-        public virtual bool HasStateDomainObjectEventAccess(HasStateDomainObjectEventAccessAutoRequest hasStateDomainObjectEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasStateDomainObjectEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent = hasStateDomainObjectEventAccessAutoRequest.stateDomainObjectEventIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStateDomainObjectEventAccessInternal(stateDomainObjectEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStateDomainObjectEventAccessInternal(Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStateDomainObjectEventBLL bll = evaluateData.Context.Logics.StateDomainObjectEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StateDomainObjectEvent domainObject = bll.GetById(stateDomainObjectEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent>(securityOperationCode).HasAccess(domainObject);
-        }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckStateDomainObjectEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasStateDomainObjectEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO stateDomainObjectEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

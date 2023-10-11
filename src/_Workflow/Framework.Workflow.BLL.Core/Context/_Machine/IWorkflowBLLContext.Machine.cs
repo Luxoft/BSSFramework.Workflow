@@ -1,5 +1,4 @@
 ﻿using Framework.Workflow.Domain;
-using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
 namespace Framework.Workflow.BLL

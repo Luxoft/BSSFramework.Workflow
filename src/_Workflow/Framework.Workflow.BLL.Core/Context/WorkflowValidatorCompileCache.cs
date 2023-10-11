@@ -1,18 +1,11 @@
-﻿using System;
-
-using Framework.Core;
-using Framework.Validation;
-
-using Framework.DomainDriven.BLL;
+﻿using Framework.Validation;
 
 namespace Framework.Workflow.BLL;
 
 public class WorkflowValidatorCompileCache : ValidatorCompileCache
 {
-    public WorkflowValidatorCompileCache(IAvailableValues availableValues) :
-            base(availableValues
-                 .ToBLLContextValidationExtendedData<IWorkflowBLLContext, Framework.Workflow.Domain.PersistentDomainObjectBase, Guid>()
-                 .Pipe(extendedValidationData => new WorkflowValidationMap(extendedValidationData)))
+    public WorkflowValidatorCompileCache(WorkflowValidationMap validationMap)
+            : base(validationMap)
     {
     }
 }
