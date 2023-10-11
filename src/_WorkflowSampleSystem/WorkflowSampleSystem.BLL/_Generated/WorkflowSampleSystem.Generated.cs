@@ -23,7 +23,7 @@ namespace WorkflowSampleSystem.BLL
         }
     }
     
-    public partial class BusinessUnitBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.IBusinessUnitBLL, WorkflowSampleSystem.BLL.BusinessUnitBLL, WorkflowSampleSystem.Domain.BusinessUnit, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>, WorkflowSampleSystem.BLL.IBusinessUnitBLLFactory
+    public partial class BusinessUnitBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.IBusinessUnitBLL, WorkflowSampleSystem.BLL.BusinessUnitBLL, WorkflowSampleSystem.Domain.BusinessUnit>, WorkflowSampleSystem.BLL.IBusinessUnitBLLFactory
     {
         
         public BusinessUnitBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -44,7 +44,7 @@ namespace WorkflowSampleSystem.BLL
         }
     }
     
-    public partial class EmployeeBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.IEmployeeBLL, WorkflowSampleSystem.BLL.EmployeeBLL, WorkflowSampleSystem.Domain.Employee, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>, WorkflowSampleSystem.BLL.IEmployeeBLLFactory
+    public partial class EmployeeBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.IEmployeeBLL, WorkflowSampleSystem.BLL.EmployeeBLL, WorkflowSampleSystem.Domain.Employee>, WorkflowSampleSystem.BLL.IEmployeeBLLFactory
     {
         
         public EmployeeBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -65,7 +65,7 @@ namespace WorkflowSampleSystem.BLL
         }
     }
     
-    public partial class HRDepartmentBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.IHRDepartmentBLL, WorkflowSampleSystem.BLL.HRDepartmentBLL, WorkflowSampleSystem.Domain.HRDepartment, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>, WorkflowSampleSystem.BLL.IHRDepartmentBLLFactory
+    public partial class HRDepartmentBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.IHRDepartmentBLL, WorkflowSampleSystem.BLL.HRDepartmentBLL, WorkflowSampleSystem.Domain.HRDepartment>, WorkflowSampleSystem.BLL.IHRDepartmentBLLFactory
     {
         
         public HRDepartmentBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -86,7 +86,7 @@ namespace WorkflowSampleSystem.BLL
         }
     }
     
-    public partial class LocationBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.ILocationBLL, WorkflowSampleSystem.BLL.LocationBLL, WorkflowSampleSystem.Domain.Location, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode>, WorkflowSampleSystem.BLL.ILocationBLLFactory
+    public partial class LocationBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.ILocationBLL, WorkflowSampleSystem.BLL.LocationBLL, WorkflowSampleSystem.Domain.Location>, WorkflowSampleSystem.BLL.ILocationBLLFactory
     {
         
         public LocationBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -107,7 +107,7 @@ namespace WorkflowSampleSystem.BLL
         }
     }
     
-    public partial class NamedLockBLLFactory : Framework.DomainDriven.BLL.Security.BLLFactoryBase<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.INamedLockBLL, WorkflowSampleSystem.BLL.NamedLockBLL, WorkflowSampleSystem.Domain.NamedLock>, WorkflowSampleSystem.BLL.INamedLockBLLFactory
+    public partial class NamedLockBLLFactory : Framework.DomainDriven.BLL.Security.SecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.BLL.INamedLockBLL, WorkflowSampleSystem.BLL.NamedLockBLL, WorkflowSampleSystem.Domain.NamedLock>, WorkflowSampleSystem.BLL.INamedLockBLLFactory
     {
         
         public NamedLockBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -158,7 +158,7 @@ namespace WorkflowSampleSystem.BLL
             }
         }
         
-        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode, System.Guid> Default
+        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, System.Guid> Default
         {
             get
             {
@@ -210,7 +210,7 @@ namespace WorkflowSampleSystem.BLL
             }
         }
         
-        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode, System.Guid> Implemented
+        public Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, System.Guid> Implemented
         {
             get
             {
@@ -265,14 +265,19 @@ namespace WorkflowSampleSystem.BLL
         public static void RegisterBLLFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection serviceCollection)
         {
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<WorkflowSampleSystem.BLL.IBusinessUnitBLLFactory, WorkflowSampleSystem.BLL.BusinessUnitBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.BusinessUnit, System.Guid>, WorkflowSampleSystem.Domain.BusinessUnit>, WorkflowSampleSystem.BLL.IBusinessUnitBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<WorkflowSampleSystem.BLL.IEmployeeBLLFactory, WorkflowSampleSystem.BLL.EmployeeBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.Employee, System.Guid>, WorkflowSampleSystem.Domain.Employee>, WorkflowSampleSystem.BLL.IEmployeeBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<WorkflowSampleSystem.BLL.IHRDepartmentBLLFactory, WorkflowSampleSystem.BLL.HRDepartmentBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.HRDepartment, System.Guid>, WorkflowSampleSystem.Domain.HRDepartment>, WorkflowSampleSystem.BLL.IHRDepartmentBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<WorkflowSampleSystem.BLL.ILocationBLLFactory, WorkflowSampleSystem.BLL.LocationBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.Location, System.Guid>, WorkflowSampleSystem.Domain.Location>, WorkflowSampleSystem.BLL.ILocationBLLFactory>(serviceCollection);
             Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped<WorkflowSampleSystem.BLL.INamedLockBLLFactory, WorkflowSampleSystem.BLL.NamedLockBLLFactory>(serviceCollection);
+            Framework.DependencyInjection.ServiceCollectionExtensions.AddScopedFrom<Framework.DomainDriven.BLL.Security.ISecurityBLLFactory<Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.NamedLock, System.Guid>, WorkflowSampleSystem.Domain.NamedLock>, WorkflowSampleSystem.BLL.INamedLockBLLFactory>(serviceCollection);
         }
     }
     
-    public partial class WorkflowSampleSystemDefaultBLLFactory : Framework.DomainDriven.BLL.Security.DefaultSecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.DomainObjectBase, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode, System.Guid>
+    public partial class WorkflowSampleSystemDefaultBLLFactory : Framework.DomainDriven.BLL.Security.DefaultSecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, System.Guid>
     {
         
         public WorkflowSampleSystemDefaultBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -280,13 +285,13 @@ namespace WorkflowSampleSystem.BLL
         {
         }
         
-        public override Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>()
+        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider)
         {
-            return new WorkflowSampleSystem.BLL.DomainBLLBase<TDomainObject>(this.Context);
+            return new WorkflowSampleSystem.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context, securityProvider);
         }
     }
     
-    public partial class WorkflowSampleSystemImplementedBLLFactory : Framework.DomainDriven.BLL.Security.DefaultSecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.Domain.DomainObjectBase, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode, System.Guid>
+    public partial class WorkflowSampleSystemImplementedBLLFactory : Framework.DomainDriven.BLL.Security.ImplementedSecurityBLLFactory<WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext, WorkflowSampleSystem.Domain.PersistentDomainObjectBase, System.Guid>, Framework.DomainDriven.BLL.Security.IDefaultSecurityBLLFactory<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, System.Guid>
     {
         
         public WorkflowSampleSystemImplementedBLLFactory(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context) : 
@@ -294,116 +299,9 @@ namespace WorkflowSampleSystem.BLL
         {
         }
         
-        public override Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>()
+        protected override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> CreateDefault<TDomainObject>(Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider)
         {
-            if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.BusinessUnit)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.BusinessUnit));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Employee)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Employee));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.HRDepartment)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.HRDepartment));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Location)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.Location));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.IDefaultDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLock));
-            }
-            else
-            {
-                return new WorkflowSampleSystem.BLL.DomainBLLBase<TDomainObject>(this.Context);
-            }
-        }
-        
-        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.SecuritySystem.ISecurityProvider<TDomainObject> securityProvider)
-        {
-            if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.BusinessUnit)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.BusinessUnitFactory.Create(((Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.BusinessUnit>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Employee)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.EmployeeFactory.Create(((Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.Employee>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.HRDepartment)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.HRDepartmentFactory.Create(((Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.HRDepartment>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Location)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.LocationFactory.Create(((Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.Location>)(securityProvider)))));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLockFactory.Create()));
-            }
-            else
-            {
-                return new WorkflowSampleSystem.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context);
-            }
-        }
-        
-        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode securityOperation)
-        {
-            if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.BusinessUnit)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.BusinessUnitFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Employee)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.EmployeeFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.HRDepartment)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.HRDepartmentFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Location)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.LocationFactory.Create(securityOperation)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLockFactory.Create()));
-            }
-            else
-            {
-                return new WorkflowSampleSystem.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context);
-            }
-        }
-        
-        public override Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid> Create<TDomainObject>(Framework.SecuritySystem.BLLSecurityMode bllSecurityMode)
-        {
-            if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.BusinessUnit)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.BusinessUnitFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Employee)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.EmployeeFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.HRDepartment)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.HRDepartmentFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.Location)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.LocationFactory.Create(bllSecurityMode)));
-            }
-            else if ((typeof(TDomainObject) == typeof(WorkflowSampleSystem.Domain.NamedLock)))
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(this.Context.Logics.NamedLockFactory.Create()));
-            }
-            else
-            {
-                return ((Framework.DomainDriven.BLL.Security.IDefaultSecurityDomainBLLBase<WorkflowSampleSystem.Domain.PersistentDomainObjectBase, TDomainObject, System.Guid>)(new WorkflowSampleSystem.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context)));
-            }
+            return new WorkflowSampleSystem.BLL.SecurityDomainBLLBase<TDomainObject>(this.Context, securityProvider);
         }
     }
 }

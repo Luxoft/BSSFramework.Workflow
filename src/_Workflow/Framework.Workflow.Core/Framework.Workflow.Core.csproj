@@ -1,13 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <PackageId>Luxoft.Framework.Workflow.Core</PackageId>
   </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\..\__SolutionItems\CommonAssemblyInfo.cs" Link="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Luxoft.Framework.Security" />
+    <PackageReference Include="Luxoft.Framework.SecuritySystem.Abstract" />
+    <PackageReference Include="Luxoft.Framework.Core" />
   </ItemGroup>
 
 </Project>

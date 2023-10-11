@@ -4,6 +4,6 @@
     {
         //void Recalculate(Command command);
 
-        //CommandParameter GetPotentialApproversParameter([NotNull] Command command);
+        //CommandParameter GetPotentialApproversParameter(Command command);
     }
 }

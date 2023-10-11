@@ -14,6 +14,7 @@ namespace Framework.Workflow.TestGenerate
         {
         }
 
+        public override bool GenerateAuthServices { get; } = false;
 
         public override Type FilterModelType { get; } = typeof(DomainObjectFilterModel<>);
 

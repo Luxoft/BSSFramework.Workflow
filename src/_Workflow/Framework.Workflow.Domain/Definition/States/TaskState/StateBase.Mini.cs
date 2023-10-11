@@ -1,6 +1,4 @@
-﻿using System;
-
-using Framework.Projection.Contract;
+﻿using Framework.Projection.Contract;
 
 namespace Framework.Workflow.Domain.Definition
 {

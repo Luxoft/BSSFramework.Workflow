@@ -1,12 +1,10 @@
 ﻿using System;
 
-using JetBrains.Annotations;
-
 namespace Framework.Graphviz
 {
     public static class DotVisualizerExtensions
     {
-        public static IDotVisualizer<TNewInput> OverrideInput<TOldInput, TNewInput>([NotNull] this IDotVisualizer<TOldInput> visualizer, [NotNull] Func<TNewInput, TOldInput> selector)
+        public static IDotVisualizer<TNewInput> OverrideInput<TOldInput, TNewInput>(this IDotVisualizer<TOldInput> visualizer, Func<TNewInput, TOldInput> selector)
         {
             if (visualizer == null) throw new ArgumentNullException(nameof(visualizer));
             if (selector == null) throw new ArgumentNullException(nameof(selector));

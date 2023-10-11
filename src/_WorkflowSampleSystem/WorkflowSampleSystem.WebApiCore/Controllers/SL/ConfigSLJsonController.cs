@@ -25,7 +25,7 @@ namespace WorkflowSampleSystem.WebApiCore.Controllers
 
             this.EvaluateC(DBSessionMode.Write, context =>
             {
-                var bll = new SentMessageBLL(context);
+                var bll = context.Logics.SentMessage;
 
                 bll.Save(notification.ToSentMessage());
             });

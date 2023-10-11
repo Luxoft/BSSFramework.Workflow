@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using Framework.DomainDriven.BLL;
 using Framework.Persistent;
 using Framework.Restriction;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.Domain.Definition
 {
-
     /// <summary>
     /// Задача
     /// </summary>
     /// <remarks>
     /// Задача – это набор возможных команд, которые могут быть выполнены над объектом в конкретном состоянии
     /// </remarks>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole]
     public partial class Task : WorkflowItemBase,
         IDetail<State>,
@@ -37,7 +35,7 @@ namespace Framework.Workflow.Domain.Definition
         /// Конструктор создает задачу с ссылкой на состояние
         /// </summary>
         /// <param name="state">Состояние</param>
-        public Task([NotNull] State state)
+        public Task(State state)
         {
             if (state == null) throw new ArgumentNullException(nameof(state));
 

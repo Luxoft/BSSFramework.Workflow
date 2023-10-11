@@ -16,10 +16,10 @@ namespace Framework.Workflow.BLL
         
         private Framework.Validation.IValidationMap _defaultValidatorMap;
         
-        protected WorkflowValidationMapBase(Framework.Core.IDynamicSource extendedValidationData) : 
-                base(extendedValidationData)
+        protected WorkflowValidationMapBase(System.IServiceProvider serviceProvider) : 
+                base(serviceProvider)
         {
-            this._defaultValidatorMap = new Framework.Validation.ValidationMap(extendedValidationData);
+            this._defaultValidatorMap = new Framework.Validation.ValidationMap(serviceProvider);
         }
         
         protected virtual System.Collections.Generic.IEnumerable<Framework.Validation.IPropertyValidator<Framework.Workflow.Domain.AvailableCommandFilterModel, Framework.Workflow.Domain.Runtime.TaskInstance>> GetAvailableCommandFilterModel_TaskInstanceValidators()
@@ -2839,8 +2839,8 @@ namespace Framework.Workflow.BLL
     public partial class WorkflowValidationMap : Framework.Workflow.BLL.WorkflowValidationMapBase
     {
         
-        public WorkflowValidationMap(Framework.Core.IDynamicSource extendedValidationData) : 
-                base(extendedValidationData)
+        public WorkflowValidationMap(System.IServiceProvider serviceProvider) : 
+                base(serviceProvider)
         {
         }
     }

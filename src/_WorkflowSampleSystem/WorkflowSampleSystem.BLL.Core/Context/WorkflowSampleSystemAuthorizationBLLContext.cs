@@ -2,68 +2,77 @@
 
 using Framework.Authorization.BLL;
 using Framework.Authorization.Domain;
+using Framework.Authorization.Notification;
+using Framework.Authorization.SecuritySystem;
+using Framework.Authorization.SecuritySystem.ExternalSource;
 using Framework.Core.Services;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.BLL.Configuration;
 using Framework.DomainDriven.BLL.Security;
-using Framework.DomainDriven.BLL.Tracking;
+using Framework.DomainDriven.Tracking;
 using Framework.HierarchicalExpand;
 using Framework.QueryLanguage;
 using Framework.SecuritySystem;
 using Framework.SecuritySystem.Rules.Builders;
 
-using JetBrains.Annotations;
+
 
 namespace WorkflowSampleSystem.BLL;
 
 public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLContext, IWorkflowSampleSystemAuthorizationBLLContext
 {
     public WorkflowSampleSystemAuthorizationBLLContext(
-            [NotNull] IServiceProvider serviceProvider,
-            [NotNull] IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
-            [NotNull] IObjectStateService objectStateService,
-            [NotNull] IAccessDeniedExceptionService<PersistentDomainObjectBase> accessDeniedExceptionService,
-            [NotNull] IStandartExpressionBuilder standartExpressionBuilder,
-            [NotNull] IAuthorizationValidator validator,
-            [NotNull] IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
-            [NotNull] IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
-            [NotNull] IDateTimeService dateTimeService,
-            [NotNull] IUserAuthenticationService userAuthenticationService,
-            [NotNull] ISecurityExpressionBuilderFactory<PersistentDomainObjectBase, Guid> securityExpressionBuilderFactory,
-            [NotNull] IConfigurationBLLContext configuration,
-            [NotNull] IAuthorizationSecurityService securityService,
-            [NotNull] IAuthorizationBLLFactoryContainer logics,
-            [NotNull] IAuthorizationExternalSource externalSource,
-            [NotNull] IRunAsManager runAsManager,
-            [NotNull] ISecurityTypeResolverContainer securityTypeResolverContainer,
-            [NotNull] IRuntimePermissionOptimizationService optimizeRuntimePermissionService,
-            [NotNull] IAuthorizationBLLContextSettings settings,
-            [NotNull] IWorkflowApproveProcessor workflowApproveProcessor)
-
+            IServiceProvider serviceProvider,
+            IOperationEventSenderContainer<PersistentDomainObjectBase> operationSenders,
+            ITrackingService<PersistentDomainObjectBase> trackingService,
+            IAccessDeniedExceptionService accessDeniedExceptionService,
+            IStandartExpressionBuilder standartExpressionBuilder,
+            IAuthorizationValidator validator,
+            IHierarchicalObjectExpanderFactory<Guid> hierarchicalObjectExpanderFactory,
+            IFetchService<PersistentDomainObjectBase, FetchBuildRule> fetchService,
+            IDateTimeService dateTimeService,
+            IConfigurationBLLContext configuration,
+            IRootSecurityService<PersistentDomainObjectBase> securityService,
+            IAuthorizationBLLFactoryContainer logics,
+            IAuthorizationExternalSource externalSource,
+            INotificationPrincipalExtractor notificationPrincipalExtractor,
+            IAuthorizationBLLContextSettings settings,
+            IAuthorizationSystem<Guid> authorizationSystem,
+            IRunAsManager runAsManager,
+            IAvailablePermissionSource availablePermissionSource,
+            ISecurityOperationParser securityOperationParser,
+            IAvailableSecurityOperationSource availableSecurityOperationSource,
+            IActualPrincipalSource actualPrincipalSource,
+            IWorkflowApproveProcessor workflowApproveProcessor)
             : base(
                    serviceProvider,
                    operationSenders,
-                   objectStateService,
+                   trackingService,
                    accessDeniedExceptionService,
                    standartExpressionBuilder,
                    validator,
                    hierarchicalObjectExpanderFactory,
                    fetchService,
                    dateTimeService,
-                   userAuthenticationService,
-                   securityExpressionBuilderFactory,
                    configuration,
                    securityService,
                    logics,
                    externalSource,
+                   notificationPrincipalExtractor,
+                   settings,
+                   authorizationSystem,
                    runAsManager,
-                   securityTypeResolverContainer,
-                   optimizeRuntimePermissionService,
-                   settings)
+                   availablePermissionSource,
+                   securityOperationParser,
+                   availableSecurityOperationSource,
+                   actualPrincipalSource)
     {
-        this.WorkflowApproveProcessor = workflowApproveProcessor ?? throw new ArgumentNullException(nameof(workflowApproveProcessor));
+        this.WorkflowApproveProcessor = workflowApproveProcessor;
     }
 
-    public IWorkflowApproveProcessor WorkflowApproveProcessor { get; }
+    public IWorkflowApproveProcessor WorkflowApproveProcessor
+    {
+        get;
+    }
 }

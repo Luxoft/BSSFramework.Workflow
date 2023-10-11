@@ -1,7 +1,4 @@
-﻿using System;
-
-using Framework.Core;
-using Framework.DomainDriven.Serialization;
+﻿using Framework.DomainDriven.Serialization;
 using Framework.Persistent;
 using Framework.Projection.Contract;
 

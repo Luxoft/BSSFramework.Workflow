@@ -5,8 +5,6 @@ using System.IO;
 using Framework.Core;
 using Framework.Graphviz.Dot;
 
-using JetBrains.Annotations;
-
 namespace Framework.Graphviz
 {
     public class NativeDotVisualizer : DotVisualizer<string>
@@ -14,7 +12,7 @@ namespace Framework.Graphviz
         private readonly string _binaryFileName;
 
 
-        public NativeDotVisualizer([NotNull] string binaryFileName)
+        public NativeDotVisualizer(string binaryFileName)
         {
             if (binaryFileName == null) throw new ArgumentNullException(nameof(binaryFileName));
 
@@ -27,7 +25,7 @@ namespace Framework.Graphviz
         }
 
 
-        public override byte[] Render([NotNull]string baseDot, GraphvizFormat format)
+        public override byte[] Render(string baseDot, GraphvizFormat format)
         {
             if (baseDot == null) throw new ArgumentNullException(nameof(baseDot));
 

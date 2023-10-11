@@ -15,7 +15,7 @@ namespace WorkflowSampleSystem.CodeGenerate
         }
 
 
-        public override Type SecurityOperationCodeType { get; } = typeof(WorkflowSampleSystemSecurityOperationCode);
+        public override Type SecurityOperationType { get; } = typeof(WorkflowSampleSystemSecurityOperation);
 
         public override Type OperationContextType { get; } = typeof(WorkflowSampleSystemOperationContext);
     }

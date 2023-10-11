@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WorkflowSampleSystem.BLL
+﻿namespace WorkflowSampleSystem.BLL
 {
     public partial interface INamedLockBLL
     {

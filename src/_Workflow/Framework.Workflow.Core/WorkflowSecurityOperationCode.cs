@@ -1,29 +1,17 @@
-﻿using Framework.Security;
+﻿using System;
+
+using Framework.SecuritySystem;
 
 namespace Framework.Workflow
 {
-    public enum WorkflowSecurityOperationCode
+    public static class WorkflowSecurityOperation
     {
-        Disabled = 0,
+        public static DisabledSecurityOperation Disabled { get; } = SecurityOperation.Disabled;
 
-        #region Workflow
+        public static SecurityOperation<Guid> WorkflowOpenModule { get; } = new(nameof(WorkflowOpenModule), new Guid("f0cce81f-d710-4456-a7ed-c8b181ba3443")) { Description = "Can open Workflow module", IsClient = true };
 
-        [SecurityOperation("Open Workflow Module", false, "{F0CCE81F-D710-4456-A7ED-C8B181BA3443}", "Can open Workflow module", DomainType = "Workflow", IsClient = true)]
-        WorkflowOpenModule,
+        public static SecurityOperation<Guid> WorkflowView { get; } = new(nameof(WorkflowView), new Guid("10ce7edf-45c3-4285-81fb-4399a5907890")) { Description = "Can view Workflow" };
 
-        [SecurityOperation("View Workflow", false, "{10CE7EDF-45C3-4285-81FB-4399A5907890}", "Can view Workflow", DomainType = "Workflow")]
-        WorkflowView,
-
-        [SecurityOperation("Edit Workflow", false, "{3C84B2B4-40CE-4F37-9CD7-D4CC38E8C9C0}", "Can edit Workflow", DomainType = "Workflow")]
-        WorkflowEdit,
-
-        #endregion
-
-        #region Integration
-
-        [SecurityOperation(SecurityOperationCode.SystemIntegration)]
-        SystemIntegration
-
-        #endregion
+        public static SecurityOperation<Guid> WorkflowEdit { get; } = new(nameof(WorkflowEdit), new Guid("3c84b2b4-40ce-4f37-9cd7-d4cc38e8c9c0")) { Description = "Can edit Workflow" };
     }
 }

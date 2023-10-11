@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
+using Framework.Configuration;
 using Framework.Core;
-using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.Serialization;
 using Framework.Persistent;
 using Framework.Persistent.Mapping;
 using Framework.Restriction;
-using Framework.SecuritySystem;
 using Framework.Transfering;
 using Framework.Validation;
 
@@ -20,12 +18,10 @@ namespace WorkflowSampleSystem.Domain
     [UniqueGroup(UseDbEvaluation = true)]
     [BLLViewRole(Max = MainDTOType.FullDTO)]
     [BLLSaveRole(SaveType = BLLSaveType.Both)]
-    [WorkflowSampleSystemViewDomainObject(WorkflowSampleSystemSecurityOperationCode.EmployeeView)]
-    [WorkflowSampleSystemEditDomainObject(WorkflowSampleSystemSecurityOperationCode.EmployeeEdit)]
     [BLLEventRole(Mode = EventRoleMode.Save)]
     [BLLIntegrationSaveRole]
     [DomainType("{AA46DA53-9B21-4DEC-9C70-720BDA1CB198}")]
-    public partial class Employee :
+    public class Employee :
         AuditPersistentDomainObjectBase,
         IEmployee
     {
@@ -109,8 +105,6 @@ namespace WorkflowSampleSystem.Domain
 
         [MaxLength(30)]
         [UniqueElement]
-        [WorkflowSampleSystemViewDomainObject(WorkflowSampleSystemSecurityOperationCode.EmployeeView)]
-        [WorkflowSampleSystemEditDomainObject(WorkflowSampleSystemSecurityOperationCode.EmployeeEdit)]
         public virtual string Login
         {
             get { return this.login.TrimNull(); }

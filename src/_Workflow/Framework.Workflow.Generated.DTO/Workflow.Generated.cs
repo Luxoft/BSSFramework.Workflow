@@ -2548,8 +2548,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.Command), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class CommandIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.CommandIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -2656,7 +2654,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.CommandEvent), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class CommandEventIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.CommandEventIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -2869,8 +2866,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.ConditionState), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class ConditionStateIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.ConditionStateIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -2977,7 +2972,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.ConditionStateEvent), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class ConditionStateEventIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3084,7 +3078,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.DomainType), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class DomainTypeIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.DomainTypeIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3191,7 +3184,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.Event), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class EventIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.EventIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3298,8 +3290,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.ParallelState), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class ParallelStateIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.ParallelStateIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3406,7 +3396,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.ParallelStateFinalEvent), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class ParallelStateFinalEventIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.ParallelStateFinalEventIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3513,7 +3502,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.Role), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class RoleIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.RoleIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3620,8 +3608,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class StartWorkflowDomainObjectConditionIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3728,8 +3714,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.State), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class StateIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.StateIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3836,8 +3820,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.StateBase), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class StateBaseIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.StateBaseIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -3944,7 +3926,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.StateDomainObjectEvent), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class StateDomainObjectEventIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.StateDomainObjectEventIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4051,7 +4032,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.StateTimeoutEvent), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class StateTimeoutEventIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.StateTimeoutEventIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4158,8 +4138,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.TargetSystem), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class TargetSystemIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.TargetSystemIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4266,8 +4244,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.Task), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class TaskIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.TaskIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4374,8 +4350,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.Transition), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class TransitionIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.TransitionIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4482,8 +4456,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.Workflow), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class WorkflowIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.WorkflowIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4590,8 +4562,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.WorkflowLambda), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class WorkflowLambdaIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.WorkflowLambdaIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4804,8 +4774,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Definition.WorkflowSource), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class WorkflowSourceIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.WorkflowSourceIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -4912,7 +4880,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Runtime.StateInstance), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class StateInstanceIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.StateInstanceIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -5019,8 +4986,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Runtime.TaskInstance), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class TaskInstanceIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.TaskInstanceIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -5127,7 +5092,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Runtime.TransitionInstance), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class TransitionInstanceIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.TransitionInstanceIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
@@ -5234,8 +5198,6 @@ namespace Framework.Workflow.Generated.DTO
     }
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(Framework.Workflow.Domain.Runtime.WorkflowInstance), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [Framework.Workflow.WorkflowEditDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowEdit)]
-    [Framework.Workflow.WorkflowViewDomainObjectAttribute(Framework.Workflow.WorkflowSecurityOperationCode.WorkflowView)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="Workflow")]
     public class WorkflowInstanceIdentityDTO : System.IEquatable<Framework.Workflow.Generated.DTO.WorkflowInstanceIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {

@@ -3,11 +3,10 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using Framework.Core;
-using Framework.DomainDriven.BLL.Security;
 using Framework.SecuritySystem;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -17,7 +16,6 @@ namespace Framework.Workflow.BLL
 
 
         public TaskInstanceMainSecurityProvider(IWorkflowBLLContext context)
-            : base(context.AccessDeniedExceptionService)
         {
             this.Context = context;
 
@@ -69,7 +67,7 @@ namespace Framework.Workflow.BLL
         }
 
 
-        public override UnboundedList<string> GetAccessors([NotNull] TaskInstance taskInstance)
+        public override UnboundedList<string> GetAccessors(TaskInstance taskInstance)
         {
             if (taskInstance == null) throw new ArgumentNullException(nameof(taskInstance));
 

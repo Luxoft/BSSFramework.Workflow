@@ -16,7 +16,7 @@ namespace Framework.Workflow.TestGenerate
         {
         }
 
-        public override Type SecurityOperationCodeType { get; } = typeof(WorkflowSecurityOperationCode);
+        public override Type SecurityOperationType { get; } = typeof(WorkflowSecurityOperation);
 
         public override Type OperationContextType { get; } = typeof(WorkflowOperationContext);
 

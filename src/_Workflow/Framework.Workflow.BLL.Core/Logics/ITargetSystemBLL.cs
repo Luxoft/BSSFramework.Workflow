@@ -4,7 +4,7 @@ using System.Reflection;
 
 using Framework.Workflow.Domain.Definition;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -12,7 +12,7 @@ namespace Framework.Workflow.BLL
     {
         TargetSystem RegisterBase();
 
-        TargetSystem Register<TPersistentDomainObjectBase>(bool isMain, [NotNull]IEnumerable<Assembly> assemblies);
+        TargetSystem Register<TPersistentDomainObjectBase>(bool isMain, IEnumerable<Assembly> assemblies);
     }
 
     public static class TargetSystemBLLExtensions

@@ -16,8 +16,6 @@ namespace Framework.Workflow.Domain.Runtime
     /// Экземпляр, созданный на основе доменного типа для всего жизненного цикла воркфлоу
     /// </summary>
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole(CountType = CountType.Both)]
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     public partial class WorkflowInstance : WorkflowItemBase,
         IMaster<WorkflowInstanceParameter>,
         IMaster<StateInstance>,

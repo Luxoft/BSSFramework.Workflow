@@ -11,7 +11,7 @@ using Framework.Graphviz.Dot;
 using Framework.WebApi.Utils.SL;
 using Framework.Workflow.Environment;
 
-using JetBrains.Annotations;
+
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +27,7 @@ namespace Framework.Workflow.WebApi
     {
         private readonly IDotVisualizer<DotGraph> dotVisualizer;
 
-        public WorkflowSLJsonController([NotNull] IDotVisualizer<DotGraph> dotVisualizer)
+        public WorkflowSLJsonController(IDotVisualizer<DotGraph> dotVisualizer)
         {
             this.dotVisualizer = dotVisualizer ?? throw new ArgumentNullException(nameof(dotVisualizer));
         }

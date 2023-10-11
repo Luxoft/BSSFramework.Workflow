@@ -16,8 +16,6 @@ namespace Framework.Workflow.Domain.Definition
     /// 3) <see cref="ConditionState"/>
     /// Запросы по состояниям в SQL обрабатываются через 2 таблицы: State Base и State/Parallel State/Condition State
     /// </remarks>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole]
     public partial class StateBase : WorkflowItemBase, IDetail<Workflow>, IWorkflowElement
     {

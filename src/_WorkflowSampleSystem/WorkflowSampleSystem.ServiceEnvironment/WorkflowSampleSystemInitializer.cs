@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Framework.Authorization.BLL;
+using Framework.Authorization.SecuritySystem.OperationInitializer;
 using Framework.DomainDriven;
-using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.ServiceModel.IAD;
 
 using WorkflowSampleSystem.BLL;
 
 using Framework.Workflow.BLL;
+
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WorkflowSampleSystem.ServiceEnvironment;
 
@@ -56,7 +57,11 @@ public class WorkflowSampleSystemInitializer
             DBSessionMode.Write,
             context =>
             {
-                context.Authorization.InitSecurityOperations();
+                context.ServiceProvider
+                       .GetRequiredService<IAuthorizationOperationInitializer>()
+                       .InitSecurityOperations(UnexpectedAuthOperationMode.Remove)
+                       .GetAwaiter()
+                       .GetResult();
 
                 context.Configuration.Logics.TargetSystem.RegisterBase();
                 context.Configuration.Logics.TargetSystem.Register<WorkflowSampleSystem.Domain.PersistentDomainObjectBase>(true, true);

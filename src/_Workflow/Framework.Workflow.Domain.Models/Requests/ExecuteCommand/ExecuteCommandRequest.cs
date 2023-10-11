@@ -7,7 +7,7 @@ using Framework.Restriction;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.Domain
 {
@@ -37,7 +37,7 @@ namespace Framework.Workflow.Domain
 
     public static class CommandExtensions
     {
-        public static IEnumerable<ExecuteCommandRequestParameter> ToExecuteCommandRequestParameters([NotNull] this Command command, Dictionary<string, string> parameters)
+        public static IEnumerable<ExecuteCommandRequestParameter> ToExecuteCommandRequestParameters(this Command command, Dictionary<string, string> parameters)
         {
             if (command == null) throw new ArgumentNullException(nameof(command));
 

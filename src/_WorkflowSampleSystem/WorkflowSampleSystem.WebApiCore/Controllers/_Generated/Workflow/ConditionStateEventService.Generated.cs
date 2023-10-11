@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check ConditionStateEvent access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckConditionStateEventAccess")]
-        public virtual void CheckConditionStateEventAccess(CheckConditionStateEventAccessAutoRequest checkConditionStateEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkConditionStateEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent = checkConditionStateEventAccessAutoRequest.conditionStateEventIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IConditionStateEventBLL bll = evaluateData.Context.Logics.ConditionStateEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ConditionStateEvent domainObject = bll.GetById(conditionStateEventIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get ConditionStateEvent (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -260,53 +240,5 @@
             Framework.Workflow.BLL.IConditionStateEventBLL bll = evaluateData.Context.Logics.ConditionStateEventFactory.Create(Framework.SecuritySystem.BLLSecurityMode.View);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToVisualDTOList(bll.GetFullList(evaluateData.Context.FetchService.GetContainer<Framework.Workflow.Domain.Definition.ConditionStateEvent>(Framework.Transfering.ViewDTOType.VisualDTO)), evaluateData.MappingService);
         }
-        
-        /// <summary>
-        /// Check access for ConditionStateEvent
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasConditionStateEventAccess")]
-        public virtual bool HasConditionStateEventAccess(HasConditionStateEventAccessAutoRequest hasConditionStateEventAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasConditionStateEventAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent = hasConditionStateEventAccessAutoRequest.conditionStateEventIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasConditionStateEventAccessInternal(conditionStateEventIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasConditionStateEventAccessInternal(Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IConditionStateEventBLL bll = evaluateData.Context.Logics.ConditionStateEvent;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.ConditionStateEvent domainObject = bll.GetById(conditionStateEventIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent>(securityOperationCode).HasAccess(domainObject);
-        }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckConditionStateEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasConditionStateEventAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.ConditionStateEventIdentityDTO conditionStateEventIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

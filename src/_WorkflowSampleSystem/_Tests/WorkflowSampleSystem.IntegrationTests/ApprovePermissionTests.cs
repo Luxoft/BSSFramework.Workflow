@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.Serialization;
 
 using FluentAssertions;
@@ -40,7 +39,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
         {
             var authFacade = this.GetAuthControllerEvaluator();
 
-            this.approveOperation = authFacade.Evaluate(c => c.GetSimpleOperationByName(nameof(WorkflowSampleSystemSecurityOperationCode.ApproveWorkflowOperation)));
+            this.approveOperation = authFacade.Evaluate(c => c.GetSimpleOperationByName(WorkflowSampleSystemSecurityOperation.ApproveWorkflowOperation.Name));
 
             var approveRole = authFacade.Evaluate(c => c.SaveBusinessRole(new BusinessRoleStrictDTO
                                                                        {
@@ -92,7 +91,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Workflow
 
             var workflowFacade = this.GetWorkflowControllerEvaluator();
 
-            var approvingOperation = authFacade.Evaluate(c => c.GetSimpleOperationByName(nameof(WorkflowSampleSystemSecurityOperationCode.ApprovingWorkflowOperation)));
+            var approvingOperation = authFacade.Evaluate(c => c.GetSimpleOperationByName(WorkflowSampleSystemSecurityOperation.ApprovingWorkflowOperation.Name));
 
             var approvingRole = authFacade.Evaluate(c => c.SaveBusinessRole(new BusinessRoleStrictDTO
             {

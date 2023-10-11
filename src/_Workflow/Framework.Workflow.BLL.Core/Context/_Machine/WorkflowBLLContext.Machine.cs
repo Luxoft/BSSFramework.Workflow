@@ -6,7 +6,7 @@ using Framework.Exceptions;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -27,7 +27,7 @@ namespace Framework.Workflow.BLL
             return this.GetTargetSystemService(definition).GetMassWorkflowMachine(definition, workflowInstances);
         }
 
-        public WorkflowProcessResult FinishParallels([NotNull] WorkflowProcessResult processResult)
+        public WorkflowProcessResult FinishParallels(WorkflowProcessResult processResult)
         {
             if (processResult == null) throw new ArgumentNullException(nameof(processResult));
 

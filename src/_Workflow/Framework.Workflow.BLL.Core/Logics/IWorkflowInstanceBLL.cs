@@ -6,19 +6,17 @@ using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
-
 namespace Framework.Workflow.BLL
 {
     public partial interface IWorkflowInstanceBLL
     {
-        WorkflowInstance Start([NotNull]StartWorkflowRequest request);
+        WorkflowInstance Start(StartWorkflowRequest request);
 
-        WorkflowProcessResult ExecuteCommands([NotNull]MassExecuteCommandRequest massRequest);
+        WorkflowProcessResult ExecuteCommands(MassExecuteCommandRequest massRequest);
 
-        WorkflowProcessResult ExecuteCommand([NotNull]ExecuteCommandRequest singleRequest);
+        WorkflowProcessResult ExecuteCommand(ExecuteCommandRequest singleRequest);
 
-        WorkflowProcessResult TryExecuteCommands(Guid domainObjectId, [NotNull]Command command, [NotNull]Dictionary<string, string> parameters);
+        WorkflowProcessResult TryExecuteCommands(Guid domainObjectId, Command command, Dictionary<string, string> parameters);
 
         void Abort(WorkflowInstance workflowInstance);
 

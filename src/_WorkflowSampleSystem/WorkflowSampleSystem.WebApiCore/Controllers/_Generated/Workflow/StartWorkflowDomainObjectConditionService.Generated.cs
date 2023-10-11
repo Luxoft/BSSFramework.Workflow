@@ -10,26 +10,6 @@
     {
         
         /// <summary>
-        /// Check StartWorkflowDomainObjectCondition access
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("CheckStartWorkflowDomainObjectConditionAccess")]
-        public virtual void CheckStartWorkflowDomainObjectConditionAccess(CheckStartWorkflowDomainObjectConditionAccessAutoRequest checkStartWorkflowDomainObjectConditionAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = checkStartWorkflowDomainObjectConditionAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent = checkStartWorkflowDomainObjectConditionAccessAutoRequest.startWorkflowDomainObjectConditionIdent;
-            this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.CheckStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual void CheckStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL bll = evaluateData.Context.Logics.StartWorkflowDomainObjectCondition;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition domainObject = bll.GetById(startWorkflowDomainObjectConditionIdent.Id, true);
-            Framework.SecuritySystem.SecurityProviderExtensions.CheckAccess(evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>(securityOperationCode), domainObject);
-        }
-        
-        /// <summary>
         /// Get StartWorkflowDomainObjectCondition (FullDTO) by identity
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -179,26 +159,6 @@
         }
         
         /// <summary>
-        /// Check access for StartWorkflowDomainObjectCondition
-        /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
-        [Microsoft.AspNetCore.Mvc.RouteAttribute("HasStartWorkflowDomainObjectConditionAccess")]
-        public virtual bool HasStartWorkflowDomainObjectConditionAccess(HasStartWorkflowDomainObjectConditionAccessAutoRequest hasStartWorkflowDomainObjectConditionAccessAutoRequest)
-        {
-            Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode = hasStartWorkflowDomainObjectConditionAccessAutoRequest.securityOperationCode;
-            Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent = hasStartWorkflowDomainObjectConditionAccessAutoRequest.startWorkflowDomainObjectConditionIdent;
-            return this.Evaluate(Framework.DomainDriven.DBSessionMode.Read, evaluateData => this.HasStartWorkflowDomainObjectConditionAccessInternal(startWorkflowDomainObjectConditionIdent, securityOperationCode, evaluateData));
-        }
-        
-        protected virtual bool HasStartWorkflowDomainObjectConditionAccessInternal(Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent, Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode, Framework.DomainDriven.ServiceModel.Service.EvaluatedData<Framework.Workflow.BLL.IWorkflowBLLContext, Framework.Workflow.Generated.DTO.IWorkflowDTOMappingService> evaluateData)
-        {
-            Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL bll = evaluateData.Context.Logics.StartWorkflowDomainObjectCondition;
-            Framework.Security.TransferEnumHelper.Check(securityOperationCode);
-            Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition domainObject = bll.GetById(startWorkflowDomainObjectConditionIdent.Id, true);
-            return evaluateData.Context.SecurityService.GetSecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition>(securityOperationCode).HasAccess(domainObject);
-        }
-        
-        /// <summary>
         /// Remove StartWorkflowDomainObjectCondition
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPostAttribute()]
@@ -243,33 +203,5 @@
             bll.Save(domainObject);
             return Framework.Workflow.Generated.DTO.LambdaHelper.ToIdentityDTO(domainObject);
         }
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class CheckStartWorkflowDomainObjectConditionAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
-    }
-    
-    [System.Runtime.Serialization.DataContractAttribute()]
-    [Framework.DomainDriven.ServiceModel.IAD.AutoRequestAttribute()]
-    public partial class HasStartWorkflowDomainObjectConditionAccessAutoRequest
-    {
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=0)]
-        public Framework.Workflow.Generated.DTO.StartWorkflowDomainObjectConditionIdentityDTO startWorkflowDomainObjectConditionIdent;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        [Framework.DomainDriven.ServiceModel.IAD.AutoRequestPropertyAttribute(OrderIndex=1)]
-        public Framework.Workflow.WorkflowSecurityOperationCode securityOperationCode;
     }
 }

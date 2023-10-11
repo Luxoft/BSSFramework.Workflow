@@ -6,7 +6,7 @@ using System.Linq;
 using Framework.Core;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -23,19 +23,19 @@ namespace Framework.Workflow.BLL
         public ReadOnlyCollection<WorkflowInstance> TryFinishParallelInstances { get; private set; }
 
 
-        public WorkflowProcessResult([NotNull] TransitionInstance executedTransition)
+        public WorkflowProcessResult(TransitionInstance executedTransition)
             : this(new[] { executedTransition  }, Empty.TryFinishParallelInstances)
         {
 
         }
 
-        public WorkflowProcessResult([NotNull] WorkflowInstance checkTryFinishParallelInstance)
+        public WorkflowProcessResult(WorkflowInstance checkTryFinishParallelInstance)
             : this(Empty.ExecutedTransitions, new[] { checkTryFinishParallelInstance })
         {
 
         }
 
-        public WorkflowProcessResult([NotNull] IEnumerable<TransitionInstance> executedTransitions, [NotNull] IEnumerable<WorkflowInstance> tryFinishParallelInstances)
+        public WorkflowProcessResult(IEnumerable<TransitionInstance> executedTransitions, IEnumerable<WorkflowInstance> tryFinishParallelInstances)
         {
             if (executedTransitions == null) throw new ArgumentNullException(nameof(executedTransitions));
             if (tryFinishParallelInstances == null) throw new ArgumentNullException(nameof(tryFinishParallelInstances));
@@ -46,7 +46,7 @@ namespace Framework.Workflow.BLL
 
 
 
-        public static WorkflowProcessResult operator +([NotNull] WorkflowProcessResult v1, [NotNull] WorkflowProcessResult v2)
+        public static WorkflowProcessResult operator +(WorkflowProcessResult v1, WorkflowProcessResult v2)
         {
             if (v1 == null) throw new ArgumentNullException(nameof(v1));
             if (v2 == null) throw new ArgumentNullException(nameof(v2));
@@ -56,7 +56,7 @@ namespace Framework.Workflow.BLL
                  : new WorkflowProcessResult(v1.ExecutedTransitions.Concat(v2.ExecutedTransitions), v1.TryFinishParallelInstances.Concat(v2.TryFinishParallelInstances));
         }
 
-        public static WorkflowProcessResult operator +([NotNull] WorkflowProcessResult v1, TransitionInstance v2)
+        public static WorkflowProcessResult operator +(WorkflowProcessResult v1, TransitionInstance v2)
         {
             if (v1 == null) throw new ArgumentNullException(nameof(v1));
             if (v2 == null) throw new ArgumentNullException(nameof(v2));
@@ -64,7 +64,7 @@ namespace Framework.Workflow.BLL
             return v1 + new WorkflowProcessResult(v2);
         }
 
-        public static WorkflowProcessResult operator +([NotNull] WorkflowProcessResult v1, WorkflowInstance v2)
+        public static WorkflowProcessResult operator +(WorkflowProcessResult v1, WorkflowInstance v2)
         {
             if (v1 == null) throw new ArgumentNullException(nameof(v1));
             if (v2 == null) throw new ArgumentNullException(nameof(v2));
@@ -78,7 +78,7 @@ namespace Framework.Workflow.BLL
 
     public static class WorkflowProcessResultExtensions
     {
-        public static WorkflowProcessResult Sum([NotNull] this IEnumerable<WorkflowProcessResult> workflowProcessResults)
+        public static WorkflowProcessResult Sum(this IEnumerable<WorkflowProcessResult> workflowProcessResults)
         {
             if (workflowProcessResults == null) throw new ArgumentNullException(nameof(workflowProcessResults));
 

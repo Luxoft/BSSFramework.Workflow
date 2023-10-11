@@ -10,6 +10,8 @@ using Framework.Validation;
 using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Framework.Workflow.BLL
 {
     public partial class WorkflowValidationMapBase
@@ -39,7 +41,7 @@ namespace Framework.Workflow.BLL
             {
                 var stateBase = validationContext.Source;
 
-                var context = validationContext.ExtendedValidationData.GetValue<IWorkflowBLLContext>(true);
+                var context = validationContext.ServiceProvider.GetRequiredService<IWorkflowBLLContext>();
 
                 var domainType = context.GetTargetSystemService(stateBase)
                                         .TypeResolver
@@ -96,7 +98,7 @@ namespace Framework.Workflow.BLL
             {
                 var domainObject = validationContext.Source;
 
-                var context = validationContext.ExtendedValidationData.GetValue<IWorkflowBLLContext>(true);
+                var context = validationContext.ServiceProvider.GetRequiredService<IWorkflowBLLContext>();
 
                 return ValidationResult.TryCatch(() =>
                 {
@@ -132,7 +134,7 @@ namespace Framework.Workflow.BLL
             {
                 if (validationContext == null) throw new ArgumentNullException(nameof(validationContext));
 
-                var context = validationContext.ExtendedValidationData.GetValue<IWorkflowBLLContext>(true);
+                var context = validationContext.ServiceProvider.GetRequiredService<IWorkflowBLLContext>();
 
                 var objects = validationContext.Source.IsNew ? new List<TDomainObject> () : context.Logics.Default.Create<TDomainObject>().GetListBy(this.getFilter(validationContext.Source));
 

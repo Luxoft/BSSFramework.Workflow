@@ -9,11 +9,9 @@ using Framework.Workflow.Domain;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
-
 namespace Framework.Workflow.BLL
 {
-    public partial class TargetSystemService<TBLLContext, TPersistentDomainObjectBase, TSecurityOperationCode>
+    public partial class TargetSystemService<TBLLContext, TPersistentDomainObjectBase>
     {
         public List<AvailableTaskInstanceWorkflowGroup> GetAvailableTaskInstanceWorkflowGroups(DomainType sourceType, Guid domainObjectId = new Guid())
         {
@@ -29,7 +27,7 @@ namespace Framework.Workflow.BLL
             return this.ExistsObject(this.TypeResolver.Resolve(domainType), domainObjectId);
         }
 
-        private bool ExistsObject([NotNull] Type domainType, Guid domainObjectId)
+        private bool ExistsObject(Type domainType, Guid domainObjectId)
         {
             if (domainType == null) throw new ArgumentNullException(nameof(domainType));
 
@@ -45,7 +43,7 @@ namespace Framework.Workflow.BLL
         }
 
 
-        private IEnumerable<AvailableTaskInstanceGroupItem> GetAvailableTaskInstanceGroupItems([NotNull] WorkflowSource workflowSource, [NotNull] IGrouping<Task, TaskInstance> byTaskGroup)
+        private IEnumerable<AvailableTaskInstanceGroupItem> GetAvailableTaskInstanceGroupItems(WorkflowSource workflowSource, IGrouping<Task, TaskInstance> byTaskGroup)
         {
             if (workflowSource == null) throw new ArgumentNullException(nameof(workflowSource));
             if (byTaskGroup == null) throw new ArgumentNullException(nameof(byTaskGroup));
@@ -153,7 +151,7 @@ namespace Framework.Workflow.BLL
             }
         }
 
-        private List<AvailableTaskInstanceWorkflowGroup> GetAvailableGroupsI([NotNull] WorkflowSource workflowSource, [NotNull] IEnumerable<WorkflowInstance> workflowInstances)
+        private List<AvailableTaskInstanceWorkflowGroup> GetAvailableGroupsI(WorkflowSource workflowSource, IEnumerable<WorkflowInstance> workflowInstances)
         {
             if (workflowSource == null) throw new ArgumentNullException(nameof(workflowSource));
             if (workflowInstances == null) throw new ArgumentNullException(nameof(workflowInstances));

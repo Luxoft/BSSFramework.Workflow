@@ -5,11 +5,9 @@ using Framework.Restriction;
 
 namespace Framework.Workflow.Domain.Definition
 {
-
     /// <summary>
     /// Связка между воркфлоу и дочерним воркфлоу
     /// </summary>
-    [WorkflowViewDomainObject]
     public class ParallelStateStartItem : AuditPersistentDomainObjectBase, IDetail<ParallelState>, IWorkflowElement
     {
         private readonly ParallelState state;

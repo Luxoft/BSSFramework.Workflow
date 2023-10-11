@@ -8,7 +8,6 @@ using Framework.Validation;
 
 namespace Framework.Workflow.Domain.Definition
 {
-
     /// <summary>
     /// Элемент безопасности, определяющий доступность команды пользователю
     /// </summary>
@@ -18,7 +17,6 @@ namespace Framework.Workflow.Domain.Definition
     /// Выставление непосредственно идентификатора авторизационной операции в свойство "SecurityOperationId"
     /// Выдача кастомного провайдера через лямбду "CustomSecurityProvider"
     /// </remarks>
-    [WorkflowViewDomainObject]
     [BLLViewRole(MaxCollection = MainDTOType.RichDTO)]
     [RequiredGroupValidator(RequiredGroupValidatorMode.One, OperationContext = WorkflowOperationContextC.Start, GroupKey = "Security")]
     public class Role : WorkflowItemBase, IDetail<Workflow>, IWorkflowElement

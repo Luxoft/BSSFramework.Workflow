@@ -19,7 +19,6 @@ namespace Framework.Workflow.Domain.Runtime
     /// При переходе воркфлоу в новый состояние с задачей создается экземпляр здачи и экземпляр состояния
     /// </remarks>
     [BLLViewRole]
-    [WorkflowViewDomainObject]
     public class StateInstance : AuditPersistentDomainObjectBase, IMaster<TaskInstance>,
 
         IDetail<WorkflowInstance>,

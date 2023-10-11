@@ -11,46 +11,8 @@ namespace WorkflowSampleSystem.Generated.DTO
 {
     
     
-    [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.BusinessUnit), "DomainObjectSecurityOperationCode", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    public enum WorkflowSampleSystemBusinessUnitSecurityOperationCode : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BusinessUnitView = WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.BusinessUnitView,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EmployeeEdit = WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.EmployeeEdit,
-    }
-    
-    [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.HRDepartment), "DomainObjectSecurityOperationCode", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    public enum WorkflowSampleSystemHRDepartmentSecurityOperationCode : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EmployeeEdit = WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.EmployeeEdit,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        HRDepartmentView = WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.HRDepartmentView,
-    }
-    
-    [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.Location), "DomainObjectSecurityOperationCode", Framework.DomainDriven.Serialization.DTORole.Client)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    public enum WorkflowSampleSystemLocationSecurityOperationCode : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        HRDepartmentEdit = WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.HRDepartmentEdit,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LocationView = WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.LocationView,
-    }
-    
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.BusinessUnit), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    [WorkflowSampleSystem.WorkflowSampleSystemEditDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.BusinessUnitEdit)]
-    [WorkflowSampleSystem.WorkflowSampleSystemViewDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.BusinessUnitView)]
     public struct BusinessUnitIdentityDTO : System.IEquatable<WorkflowSampleSystem.Generated.DTO.BusinessUnitIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
         
@@ -141,8 +103,6 @@ namespace WorkflowSampleSystem.Generated.DTO
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.Employee), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    [WorkflowSampleSystem.WorkflowSampleSystemEditDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.EmployeeEdit)]
-    [WorkflowSampleSystem.WorkflowSampleSystemViewDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.EmployeeView)]
     public struct EmployeeIdentityDTO : System.IEquatable<WorkflowSampleSystem.Generated.DTO.EmployeeIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
         
@@ -233,8 +193,6 @@ namespace WorkflowSampleSystem.Generated.DTO
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.HRDepartment), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    [WorkflowSampleSystem.WorkflowSampleSystemEditDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.HRDepartmentEdit)]
-    [WorkflowSampleSystem.WorkflowSampleSystemViewDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.HRDepartmentView)]
     public struct HRDepartmentIdentityDTO : System.IEquatable<WorkflowSampleSystem.Generated.DTO.HRDepartmentIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
         
@@ -325,8 +283,6 @@ namespace WorkflowSampleSystem.Generated.DTO
     
     [Framework.DomainDriven.DTOFileTypeAttribute(typeof(WorkflowSampleSystem.Domain.Location), "IdentityDTO", Framework.DomainDriven.Serialization.DTORole.Client)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="WorkflowSampleSystem")]
-    [WorkflowSampleSystem.WorkflowSampleSystemEditDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.LocationEdit)]
-    [WorkflowSampleSystem.WorkflowSampleSystemViewDomainObjectAttribute(WorkflowSampleSystem.WorkflowSampleSystemSecurityOperationCode.LocationView)]
     public struct LocationIdentityDTO : System.IEquatable<WorkflowSampleSystem.Generated.DTO.LocationIdentityDTO>, Framework.Persistent.IIdentityObject<System.Guid>
     {
         
@@ -798,7 +754,7 @@ namespace WorkflowSampleSystem.Generated.DTO
         public System.DateTime? LastActionDate;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Framework.Core.Maybe<string> Login;
+        public string Login;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MailAccountName;
@@ -928,7 +884,7 @@ namespace WorkflowSampleSystem.Generated.DTO
         public System.DateTime? LastActionDate;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Framework.Core.Maybe<string> Login = Framework.Core.Maybe<string>.Nothing;
+        public string Login;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public WorkflowSampleSystem.Domain.Inline.FioShort NameEng;

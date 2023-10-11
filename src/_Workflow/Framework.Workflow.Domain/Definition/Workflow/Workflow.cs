@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using Framework.Core;
@@ -11,19 +12,16 @@ using Framework.Persistent.Mapping;
 using Framework.Restriction;
 using Framework.Validation;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.Domain.Definition
 {
-
     /// <summary>
     /// Воркфлоу
     /// </summary>
     /// <remarks>
     /// Бизнес-процесс, описывающий жизненный цикл объекта через состояния, условия и переходы
     /// </remarks>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(CustomImplementation = true), BLLRemoveRole]
     //[UniqueGroup]
     public partial class Workflow : WorkflowItemBase,
@@ -100,7 +98,7 @@ namespace Framework.Workflow.Domain.Definition
         /// Конструктор создает дочерние воркфлоу с ссылкой на воркфлоу
         /// </summary>
         /// <param name="owner">Воркфлоу</param>
-        public Workflow([NotNull] Workflow owner)
+        public Workflow(Workflow owner)
         {
             if (owner == null) throw new ArgumentNullException(nameof(owner));
 

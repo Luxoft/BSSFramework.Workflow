@@ -8,5 +8,7 @@ namespace WorkflowSampleSystem.CodeGenerate
             : base(environment)
         {
         }
+
+        public override bool GenerateAuthServices { get; } = false;
     }
 }

@@ -5,7 +5,7 @@ using Framework.Core;
 using Framework.Workflow.Domain.Definition;
 using Framework.Workflow.Domain.Runtime;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.BLL
 {
@@ -17,19 +17,19 @@ namespace Framework.Workflow.BLL
         }
 
 
-        WorkflowProcessResult ProcessTransition([NotNull]Transition transition, WorkflowProcessSettings processSettings);
+        WorkflowProcessResult ProcessTransition(Transition transition, WorkflowProcessSettings processSettings);
 
         WorkflowProcessResult ProcessCurrentState(WorkflowProcessSettings processSettings);
 
         WorkflowProcessResult ProcessCurrentStateEvent(WorkflowProcessSettings processSettings);
 
-        WorkflowProcessResult ProcessEvent([NotNull]Event @event, WorkflowProcessSettings processSettings);
+        WorkflowProcessResult ProcessEvent(Event @event, WorkflowProcessSettings processSettings);
 
 
         WorkflowProcessResult TryFinishParallel();
 
 
-        StateInstance SwitchState([NotNull] StateBase newState);
+        StateInstance SwitchState(StateBase newState);
 
         Event GetCurrentStateEvent();
 
@@ -40,35 +40,35 @@ namespace Framework.Workflow.BLL
 
 
 
-        void ExecuteCommandAction([NotNull]ExecutedCommand executedCommand);
+        void ExecuteCommandAction(ExecutedCommand executedCommand);
 
 
 
 
-        bool GetConditionResult([NotNull]ConditionState conditionState);
+        bool GetConditionResult(ConditionState conditionState);
 
-        bool GetParallelStateFinalEventResult([NotNull]ParallelStateFinalEvent parallelStateFinalEvent);
-
-
-        bool IsTimeout([NotNull]StateTimeoutEvent stateTimeoutEvent, DateTime checkDate);
-
-        bool IsEvaluated([NotNull]StateDomainObjectEvent stateDomainObjectEvent);
+        bool GetParallelStateFinalEventResult(ParallelStateFinalEvent parallelStateFinalEvent);
 
 
+        bool IsTimeout(StateTimeoutEvent stateTimeoutEvent, DateTime checkDate);
 
-        bool HasAccess([NotNull]Task task);
-
-        bool HasAccess([NotNull]Command command);
+        bool IsEvaluated(StateDomainObjectEvent stateDomainObjectEvent);
 
 
-        UnboundedList<string> GetAccessors([NotNull]Task task);
 
-        UnboundedList<string> GetAccessors([NotNull]Command command);
+        bool HasAccess(Task task);
+
+        bool HasAccess(Command command);
+
+
+        UnboundedList<string> GetAccessors(Task task);
+
+        UnboundedList<string> GetAccessors(Command command);
 
 
         bool TryChangeActive();
 
 
-        IEnumerable<string> GetReversePath([NotNull] WorkflowSource workflowSource);
+        IEnumerable<string> GetReversePath(WorkflowSource workflowSource);
     }
 }

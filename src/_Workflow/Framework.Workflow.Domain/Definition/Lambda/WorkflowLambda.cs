@@ -9,8 +9,6 @@ namespace Framework.Workflow.Domain.Definition
     /// <summary>
     /// Лямбда-выражение воркфлоу
     /// </summary>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [BLLViewRole, BLLSaveRole(AllowCreate = false), BLLRemoveRole]
     public class WorkflowLambda : WorkflowItemBase, IDetail<Workflow>, IWorkflowElement, ILambdaObject
     {

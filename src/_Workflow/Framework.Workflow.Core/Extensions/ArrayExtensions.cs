@@ -13,7 +13,7 @@ public static class ArrayExtensions
         return array.GetType().GetElementType();
     }
 
-    public static MemoryStream ToMemoryStream([NotNull] this byte[] source)
+    public static MemoryStream ToMemoryStream(this byte[] source)
     {
         if (source == null) throw new ArgumentNullException(nameof(source));
 

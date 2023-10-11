@@ -3,7 +3,7 @@
 using Framework.DomainDriven;
 using Framework.Workflow.BLL;
 
-using JetBrains.Annotations;
+
 
 namespace Framework.Workflow.Environment
 {
@@ -12,7 +12,7 @@ namespace Framework.Workflow.Environment
         private readonly ITargetSystemService targetSystemService;
 
 
-        public WorkflowDALListener([NotNull] ITargetSystemService targetSystemService)
+        public WorkflowDALListener(ITargetSystemService targetSystemService)
         {
             this.targetSystemService = targetSystemService ?? throw new ArgumentNullException(nameof(targetSystemService));
         }

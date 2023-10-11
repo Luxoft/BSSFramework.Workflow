@@ -10,8 +10,6 @@ namespace Framework.Workflow.Domain.Definition
     /// <summary>
     /// Целевая сиcтема
     /// </summary>
-    [WorkflowViewDomainObject]
-    [WorkflowEditDomainObject]
     [UniqueGroup]
     [BLLViewRole]
     public class TargetSystem : WorkflowItemBase, IMaster<DomainType>
