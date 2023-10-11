@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using Framework.Authorization.BLL;
+using Framework.Authorization.Notification;
 using Framework.Cap;
 using Framework.DependencyInjection;
 
@@ -23,6 +24,8 @@ public static class WorkflowSampleSystemApplicationExtensions
 
     private static IServiceCollection RegisterApplicationServices(this IServiceCollection services)
     {
+        services.AddScoped<INotificationPrincipalExtractor, LegacyNotificationPrincipalExtractor>();
+
         services.AddScopedFromLazyInterfaceImplement<IWorkflowSampleSystemAuthorizationBLLContext, WorkflowSampleSystemAuthorizationBLLContext>();
 
         services.ReplaceScopedFrom<IAuthorizationBLLContext, IWorkflowSampleSystemAuthorizationBLLContext>();

@@ -2,10 +2,10 @@
 
 using Framework.Authorization.BLL;
 using Framework.Authorization.Domain;
+using Framework.Authorization.Environment;
 using Framework.Authorization.Notification;
 using Framework.Authorization.SecuritySystem;
 using Framework.Authorization.SecuritySystem.ExternalSource;
-using Framework.Core.Services;
 using Framework.DomainDriven;
 using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.BLL.Configuration;
@@ -14,9 +14,6 @@ using Framework.DomainDriven.Tracking;
 using Framework.HierarchicalExpand;
 using Framework.QueryLanguage;
 using Framework.SecuritySystem;
-using Framework.SecuritySystem.Rules.Builders;
-
-
 
 namespace WorkflowSampleSystem.BLL;
 
@@ -69,6 +66,11 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
                    actualPrincipalSource)
     {
         this.WorkflowApproveProcessor = workflowApproveProcessor;
+    }
+
+    public ISecurityProvider<Operation> GetOperationSecurityProvider()
+    {
+        return new OperationSecurityProvider(this.AvailablePermissionSource);
     }
 
     public IWorkflowApproveProcessor WorkflowApproveProcessor

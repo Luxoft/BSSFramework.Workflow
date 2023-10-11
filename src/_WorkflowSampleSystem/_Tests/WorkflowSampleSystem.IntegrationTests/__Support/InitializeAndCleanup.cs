@@ -52,8 +52,7 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support
                    .RegisterControllers(new[] { typeof(EmployeeController).Assembly })
 
                    .AddSingleton<DataHelper>()
-                   .AddSingleton<AuthHelper>()
-                   .ValidateDuplicateDeclaration();
+                   .AddSingleton<AuthHelper>();
         }
     }
 }
