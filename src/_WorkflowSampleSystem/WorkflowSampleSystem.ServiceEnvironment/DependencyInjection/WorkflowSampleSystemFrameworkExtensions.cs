@@ -110,7 +110,6 @@ public static class WorkflowSampleSystemFrameworkExtensions
 
     private static IServiceCollection RegisterContextEvaluator(this IServiceCollection services)
     {
-        services.AddSingleton<IContextEvaluator<IWorkflowSampleSystemBLLContext>, ContextEvaluator<IWorkflowSampleSystemBLLContext>>();
         services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IWorkflowSampleSystemBLLContext, IWorkflowSampleSystemDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IWorkflowSampleSystemBLLContext, IWorkflowSampleSystemDTOMappingService>>>();
 
         return services;

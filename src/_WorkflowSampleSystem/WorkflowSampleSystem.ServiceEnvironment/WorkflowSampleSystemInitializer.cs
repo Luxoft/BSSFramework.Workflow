@@ -15,11 +15,11 @@ namespace WorkflowSampleSystem.ServiceEnvironment;
 
 public class WorkflowSampleSystemInitializer
 {
-    private readonly IContextEvaluator<IWorkflowSampleSystemBLLContext> contextEvaluator;
+    private readonly IServiceEvaluator<IWorkflowSampleSystemBLLContext> contextEvaluator;
 
     private readonly IInitializeManager initializeManager;
 
-    public WorkflowSampleSystemInitializer(IContextEvaluator<IWorkflowSampleSystemBLLContext> contextEvaluator, IInitializeManager initializeManager)
+    public WorkflowSampleSystemInitializer(IServiceEvaluator<IWorkflowSampleSystemBLLContext> contextEvaluator, IInitializeManager initializeManager)
     {
         this.contextEvaluator = contextEvaluator;
         this.initializeManager = initializeManager;

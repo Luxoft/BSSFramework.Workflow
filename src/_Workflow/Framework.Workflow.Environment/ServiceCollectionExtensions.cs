@@ -90,7 +90,6 @@ namespace Framework.Workflow.ServiceEnvironment
 
         private static IServiceCollection RegisterWorkflowContextEvaluator(this IServiceCollection services)
         {
-            services.AddSingleton<IContextEvaluator<IWorkflowBLLContext>, ContextEvaluator<IWorkflowBLLContext>>();
             services.AddScoped<IApiControllerBaseEvaluator<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>, ApiControllerBaseSingleCallEvaluator<EvaluatedData<IWorkflowBLLContext, IWorkflowDTOMappingService>>>();
 
             return services;
