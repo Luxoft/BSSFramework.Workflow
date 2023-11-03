@@ -8,15 +8,14 @@ namespace Framework.Workflow.BLL
 {
     public class WorkflowWorkflowInstanceSecurityService : ContextDomainSecurityService<WorkflowInstance, Guid>
     {
-
         public WorkflowWorkflowInstanceSecurityService(
-                IDisabledSecurityProviderSource disabledSecurityProviderSource,
+                ISecurityProvider<WorkflowInstance> disabledSecurityProvider,
                 ISecurityOperationResolver securityOperationResolver,
                 ISecurityExpressionBuilderFactory securityExpressionBuilderFactory,
                 SecurityPath<WorkflowInstance> securityPath,
                 IWorkflowBLLContext context)
                 : base(
-                       disabledSecurityProviderSource,
+                       disabledSecurityProvider,
                        securityOperationResolver,
                        securityExpressionBuilderFactory,
                        securityPath)

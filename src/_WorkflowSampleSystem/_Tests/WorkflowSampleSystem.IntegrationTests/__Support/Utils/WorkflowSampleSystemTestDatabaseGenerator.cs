@@ -14,7 +14,7 @@ namespace WorkflowSampleSystem.IntegrationTests.Support.Utils
 {
     public class WorkflowSampleSystemTestDatabaseGenerator : TestDatabaseGenerator
     {
-        protected override IEnumerable<string> TestServers => new List<string> { "." };
+        public override IEnumerable<string> TestServers => new List<string> { "." };
 
         private readonly IServiceProvider ServiceProvider;
 

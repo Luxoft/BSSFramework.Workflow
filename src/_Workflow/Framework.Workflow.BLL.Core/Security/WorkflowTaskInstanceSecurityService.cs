@@ -9,13 +9,13 @@ namespace Framework.Workflow.BLL
     public class WorkflowTaskInstanceSecurityService : ContextDomainSecurityService<TaskInstance, Guid>
     {
         public WorkflowTaskInstanceSecurityService(
-                IDisabledSecurityProviderSource disabledSecurityProviderSource,
+                ISecurityProvider<TaskInstance> disabledSecurityProvider,
                 ISecurityOperationResolver securityOperationResolver,
                 ISecurityExpressionBuilderFactory securityExpressionBuilderFactory,
                 SecurityPath<TaskInstance> securityPath,
                 IWorkflowBLLContext context)
                 : base(
-                       disabledSecurityProviderSource,
+                       disabledSecurityProvider,
                        securityOperationResolver,
                        securityExpressionBuilderFactory,
                        securityPath)
