@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WorkflowSampleSystem.CodeGenerate
+﻿namespace WorkflowSampleSystem.CodeGenerate
 {
     public class BLLGeneratorConfiguration : Framework.DomainDriven.BLLGenerator.GeneratorConfigurationBase<
             ServerGenerationEnvironment>

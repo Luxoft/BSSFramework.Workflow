@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 
-using Framework.DomainDriven;
 using Framework.DomainDriven.Serialization;
 using Framework.Persistent;
-
-using Framework.Projection;
 using Framework.Projection.Contract;
 
 using Framework.Workflow.Domain.Definition;

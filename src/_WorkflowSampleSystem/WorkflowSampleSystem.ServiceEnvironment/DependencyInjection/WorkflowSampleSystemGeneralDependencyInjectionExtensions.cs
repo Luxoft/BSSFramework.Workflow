@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using WorkflowSampleSystem.Security;
+
 namespace WorkflowSampleSystem.ServiceEnvironment;
 
 public static class WorkflowSampleSystemGeneralDependencyInjectionExtensions
@@ -11,6 +13,6 @@ public static class WorkflowSampleSystemGeneralDependencyInjectionExtensions
                .RegisterGeneralBssFramework()
                .RegisterGeneralDatabaseSettings(configuration)
                .RegisterGeneralApplicationServices(configuration)
-               .RegisterDomainSecurityServices();
+               .RegisterGeneralSecurityServices();
     }
 }

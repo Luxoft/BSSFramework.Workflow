@@ -38,7 +38,7 @@ public class WorkflowSampleSystemAuthorizationBLLContext : AuthorizationBLLConte
             IAuthorizationSystem<Guid> authorizationSystem,
             IRunAsManager runAsManager,
             IAvailablePermissionSource availablePermissionSource,
-            ISecurityOperationParser securityOperationParser,
+            ISecurityOperationParser<Guid> securityOperationParser,
             IAvailableSecurityOperationSource availableSecurityOperationSource,
             IActualPrincipalSource actualPrincipalSource,
             IWorkflowApproveProcessor workflowApproveProcessor)

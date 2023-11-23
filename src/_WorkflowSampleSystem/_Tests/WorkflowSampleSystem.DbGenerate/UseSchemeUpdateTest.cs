@@ -6,7 +6,6 @@ using Framework.Cap.Abstractions;
 using Framework.Core;
 using Framework.Core.Services;
 using Framework.DomainDriven;
-using Framework.DomainDriven.BLL;
 using Framework.DomainDriven.NHibernate;
 using Framework.DomainDriven.NHibernate.Audit;
 
@@ -17,7 +16,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NHibernate.Tool.hbm2ddl;
 
 using WorkflowSampleSystem.ServiceEnvironment;
-using WorkflowSampleSystem.WebApiCore;
 
 namespace WorkflowSampleSystem.DbGenerate
 {

@@ -1,6 +1,4 @@
-﻿using Framework.DomainDriven.DTOGenerator.Audit;
-
-namespace WorkflowSampleSystem.CodeGenerate
+﻿namespace WorkflowSampleSystem.CodeGenerate
 {
     public partial class ServerGenerationEnvironment : GenerationEnvironmentBase
     {

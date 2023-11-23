@@ -1,6 +1,4 @@
-﻿using System;
-
-using Framework.Workflow.Domain.Definition;
+﻿using Framework.Workflow.Domain.Definition;
 
 namespace Framework.Workflow.Domain
 {

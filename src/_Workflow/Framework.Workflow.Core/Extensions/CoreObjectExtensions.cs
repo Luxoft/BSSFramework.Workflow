@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Framework.Core;
-
 namespace Framework.Workflow.Core.Extensions;
 
 public static class CoreObjectExtensions

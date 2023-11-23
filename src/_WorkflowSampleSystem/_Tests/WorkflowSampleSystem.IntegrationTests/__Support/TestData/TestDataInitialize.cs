@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WorkflowSampleSystem.BLL;
 using WorkflowSampleSystem.Domain.Inline;
 using WorkflowSampleSystem.IntegrationTests.__Support.TestData.Helpers;
+using WorkflowSampleSystem.Security;
 using WorkflowSampleSystem.ServiceEnvironment;
 
 namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
@@ -26,8 +27,8 @@ namespace WorkflowSampleSystem.IntegrationTests.__Support.TestData
 
             this.AuthHelper.AddCurrentUserToAdmin();
 
-            this.AuthHelper.SetUserRole(DefaultConstants.NOTIFICATION_ADMIN, TestBusinessRole.SystemIntegration);
-            this.AuthHelper.SetUserRole(DefaultConstants.INTEGRATION_USER, TestBusinessRole.SystemIntegration);
+            this.AuthHelper.SetUserRole(DefaultConstants.NOTIFICATION_ADMIN, WorkflowSampleSystemSecurityRole.SystemIntegration);
+            this.AuthHelper.SetUserRole(DefaultConstants.INTEGRATION_USER, WorkflowSampleSystemSecurityRole.SystemIntegration);
 
             this.DataHelper.SaveLocation(id: DefaultConstants.LOCATION_PARENT_ID, name: DefaultConstants.LOCATION_PARENT_NAME);
 

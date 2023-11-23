@@ -1,5 +1,4 @@
-﻿using System;
-using Framework.Workflow.TestGenerate;
+﻿using Framework.Workflow.TestGenerate;
 
 namespace Framework.Workflow.WebApiGenerate
 {

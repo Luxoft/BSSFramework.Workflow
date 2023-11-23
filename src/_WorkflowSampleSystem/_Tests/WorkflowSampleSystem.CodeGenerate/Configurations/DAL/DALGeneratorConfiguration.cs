@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WorkflowSampleSystem.CodeGenerate
+﻿namespace WorkflowSampleSystem.CodeGenerate
 {
     public class DALGeneratorConfiguration : Framework.DomainDriven.NHibernate.DALGenerator.GeneratorConfigurationBase<ServerGenerationEnvironment>
     {

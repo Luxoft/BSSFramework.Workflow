@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Framework.Workflow.TestGenerate
+﻿namespace Framework.Workflow.TestGenerate
 {
     public partial class ServerGenerationEnvironment :
 
