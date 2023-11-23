@@ -1,9 +1,4 @@
-﻿using System;
-
-using Framework.Core;
-using Framework.Workflow.Domain.Definition;
-
-namespace Framework.Workflow.BLL
+﻿namespace Framework.Workflow.BLL
 {
     public partial class TaskBLL
     {

@@ -59,7 +59,7 @@ namespace WorkflowSampleSystem.WebApiCore
 
             if (this.HostingEnvironment.IsProduction())
             {
-                services.AddMetrics();
+                AppMetricsServiceCollectionExtensions.AddMetrics(services);
             }
 
             services.ValidateDuplicateDeclaration(typeof(ILoggerFactory));

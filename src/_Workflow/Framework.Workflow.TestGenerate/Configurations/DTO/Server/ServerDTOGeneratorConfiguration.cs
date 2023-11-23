@@ -1,6 +1,5 @@
 ﻿using System;
 
-using Framework.Core;
 using Framework.DomainDriven.DTOGenerator;
 using Framework.DomainDriven.DTOGenerator.Server;
 using Framework.DomainDriven.Generation.Domain;

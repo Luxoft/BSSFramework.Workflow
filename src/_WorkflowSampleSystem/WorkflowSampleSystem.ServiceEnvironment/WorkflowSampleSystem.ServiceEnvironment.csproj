@@ -16,6 +16,8 @@
     <ProjectReference Include="..\WorkflowSampleSystem.Generated.DAL.NHibernate\WorkflowSampleSystem.Generated.DAL.NHibernate.csproj" />
 
     <ProjectReference Include="..\WorkflowSampleSystem.Generated.DTO\WorkflowSampleSystem.Generated.DTO.csproj" />
+
+    <ProjectReference Include="..\WorkflowSampleSystem.Security\WorkflowSampleSystem.Security.csproj" />
   </ItemGroup>
 
   <ItemGroup>

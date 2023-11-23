@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Framework.Authorization.SecuritySystem.OperationInitializer;
 using Framework.DomainDriven;
 using Framework.DomainDriven.ServiceModel.IAD;
 
@@ -10,6 +9,7 @@ using WorkflowSampleSystem.BLL;
 using Framework.Workflow.BLL;
 
 using Microsoft.Extensions.DependencyInjection;
+using Framework.Authorization.SecuritySystem.Initialize;
 
 namespace WorkflowSampleSystem.ServiceEnvironment;
 
@@ -32,37 +32,18 @@ public class WorkflowSampleSystemInitializer
 
     private void InternalInitialize()
     {
-        this.contextEvaluator.Evaluate(
-                DBSessionMode.Write,
-                context =>
-                {
-                    context.Configuration.Logics.NamedLock.CheckInit();
-                });
+        this.contextEvaluator.Evaluate(DBSessionMode.Write, context => context.Configuration.Logics.NamedLock.CheckInit());
+        this.contextEvaluator.Evaluate(DBSessionMode.Write, context => context.Logics.NamedLock.CheckInit());
+        this.contextEvaluator.Evaluate(DBSessionMode.Write, context => context.Workflow.Logics.NamedLock.CheckInit());
+
+        this.InitSecurity<IAuthorizationEntityTypeInitializer>();
+        this.InitSecurity<IAuthorizationOperationInitializer>();
+        this.InitSecurity<IAuthorizationBusinessRoleInitializer>();
 
         this.contextEvaluator.Evaluate(
             DBSessionMode.Write,
             context =>
             {
-                context.Logics.NamedLock.CheckInit();
-            });
-
-        this.contextEvaluator.Evaluate(
-                                  DBSessionMode.Write,
-                                  context =>
-                                  {
-                                      context.Workflow.Logics.NamedLock.CheckInit();
-                                  });
-
-        this.contextEvaluator.Evaluate(
-            DBSessionMode.Write,
-            context =>
-            {
-                context.ServiceProvider
-                       .GetRequiredService<IAuthorizationOperationInitializer>()
-                       .InitSecurityOperations(UnexpectedAuthOperationMode.Remove)
-                       .GetAwaiter()
-                       .GetResult();
-
                 context.Configuration.Logics.TargetSystem.RegisterBase();
                 context.Configuration.Logics.TargetSystem.Register<WorkflowSampleSystem.Domain.PersistentDomainObjectBase>(true, true);
 
@@ -85,5 +66,20 @@ public class WorkflowSampleSystemInitializer
             {
                 context.Configuration.Logics.SystemConstant.Initialize(typeof(WorkflowSampleSystemSystemConstant));
             });
+    }
+
+    private void InitSecurity<TSecurityInitializer>()
+            where TSecurityInitializer : ISecurityInitializer
+    {
+        this.contextEvaluator.Evaluate(
+                                       DBSessionMode.Write,
+                                       context =>
+                                       {
+                                           context.ServiceProvider
+                                                  .GetRequiredService<TSecurityInitializer>()
+                                                  .Init()
+                                                  .GetAwaiter()
+                                                  .GetResult();
+                                       });
     }
 }

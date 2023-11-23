@@ -21,6 +21,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="__Support\Scripts\WorkflowSampleSystem\**" />
+    <Content Remove="__Support\Scripts\WorkflowSampleSystem\**" />
+    <EmbeddedResource Remove="__Support\Scripts\WorkflowSampleSystem\**" />
+    <None Remove="__Support\Scripts\WorkflowSampleSystem\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\WorkflowSampleSystem.WebApiCore\WorkflowSampleSystem.WebApiCore.csproj" />
@@ -35,8 +41,5 @@
     <None Update="NewApprovePermission.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="__Support\Scripts\WorkflowSampleSystem\" />
   </ItemGroup>
 </Project>

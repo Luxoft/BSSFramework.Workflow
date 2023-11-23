@@ -124,8 +124,8 @@ public static class WorkflowSampleSystemFrameworkExtensions
         // For expand tree
         services.RegisterHierarchicalObjectExpander<PersistentDomainObjectBase>();
 
-        // For repository
-        services.AddSingleton(new SecurityOperationTypeInfo(typeof(WorkflowSampleSystemSecurityOperation)));
+        // Serilog
+        services.AddSingleton(Serilog.Log.Logger);
 
         return services;
     }
