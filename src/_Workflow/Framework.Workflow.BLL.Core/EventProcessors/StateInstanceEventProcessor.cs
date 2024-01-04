@@ -31,7 +31,7 @@ namespace Framework.Workflow.BLL
 
             if (state is State)
             {
-                var dateTime = this.Context.DateTimeService.Now;
+                var dateTime = this.Context.TimeProvider.GetLocalNow().DateTime;
 
                 var timeoutEvents = from timeoutEvent in ((State)state).TimeoutEvents
 

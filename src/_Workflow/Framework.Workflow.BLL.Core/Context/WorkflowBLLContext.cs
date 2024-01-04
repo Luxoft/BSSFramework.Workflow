@@ -47,7 +47,7 @@ namespace Framework.Workflow.BLL
             IExpressionParserFactory expressionParsers,
             IAnonymousTypeBuilder<TypeMap<ParameterizedTypeMapMember>> anonymousTypeBuilder,
             IEnumerable<ITargetSystemService> targetSystemServices,
-            IDateTimeService dateTimeService,
+            TimeProvider timeProvider,
             IWorkflowBLLContextSettings settings)
 
             : base(serviceProvider, operationSenders, trackingServices, accessDeniedExceptionService, standartExpressionBuilder, validator, hierarchicalObjectExpanderFactory, fetchService)
@@ -61,7 +61,7 @@ namespace Framework.Workflow.BLL
             this.ExpressionParsers = expressionParsers ?? throw new ArgumentNullException(nameof(expressionParsers));
 
             this.AnonymousTypeBuilder = anonymousTypeBuilder ?? throw new ArgumentNullException(nameof(anonymousTypeBuilder));
-            this.DateTimeService = dateTimeService ?? throw new ArgumentNullException(nameof(dateTimeService));
+            this.TimeProvider = timeProvider ?? throw new ArgumentNullException(nameof(timeProvider));
             this.lazyTargetSystemServiceCache = LazyHelper.Create(() => targetSystemServices.ToDictionary(s => s.TargetSystem, s => s));
 
             this.stateBaseCache = new WorkflowNestedCache<StateBase>(this).WithLock();
@@ -77,7 +77,7 @@ namespace Framework.Workflow.BLL
 
         public IAnonymousTypeBuilder<TypeMap<ParameterizedTypeMapMember>> AnonymousTypeBuilder { get; }
 
-        public IDateTimeService DateTimeService { get; }
+        public TimeProvider TimeProvider { get; }
 
         public IRootSecurityService<PersistentDomainObjectBase> SecurityService { get; }
 

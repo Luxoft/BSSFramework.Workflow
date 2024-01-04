@@ -75,7 +75,7 @@ namespace Framework.Authorization.BLL
                                    ? this.Context.CurrentPrincipal
                                    : this.Context.Logics.Principal.GetByName(permission.CreatedBy);
 
-            var autoApprove = permission.DelegatedFrom != null && createdByPrincipal.GetOperations(this.Context.DateTimeService.Now).Contains(approveOperation);
+            var autoApprove = permission.DelegatedFrom != null && createdByPrincipal.GetOperations(this.Context.TimeProvider.GetLocalNow().DateTime).Contains(approveOperation);
 
             return autoApprove;
         }
