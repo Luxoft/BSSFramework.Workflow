@@ -14,12 +14,9 @@ namespace Framework.Workflow.BLL
     public partial class CommandBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.Command, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ICommandBLL
     {
         
-		partial void Initialize();
-        
         public CommandBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Command> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -35,12 +32,9 @@ namespace Framework.Workflow.BLL
     public partial class CommandEventBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.CommandEvent, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ICommandEventBLL
     {
         
-		partial void Initialize();
-        
         public CommandEventBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.CommandEvent> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -56,12 +50,9 @@ namespace Framework.Workflow.BLL
     public partial class ConditionStateBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.ConditionState, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IConditionStateBLL
     {
         
-		partial void Initialize();
-        
         public ConditionStateBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ConditionState> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -77,12 +68,9 @@ namespace Framework.Workflow.BLL
     public partial class ConditionStateEventBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.ConditionStateEvent, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IConditionStateEventBLL
     {
         
-		partial void Initialize();
-        
         public ConditionStateEventBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ConditionStateEvent> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -98,12 +86,9 @@ namespace Framework.Workflow.BLL
     public partial class DomainTypeBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.DomainType, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IDomainTypeBLL
     {
         
-		partial void Initialize();
-        
         public DomainTypeBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.DomainType> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -119,12 +104,9 @@ namespace Framework.Workflow.BLL
     public partial class EventBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.Event, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IEventBLL
     {
         
-		partial void Initialize();
-        
         public EventBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Event> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -140,12 +122,9 @@ namespace Framework.Workflow.BLL
     public partial class ParallelStateBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.ParallelState, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IParallelStateBLL
     {
         
-		partial void Initialize();
-        
         public ParallelStateBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ParallelState> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -161,12 +140,9 @@ namespace Framework.Workflow.BLL
     public partial class ParallelStateFinalEventBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IParallelStateFinalEventBLL
     {
         
-		partial void Initialize();
-        
         public ParallelStateFinalEventBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.ParallelStateFinalEvent> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -182,12 +158,9 @@ namespace Framework.Workflow.BLL
     public partial class RoleBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.Role, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IRoleBLL
     {
         
-		partial void Initialize();
-        
         public RoleBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Role> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -203,12 +176,9 @@ namespace Framework.Workflow.BLL
     public partial class StartWorkflowDomainObjectConditionBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IStartWorkflowDomainObjectConditionBLL
     {
         
-		partial void Initialize();
-        
         public StartWorkflowDomainObjectConditionBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StartWorkflowDomainObjectCondition> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -224,12 +194,9 @@ namespace Framework.Workflow.BLL
     public partial class StateBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.State, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IStateBLL
     {
         
-		partial void Initialize();
-        
         public StateBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.State> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -245,12 +212,9 @@ namespace Framework.Workflow.BLL
     public partial class StateBaseBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.StateBase, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IStateBaseBLL
     {
         
-		partial void Initialize();
-        
         public StateBaseBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateBase> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -266,12 +230,9 @@ namespace Framework.Workflow.BLL
     public partial class StateDomainObjectEventBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.StateDomainObjectEvent, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IStateDomainObjectEventBLL
     {
         
-		partial void Initialize();
-        
         public StateDomainObjectEventBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateDomainObjectEvent> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -287,12 +248,9 @@ namespace Framework.Workflow.BLL
     public partial class StateTimeoutEventBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.StateTimeoutEvent, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IStateTimeoutEventBLL
     {
         
-		partial void Initialize();
-        
         public StateTimeoutEventBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.StateTimeoutEvent> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -308,12 +266,9 @@ namespace Framework.Workflow.BLL
     public partial class TargetSystemBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.TargetSystem, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ITargetSystemBLL
     {
         
-		partial void Initialize();
-        
         public TargetSystemBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.TargetSystem> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -329,12 +284,9 @@ namespace Framework.Workflow.BLL
     public partial class TaskBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.Task, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ITaskBLL
     {
         
-		partial void Initialize();
-        
         public TaskBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Task> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -350,12 +302,9 @@ namespace Framework.Workflow.BLL
     public partial class TransitionBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.Transition, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ITransitionBLL
     {
         
-		partial void Initialize();
-        
         public TransitionBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Transition> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -371,12 +320,9 @@ namespace Framework.Workflow.BLL
     public partial class WorkflowBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.Workflow, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IWorkflowBLL
     {
         
-		partial void Initialize();
-        
         public WorkflowBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.Workflow> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -392,12 +338,9 @@ namespace Framework.Workflow.BLL
     public partial class WorkflowLambdaBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.WorkflowLambda, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IWorkflowLambdaBLL
     {
         
-		partial void Initialize();
-        
         public WorkflowLambdaBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.WorkflowLambda> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -413,12 +356,9 @@ namespace Framework.Workflow.BLL
     public partial class WorkflowSourceBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Definition.WorkflowSource, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IWorkflowSourceBLL
     {
         
-		partial void Initialize();
-        
         public WorkflowSourceBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Definition.WorkflowSource> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -434,12 +374,9 @@ namespace Framework.Workflow.BLL
     public partial class NamedLockBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.NamedLock, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.INamedLockBLL
     {
         
-		partial void Initialize();
-        
         public NamedLockBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.NamedLock> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -455,12 +392,9 @@ namespace Framework.Workflow.BLL
     public partial class ExecutedCommandBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Runtime.ExecutedCommand, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IExecutedCommandBLL
     {
         
-		partial void Initialize();
-        
         public ExecutedCommandBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.ExecutedCommand> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -476,12 +410,9 @@ namespace Framework.Workflow.BLL
     public partial class StateInstanceBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Runtime.StateInstance, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IStateInstanceBLL
     {
         
-		partial void Initialize();
-        
         public StateInstanceBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.StateInstance> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -497,12 +428,9 @@ namespace Framework.Workflow.BLL
     public partial class TaskInstanceBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Runtime.TaskInstance, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ITaskInstanceBLL
     {
         
-		partial void Initialize();
-        
         public TaskInstanceBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.TaskInstance> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -518,12 +446,9 @@ namespace Framework.Workflow.BLL
     public partial class TransitionInstanceBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Runtime.TransitionInstance, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.ITransitionInstanceBLL
     {
         
-		partial void Initialize();
-        
         public TransitionInstanceBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.TransitionInstance> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -539,12 +464,9 @@ namespace Framework.Workflow.BLL
     public partial class WorkflowInstanceBLL : Framework.Workflow.BLL.SecurityDomainBLLBase<Framework.Workflow.Domain.Runtime.WorkflowInstance, Framework.DomainDriven.BLL.BLLBaseOperation>, Framework.Workflow.BLL.IWorkflowInstanceBLL
     {
         
-		partial void Initialize();
-        
         public WorkflowInstanceBLL(Framework.Workflow.BLL.IWorkflowBLLContext context, Framework.SecuritySystem.ISecurityProvider<Framework.Workflow.Domain.Runtime.WorkflowInstance> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     

@@ -40,10 +40,9 @@ namespace WorkflowSampleSystem.DbGenerate
             CheckDataBaseAndSchemeExists(connectionString);
 
             var services = new ServiceCollection();
-            
+
             services.AddDatabaseSettings(connectionString);
 
-            services.AddSingleton<IDateTimeService>(DateTimeService.Default);
             services.AddSingleton(UserAuthenticationService.CreateFor("neg"));
             services.AddSingleton<ICapTransactionManager, FakeCapTransactionManager>();
             services.AddSingleton(_ => LazyInterfaceImplementHelper.CreateNotImplemented<IAuditRevisionUserAuthenticationService>());

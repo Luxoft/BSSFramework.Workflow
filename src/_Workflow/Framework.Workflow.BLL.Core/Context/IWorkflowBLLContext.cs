@@ -33,7 +33,7 @@ namespace Framework.Workflow.BLL
 
         IValidator AnonymousObjectValidator { get; }
 
-        IDateTimeService DateTimeService { get; }
+        TimeProvider TimeProvider { get; }
 
 
         ITargetSystemService GetTargetSystemService(Type domainType, bool throwOnNotFound);
