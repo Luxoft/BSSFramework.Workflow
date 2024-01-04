@@ -14,12 +14,9 @@ namespace WorkflowSampleSystem.BLL
     public partial class BusinessUnitBLL : WorkflowSampleSystem.BLL.SecurityDomainBLLBase<WorkflowSampleSystem.Domain.BusinessUnit, Framework.DomainDriven.BLL.BLLBaseOperation>, WorkflowSampleSystem.BLL.IBusinessUnitBLL
     {
         
-		partial void Initialize();
-        
         public BusinessUnitBLL(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context, Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.BusinessUnit> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -35,12 +32,9 @@ namespace WorkflowSampleSystem.BLL
     public partial class EmployeeBLL : WorkflowSampleSystem.BLL.SecurityDomainBLLBase<WorkflowSampleSystem.Domain.Employee, Framework.DomainDriven.BLL.BLLBaseOperation>, WorkflowSampleSystem.BLL.IEmployeeBLL
     {
         
-		partial void Initialize();
-        
         public EmployeeBLL(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context, Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.Employee> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -56,12 +50,9 @@ namespace WorkflowSampleSystem.BLL
     public partial class HRDepartmentBLL : WorkflowSampleSystem.BLL.SecurityDomainBLLBase<WorkflowSampleSystem.Domain.HRDepartment, Framework.DomainDriven.BLL.BLLBaseOperation>, WorkflowSampleSystem.BLL.IHRDepartmentBLL
     {
         
-		partial void Initialize();
-        
         public HRDepartmentBLL(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context, Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.HRDepartment> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -77,12 +68,9 @@ namespace WorkflowSampleSystem.BLL
     public partial class LocationBLL : WorkflowSampleSystem.BLL.SecurityDomainBLLBase<WorkflowSampleSystem.Domain.Location, Framework.DomainDriven.BLL.BLLBaseOperation>, WorkflowSampleSystem.BLL.ILocationBLL
     {
         
-		partial void Initialize();
-        
         public LocationBLL(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context, Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.Location> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
@@ -98,12 +86,9 @@ namespace WorkflowSampleSystem.BLL
     public partial class NamedLockBLL : WorkflowSampleSystem.BLL.SecurityDomainBLLBase<WorkflowSampleSystem.Domain.NamedLock, Framework.DomainDriven.BLL.BLLBaseOperation>, WorkflowSampleSystem.BLL.INamedLockBLL
     {
         
-		partial void Initialize();
-        
         public NamedLockBLL(WorkflowSampleSystem.BLL.IWorkflowSampleSystemBLLContext context, Framework.SecuritySystem.ISecurityProvider<WorkflowSampleSystem.Domain.NamedLock> securityProvider, nuSpec.Abstraction.ISpecificationEvaluator specificationEvaluator = null) : 
                 base(context, securityProvider, specificationEvaluator)
         {
-            this.Initialize();
         }
     }
     
